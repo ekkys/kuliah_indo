@@ -88,7 +88,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-color: rgb(243, 162, 11)">
   <div class="login-box">
     <div class="login-logo">
       <img src=""> <a href="#"><b>Kuliah</b> ID</a>
