@@ -38,7 +38,7 @@
 
           <li class="nav-header">MASTER DATA</li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{ route('topic.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                 Data Topik
