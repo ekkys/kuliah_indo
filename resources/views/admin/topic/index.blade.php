@@ -22,6 +22,7 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Deskripsi</th>
+                <th width='100'>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -30,6 +31,14 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $topic->name }}</td>
                 <td>{{ $topic->description }}</td>
+                <td>
+                    <a class="btn btn-sm" href="{{ route('topic.index') }}/{{ $topic->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
+                    <form action="{{ route('topic.index') }}/{{ $topic->id }}" method="post" class="d-inline">
+                      @method('delete')
+                      @csrf
+                      <button class="btn btn-sm" onclick="return confirm('Are you sure?') " style="background-color: rgb(252, 0, 0); color: white; display:inline;">Hapus</button>
+                   </form>
+                  </td>
               </tr>
               @endforeach
               
@@ -39,6 +48,7 @@
               <th>No</th>
               <th>Nama</th>
               <th>Deskripsi</th>
+              <th>Aksi</th>
             </tr>
             </tfoot>
           </table>

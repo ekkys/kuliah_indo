@@ -61,7 +61,9 @@ class TopicController extends Controller
      */
     public function edit(Topic $topic)
     {
-        //
+        return view('admin.topic.edit', [
+            'topic' => $topic
+        ]);
     }
 
     /**
@@ -73,7 +75,10 @@ class TopicController extends Controller
      */
     public function update(UpdateTopicRequest $request, Topic $topic)
     {
-        //
+      
+        $topic->update($request->all());
+        return redirect('topic');
+        
     }
 
     /**
@@ -84,6 +89,7 @@ class TopicController extends Controller
      */
     public function destroy(Topic $topic)
     {
-        //
+        $topic->delete();
+        return redirect('topic');
     }
 }

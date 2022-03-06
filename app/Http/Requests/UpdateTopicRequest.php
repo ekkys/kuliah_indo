@@ -13,7 +13,7 @@ class UpdateTopicRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateTopicRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|unique:topics,name',
+            'description' => 'required|string|max:150'
         ];
     }
 }
