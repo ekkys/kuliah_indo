@@ -25,7 +25,7 @@ class UpdateTopicRequest extends FormRequest
     {
         return [
             'name' => 'required|string|unique:topics,name',
-            'description' => 'required|string|max:150'
+            'description' => 'required|string|max:150|unique:topics,description'
         ];
     }
 }

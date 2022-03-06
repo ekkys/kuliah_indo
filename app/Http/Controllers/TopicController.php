@@ -76,8 +76,8 @@ class TopicController extends Controller
     public function update(UpdateTopicRequest $request, Topic $topic)
     {
       
-        $topic->update($request->all());
-        return redirect('topic');
+       $topic->update($request->all());
+       return redirect(route('topic.index'))->with('success', 'New post has been Added!');
         
     }
 
