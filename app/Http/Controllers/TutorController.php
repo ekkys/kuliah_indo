@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
 use App\Models\Tutor;
 use App\Http\Requests\StoreTutorRequest;
 use App\Http\Requests\UpdateTutorRequest;
@@ -27,7 +31,13 @@ class TutorController extends Controller
      */
     public function create()
     {
-        return view('admin.tutor.create');
+      
+        return view('admin.tutor.create', [
+            'provinces' =>  Province::all(),
+            'regencies' =>  Regency::all(),
+            'districts' =>  District::all(),
+            'villages' => Village::all(),
+        ]);
     }
 
     /**
@@ -63,9 +73,14 @@ class TutorController extends Controller
     public function edit(Tutor $tutor)
     {
         // dd($tutor);
-        return view('admin.tutor.edit', [
-            'tutor' => $tutor
-        ]);
+        return view('admin.tutor.edit', ['tutor' => $tutor],
+        [
+            'provinces' =>  Province::all(),
+            'regencies' =>  Regency::all(),
+            'districts' =>  District::all(),
+            'villages ' => Village::all(),
+        ],
+    );
     }
 
     /**
