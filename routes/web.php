@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\KaryawanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +26,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/topic', TopicController::class);
 Route::resource('/tutor', TutorController::class);
 Route::resource('/jabatan', JabatanController::class);
+Route::resource('/karyawan', KaryawanController::class);
