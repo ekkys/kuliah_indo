@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TutorController;
+use App\Http\Controllers\JabatanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/topic', TopicController::class);
 Route::resource('/tutor', TutorController::class);
+Route::resource('/jabatan', JabatanController::class);
