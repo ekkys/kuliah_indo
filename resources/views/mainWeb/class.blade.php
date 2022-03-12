@@ -33,87 +33,324 @@
             </div>
         </div>
         <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <!-- Start Single Pricing s-->
-                    <div class="single-pricing">
-                        <div class="image-cover">
-                            <span class="promo">
-                                <span class="text-promo">Sale</span>
-                            </span>
-                            <img src="{{ asset('mainWeb/images/class/class1.webp') }}" style="">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- Start Single Pricing s-->
+                <div class="single-class">
+                    <div class="image-cover">
+                        <span class="promo">
+                            <span class="text-promo">Sale</span>
+                        </span>
+                        <img src="{{ asset('mainWeb/images/class/class1.webp') }}" style="">
+                    </div>
+                    <div class="text-container">
+                        <div class="category-wrapper">
+                            <span class="category">Engineering Design</span>
                         </div>
-                        <div class="text-container">
+                        <div class="date-wrapper">
                             <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
-                            <div class="title-container">
-                                <h3 class="title">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</h3>
+                        </div>
+                        <div class="title-container">
+                            <h3 class="title">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</h3>
+                        </div>
+                        <div class="moderator-container">
+                            <div class="image-wrapper align-self-center">
+                                <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" alt="">
                             </div>
-                            <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
-                            <h3 class="des"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
-                            <div class="price-container row">
-                                <div class="col-lg-7 col-md-12">
-                                    <h4 class="price">Rp 499.000</h4>
+                            <div class="moderator-wrapper">
+                                <div class="moderator-name">
+                                    <span>Erika Safitri</span>
                                 </div>
-                                <div class="col-lg-5 col-md-12">
-                                    <h4 class="old-price">Rp 1.000.000</h4>
+                                <div class="moderator-name">
+                                    <p>CEO Kuliah Indo</p>
                                 </div>
                             </div>
-                            <div class="button">
-                                <a class="btn" href="javascript:void(0)">Bergabung</a>
+                        </div>
+                        <div class="row des-container">
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
                             </div>
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des-2"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
+                            </div>
+                        </div>
+                        <div class="price-container row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4 class="price">Rp 499.000</h4>
+                            </div>
+                            <div class="col-lg-5 col-md-12">
+                                <h4 class="old-price">Rp 1.000.000</h4>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <a class="btn" href="javascript:void(0)">Bergabung</a>
                         </div>
                     </div>
-                    <!-- End Single Pricing s-->
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <!-- Start Single Pricing s-->
-                    <div class="single-pricing">
-                        <div class="image-cover">
-                            <img src="{{ asset('mainWeb/images/class/class2.webp') }}" style="">
-                        </div>
-                        <div class="text-container">
-                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
-                            <div class="title-container">
-                                <h3 class="title">Basic Autocad For Beginners</h3>
-                            </div>
-                            <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
-                            <h3 class="des"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
-                            <span class="price-container">
-                                <h4 class="price">Rp 75.000</h4>
-                            </span>
-                            <div class="button">
-                                <a class="btn" href="javascript:void(0)">Bergabung</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Pricing s-->
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <!-- Start Single Pricing s-->
-                    <div class="single-pricing">
-                        <div class="image-cover">
-                            <span class="promo">
-                                <span class="text-promo">Free</span>
-                            </span>
-                            <img src="{{ asset('mainWeb/images/class/class3.webp') }}" style="">
-                        </div>
-                        <div class="text-container">
-                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
-                            <div class="title-container">
-                                <h3 class="title">Digital Interior Design & Styling</h3>
-                            </div>
-                            <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
-                            <h3 class="des"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
-                            <span class="price-container">
-                                <h4 class="price">FREE</h4>
-                            </span>
-                            <div class="button">
-                                <a class="btn" href="javascript:void(0)">Bergabung</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Pricing s-->
-                </div>
+                <!-- End Single Pricing s-->
             </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- Start Single Pricing s-->
+                <div class="single-class">
+                    <div class="image-cover">
+                        <img src="{{ asset('mainWeb/images/class/class2.webp') }}" style="">
+                    </div>
+                    <div class="text-container">
+                        <div class="category-wrapper">
+                            <span class="category">Engineering Design</span>
+                        </div>
+                        <div class="date-wrapper">
+                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
+                        </div>
+                        <div class="title-container">
+                            <h3 class="title">Basic Autocad For Beginners</h3>
+                            </div>
+                        <div class="moderator-container">
+                            <div class="image-wrapper align-self-center">
+                                <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" alt="">
+                            </div>
+                            <div class="moderator-wrapper">
+                                <div class="moderator-name">
+                                    <span>Erika Safitri</span>
+                                </div>
+                                <div class="moderator-name">
+                                    <p>CEO Kuliah Indo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row des-container">
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
+                            </div>
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des-2"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
+                            </div>
+                        </div>
+                        <div class="price-container row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4 class="price">Rp 499.000</h4>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <a class="btn" href="javascript:void(0)">Bergabung</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Pricing s-->
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- Start Single Pricing s-->
+                <div class="single-class">
+                    <div class="image-cover">
+                        <span class="promo">
+                            <span class="text-promo">Free</span>
+                        </span>
+                        <img src="{{ asset('mainWeb/images/class/class3.webp') }}" style="">
+                        </div>
+                    <div class="text-container">
+                        <div class="category-wrapper">
+                            <span class="category">Architectural Design</span>
+                        </div>
+                        <div class="date-wrapper">
+                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
+                        </div>
+                        <div class="title-container">
+                            <h3 class="title">Digital Interior Design & Styling</h3>
+                            </div>
+                        <div class="moderator-container">
+                            <div class="image-wrapper align-self-center">
+                                <img src="{{ asset('mainWeb/images/team/team2.jpg') }}" alt="">
+                            </div>
+                            <div class="moderator-wrapper">
+                                <div class="moderator-name">
+                                    <span>Aisyah Rahmawati Ayu</span>
+                                </div>
+                                <div class="moderator-title">
+                                    <p>Desainer Kuliah Indo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row des-container">
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
+                            </div>
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des-2"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
+                            </div>
+                        </div>
+                        <div class="price-container row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4 class="price">Free</h4>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <a class="btn" href="javascript:void(0)">Bergabung</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Pricing s-->
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- Start Single Pricing s-->
+                <div class="single-class">
+                    <div class="image-cover">
+                        <span class="promo">
+                            <span class="text-promo">Sale</span>
+                        </span>
+                        <img src="{{ asset('mainWeb/images/class/class1.webp') }}" style="">
+                    </div>
+                    <div class="text-container">
+                        <div class="category-wrapper">
+                            <span class="category">Engineering Design</span>
+                        </div>
+                        <div class="date-wrapper">
+                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
+                        </div>
+                        <div class="title-container">
+                            <h3 class="title">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</h3>
+                        </div>
+                        <div class="moderator-container">
+                            <div class="image-wrapper align-self-center">
+                                <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" alt="">
+                            </div>
+                            <div class="moderator-wrapper">
+                                <div class="moderator-name">
+                                    <span>Erika Safitri</span>
+                                </div>
+                                <div class="moderator-name">
+                                    <p>CEO Kuliah Indo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row des-container">
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
+                            </div>
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des-2"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
+                            </div>
+                        </div>
+                        <div class="price-container row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4 class="price">Rp 499.000</h4>
+                            </div>
+                            <div class="col-lg-5 col-md-12">
+                                <h4 class="old-price">Rp 1.000.000</h4>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <a class="btn" href="javascript:void(0)">Bergabung</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Pricing s-->
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- Start Single Pricing s-->
+                <div class="single-class">
+                    <div class="image-cover">
+                        <img src="{{ asset('mainWeb/images/class/class2.webp') }}" style="">
+                    </div>
+                    <div class="text-container">
+                        <div class="category-wrapper">
+                            <span class="category">Engineering Design</span>
+                        </div>
+                        <div class="date-wrapper">
+                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
+                        </div>
+                        <div class="title-container">
+                            <h3 class="title">Basic Autocad For Beginners</h3>
+                            </div>
+                        <div class="moderator-container">
+                            <div class="image-wrapper align-self-center">
+                                <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" alt="">
+                            </div>
+                            <div class="moderator-wrapper">
+                                <div class="moderator-name">
+                                    <span>Erika Safitri</span>
+                                </div>
+                                <div class="moderator-name">
+                                    <p>CEO Kuliah Indo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row des-container">
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
+                            </div>
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des-2"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
+                            </div>
+                        </div>
+                        <div class="price-container row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4 class="price">Rp 499.000</h4>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <a class="btn" href="javascript:void(0)">Bergabung</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Pricing s-->
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <!-- Start Single Pricing s-->
+                <div class="single-class">
+                    <div class="image-cover">
+                        <span class="promo">
+                            <span class="text-promo">Free</span>
+                        </span>
+                        <img src="{{ asset('mainWeb/images/class/class3.webp') }}" style="">
+                        </div>
+                    <div class="text-container">
+                        <div class="category-wrapper">
+                            <span class="category">Architectural Design</span>
+                        </div>
+                        <div class="date-wrapper">
+                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
+                        </div>
+                        <div class="title-container">
+                            <h3 class="title">Digital Interior Design & Styling</h3>
+                            </div>
+                        <div class="moderator-container">
+                            <div class="image-wrapper align-self-center">
+                                <img src="{{ asset('mainWeb/images/team/team2.jpg') }}" alt="">
+                            </div>
+                            <div class="moderator-wrapper">
+                                <div class="moderator-name">
+                                    <span>Aisyah Rahmawati Ayu</span>
+                                </div>
+                                <div class="moderator-title">
+                                    <p>Desainer Kuliah Indo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row des-container">
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
+                            </div>
+                            <div class="col-6" style="padding: 0;">
+                                <h3 class="des-2"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
+                            </div>
+                        </div>
+                        <div class="price-container row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4 class="price">Free</h4>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <a class="btn" href="javascript:void(0)">Bergabung</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Pricing s-->
+            </div>
+            <!-- Button Tampilkan Lebih Banyak -->
+            <div class="button2">
+                <a class="btn" href="javascript:void(0)">Tampilkan Lebih Banyak</a>
+            </div>
+            <!-- End Tampilkan Lebih Banyak -->
+        </div>
     </div>
 </section>
 <!-- End Classes -->
