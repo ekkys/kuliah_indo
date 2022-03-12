@@ -1,7 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\TopicController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +18,13 @@ use App\Http\Controllers\TopicController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+/* Main Web*/
+Route::get('/', [MainController::class, 'index']);
+
+Route::get('/class', [ClassController::class, 'index']);
+
+/* End Main Web */
 
 Auth::routes();
 
