@@ -1,11 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\TesterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +22,13 @@ use App\Http\Controllers\TesterController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+/* Main Web*/
+Route::get('/', [MainController::class, 'index']);
+
+Route::get('/class', [ClassController::class, 'index']);
+
+/* End Main Web */
 
 Auth::routes();
 
@@ -30,6 +39,8 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::get('tutor', [App\Http\Controllers\HomeController::class, 'tutor'])->name('tutor');
     Route::get('siswa', [App\Http\Controllers\HomeController::class, 'siswa'])->name('siswa');
 });
+
+
 
 
 
