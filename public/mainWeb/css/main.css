@@ -1801,10 +1801,7 @@ ol {
 ========================================*/
 .hero-area {
   position: relative;
-  background-color: #3d2900;
-  padding: 20px 0 20px 0;
   z-index: 0;
-  background-color: #ffae00;
   margin-top: 60px;
 }
 
@@ -1828,31 +1825,31 @@ ol {
 }
 
 .hero-area .banner-wrapper {
+  width: 100vw;
+  height: 90vh;
+  background-image: url('http://localhost:8080/kuliah_indo/public/mainWeb/images/hero/slide1.png');
   text-align: center;
-  background-color: #ffae00;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-area .banner-wrapper .container {
   padding: 1rem;
+  height: 100%;
+  display: flex;
+  align-self: center;
 }
 
 .hero-area .banner-wrapper .text-wrapper {
   margin: 1rem;
 }
 
-.hero-area .banner-wrapper .text-wrapper .title {
-  font-size: 1.5rem;
-  font-weight: 900;
-  text-align: left;
-  line-height: 3.5rem;
-  color: #fff;
-}
-
 .hero-area .banner-wrapper .text-wrapper .des {
-  color: #000;
+  color: #fff;
   font-weight: 700;
   text-align: left;
-  font-size: 36px;
+  font-size: 40px;
   line-height: 3rem;
 }
 
@@ -1863,9 +1860,9 @@ ol {
 
 .hero-area .banner-wrapper .text-wrapper .button .class {
   font-weight: 800;
-  background-color: #fff;
+  background-color: #ffae00;
   border: none;
-  color: #000;
+  color: #3d2900;
   padding: 10px 18px;
   text-decoration: none;
   display: inline;
@@ -1894,8 +1891,7 @@ ol {
 }
 
 .swiper {
-  width: 95%;
-  height: 90%;
+  width: 100%;
 }
 
 .swiper-wrapper {
@@ -1911,9 +1907,8 @@ ol {
 .img-container img {
   display: block;
   width: 100vw;
-  height: 75vh;
+  height: 90vh;
   object-fit: cover;
-  border-radius: 25px;
   align-self: center;
 }
 
@@ -1932,6 +1927,19 @@ ol {
 
   .swiper-slide {
     padding: 10px
+  }
+
+  .swiper-slide .text-wrapper {
+    position: absolute;
+    margin: 1rem;
+  }
+
+  .swiper-slide .text-wrapper .title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: left;
+    line-height: 3.5rem;
+    color: #fff;
   }
 
   .swiper-button-prev{
@@ -3016,17 +3024,87 @@ ol {
 /*======================================
 	Classes CSS
 ========================================*/
-.classes .title-container {
-  margin-bottom: 50px;
+.classes .search-wrapper {
+  width: 100%;
+  margin-bottom: 80px;
 }
 
-.classes .tilte-wrapper .title {
-  font-size: 30px;
-  margin-bottom: 20px;
-  line-height: 45px;
-  text-transform: capitalize;
+.classes .search-wrapper .title-wrapper {
+  color: #3d2900;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.classes .search-wrapper .title-wrapper .title {
+  font-size: 40px;
+}
+
+.classes .search-wrapper .search-container {
+  width: 100%;
+}
+
+.classes .search-wrapper .search-container .search-field {
+  width: 100%;
   position: relative;
-  font-weight: 700;
+}
+
+.classes .search-wrapper .search-container .search-field .search-inner {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.classes .search-wrapper .search-container .search-field .search-inner .search {
+  min-height: 70px;
+  border: none;
+  background: #fff;
+  width: 100%;
+  padding: 10px 70px 10px 30px;
+  font-size: 18px;
+  color: #666;
+  border-radius: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  vertical-align: top;
+  overflow: hidden;
+  box-shadow: -7.5px 13px 35px 0 rgb(0 0 0 / 10%);
+}
+
+.classes .search-wrapper .search-container .search-field .search-inner .search .search-item {
+  font-size: 16px;
+  color: #333;
+  background-color: transparent;
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: baseline;
+  border: 0;
+  border-radius: 0;
+  max-width: 100%;
+  padding: 4px 0 4px 2px;
+  width: 100%;
+}
+
+.classes .search-wrapper .search-container .search-field .btn-search {
+  width: 70px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.classes .title-container {
+  margin-bottom: 50px;
 }
 
 .classes .single-class {

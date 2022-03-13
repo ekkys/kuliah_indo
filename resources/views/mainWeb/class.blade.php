@@ -6,17 +6,13 @@
         <div class="banner-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-lg-6">
+                    <div class="col-md-12 col-lg-6 align-self-center">
                         <div class="text-wrapper">
-                            <div class="title">Jangan Sampai Terlewat</div>
                             <div class="des">Sekarang kamu bisa akses kapan dan dimana saja, upgrade skillmu sekarang</div>
                             <div class="button">
-                                <button class="button class">Mulai Belajar</button>
+                                <button class="button class" id="mulai">Mulai Sekarang</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6 image-wrapper">
-                        <img src="{{ asset('mainWeb/images/team/headermascot.png') }}" class="img-fluid img-class">
                     </div>
                 </div>
             </div>
@@ -26,6 +22,25 @@
 
 <!-- Classes -->
 <section class="classes section bg-gray">
+    <div class="container">
+        <div class="search-wrapper">
+            <div class="title-wrapper">
+                <h3 class="title wow fadeInUp">Mau Belajar Apa Hari ini?</h3>
+            </div>
+            <div class="search-container">
+                <div class="search-field">
+                    <div class="search-inner">
+                        <div class="search">
+                            <input type="text" class="search-item" autocomplete="off" autocapitalize="off" placeholder="Ketik untuk mencari...">
+                        </div>
+                    </div>
+                    <button class="btn-search" type="button">
+                        <i class="lni lni-search-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="title-container">
             <div class="title-wrapper">
@@ -354,4 +369,6 @@
     </div>
 </section>
 <!-- End Classes -->
+
+
 @endsection

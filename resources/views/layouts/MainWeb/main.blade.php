@@ -169,6 +169,11 @@
             },
         });
     </script>
+    <script>
+        document.getElementById("mulai").onclick = function(event) {
+            document.querySelector('.classes').scrollIntoView()
+        }
+    </script>
 </body>
 
 </html>

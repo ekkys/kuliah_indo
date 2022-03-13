@@ -3,7 +3,7 @@
 @section('container')
 
 <!-- Start Hero Area -->
-    <section class="hero-area">
+    <section class="hero-area bg-gray">
         <div class="container-fluid" style="padding: 0; margin: 0;">
             <div class="d-flex justify-content-center">
                 <!-- Caorousel -->
@@ -14,28 +14,21 @@
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide1">
-                                    <img src="{{ asset('mainWeb/images/hero/slide1.webp') }}" alt="">
+                                    <img src="{{ asset('mainWeb/images/hero/slide1.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide2">
-                                    <img src="{{ asset('mainWeb/images/hero/slide2.jpg') }}" alt="">
+                                    <img src="{{ asset('mainWeb/images/hero/slide2.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide3">
-                                    <img src="{{ asset('mainWeb/images/hero/slide3.webp') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img-container">
-                                <a href="#slide4">
-                                    <img src="{{ asset('mainWeb/images/hero/slide4.jpg') }}" alt="">
+                                    <img src="{{ asset('mainWeb/images/hero/slide3.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
