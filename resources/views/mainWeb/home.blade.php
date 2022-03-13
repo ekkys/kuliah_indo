@@ -323,7 +323,7 @@
                 </div>
                 <!-- Button Tampilkan Lebih Banyak -->
                 <div class="button2">
-                    <a class="btn" href="javascript:void(0)">Selengkapnya <i class="lni lni-arrow-right"></i></a>
+                    <a class="btn" href="{{ url('/class') }}">Selengkapnya <i class="lni lni-arrow-right"></i></a>
                 </div>
                 <!-- End Tampilkan Lebih Banyak -->
             </div>
