@@ -33,7 +33,7 @@
                                 </ul>
                             </div> <!-- navbar collapse -->
                             <div class="button">
-                                <a href="#sign-in" class="btn">Sign in / Sign up</a>
+                                <a href="{{ url('/login') }}" class="btn">Sign in / Sign up</a>
                             </div>
                         </nav>
                         <!-- End Navbar -->

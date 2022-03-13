@@ -15,11 +15,7 @@ class TopicSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('topics')->insert([
-        //     'created_at' => Carbon::now(),
-        //     'name' => 'Vue Js for Front End beginner',
-        //     'description' => 'Kelas pemrograman web dengan menggunakan javascript framework Vue JS 3  untuk pemula.',
-        // ]);
+
         
         Topic::create([
             'name' => 'Laravel Fullstack beginner',

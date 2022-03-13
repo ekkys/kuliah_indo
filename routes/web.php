@@ -6,6 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\TopicController;
+use App\Http\Controllers\TutorController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\TesterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +32,19 @@ Route::get('/class', [ClassController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('home')->name('home.')->group(function () {
+
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('karyawan', [App\Http\Controllers\HomeController::class, 'karyawan'])->name('karyawan');
+    Route::get('tutor', [App\Http\Controllers\HomeController::class, 'tutor'])->name('tutor');
+    Route::get('siswa', [App\Http\Controllers\HomeController::class, 'siswa'])->name('siswa');
+});
+
+
+
+
+
 Route::resource('/topic', TopicController::class);
+Route::resource('/tutor', TutorController::class);
+Route::resource('/jabatan', JabatanController::class);
+Route::resource('/karyawan', KaryawanController::class);

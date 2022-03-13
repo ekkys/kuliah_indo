@@ -26,4 +26,14 @@ class HomeController extends Controller
         // return view('home');
         return view('layouts.main');
     }
+
+    public function karyawan(){
+        return "Ini Dashboard Karyawan";
+    }
+    public function tutor(){
+        return "Ini Dashboard Tutor";
+    }
+    public function siswa(){
+        return "Ini Dashboard Siswa";
+    }
 }

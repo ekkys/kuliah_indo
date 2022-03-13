@@ -46,7 +46,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{ route('tutor.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                  Data Tutor
@@ -54,18 +54,18 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/kanban.html" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
+              <a href="{{ route('jabatan.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                 Data Karyawan
+                 Data Jabatan
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/kanban.html" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <a href="{{ route('karyawan.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
                 <p>
-                 Data Jabatan
+                 Data Karyawan
                 </p>
               </a>
             </li>
