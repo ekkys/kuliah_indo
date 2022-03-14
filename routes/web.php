@@ -24,7 +24,7 @@ use App\Http\Controllers\TesterController;
 
 
 /* Main Web*/
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index'])->name('dashboard');
 
 Route::get('/class', [ClassController::class, 'index']);
 
@@ -39,9 +39,6 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::get('tutor', [App\Http\Controllers\HomeController::class, 'tutor'])->name('tutor');
     Route::get('siswa', [App\Http\Controllers\HomeController::class, 'siswa'])->name('siswa');
 });
-
-
-
 
 
 Route::resource('/topic', TopicController::class);
