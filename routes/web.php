@@ -25,8 +25,8 @@ use App\Http\Controllers\TesterController;
 
 /* Main Web*/
 Route::get('/', [MainController::class, 'index']);
-
 Route::get('/class', [ClassController::class, 'index']);
+Route::get('/class/singleClass', [ClassController::class, 'singleClass']);
 
 /* End Main Web */
 

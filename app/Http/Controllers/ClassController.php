@@ -11,4 +11,10 @@ class ClassController extends Controller
             "title" => "Class",
         ]);
     }
+
+    public function singleClass() {
+        return view('mainWeb.singleClass', [
+            "title" => "Single Class"
+        ]);
+    }
 }

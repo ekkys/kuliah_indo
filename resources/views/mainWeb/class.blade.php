@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="button">
-                            <a class="btn" href="javascript:void(0)">Bergabung</a>
+                            <a class="btn" href="{{ url('/class/singleClass') }}">Bergabung</a>
                         </div>
                     </div>
                 </div>

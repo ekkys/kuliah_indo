@@ -3412,3 +3412,234 @@ ol {
   }
 
 }
+
+/*======================================
+	Single Post CSS
+========================================*/
+.single-post {
+  background-color: #ffae00;
+  position: relative;
+}
+
+.single-post .single-post-wrapper {
+  text-align: center;
+}
+
+.single-post .single-post-wrapper .logo-wrapper {
+  margin-bottom: 20px;
+}
+
+.single-post .single-post-wrapper .logo {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 10px 10px 0 rgba(25, 29, 34, 0.199);
+}
+
+.single-post .single-post-wrapper .company-wrapper {
+  margin-bottom: 30px;
+}
+
+.single-post .single-post-wrapper .company {
+  font-weight: 600;
+  color: #3d2900;
+}
+
+.single-post .single-post-wrapper .class-name-wrapper {
+  margin-bottom: 30px;
+}
+
+.single-post .single-post-wrapper .class-name {
+  color: #fff;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 3rem;
+}
+
+.single-post .single-post-wrapper .date-wrapper {
+  margin-bottom: 30px;
+}
+
+.single-post .single-post-wrapper .date {
+  color: #3d2900;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.single-post .single-post-wrapper .moderator-container {
+  display: flex;
+  color: #000;
+}
+
+.single-post .single-post-wrapper .moderator-container img {
+  min-width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.single-post .single-post-wrapper .moderator-container .moderator-wrapper {
+  border-left: #ffffff50 solid 2px;
+  align-self: center;
+}
+
+.single-post .single-post-wrapper .moderator-container .moderator-wrapper .moderator-about {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1.55rem;
+  text-align: left;
+  font-size: 14px;
+  color: #ffdd94;
+  font-style: italic;
+}
+
+.single-post .single-post-wrapper .moderator-container .moderator-wrapper .moderator-about center {
+  text-align: left;
+}
+
+.single-post .single-post-wrapper .moderator-container .moderator-wrapper .moderator-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.single-post .single-post-wrapper .moderator-container .moderator-wrapper .moderator-name center {
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .single-post .single-post-wrapper .moderator-container .image-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .single-post .single-post-wrapper .moderator-container .moderator-wrapper {
+    align-self: unset;
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  .single-post .single-post-wrapper .moderator-container .moderator-wrapper .moderator-about {
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    text-overflow: unset;
+    text-align: center;
+  }
+
+  .single-post .single-post-wrapper .moderator-container .moderator-wrapper .moderator-about center {
+    width: 100%;
+    text-align: unset;
+  }
+
+  .single-post .single-post-wrapper .moderator-container .moderator-wrapper .moderator-name {
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    text-overflow: unset;
+    height: unset;
+    text-align: center;
+  }
+
+  .single-post .single-post-wrapper .moderator-container .moderator-wrapper .moderator-name center {
+    width: 100%;
+    text-align: unset;
+  }
+}
+
+/*======================================
+	Article CSS
+========================================*/
+.article {
+  display: block;
+  align-items: center;
+}
+
+.article .container {
+max-width: 850px;
+}
+
+.article .article-wrapper {
+  margin-bottom: 30px;
+}
+
+.article .article-wrapper span {
+  font-size: 24px;
+  line-height: 1.6rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.article .article-wrapper p {
+  font-size: 18px;
+  color: #777;
+  font-weight: lighter;
+}
+
+.add-to-cart {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(255, 255, 255);
+  width: 100vw;
+  align-items: stretch;
+  line-height: 60px;
+  justify-content: center;
+  box-shadow: 0 3px 6px 2px rgb(42 42 42 / 40%);
+  z-index: 5;
+  transition: ease 0.3s;
+}
+
+.add-to-cart .course-price {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 0 !important;
+  margin-right: 20px;
+  color: #ffae00;
+  letter-spacing: 0;
+}
+
+.add-to-cart .course-old-price {
+  font-size: 16px;
+  font-weight: 400;
+  color: #202121;
+  margin-right: 10px;
+  vertical-align: middle;
+  text-decoration: line-through;
+}
+
+.add-to-cart .cart-wrapper {
+  display: block;
+  line-height: 60px;
+}
+
+.add-to-cart .add-to-cart-button {
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  bottom: 0;
+  display: inline-block;
+  background-color: #ffae00;
+  cursor: pointer;
+  border: none;
+  color: #3d2900;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: all 0.3s;
+  text-align: center;
+  padding: 0 30px;
+}

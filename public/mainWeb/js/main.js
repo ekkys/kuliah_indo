@@ -32,6 +32,14 @@ Author: GrayGrids
         } else {
             backToTo.style.display = "none";
         }
+
+        var addToCart = document.querySelector(".add-to-cart");
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            addToCart.style.display = "flex";
+        } else {
+            addToCart.style.display = "none";
+        }
+
     };
 
 
