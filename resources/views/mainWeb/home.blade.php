@@ -2,7 +2,7 @@
 
 @section('container')
 
-<!-- Start Hero Area -->
+    <!-- Start Hero Area -->
     <section class="hero-area bg-gray">
         <div class="container-fluid" style="padding: 0; margin: 0;">
             <div class="d-flex justify-content-center">
@@ -323,5 +323,7 @@
         </div>
     </div>
     <!-- End Pricing Style 2 Area -->
+
+    @include('partials.mainWeb.footer')
 
 @endsection
