@@ -59,4 +59,30 @@ Author: GrayGrids
         }
       });
 
+
+    //== Swiper Team
+    var swiperTeam = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        breakpoints: {
+            1: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+            },
+            766: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+            },
+            991: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+        autoplay: {
+            delay: 3000,
+        },
+      });
+
 })();

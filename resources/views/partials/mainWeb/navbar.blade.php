@@ -22,21 +22,21 @@
                                         <a href="{{ url('/') }}" aria-label="Toggle navigation">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#profile" aria-label="Toggle navigation">Profile</a>
+                                        <a href="{{ url('/profile') }}" aria-label="Toggle navigation">Profile</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ url('/class') }}" aria-label="Toggle navigation">Class</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#contact" aria-label="Toggle navigation">Contact</a>
+                                        <a href="{{ url('/contact') }}" aria-label="Toggle navigation">Contact</a>
                                     </li>
                                     <li class="nav-login">
-                                        <a href="{{ url('#login') }}" aria-label="Toggle navigation">Sign Up / Sign In</a>
+                                        <a href="{{ url('/login') }}" aria-label="Toggle navigation">Login / Register</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
                             <div class="button">
-                                <a href="{{ url('/login') }}" class="btn">Sign in / Sign up</a>
+                                <a href="{{ url('/login') }}" class="btn">Login / Register</a>
                             </div>
                         </nav>
                         <!-- End Navbar -->

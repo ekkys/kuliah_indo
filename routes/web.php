@@ -7,9 +7,11 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TutorController;
-use App\Http\Controllers\JabatanController;
-use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\TesterController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,8 @@ use App\Http\Controllers\TesterController;
 Route::get('/', [MainController::class, 'index']);
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class/singleClass', [ClassController::class, 'singleClass']);
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index']);
 
 /* End Main Web */
 

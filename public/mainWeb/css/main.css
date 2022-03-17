@@ -884,6 +884,26 @@ ol {
   padding-bottom: 225px;
 }
 
+.bg-orange {
+  background-color: #ffae00;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.font-white {
+  color: #fff;
+}
+
+.font-orange {
+  color: #ffae00;
+}
+
+.font-darken {
+  color: #3d2900;
+}
+
 .img-bg {
   background-position: center center;
   background-size: cover;
@@ -936,7 +956,6 @@ ol {
   font-weight: 500;
   display: inline-block;
   margin-bottom: 15px;
-  color: #ffae00;
   text-transform: capitalize;
 }
 
@@ -1074,7 +1093,7 @@ ol {
   border: none;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  border-radius: 5px;
+  border-radius: 50px;
   position: relative;
   z-index: 1;
   margin-right: 7px;
@@ -1415,7 +1434,7 @@ ol {
 
 /*===== NAVBAR =====*/
 .navbar-area {
-  width: 100%;
+  width: 100vw;
   background-color: #ffae00 ;
   position: fixed;
   z-index: 99;
@@ -1608,9 +1627,6 @@ ol {
 }
 
 /*======================================
-     End Header CSS
-  ========================================*/
-/*======================================
     Hero Area CSS
 ========================================*/
 .hero-area {
@@ -1728,19 +1744,13 @@ ol {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .img-container img {
-    height: 100%;
-    object-fit: contain;
-    min-width: 100%;
+    height: 60vh;
   }
 }
 
 @media (max-width: 767px) {
   .swiper {
     width: 100%;
-  }
-
-  .swiper-slide {
-    padding: 10px
   }
 
   .swiper-slide .text-wrapper {
@@ -1765,9 +1775,7 @@ ol {
   }
 
   .img-container img {
-    height: 100%;
-    min-width: 100%;
-    object-fit: contain;
+    height: 60vh;
   }
 }
 
@@ -1775,7 +1783,6 @@ ol {
     Why Choose Area CSS
 ========================================*/
 .features {
-  background-color: #fff;
   padding-top: 120px;
   position: relative;
 }
@@ -1814,29 +1821,6 @@ ol {
   }
 }
 
-.features .single-feature {
-  padding: 40px 35px;
-}
-
-.features .single-feature .name {
-  height: 2.5rem;
-  display: grid;
-  align-content: center;
-  align-items: center;
-}
-
-.features .single-feature .position {
-  height: 4rem;
-  display: grid;
-}
-
-.features.style2 .single-feature .list-icon {
-  position: relative;
-  display: inline-block;
-  top: 0;
-  margin-bottom: 25px;
-}
-
 .features .shape {
   position: absolute;
   left: -76px;
@@ -1866,59 +1850,9 @@ ol {
   }
 }
 
-.features .explore-all {
-  margin-top: 80px;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .features .explore-all {
-    margin-top: 60px;
-  }
-}
-
-@media (max-width: 767px) {
-  .features .explore-all {
-    margin-top: 40px;
-  }
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1399px), only screen and (min-width: 1400px) {
-  .features .content {
-    padding-right: 90px;
-  }
-}
-
-.features .content h2 {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 45px;
-  color: #3d2900;
-  margin-bottom: 30px;
-}
-
-.features .content h2 span {
-  color: #ffae00;
-  font-size: 15px;
-  font-weight: 500;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.features .content p {
-  margin-bottom: 20px;
-}
-
-.features .content p:last-child {
-  margin: 0;
-}
-
-.features .content .button {
-  margin-top: 40px;
-}
-
 .features .single-feature {
+  padding: 40px 35px;
   margin-top: 30px;
-  padding: 50px 40px;
   border-radius: 8px;
   text-align: center;
   background-color: #fff;
@@ -1927,6 +1861,16 @@ ol {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   border: 1px solid #eeeeee80;
+}
+
+.features .single-feature.profile {
+  height: 330px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .features .single-feature.profile {
+    height: 450px;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -1974,6 +1918,113 @@ ol {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+
+/*======================================
+	Team CSS
+========================================*/
+
+.team-area {
+  background-color: #ffae00;
+  padding-top: 120px;
+  position: relative;
+}
+
+.team-area .section-title {
+  margin-bottom: 50px;
+}
+
+.team-area .section-title h3 {
+  color: #fff;
+}
+
+.team-area .section-title p {
+  color: #fff;
+}
+
+.team-area .swiperTeam {
+  width: 100vw;
+  height: 100%;
+}
+
+.team-area .swiperTeam .swiper-wrapper {
+  max-width: 100vw;
+}
+
+.team-area .swiperTeam .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  padding: 40px 35px;
+  margin-top: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  border: 1px solid #eeeeee80;
+  height: 300px;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.team-area .swiperTeam .swiper-slide:hover {
+  -webkit-box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.096);
+          box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.096);
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+
+.team-area .swiperTeam .swiper-slide .single-feature {
+  text-align: center;
+  position: relative;
+}
+
+.team-area .swiperTeam .swiper-slide .single-feature h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.team-area .swiperTeam .swiper-slide .single-feature p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.team-area .swiperTeam .swiper-slide .single-feature .image {
+  margin-bottom: 20px;
+}
+
+.team-area .swiperTeam .swiper-slide .single-feature img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.team-area .swiperTeam .swiper-slide .single-feature .name {
+  display: grid;
+}
+
+.team-area .swiperTeam .swiper-slide .single-feature .position {
+  display: grid;
+}
+
+
 
 /*======================================
 	Pricing CSS
@@ -3201,9 +3252,16 @@ max-width: 850px;
   margin-top: 60px;
 }
 
+.login-content .image-container {
+  width: 100%;
+  height: 100vh;
+  vertical-align: middle;
+  text-align: center;
+  display: table-cell;
+}
+
 .login-content .login-img {
   vertical-align: middle;
-  border-style: none;
 }
 
 .login-content .login-title .login-logo {
@@ -3211,18 +3269,28 @@ max-width: 850px;
 }
 
 .login-content .login-title .login-des {
-  color: #b3b3b3;
+  color: #888;
   font-weight: 300;
+}
+
+.login-content .login-title .login-des a {
+  color: #ffae00;
+  font-weight: 300;
+}
+
+.login-content .login-title .login-des a:hover {
+  color: #888;
 }
 
 .login-content .form-group {
   overflow: hidden;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   padding: 15px 15px;
   border-bottom: none;
   position: relative;
   background: #edf2f5;
   border-bottom: 1px solid #e6edf1;
+  border-radius: 7px;
 }
 
 .login-content .form-group label {
@@ -3262,16 +3330,6 @@ max-width: 850px;
   padding: 0;
   font-size: 20px;
   border-radius: 0;
-}
-
-.login-content .form-group.first {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-}
-
-.login-content .form-group.last {
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
 }
 
 .control {
@@ -3365,4 +3423,219 @@ max-width: 850px;
   background-color: #cc8b00;
   border-color: #cc8b00;
   color: rgb(233, 233, 233);
+}
+
+/*======================================
+	Profile CSS
+========================================*/
+.profile-area {
+  position: relative;
+  z-index: 0;
+  margin-top: 60px;
+  padding: 80px 0 80px 0;
+  background-color: #ffae00;
+  background-image: url('http://localhost:8080/kuliah_indo/public/mainWeb/images/hero/bg-hosting.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-area .profile-content {
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0px 150px;
+}
+
+.profile-area .profile-content h4 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.178);
+  padding: 12px 16px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.profile-area .profile-content h1 {
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 52px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.profile-area .profile-content p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.profile-area .profile-content h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.profile-area .profile-content .button {
+  margin-top: 50px;
+}
+
+.profile-area .profile-content .button a {
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  text-align: center;
+  display: inline-block;
+  background-color: #fff;
+  color: #ffae00;
+  border-radius: 50%;
+  font-size: 22px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.profile-area .profile-content .button a:hover {
+  -webkit-transform: scale(1.07);
+          transform: scale(1.07);
+}
+
+.profile-area .profile-image {
+  text-align: right;
+  position: relative;
+  z-index: 0;
+}
+
+.profile-area .profile-image .main-image {
+  width: 90%;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .profile-area .profile-content {
+    padding: 0px 140px;
+  }
+
+  .profile-area .profile-content h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 38px;
+  }
+
+  .profile-area .profile-content p {
+    font-size: 15px;
+  }
+
+  .profile-area .profile-content .button {
+    margin-top: 30px !important;
+    width: 100%;
+  }
+
+  .profile-area .profile-content .button .btn {
+    width: 60%;
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  .profile-area .profile-content .button .btn:last-child {
+    margin: 0;
+  }
+
+  .profile-area .profile-image {
+    display: none;
+  }
+  
+}
+
+@media (max-width: 767px) {
+  .profile-area .profile-content {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .profile-area .profile-content h1 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .profile-area .profile-content p {
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 26px;
+  }
+
+  .profile-area .profile-content .button {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+}
+
+/*======================================
+    Contact Area CSS
+========================================*/
+
+.contact-area {
+  padding: 30px 0;
+  margin-top: 60px  ;
+}
+
+.contact-area .contact-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-area .contact-info i {
+  font-size: 48px;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #50d8af;
+}
+
+.contact-area .contact-info address,
+.contact-area .contact-info p {
+  margin-bottom: 0;
+  color: #000;
+}
+
+.contact-area .contact-info h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.contact-area .contact-info a {
+  color: #000;
+}
+
+.contact-area .contact-info a:hover {
+  color: #50d8af;
+}
+
+.contact-area .contact-address,
+.contact-area .contact-phone,
+.contact-area .contact-email {
+  margin-bottom: 20px;
+}
+
+.contact-area #google-map {
+  height: 290px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+.contact-area .contact-address,
+.contact-area .contact-phone,
+.contact-area .contact-email {
+    padding: 20px 0;
+  }
+
+.contact-area .contact-phone {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
 }
