@@ -20,6 +20,7 @@
             <thead>
               <tr>
                 <th>No</th>
+                <th>Foto</th>
                 <th>Nama</th>
                 <th>Jenis Kelamin</th>
                 <th>Email</th>
@@ -32,6 +33,7 @@
               @foreach ($tutors as $tutor)
               <tr>
                 <td>{{ $loop->iteration }}</td>
+                <td><img width="150px" src="{{ asset('storage/'.$tutor->foto) }}" alt=""></td>
                 <td>{{ $tutor->name }}</td>
                 <td>{{ $tutor->gender }}</td>
                 <td>{{ $tutor->email }}</td>
@@ -53,6 +55,7 @@
             <tfoot>
             <tr>
               <th>No</th>
+              <th>Foto</th>
               <th>Nama</th>
               <th>Jenis Kelamin</th>
               <th>Email</th>
