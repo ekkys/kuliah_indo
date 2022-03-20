@@ -19,21 +19,24 @@
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ms-auto">
                                     <li class="nav-item">
-                                        <a href="{{ url('/') }}" class="{{ ($title === 'Home' ? 'active' : '') }}" aria-label="Toggle navigation">Home</a>
+                                        <a href="{{ url('/') }}" aria-label="Toggle navigation">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#profile" class="{{ ($title === 'Profile' ? 'active' : '') }}" aria-label="Toggle navigation">Profile</a>
+                                        <a href="{{ url('/profile') }}" aria-label="Toggle navigation">Profile</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('/class') }}" class="{{ ($title === 'Class' ? 'active' : '') }}" aria-label="Toggle navigation">Class</a>
+                                        <a href="{{ url('/class') }}" aria-label="Toggle navigation">Class</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#contact" class="{{ ($title === 'Contact' ? 'active' : '') }}" aria-label="Toggle navigation">Contact</a>
+                                        <a href="{{ url('/contact') }}" aria-label="Toggle navigation">Contact</a>
+                                    </li>
+                                    <li class="nav-login">
+                                        <a href="{{ url('/login') }}" aria-label="Toggle navigation">Login / Register</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
                             <div class="button">
-                                <a href="{{ route('login') }}" class="btn">Sign in / Sign up</a>
+                                <a href="{{ url('/login') }}" class="btn">Login / Register</a>
                             </div>
                         </nav>
                         <!-- End Navbar -->

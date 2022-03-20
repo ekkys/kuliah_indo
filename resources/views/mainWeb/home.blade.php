@@ -2,8 +2,8 @@
 
 @section('container')
 
-<!-- Start Hero Area -->
-    <section class="hero-area">
+    <!-- Start Hero Area -->
+    <section class="hero-area bg-gray">
         <div class="container-fluid" style="padding: 0; margin: 0;">
             <div class="d-flex justify-content-center">
                 <!-- Caorousel -->
@@ -14,28 +14,21 @@
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide1">
-                                    <img src="{{ asset('mainWeb/images/hero/slide1.webp') }}" alt="">
+                                    <img src="{{ asset('mainWeb/images/hero/slide1.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide2">
-                                    <img src="{{ asset('mainWeb/images/hero/slide2.jpg') }}" alt="">
+                                    <img src="{{ asset('mainWeb/images/hero/slide2.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide3">
-                                    <img src="{{ asset('mainWeb/images/hero/slide3.webp') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img-container">
-                                <a href="#slide4">
-                                    <img src="{{ asset('mainWeb/images/hero/slide4.jpg') }}" alt="">
+                                    <img src="{{ asset('mainWeb/images/hero/slide3.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -49,19 +42,10 @@
     </section>
     <!-- End Hero Area -->
 
-    <!-- Start Features Area -->
-    <section class="features section">
+    <!-- Start Profile Area -->
+    <section class="features section bg-white">
         <img class="shape" src="{{ asset('mainWeb/images/shapes/shape.png') }}" alt="#">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h3 class="wow zoomIn" data-wow-delay=".2s">Profil</h3>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Apa itu Kuliah Indo?</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">Kuliah Indo merupakan platform belajar online bagi anak bangsa.</p>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-12">
                     <!-- Start Single Feature -->
@@ -99,133 +83,7 @@
             </div>
         </div>
     </section>
-    <!-- End Features Area -->
-
-    <!-- Start Team Area -->
-    <section class="features section" style="background: #ffae00;" >
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h3 class="wow zoomIn" data-wow-delay=".2s" style="color:#fff;" >Anggota</h3>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Anggota dari Kuliah Indo</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s" style="color:#faf3e4;">Berikut beberapa anggota yang memiliki peran penting dalam pembangunan Kuliah Indo.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Feature -->
-                    <div class="single-feature wow fadeInUp" data-wow-delay=".2s">
-                        <div>
-                            <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" style="border-radius: 50%; width: 140px; height: 140px; object-fit: cover; margin-bottom: 20px;">
-                        </div>
-                        <div class="name">
-                            <h3>Erika Safitri</h3>
-                        </div>
-                        <div class="position">
-                            <p>Sebagai CEO Kuliah Indo.</p>
-                        </div>
-                    </div>
-                    <!-- End Single Feature -->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Feature -->
-                    <div class="single-feature wow fadeInUp" data-wow-delay=".2s">
-                        <div>
-                            <img src="{{ asset('mainWeb/images/team/team2.jpg') }}" style="border-radius: 50%; width: 140px; height: 140px; object-fit: cover; margin-bottom: 20px;">
-                        </div>
-                        <div class="name">
-                            <h3>Aisyah Rahmawati Ayu</h3>
-                        </div>
-                        <div class="position">
-                            <p>Sebagai Desainer Kuliah Indo.</p>
-                        </div>
-                    </div>
-                    <!-- End Single Feature -->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Feature -->
-                    <div class="single-feature wow fadeInUp" data-wow-delay=".2s">
-                        <div>
-                            <img src="{{ asset('mainWeb/images/team/team3.jpg') }}" style="border-radius: 50%; width: 140px; height: 140px; object-fit: cover; margin-bottom: 20px;">
-                        </div>
-                        <div class="name">
-                            <h3>Dewi Saputri</h3>
-                        </div>
-                        <div class="position">
-                            <p>Sebagai Pemrogram Kuliah Indo.</p>
-                        </div>
-                    </div>
-                    <!-- End Single Feature -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Team Area -->
-
-    <!-- Start Comment -->
-    <div class="pricing-style2 section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h3 class="wow zoomIn" data-wow-delay=".2s">Komentar</h3>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Komentar dari pengguna</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">Berikut merupakan beberapa komentar dari pelanggan yang telah menerima manfaat dari Kuliah Indo.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Comment s-->
-                    <div class="single-comment d-flex align-items-center">
-                        <div>
-                            <blockquote>
-                                "Kuliah Indo sangat memudahkan saya untuk mengerti mata Kuliah
-                                yang dimana kampus memberikan penjelasan yang kurang jelas."
-                            </blockquote>
-                            <div>
-                                <h5 class="des">Muhammad Ridwan</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Comment s-->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Comment s-->
-                    <div class="single-comment d-flex align-items-center">
-                        <div>
-                            <blockquote>
-                                "Dengan Kuliah Indo saya bisa belajar dimana saja dan
-                                menyesuaikan waktu luang saya."
-                            </blockquote>
-                            <div>
-                                <h5 class="des">Fitri</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Comment s-->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Comment s-->
-                    <div class="single-comment d-flex align-items-center">
-                        <div>
-                            <blockquote>
-                                "Karena Kuliah Indo, nilai-nilai mata kuliah di kampus 
-                                meningkat semua. Terimakasih Kuliah Indo."
-                            </blockquote>
-                            <div>
-                                <h5 class="des">Renold Saputra</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Comment s-->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Comment -->
+    <!-- End Profile Area -->
 
     <!-- Start Pricing Style 2 Area -->
     <div class="pricing-style2 section bg-gray">
@@ -233,7 +91,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h3 class="wow zoomIn" data-wow-delay=".2s">Class</h3>
+                        <h3 class="wow zoomIn font-orange" data-wow-delay=".2s">Class</h3>
                         <h2 class="wow fadeInUp" data-wow-delay=".4s">Pilih Kelas Yang Sesuai</h2>
                         <p class="wow fadeInUp" data-wow-delay=".6s">Pejalari dan cari tahu mengenai semua kelas yang
                             tersedia dalam Kuliah Indo.</p>
@@ -323,12 +181,14 @@
                 </div>
                 <!-- Button Tampilkan Lebih Banyak -->
                 <div class="button2">
-                    <a class="btn" href="javascript:void(0)">Selengkapnya <i class="lni lni-arrow-right"></i></a>
+                    <a class="btn" href="{{ url('/class') }}">Selengkapnya <i class="lni lni-arrow-right"></i></a>
                 </div>
                 <!-- End Tampilkan Lebih Banyak -->
             </div>
         </div>
     </div>
     <!-- End Pricing Style 2 Area -->
+
+    @include('partials.mainWeb.footer')
 
 @endsection
