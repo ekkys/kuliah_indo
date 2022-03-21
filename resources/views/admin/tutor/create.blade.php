@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="preview">Preview Foto</label>
+                                <label for="preview">Preview Fto</label>
                                 <img class="img-preview  form-control-border" style="height:auto; width:300px">
                             </div>
                         </div>
