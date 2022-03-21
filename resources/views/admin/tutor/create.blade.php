@@ -2,6 +2,10 @@
 @section('title',' Buat Tutor')
 @section('title-page','Form Tutor')
 
+@section('jquery')
+    <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
+@endsection
+
 @section('content')
 <!-- general form elements -->
 <div class="row">
@@ -58,8 +62,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="row">
+
+                        <div class="row>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="foto">Pas Foto</label>
@@ -78,6 +82,17 @@
                             </div>
                         </div>
                              
+                        <div class="row mb-3 p-2">
+                            <div class="col-md-12">
+                                <label for="description">Deskripsi</label>
+                                <textarea name="editor1" id="editor1" rows="10" cols="80">
+                                </textarea>
+                                <script>
+                                    CKEDITOR.replace( 'editor1' );
+                                </script>
+                            </div>
+                        </div>
+                        
                         <button type="submit" class="btn btn-secondary d-flex justify-content-end">Simpan</button>
                     </div>
                 </form>
