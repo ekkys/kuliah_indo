@@ -26,6 +26,7 @@
                 <th>Email</th>
                 <th>Alamat</th>
                 <th>No.Hp</th>
+                <th>Deskripsi</th>
                 <th width='100'>Aksi</th>
               </tr>
             </thead>
@@ -39,6 +40,7 @@
                 <td>{{ $tutor->email }}</td>
                 <td>{{ $tutor->address }}</td>
                 <td>{{ $tutor->contact }}</td>
+                <td>{!! $tutor->description !!}</td>
           
                 <td>
                     <a class="btn btn-sm" href="{{ route('tutor.index') }}/{{ $tutor->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
@@ -61,6 +63,7 @@
               <th>Email</th>
               <th>Alamat</th>
               <th>No.Hp</th>
+              <th>Deskripsi</th>
               <th>Aksi</th>
             </tr>
             </tfoot>

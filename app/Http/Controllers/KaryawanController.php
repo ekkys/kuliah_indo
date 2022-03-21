@@ -50,7 +50,8 @@ class KaryawanController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'contact' =>$request->contact,
-            'foto' => $upload
+            'foto' => $upload,
+            'description' =>$request->description,
         ]);
         return redirect(route('karyawan.index'))->with('success', 'New post has been Added!');
     }
