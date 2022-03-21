@@ -12,6 +12,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\WilayahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +50,6 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/tutor', TutorController::class);
     Route::resource('/jabatan', JabatanController::class);
     Route::resource('/karyawan', KaryawanController::class);
+    Route::resource('/wilayah', WilayahController::class);
 
 /* End Admin Route */
