@@ -28,7 +28,7 @@ class HomeController extends Controller
     }
 
     public function karyawan(){
-        return "Ini Dashboard Karyawan";
+        return view('user.dashboard');
     }
     public function tutor(){
         return "Ini Dashboard Tutor";
