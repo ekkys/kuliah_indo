@@ -183,8 +183,23 @@
         <div class="row overflow-hidden">
             <div class="swiperTeam mySwiper">
                 <div class="swiper-wrapper">
-
-                    <div class="swiper-slide wow fadeInUp" data-wow-delay=".2s">
+                
+                @foreach ($karyawans as $karyawan)
+                <div class="swiper-slide wow fadeInUp" data-wow-delay=".2s">
+                    <div class="single-feature">
+                        <div class="image">
+                            <img width="150px" src="{{ asset('storage/'.$karyawan->foto) }}" alt="">
+                        </div>
+                        <div class="name">
+                            <h3>{{ $karyawan->name }} </h3>
+                        </div>
+                        <div class="position">
+                            <p>{{ $karyawan->jabatan_id }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                    {{-- <div class="swiper-slide wow fadeInUp" data-wow-delay=".2s">
                         <div class="single-feature">
                             <div class="image">
                                 <img src="{{ asset('mainWeb/images/team/Foto-Nurika.jpg') }}">
@@ -322,7 +337,7 @@
                                 <p>Audio Editor</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

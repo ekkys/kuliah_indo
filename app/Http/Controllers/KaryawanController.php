@@ -42,8 +42,9 @@ class KaryawanController extends Controller
     public function store(StoreKaryawanRequest $request)
     {
         // dd($request->all());
-        $upload = $request->file('foto')->store('post-images');
-       $test =  Karyawan::create([
+     $upload = $request->file('foto')->store('karyawan-images');
+    
+     Karyawan::create([
             'name' => $request->name,
             'gender' => $request->gender,
             'jabatan'=> $request->jabatan,
@@ -53,7 +54,7 @@ class KaryawanController extends Controller
             'foto' => $upload,
             'description' =>$request->description,
         ]);
-        return redirect(route('karyawan.index'))->with('success', 'New post has been Added!');
+    return redirect(route('karyawan.index'))->with('success', 'New Karyawan has been Added!');
     }
 
     /**
