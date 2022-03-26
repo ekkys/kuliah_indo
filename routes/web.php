@@ -13,7 +13,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\WilayahController;
-use App\Http\Controllers\InfoGrafisController;
+use App\Http\Controllers\UploadSlideBannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +52,6 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/jabatan', JabatanController::class);
     Route::resource('/karyawan', KaryawanController::class);
     Route::resource('/wilayah', WilayahController::class);
-    Route::resource('/infografis', InfoGrafisController::class);
+    Route::resource('/slidebanner', UploadSlideBannerController::class);
 
 /* End Admin Route */
