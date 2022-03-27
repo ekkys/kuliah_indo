@@ -123,42 +123,17 @@
                 <!-- Start Single Comment s-->
                 <div class="single-comment d-flex align-items-center">
                     <div>
-                        <img width="150px" src="{{ asset('storage/'.$testimoni->image_testimoni) }}" alt="">
+                        <blockquote>
+                            {!! $testimoni->description !!}
+                        </blockquote>
+                        <div>
+                            <h5 class="des">{{ $testimoni->name  }}</h5>
+                        </div>
                     </div>
                 </div>
                 <!-- End Single Comment s-->
             </div>
             @endforeach
-            <div class="col-lg-4 col-md-4 col-12">
-                <!-- Start Single Comment s-->
-                <div class="single-comment d-flex align-items-center">
-                    <div>
-                        <blockquote>
-                            "Dengan Kuliah Indo saya bisa belajar dimana saja dan
-                            menyesuaikan waktu luang saya."
-                        </blockquote>
-                        <div>
-                            <h5 class="des">Fitri</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Comment s-->
-            </div>
-            <div class="col-lg-4 col-md-4 col-12">
-                <!-- Start Single Comment s-->
-                <div class="single-comment d-flex align-items-center">
-                    <div>
-                        <blockquote>
-                            "Karena Kuliah Indo, nilai-nilai mata kuliah di kampus 
-                            meningkat semua. Terimakasih Kuliah Indo."
-                        </blockquote>
-                        <div>
-                            <h5 class="des">Renold Saputra</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Comment s-->
-            </div>
         </div>
     </div>
 </div>

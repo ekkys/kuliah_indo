@@ -21,7 +21,8 @@
               <tr>
                 <th>No</th>
                 <th>Foto</th>
-                <th>Deskripsi</th>
+                <th>Nama</th>
+                <th>Komentar</th>
                 <th width='100'>Aksi</th>
               </tr>
             </thead>
@@ -30,6 +31,7 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td><img width="150px" src="{{ asset('storage/'.$testimoni->image_testimoni) }}" alt=""></td>
+                <td>{{ $testimoni->name }}</td>
                 <td>{!! $testimoni->description !!}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('testimoni.index') }}/{{ $testimoni->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
@@ -47,7 +49,8 @@
             <tr>
               <th>No</th>
               <th>Foto</th>
-              <th>Deskripsi</th>
+              <th>Nama</th>
+              <th>Komentar</th>
               <th>Aksi</th>
             </tr>
             </tfoot>

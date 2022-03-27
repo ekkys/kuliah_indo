@@ -20,7 +20,13 @@
                     @csrf
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Nama </label>
+                                    <input type="text" class="form-control form-control-border " id="name" name="name"  required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="image_testimoni">Gambar Testimoni</label>
                                     {{-- <input type="file" class="form-control form-control-border"  name="foto" id="foto"> --}}
@@ -44,7 +50,7 @@
                              
                         <div class="row mb-3 p-2">
                             <div class="col-md-12">
-                                <label for="description">Deskripsi</label>
+                                <label for="description">Komentar</label>
                                 <textarea name="description" id="description" rows="10" cols="80">
                                 </textarea>
                                 <script>

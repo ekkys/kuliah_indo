@@ -43,6 +43,7 @@ class UploadTestimoniController extends Controller
 
         $test = UploadTestimoni::create([
             'image_testimoni' => $upload,
+            'name' => $request->name,
             'description' =>  $request->description
         ]);
         return redirect(route('testimoni.index'))->with('success', 'New tetimoni has been Added!');
