@@ -15,7 +15,9 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.infografis.profileSetting.index',[
+            'settings' => Setting::orderBy('updated_at', 'DESC')->get(),
+        ]);
     }
 
     /**
@@ -36,7 +38,25 @@ class SettingController extends Controller
      */
     public function store(StoreSettingRequest $request)
     {
-        //
+        // dd($request);
+        $upload = $request->file('image_profile')->store('profile-images');
+
+       Setting::create([
+            'contact' => $request->contact,
+            'gmaps' => $request->gmaps,
+            'email' => $request->email,
+            'facebook' => $request->facebook,
+            'instagram' => $request->instagram,
+            'linkedin' => $request->linkedin,
+            'twitter' => $request->twitter,
+            'youtube' => $request->youtube,
+            'address' => $request->address,
+            'image_profile' => $upload,
+            'description' => $request->description
+        ]);
+
+        return redirect(route('setting.index'))->with('success', 'New banner has been Added!');
+        
     }
 
     /**

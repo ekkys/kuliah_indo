@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title','Info Grafis')
-@section('title-page', 'Profile Profile')
+@section('title-page', 'Create Profile')
 
 @section('jquery')
     <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
@@ -79,9 +79,17 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="image_Profile">Gambar Profile</label>
+                                    <label for="address">Alamat</label>
+                                    <input type="text" class="form-control form-control-border " id="address" name="address"  required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="image_profile">Gambar Profile</label>
                                     {{-- <input type="file" class="form-control form-control-border"  name="foto" id="foto"> --}}
-                                    <input class="form-control form-control-border @error('image') is-invalid @enderror" type="file"  name="image_Profile" id="image_Profile" onchange="previewImage()">
+                                    <input class="form-control form-control-border @error('image') is-invalid @enderror" type="file"  name="image_profile" id="image_profile" onchange="previewImage()">
                                     @error('image')
                                         <div class="invalid-feedback">
                                         {{ $message }}
@@ -121,7 +129,7 @@
 <!-- /.card -->
 <script>
      function previewImage() {
-            const image = document.querySelector('#image_Profile');
+            const image = document.querySelector('#image_profile');
             const imgPreview = document.querySelector('.img-preview');
             console.log(image);
             console.log(imgPreview);
