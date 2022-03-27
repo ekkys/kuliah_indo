@@ -118,21 +118,17 @@
             </div>
         </div>
         <div class="row">
+            @foreach($testimonis as $testimoni)
             <div class="col-lg-4 col-md-4 col-12">
                 <!-- Start Single Comment s-->
                 <div class="single-comment d-flex align-items-center">
                     <div>
-                        <blockquote>
-                            "Kuliah Indo sangat memudahkan saya untuk mengerti mata Kuliah
-                            yang dimana kampus memberikan penjelasan yang kurang jelas."
-                        </blockquote>
-                        <div>
-                            <h5 class="des">Muhammad Ridwan</h5>
-                        </div>
+                        <img width="150px" src="{{ asset('storage/'.$testimoni->image_testimoni) }}" alt="">
                     </div>
                 </div>
                 <!-- End Single Comment s-->
             </div>
+            @endforeach
             <div class="col-lg-4 col-md-4 col-12">
                 <!-- Start Single Comment s-->
                 <div class="single-comment d-flex align-items-center">

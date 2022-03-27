@@ -154,9 +154,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('testimoni.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kolom User Komentar</p>
+                  <p>Testimoni</p>
                   <span class="badge badge-info right"> 2 </span>
                 </a>
               </li>

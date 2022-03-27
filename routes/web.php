@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\UploadSlideBannerController;
+use App\Http\Controllers\UploadTestimoniController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,6 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/karyawan', KaryawanController::class);
     Route::resource('/wilayah', WilayahController::class);
     Route::resource('/slidebanner', UploadSlideBannerController::class);
+    Route::resource('/testimoni', UploadTestimoniController::class);
 
 /* End Admin Route */

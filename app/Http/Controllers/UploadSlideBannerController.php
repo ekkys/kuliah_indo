@@ -40,12 +40,12 @@ class UploadSlideBannerController extends Controller
         // dd($request->all());
         $upload = $request->file('image_banner')->store('banner-images');
    
-        $test = UploadSlideBanner::create([
+        UploadSlideBanner::create([
             'image_banner' => $upload,
             'description' =>  $request->description
         ]);
 
-        return redirect(route('slidebanner.index'))->with('success', 'New banenr has been Added!');
+        return redirect(route('slidebanner.index'))->with('success', 'New banner has been Added!');
     }
 
     /**
