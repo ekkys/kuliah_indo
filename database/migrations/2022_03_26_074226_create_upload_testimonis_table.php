@@ -17,6 +17,7 @@ class CreateUploadTestimonisTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('image_testimoni');
+            $table->string('name');
             $table->string('description');
         });
     }
