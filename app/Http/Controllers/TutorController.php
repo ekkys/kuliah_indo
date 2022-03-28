@@ -49,7 +49,16 @@ class TutorController extends Controller
     public function store(StoreTutorRequest $request)
     {
         // dd($request->all());
-        Tutor::create($request->all());
+        $upload = $request->file('foto')->store('post-images');
+       
+        Tutor::create([
+            'name' => $request->name,
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'email' => $request->email,
+            'contact' =>$request->contact,
+            'foto' => $upload
+        ]);
         return redirect(route('tutor.index'))->with('success', 'New post has been Added!');
     }
 

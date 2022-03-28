@@ -20,6 +20,7 @@
             <thead>
               <tr>
                 <th>No</th>
+                <th>Foto</th>
                 <th>Nama</th>
                 <th>Jenis Kelamin</th>
                 <th>Email</th>
@@ -33,6 +34,7 @@
               @foreach ($karyawans as $karyawan)
               <tr>
                 <td>{{ $loop->iteration }}</td>
+                <td><img width="150px" src="{{ asset('storage/'.$karyawan->foto) }}" alt=""></td>
                 <td>{{ $karyawan->name }}</td>
                 <td>{{ $karyawan->gender }}</td>
                 <td>{{ $karyawan->email }}</td>
@@ -55,6 +57,7 @@
             <tfoot>
             <tr>
               <th>No</th>
+              <th>Foto</th>
               <th>Nama</th>
               <th>Jenis Kelamin</th>
               <th>Email</th>

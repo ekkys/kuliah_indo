@@ -12,7 +12,7 @@
             </div>
             <!-- /.card-header -->
             
-                <form action="{{ route('tutor.store') }}" method="post">
+                <form action="{{ route('tutor.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
@@ -58,6 +58,25 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="foto">Pas Foto</label>
+                                    {{-- <input type="file" class="form-control form-control-border"  name="foto" id="foto"> --}}
+                                    <input class="form-control form-control-border @error('image') is-invalid @enderror" type="file"  name="foto" id="foto" onchange="previewImage()">
+                                    @error('image')
+                                        <div class="invalid-feedback">
+                                        {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="preview">Preview Fto</label>
+                                <img class="img-preview  form-control-border" style="height:auto; width:300px">
+                            </div>
+                        </div>
                              
                         <button type="submit" class="btn btn-secondary d-flex justify-content-end">Simpan</button>
                     </div>
@@ -67,4 +86,19 @@
     </div>
 </div>
 <!-- /.card -->
+<script>
+     function previewImage() {
+            const image = document.querySelector('#foto');
+            const imgPreview = document.querySelector('.img-preview');
+            console.log(image);
+            console.log(imgPreview);
+            imgPreview.style.display = 'block';
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+            oFReader.onload = function (oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+</script>
 @endsection
+
