@@ -30,7 +30,7 @@ use App\Http\Controllers\SettingController;
 
 
 /* Main Web*/
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class/singleClass', [ClassController::class, 'singleClass']);
 Route::get('/profile', [ProfileController::class, 'index']);

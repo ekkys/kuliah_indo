@@ -1,8 +1,8 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #1e3135;">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{ asset('assets/dist/img/logo_navbar.jpg') }}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8;">
-      <span class="brand-text font-weight-light">KULIAH ID</span>
+    <a href="{{ url('/') }}" class="brand-link">
+      <img src="{{ asset('mainWeb/images/logo/logo2.svg') }}" alt="AdminLTE Logo" class="brand-image">
+      {{-- <span class="brand-text font-weight-light">Kuliah.id</span> --}}
     </a>
 
     <!-- Sidebar  Start-->
@@ -13,7 +13,7 @@
         <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+        <span class="d-block">{{ Auth::user()->name }}</span>
       </div>
     </div>
 
@@ -24,34 +24,69 @@
          with font-awesome or any other icon font library -->
          <li class="nav-item menu-open">
 
-           <li class="nav-header">MENU USER</li>
+          <li class="nav-header">Home</li>
+            <li class="nav-item">
+              <a href="{{ url('/') }}" class="nav-link">
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                Home
+                </p>
+              </a>
+            </li>
+
+          <li class="nav-header">User</li>
            <li class="nav-item">
              <a href="" class="nav-link">
                <i class="nav-icon fas fa-user"></i>
                <p>
-               Profil Saya
+               User Profile
                </p>
              </a>
            </li>
 
-          <li class="nav-header">MENU KELAS</li>
+          <li class="nav-header">Menu</li>
             <li class="nav-item">
               <a href="" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
+                <i class="nav-icon fas fa-book-open"></i>
                 <p>
-                Kelas Saya
+                My Course
                 </p>
               </a>
             </li>
             <li class="nav-item">
               <a href="" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-file-invoice-dollar"></i>
                 <p>
-                 Pesanan Saya
+                 Payment
                 </p>
               </a>
             </li>
          </li>
+
+         <li class="nav-header">Setting</li>
+           <li class="nav-item">
+             <a href="" class="nav-link">
+               <i class="nav-icon fas fa-lock"></i>
+               <p>
+               Change Password
+               </p>
+             </a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link"href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+              Logout
+              </p>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

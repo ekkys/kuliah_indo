@@ -30,49 +30,79 @@
                                     <li class="nav-item">
                                         <a href="{{ url('/contact') }}" aria-label="Toggle navigation">Contact</a>
                                     </li>
-                                    {{-- <li class="nav-login">
-                                        <a class="dd-menu collapsed" href="{{ url('/login') }}" aria-label="Toggle navigation">Login / Register</a>
-                                    </li> --}}
-                                    <li class="nav-login">
-                                        <a class="dd-menu collapsed" href="#" data-bs-toggle="collapse"
-                                            data-bs-target="#submenu-login"
-                                            aria-expanded="false" aria-label="Toggle navigation">My Profile</a>
-                                        <ul class="sub-menu collapse" id="submenu-login">
-                                            <li class="nav-item"><a href="#">Course Saya</a></li>
-                                            <li class="nav-item"><a href="#">Pembayaran</a></li>
-                                            <li class="nav-item"><a href="#">Pengaturan Akun</a></li>
-                                            <li class="nav-item"><a href="#">Keluar</a></li>
-                                        </ul>
-                                    </li>
+
+                                    @if(!empty(Auth::user()))
+
+                                        <li class="nav-login">
+                                            <a class="dd-menu collapsed" href="#" data-bs-toggle="collapse"
+                                                data-bs-target="#submenu-login"
+                                                aria-expanded="false" aria-label="Toggle navigation">My Profile</a>
+                                            <ul class="sub-menu collapse" id="submenu-login">
+                                                <li class="nav-item"><a href="{{ url('/home/siswa') }}">Dashboard</a></li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link"  href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                                                    </a>
+                                                </li>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </ul>
+                                        </li>
+
+                                    @else
+
+                                        <li class="nav-login">
+                                            <a class="collapsed" href="{{ url('/login') }}" aria-label="Toggle navigation">Login / Register</a>
+                                        </li>
+
+                                    @endif
+
                                 </ul>
                             </div> 
                             <!-- navbar collapse -->
-                            {{-- <div class="button">
-                                <a href="{{ url('/login') }}" class="btn">Login / Register</a>
-                            </div> --}}
-                            <div>
-                                <ul id="nav" class="navbar-profile ms-auto">
-                                    <li class="nav-item">
-                                        <a 
-                                        href="#user" 
-                                        class="btn" 
-                                        data-bs-toggle="collapse" 
-                                        data-bs-target="#profileNavbar" 
-                                        aria-expanded="false" 
-                                        aria-label="Toggle navigation"
-                                        >
-                                            <img src="{{ asset('mainWeb/images/team/Foto-Nurika.jpg') }}" 
-                                            style="width: 40px; height: 40px; border-radius: 50%; object-fit:cover; display: block; border: 2px #fff solid;">
-                                        </a>
-                                        <ul class="sub-menu collapse" id="profileNavbar">
-                                            <li class="nav-item"><a href="#"><i class="lni lni-library"></i>Course Saya</a></li>
-                                            <li class="nav-item"><a href="#"><i class="lni lni-coin"></i> Pembayaran</a></li>
-                                            <li class="nav-item"><a href="#"><i class="lni lni-cog"></i>Pengaturan Akun</a></li>
-                                            <li class="nav-item"><a href="#"><i class="lni lni-exit"></i>Keluar</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+
+                            @if(!empty(Auth::user()))
+
+                                <div>
+                                    <ul id="nav" class="navbar-profile ms-auto">
+                                        <li class="nav-item">
+                                            <a 
+                                            href="#user" 
+                                            class="btn" 
+                                            data-bs-toggle="collapse" 
+                                            data-bs-target="#profileNavbar" 
+                                            aria-expanded="false" 
+                                            aria-label="Toggle navigation"
+                                            >
+                                                <img src="{{ asset('mainWeb/images/team/Foto-Nurika.jpg') }}" 
+                                                style="width: 40px; height: 40px; border-radius: 50%; object-fit:cover; display: block; border: 2px #fff solid;">
+                                            </a>
+                                            <ul class="sub-menu collapse" id="profileNavbar">
+                                                <li class="nav-item"><a href="{{ url('/home/siswa') }}"><i class="lni lni-radio-button"></i>Dashboard</a></li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link"  href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">
+                                                        <i class="lni lni-exit"></i>{{ __('Logout') }}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            @else
+
+                                <div class="button">
+                                    <a href="{{ url('/login') }}" class="btn">Login / Register</a>
+                                </div>
+
+                            @endif
+                            
+                            
                         </nav>
                         <!-- End Navbar -->
                     </div>

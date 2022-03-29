@@ -6,20 +6,30 @@
     </li>
   </ul>
 
-    <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link"  href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-            </a>
-        
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-          </a>
-        </li>
-      </ul>
-      
+  @if(Auth::user()->hasRole('siswa') == true)
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+    </li>
+  </ul>
+
+  @else
+
+  <!-- Right navbar links -->
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link"  href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+        {{ __('Logout') }}
+        </a>
+    
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </li>
+  </ul>
+
+  @endif
+
     </nav>

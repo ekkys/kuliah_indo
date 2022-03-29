@@ -53,7 +53,7 @@ class LoginController extends Controller
             return redirect()->route('home.karyawan');
 
         }else {
-            return redirect()->route('home.siswa');
+            return redirect()->route('main');
         }
     
     }
