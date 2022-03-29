@@ -21,6 +21,8 @@ class CreateTutorsTable extends Migration
             $table->string('address');
             $table->string('email');
             $table->string('contact');
+            $table->string('description');
+            $table->string('foto')->nullable();
         });
     }
 

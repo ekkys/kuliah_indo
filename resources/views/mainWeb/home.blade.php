@@ -11,27 +11,16 @@
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
+                        @foreach ($slidebanners as $slidebanner)
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide1">
-                                    <img src="{{ asset('mainWeb/images/hero/slide1.png') }}" alt="">
+                                    <img width="150px" src="{{ asset('storage/'.$slidebanner->image_banner) }}" alt="">
                                 </a>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="img-container">
-                                <a href="#slide2">
-                                    <img src="{{ asset('mainWeb/images/hero/slide2.png') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img-container">
-                                <a href="#slide3">
-                                    <img src="{{ asset('mainWeb/images/hero/slide3.png') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                     <div class="swiper-button-prev" style="color: #fff; margin-left: 20px;"></div>
                     <div class="swiper-button-next" style="color: #fff; margin-right: 20px;"></div>

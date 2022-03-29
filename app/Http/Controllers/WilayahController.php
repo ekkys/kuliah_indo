@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Wilayah;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
 use Illuminate\Http\Request;
 
 class WilayahController extends Controller
@@ -14,7 +18,12 @@ class WilayahController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.wilayah.index', [
+            'provinces' =>  Province::all(),
+            'regencies' =>  Regency::all(),
+            'districts' =>  District::all(),
+            'villages' => Village::all(),
+        ]);
     }
 
     /**
@@ -24,7 +33,7 @@ class WilayahController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.wilayah.formWilayah');
     }
 
     /**

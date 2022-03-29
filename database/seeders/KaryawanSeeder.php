@@ -20,7 +20,8 @@ class KaryawanSeeder extends Seeder
             'email' => 'ahmad@gmail.com',
             'address' => 'JL. Pahlawan No.1',
             'contact' => '0897676564',
-            'jabatan_id' => '1'
+            'jabatan_id' => '1',
+            'description' => 'test text area',
         ]);
     
         Karyawan::create([
@@ -29,7 +30,8 @@ class KaryawanSeeder extends Seeder
             'email' => 'nisa@gmail.com',
             'address' => 'JL. Pahlawan No.2',
             'contact' => '08976765645',
-            'jabatan_id' => '2'
+            'jabatan_id' => '2',
+            'description' => 'test text area',
         ]);
     }
 }

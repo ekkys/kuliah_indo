@@ -118,51 +118,22 @@
             </div>
         </div>
         <div class="row">
+            @foreach($testimonis as $testimoni)
             <div class="col-lg-4 col-md-4 col-12">
                 <!-- Start Single Comment s-->
                 <div class="single-comment d-flex align-items-center">
                     <div>
                         <blockquote>
-                            "Kuliah Indo sangat memudahkan saya untuk mengerti mata Kuliah
-                            yang dimana kampus memberikan penjelasan yang kurang jelas."
+                            {!! $testimoni->description !!}
                         </blockquote>
                         <div>
-                            <h5 class="des">Muhammad Ridwan</h5>
+                            <h5 class="des">{{ $testimoni->name  }}</h5>
                         </div>
                     </div>
                 </div>
                 <!-- End Single Comment s-->
             </div>
-            <div class="col-lg-4 col-md-4 col-12">
-                <!-- Start Single Comment s-->
-                <div class="single-comment d-flex align-items-center">
-                    <div>
-                        <blockquote>
-                            "Dengan Kuliah Indo saya bisa belajar dimana saja dan
-                            menyesuaikan waktu luang saya."
-                        </blockquote>
-                        <div>
-                            <h5 class="des">Fitri</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Comment s-->
-            </div>
-            <div class="col-lg-4 col-md-4 col-12">
-                <!-- Start Single Comment s-->
-                <div class="single-comment d-flex align-items-center">
-                    <div>
-                        <blockquote>
-                            "Karena Kuliah Indo, nilai-nilai mata kuliah di kampus 
-                            meningkat semua. Terimakasih Kuliah Indo."
-                        </blockquote>
-                        <div>
-                            <h5 class="des">Renold Saputra</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Comment s-->
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -183,8 +154,23 @@
         <div class="row overflow-hidden">
             <div class="swiperTeam mySwiper">
                 <div class="swiper-wrapper">
-
-                    <div class="swiper-slide wow fadeInUp" data-wow-delay=".2s">
+                
+                @foreach ($karyawans as $karyawan)
+                <div class="swiper-slide wow fadeInUp" data-wow-delay=".2s">
+                    <div class="single-feature">
+                        <div class="image">
+                            <img width="150px" src="{{ asset('storage/'.$karyawan->foto) }}" alt="">
+                        </div>
+                        <div class="name">
+                            <h3>{{ $karyawan->name }} </h3>
+                        </div>
+                        <div class="position">
+                            <p>{{ $karyawan->jabatan_id }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                    {{-- <div class="swiper-slide wow fadeInUp" data-wow-delay=".2s">
                         <div class="single-feature">
                             <div class="image">
                                 <img src="{{ asset('mainWeb/images/team/Foto-Nurika.jpg') }}">
@@ -322,7 +308,7 @@
                                 <p>Audio Editor</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
