@@ -1279,6 +1279,7 @@ ol {
     overflow-y: scroll;
     border-top: 1px solid #eee;
     border-radius: 8px;
+    overflow: hidden;
   }
   .header .navbar .navbar-nav .nav-item a:hover {
     color: #ffae00 !important;
@@ -1289,11 +1290,9 @@ ol {
   .header .navbar-nav .nav-item  {
     margin: 0;
   }
-
   .header .navbar-nav .nav-login {
     display: none;
   }
-
   .header .navbar-nav .nav-item:hover a {
     color: #ffae00;
   }
@@ -1399,6 +1398,9 @@ ol {
   .header .navbar-nav .nav-item a:hover,
   .header .navbar-nav .nav-login a:hover {
     color: #ffae00;
+  }
+  .header .navbar-nav .nav-login .sub-menu .nav-item {
+    padding: 0px 12px;
   }
 }
 
@@ -1555,43 +1557,31 @@ ol {
   color: #fff;
 }
 
+.navbar-nav .nav-login a.dd-menu::after {
+  content: "\ea5e";
+  font: normal normal normal 1em/1 "LineIcons";
+  font-size: 1em;
+  position: absolute;
+  right: 0;
+  font-size: 11px;
+  top: 50%;
+  margin-left: 5px;
+  margin-top: -5px;
+  -webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  height: 10px;
+}
+
+.navbar-nav .nav-login:hover a.dd-menu::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .navbar-nav .nav-item a.collapsed::after {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-}
-
-.navbar-nav .nav-item:hover > .sub-menu {
-  top: 100%;
-  opacity: 1;
-  visibility: visible;
-}
-
-.navbar-nav .nav-item:hover > .sub-menu .sub-menu {
-  left: 100%;
-  top: 0;
-}
-
-.navbar-nav .nav-item .sub-menu {
-  padding: 30px;
-  min-width: 240px;
-  background: #fff;
-  -webkit-box-shadow: 0px 5px 20px #0000001a;
-          box-shadow: 0px 5px 20px #0000001a;
-  position: absolute;
-  top: 110% !important;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
-  border-radius: 0 0 4px 4px;
-  border-radius: 5px;
-}
-
-.navbar-nav .nav-item:hover .sub-menu {
-  top: 100% !important;
 }
 
 .header .button {
@@ -1602,6 +1592,13 @@ ol {
 @media (max-width: 767px) {
   .header .button {
     display: none;
+  }
+
+  .navbar-profile {
+    display: none;
+  }
+  .navbar-toggler.mobile-menu-btn {
+    margin-left: 100px;
   }
 }
 
@@ -1624,6 +1621,97 @@ ol {
 .sticky .button .btn:hover {
   background-color: #ffae00;
   color: #fff;
+}
+
+.navbar-profile .nav-item:last-child {
+  margin-right: 0 !important;
+}
+
+.navbar-profile .nav-item:hover a {
+  color: #000;
+}
+
+.navbar-profile .nav-item:hover > .sub-menu {
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-profile .nav-item .sub-menu {
+  padding: 30px;
+  min-width: 220px;
+  background: #fff;
+  -webkit-box-shadow: 0px 5px 20px #0000001a;
+          box-shadow: 0px 5px 20px #0000001a;
+  position: absolute;
+  top: 110% !important;
+  right: -50px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  border-radius: 0 0 4px 4px;
+  border-radius: 5px;
+}
+
+.navbar-profile .nav-item:hover .sub-menu {
+  top: 110% !important;
+}
+
+.navbar-profile .nav-item .sub-menu .nav-item {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.navbar-profile .nav-item .sub-menu .nav-item:last-child {
+  margin: 0;
+}
+
+.navbar-profile .nav-item .sub-menu .nav-item a {
+  padding: 0;
+  color: #3d2900;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+.header .navbar-nav .nav-login .sub-menu .nav-item a {
+  padding: 0;
+  color: #888;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: relative;
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+.navbar-profile .nav-item .sub-menu .nav-item i {
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.navbar-profile .nav-item .sub-menu .nav-item a:hover {
+  color: #ffae00;
+}
+
+.navbar-profile .nav-item .sub-menu.collapse:not(.show) {
+  display: block;
 }
 
 /*======================================
@@ -3313,6 +3401,11 @@ max-width: 850px;
   margin-top: -20px;
 }
 
+.login-content .form-group.field--not-empty label:active {
+  font-size: 12px;
+  margin-top: -20px;
+}
+
 .login-content .form-group input {
   background: transparent;
 }
@@ -3330,6 +3423,15 @@ max-width: 850px;
   padding: 0;
   font-size: 20px;
   border-radius: 0;
+}
+
+@media (max-width: 767px) { 
+  .login-content {
+    padding: 20px;
+  }
+  .login-content .image-container {
+    display: none;
+  }
 }
 
 .control {
@@ -3582,22 +3684,30 @@ max-width: 850px;
   margin-top: 60px  ;
 }
 
+.contact-area .section-header h2 {
+ font-size: 26px;
+}
+
 .contact-area .contact-info {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   text-align: center;
+}
+
+.contact-area .contact-info:last-child {
+  margin-bottom: 50px;
 }
 
 .contact-area .contact-info i {
   font-size: 48px;
   display: inline-block;
   margin-bottom: 10px;
-  color: #50d8af;
+  color: #ffae00;
 }
 
 .contact-area .contact-info address,
 .contact-area .contact-info p {
   margin-bottom: 0;
-  color: #000;
+  color: #727272;
 }
 
 .contact-area .contact-info h3 {
@@ -3605,20 +3715,22 @@ max-width: 850px;
   margin-bottom: 15px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #999;
+  color: #3d2900;
 }
 
 .contact-area .contact-info a {
-  color: #000;
+  color: #727272;
 }
 
 .contact-area .contact-info a:hover {
-  color: #50d8af;
+  color: #ffae00;
 }
 
 .contact-area .contact-address,
 .contact-area .contact-phone,
-.contact-area .contact-email {
+.contact-area .contact-email,
+.contact-area .contact-twitter,
+.contact-area .contact-instagram {
   margin-bottom: 20px;
 }
 
@@ -3627,15 +3739,119 @@ max-width: 850px;
   margin-bottom: 20px;
 }
 
+.contact-area .search-wrapper {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.contact-area .search-wrapper .title-wrapper {
+  color: #3d2900;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.contact-area .search-wrapper .title-wrapper .title {
+  font-size: 26px;
+}
+
+.contact-area .search-wrapper .search-container {
+  width: 100%;
+}
+
+.contact-area .search-wrapper .search-container .search-field {
+  width: 100%;
+  position: relative;
+}
+
+.contact-area .search-wrapper .search-container .search-field .search-inner {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.contact-area .search-wrapper .search-container .search-field .search-inner .search {
+  min-height: 70px;
+  border: none;
+  background: #fff;
+  width: 100%;
+  padding: 10px 70px 10px 30px;
+  font-size: 18px;
+  color: #666;
+  border-radius: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  vertical-align: top;
+  overflow: hidden;
+  box-shadow: -7.5px 13px 35px 0 rgb(0 0 0 / 10%);
+}
+
+.contact-area .search-wrapper .search-container .search-field .search-inner .search .search-item {
+  font-size: 16px;
+  color: #333;
+  background-color: transparent;
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: baseline;
+  border: 0;
+  border-radius: 0;
+  max-width: 100%;
+  padding: 4px 0 4px 2px;
+  width: 100%;
+}
+
+.contact-area .search-wrapper .search-container .search-field .btn-search {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 5px;
+}
+
+.contact-area .search-wrapper .search-container .search-field .btn-search .subscribe {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffae00;
+  border-radius: 50px;
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.contact-area .search-wrapper .search-container .search-field .btn-search .subscribe:hover {
+  background-color: #cccccc;
+  color: #727272;
+}
+
 @media (min-width: 768px) {
 .contact-area .contact-address,
 .contact-area .contact-phone,
-.contact-area .contact-email {
+.contact-area .contact-email,
+.contact-area .contact-twitter,
+.contact-area .contact-instagram {
     padding: 20px 0;
   }
 
 .contact-area .contact-phone {
     border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+.contact-area .contact-twitter {
     border-right: 1px solid #ddd;
   }
 }
