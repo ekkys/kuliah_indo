@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
-      <img src="{{ asset('mainWeb/images/logo/logo2.svg') }}" alt="AdminLTE Logo" class="brand-image">
-      {{-- <span class="brand-text font-weight-light">Kuliah.id</span> --}}
+      <img src="{{ asset('mainWeb/images/logo/logo-icon-white.svg') }}" alt="AdminLTE Logo Icon" class="brand-image">
+      <img src="{{ asset('mainWeb/images/logo/logo-text-white.svg') }}" alt="AdminLTE Logo Text" class="brand-text ">
     </a>
 
     <!-- Sidebar  Start-->
@@ -36,7 +36,7 @@
 
           <li class="nav-header">User</li>
            <li class="nav-item">
-             <a href="" class="nav-link">
+             <a href="{{ url('/home/siswa/myprofile') }}" class="nav-link">
                <i class="nav-icon fas fa-user"></i>
                <p>
                User Profile
@@ -46,7 +46,7 @@
 
           <li class="nav-header">Menu</li>
             <li class="nav-item">
-              <a href="" class="nav-link">
+              <a href="{{ url('/home/siswa/mycourse') }}" class="nav-link">
                 <i class="nav-icon fas fa-book-open"></i>
                 <p>
                 My Course
@@ -54,7 +54,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">
+              <a href="{{ url('/home/siswa/payment') }}" class="nav-link">
               <i class="nav-icon fas fa-file-invoice-dollar"></i>
                 <p>
                  Payment
@@ -65,7 +65,7 @@
 
          <li class="nav-header">Setting</li>
            <li class="nav-item">
-             <a href="" class="nav-link">
+             <a href="{{ url('/home/siswa/changepassword') }}" class="nav-link">
                <i class="nav-icon fas fa-lock"></i>
                <p>
                Change Password

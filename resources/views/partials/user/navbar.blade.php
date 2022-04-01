@@ -6,14 +6,7 @@
     </li>
   </ul>
 
-  @if(Auth::user()->hasRole('siswa') == true)
-
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-    </li>
-  </ul>
-
-  @else
+  @if(Auth::user()->hasRole('admin') == true)
 
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
@@ -27,6 +20,13 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
         </form>
+    </li>
+  </ul>
+  
+  @else
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
     </li>
   </ul>
 

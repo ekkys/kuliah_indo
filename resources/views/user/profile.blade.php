@@ -1,0 +1,40 @@
+@extends('layouts.user.main')
+@section('title',' Dashboard')
+@section('title-page', 'User Profile')
+
+@section('content')
+       <div class="col-xl-8">
+              <div class="card mb-0">
+                     <div class="card-body">
+                            <h4 class="card-title">Edit Profile</h4>
+                            <p class="card-title-desc">Please input corectly for adjusting the profile data</p>
+                            <form>
+                                   
+                                   <div class="form-group">
+                                          <label for="form-photo">
+                                                 <img src="{{ asset('/assets/dist/img/user2-160x160.jpg') }}" class="img-thumbnail mb-4">
+                                          </label>
+                                          <input type="file" class="form-control-file" id="form-photo" style="display: none">
+                                   </div>
+                                   <div class="form-group">
+                                          <label for="form-full-name">Full Name</label>
+                                          <input type="text" class="form-control" id="form-full-name" aria-describedby="emailHelp" placeholder="Full Name" value="Cevin Leonardo">
+                                   </div>
+                                   <div class="form-group">
+                                          <label for="form-email">Email</label>
+                                          <input type="email" class="form-control-plaintext" id="form-email" placeholder="Email" value="test@test" readonly>
+                                   </div>
+                                   <div class="form-group">
+                                          <label for="form-phone">Phone</label>
+                                          <input type="text" class="form-control" id="form-phone" placeholder="Phone" value="081234567890">
+                                   </div>
+                                   <div class="form-biography mb-4">
+                                          <label for="form-biography">Biography</label>
+                                          <textarea class="form-control" id="form-biography" rows="3" >Saya merasa paling ganteng diantara pria lain</textarea>
+                                   </div>
+                                   <button type="submit" class="btn btn-confirm-form">Submit</button>
+                            </form>
+                     </div>
+              </div>
+       </div>
+@endsection
