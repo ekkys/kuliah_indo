@@ -40,11 +40,11 @@
     </div> --}}
 
     <!-- Navbar -->
-      @include('partials.navbar')
+      @include('partials.user.navbar')
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    @include('partials.sidebar')
+    @include('partials.user.sidebar')
     <!-- /.sidebar -->
     
     <!-- Content Wrapper. Contains page content -->

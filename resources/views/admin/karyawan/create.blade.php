@@ -1,7 +1,9 @@
 @extends('layouts.main')
 @section('title',' Buat Karyawan')
 @section('title-page','Form Karyawan')
-
+@section('jquery')
+    <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
+@endsection
 @section('content')
 <!-- general form elements -->
 <div class="row">
@@ -89,7 +91,17 @@
                             <img class="img-preview  form-control-border" style="height:auto; width:300px">
                         </div>
                     </div>
-
+                    <div class="row mb-3 p-2">
+                        <div class="col-md-12">
+                            <label for="description">Deskripsi</label>
+                            <textarea name="description" id="description" rows="10" cols="80">
+                            </textarea>
+                            <script>
+                                CKEDITOR.replace( 'description' );
+                                // var data = CKEDITOR.instances.description.getData();
+                            </script>
+                        </div>
+                    </div>
 
 
                        

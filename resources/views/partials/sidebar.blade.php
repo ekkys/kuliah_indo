@@ -69,6 +69,15 @@
                 </p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="{{ route('wilayah.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-map"></i>
+                <p>
+                 Data Wilayah
+                </p>
+              </a>
+            </li>
          
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -125,6 +134,36 @@
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Riwayat Pemesanan</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                SETTING INFO GRAFIS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('slidebanner.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Slide Banner</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('testimoni.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Testimoni</p>
+                  <span class="badge badge-info right"> 2 </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('setting.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Setting</p>
                 </a>
               </li>
             </ul>

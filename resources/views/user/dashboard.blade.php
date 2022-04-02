@@ -1,6 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.user.main')
 @section('title',' Dashboard')
-@section('title-page', 'Dashboard Admin')
+@section('title-page', 'Dashboard User')
 
 @section('content')
         <!-- Small boxes (Stat box) -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use app\models\UploadTestimoni;
 
 class ClassController extends Controller
 {
@@ -14,7 +15,7 @@ class ClassController extends Controller
 
     public function singleClass() {
         return view('mainWeb.singleClass', [
-            "title" => "Single Class"
+            "title" => "Single Class",
         ]);
     }
 }

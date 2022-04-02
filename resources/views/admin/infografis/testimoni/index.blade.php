@@ -1,11 +1,11 @@
 @extends('layouts.main')
-@section('title',' Tutor')
-@section('title-page', 'Data Tutor')
+@section('title','Info Grafis')
+@section('title-page', 'Testimoni')
 
 @section('content')
 <div class="row">
   <div class="col-12 mb-2">
-    <a class="btn btn" href="{{ route('tutor.create') }}" style="background-color: rgb(253, 152, 1); color: white;"><i class="fas fa-plus p-1"></i>   Tambah Tutor</a>
+    <a class="btn btn" href="{{ route('testimoni.create') }}" style="background-color: rgb(253, 152, 1); color: white;"><i class="fas fa-plus p-1"></i>   Tambah testimoni</a>
   </div>
 </div>
 <div class="row">
@@ -22,29 +22,20 @@
                 <th>No</th>
                 <th>Foto</th>
                 <th>Nama</th>
-                <th>Jenis Kelamin</th>
-                <th>Email</th>
-                <th>Alamat</th>
-                <th>No.Hp</th>
-                <th>Deskripsi</th>
+                <th>Komentar</th>
                 <th width='100'>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($tutors as $tutor)
+              @foreach ($testimonis as $testimoni)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td><img width="150px" src="{{ asset('storage/'.$tutor->foto) }}" alt=""></td>
-                <td>{{ $tutor->name }}</td>
-                <td>{{ $tutor->gender }}</td>
-                <td>{{ $tutor->email }}</td>
-                <td>{{ $tutor->address }}</td>
-                <td>{{ $tutor->contact }}</td>
-                <td>{!! $tutor->description !!}</td>
-          
+                <td><img width="150px" src="{{ asset('storage/'.$testimoni->image_testimoni) }}" alt=""></td>
+                <td>{{ $testimoni->name }}</td>
+                <td>{!! $testimoni->description !!}</td>
                 <td>
-                    <a class="btn btn-sm" href="{{ route('tutor.index') }}/{{ $tutor->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
-                    <form action="{{ route('tutor.index') }}/{{ $tutor->id }}" method="post" class="d-inline">
+                    <a class="btn btn-sm" href="{{ route('testimoni.index') }}/{{ $testimoni->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
+                    <form action="{{ route('testimoni.index') }}/{{ $testimoni->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-sm" onclick="return confirm('Are you sure?') " style="background-color: rgb(252, 0, 0); color: white; display:inline;">Hapus</button>
@@ -59,11 +50,7 @@
               <th>No</th>
               <th>Foto</th>
               <th>Nama</th>
-              <th>Jenis Kelamin</th>
-              <th>Email</th>
-              <th>Alamat</th>
-              <th>No.Hp</th>
-              <th>Deskripsi</th>
+              <th>Komentar</th>
               <th>Aksi</th>
             </tr>
             </tfoot>

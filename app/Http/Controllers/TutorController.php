@@ -57,6 +57,7 @@ class TutorController extends Controller
             'address' => $request->address,
             'email' => $request->email,
             'contact' =>$request->contact,
+            'description' =>$request->description,
             'foto' => $upload
         ]);
         return redirect(route('tutor.index'))->with('success', 'New post has been Added!');

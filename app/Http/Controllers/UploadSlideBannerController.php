@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Wilayah;
-use App\Models\Province;
-use App\Models\Regency;
-use App\Models\District;
-use App\Models\Village;
+use App\Models\UploadSlideBanner;
 use Illuminate\Http\Request;
 
-class WilayahController extends Controller
+class UploadSlideBannerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +14,8 @@ class WilayahController extends Controller
      */
     public function index()
     {
-        return view('admin.wilayah.index', [
-            'provinces' =>  Province::all(),
-            'regencies' =>  Regency::all(),
-            'districts' =>  District::all(),
-            'villages' => Village::all(),
+        return view('admin.infografis.slideBanner.index',[
+            'slidebanners' => UploadSlideBanner::orderBy('updated_at', 'DESC')->get()
         ]);
     }
 
@@ -33,7 +26,7 @@ class WilayahController extends Controller
      */
     public function create()
     {
-        return view('admin.wilayah.formWilayah');
+        return view('admin.infografis.slideBanner.create');
     }
 
     /**
@@ -44,16 +37,24 @@ class WilayahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $upload = $request->file('image_banner')->store('banner-images');
+   
+        UploadSlideBanner::create([
+            'image_banner' => $upload,
+            'description' =>  $request->description
+        ]);
+
+        return redirect(route('slidebanner.index'))->with('success', 'New banner has been Added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Wilayah  $wilayah
+     * @param  \App\Models\UploadSlideBanner  $uploadSlideBanner
      * @return \Illuminate\Http\Response
      */
-    public function show(Wilayah $wilayah)
+    public function show(UploadSlideBanner $uploadSlideBanner)
     {
         //
     }
@@ -61,10 +62,10 @@ class WilayahController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Wilayah  $wilayah
+     * @param  \App\Models\UploadSlideBanner  $uploadSlideBanner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Wilayah $wilayah)
+    public function edit(UploadSlideBanner $uploadSlideBanner)
     {
         //
     }
@@ -73,10 +74,10 @@ class WilayahController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Wilayah  $wilayah
+     * @param  \App\Models\UploadSlideBanner  $uploadSlideBanner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Wilayah $wilayah)
+    public function update(Request $request, UploadSlideBanner $uploadSlideBanner)
     {
         //
     }
@@ -84,10 +85,10 @@ class WilayahController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Wilayah  $wilayah
+     * @param  \App\Models\UploadSlideBanner  $uploadSlideBanner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Wilayah $wilayah)
+    public function destroy(UploadSlideBanner $uploadSlideBanner)
     {
         //
     }

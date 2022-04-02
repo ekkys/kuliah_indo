@@ -20,6 +20,7 @@ class TutorSeeder extends Seeder
             'email' => 'ahmad@gmail.com',
             'address' => 'JL. Pahlawan No.1',
             'contact' => '0897676564',
+            'description' => 'test text area',
         ]);
     
         Tutor::create([
@@ -28,6 +29,7 @@ class TutorSeeder extends Seeder
             'email' => 'nisa@gmail.com',
             'address' => 'JL. Pahlawan No.2',
             'contact' => '08976765645',
+            'description' => 'test text area',
         ]);
     }
 }
