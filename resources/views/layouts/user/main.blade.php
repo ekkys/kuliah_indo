@@ -25,10 +25,13 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
+  <!-- MDB -->
+  <link rel="stylesheet" href="{{ asset('assets/plugins/mdb/mdb.min.css') }}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   @yield('jquery')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -48,7 +51,7 @@
     <!-- /.sidebar -->
     
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper pb-4">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -84,9 +87,9 @@
   <footer class="main-footer">
     <strong>Copyright &copy; 2022 <a href="#">Kuliah ID</a>.</strong>
     All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
+    {{-- <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.03032022
-    </div>
+    </div> --}}
   </footer>
 
   <!-- Control Sidebar -->
@@ -127,6 +130,8 @@
 <script src="{{ asset('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.js') }}"></script>
+<!-- MDB -->
+<script src="{{ asset('assets/plugins/mdb/mdb.min.js') }}"></script>
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
