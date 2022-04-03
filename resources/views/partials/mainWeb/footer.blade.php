@@ -13,19 +13,23 @@
                                     <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" alt="#">
                                 </a>
                             </div>
-                            <p>Merupakan platform untuk mahasiswa agar dapat menimba ilmu lebih dari yang ada.
-                            </p>
-                            <a class="call">1234-5678-9012</a> <br>
-                            <a class="call">1234-5678-9012</a> <br>
-                            <a class="call">1234-5678-9012</a>
+                            {{-- <p>@dd($setting)</p> --}}
+                            {{-- @for($setting)
+                                
+                            <p>{{ $setting->description }}</p>
+                            <a class="call">{{ $setting->address }}</a> <br>
+                            <a class="call">{{ $setting->contact }}</a> <br>
+                            <a class="call">{{ $setting->email }}</a>
                             <ul class="social">
-                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-youtube"></i></a></li>
+                                <li><a href="{{ $setting->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="{{ $setting->instagram }}"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="{{ $setting->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="{{ $setting->linkedin }}"><i class="lni lni-linkedin-original"></i></a></li>
+                                <li><a href="{{ $setting->youtube }}"><i class="lni lni-youtube"></i></a></li>
                             </ul>
-                        </div>
+                            
+                            @endfor --}}
+                         </div>
                         <!-- End Single Widget -->
                     </div>
                     <div class="col-lg-2 col-md-6 col-12">

@@ -179,5 +179,6 @@
     <!-- End Pricing Style 2 Area -->
 
     @include('partials.mainWeb.footer')
+    {{-- @include('partials.mainweb.footer', compact('setting')) --}}
 
 @endsection
