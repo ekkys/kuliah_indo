@@ -22,7 +22,7 @@
 
                                 <div class="form-group">
                                     <label for="name">{{ __('Full Name') }}</label>
-                                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name" autofocus>
                                 </div>
                                 @error('name')
                                     <p role="alert" class="mb-2 pl-3">
@@ -32,7 +32,7 @@
 
                                 <div class="form-group">
                                     <label for="email">{{ __('Email Address') }}</label>
-                                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email">
                                 </div>
                                 @error('email')
                                     <p role="alert" class="mb-2 pl-3">

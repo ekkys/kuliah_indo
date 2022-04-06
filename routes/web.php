@@ -40,9 +40,9 @@ Route::get('/home/siswa/myprofile', [SiswaController::class, 'myProfile']);
 Route::get('/home/siswa/mycourse', [SiswaController::class, 'myCourse']);
 Route::get('/home/siswa/payment', [SiswaController::class, 'payment']);
 Route::get('/home/siswa/changepassword', [SiswaController::class, 'changePassword']);
+Route::get('/invoice', [SiswaController::class, 'invoice']);
 
 /* End Main Web */
-
 
 /* Admin Route */
 Auth::routes();

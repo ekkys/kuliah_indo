@@ -1,8 +1,8 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #1e3135;">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{ asset('assets/dist/img/logo_navbar.jpg') }}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8;">
-      <span class="brand-text font-weight-light">KULIAH ID</span>
+    <a href="{{ url('/') }}" class="brand-link">
+      <img src="{{ asset('mainWeb/images/logo/logo-icon-white.svg') }}" alt="AdminLTE Logo Icon" class="brand-image">
+      <img src="{{ asset('mainWeb/images/logo/logo-text-white.svg') }}" alt="AdminLTE Logo Text" class="brand-text ">
     </a>
 
     <!-- Sidebar  Start-->
