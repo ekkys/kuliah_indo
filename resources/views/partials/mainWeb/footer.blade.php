@@ -13,8 +13,19 @@
                                     <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" alt="#">
                                 </a>
                             </div>
-                            {{-- <p>@dd($setting)</p> --}}
-                            {{-- @for($setting)
+
+                            <a class="call"></a> 
+                            <a class="call"></a> 
+                            <a class="call"></a>
+                            <ul class="social">
+                                <li><a href=""><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href=""><i class="lni lni-instagram"></i></a></li>
+                                <li><a href=""><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href=""><i class="lni lni-linkedin-original"></i></a></li>
+                                <li><a href=""><i class="lni lni-youtube"></i></a></li>
+                            </ul>
+
+                            {{-- @foreach($setting)
                                 
                             <p>{{ $setting->description }}</p>
                             <a class="call">{{ $setting->address }}</a> <br>
@@ -28,7 +39,8 @@
                                 <li><a href="{{ $setting->youtube }}"><i class="lni lni-youtube"></i></a></li>
                             </ul>
                             
-                            @endfor --}}
+                            @endforeach --}}
+
                          </div>
                         <!-- End Single Widget -->
                     </div>
