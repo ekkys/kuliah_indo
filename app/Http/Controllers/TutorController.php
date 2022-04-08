@@ -49,8 +49,10 @@ class TutorController extends Controller
     public function store(StoreTutorRequest $request)
     {
         // dd($request->all());
-        $upload = $request->file('foto')->store('post-images');
        
+        if ($request->file('foto')) {
+            $request->file('foto')->store('tutor-images');
+         }
         Tutor::create([
             'name' => $request->name,
             'gender' => $request->gender,
@@ -58,7 +60,7 @@ class TutorController extends Controller
             'email' => $request->email,
             'contact' =>$request->contact,
             'description' =>$request->description,
-            'foto' => $upload
+            'foto' =>  $request->file('foto')->store('tutor-images')
         ]);
         return redirect(route('tutor.index'))->with('success', 'New post has been Added!');
     }
@@ -103,8 +105,16 @@ class TutorController extends Controller
     public function update(UpdateTutorRequest $request, Tutor $tutor)
     {
         // dd($request->all());
-        $tutor->update($request->all());
-        return redirect(route('tutor.index'))->with('success', 'New post has been Added!');
+        $tutor->update([
+            'name' => $request->name,
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'email' => $request->email,
+            'contact' =>$request->contact,
+            'description' =>$request->description,
+            'foto' =>  $request->file('foto')->store('tutor-images')
+        ]);
+        return redirect(route('tutor.index'))->with('success', 'New post has been Updated!');
     }
 
     /**
