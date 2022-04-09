@@ -37,32 +37,32 @@
                                           </thead>
                                           <tbody>
                                             <tr>
-                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
-                                              <td>Aug 12, 2022 | 09:00</td>
-                                              <td>Aug 12, 2022 | 11:00</td>
-                                              <td>Complete</td>
-                                              <td>Waiting</td>
-                                              <td><a href="#courselink">Link</a></td>
-                                              <td><a href="#certificatelink">Download</a></td>
+                                                 <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
+                                                 <td>Aug 12, 2022 | 09:00</td>
+                                                 <td>Aug 12, 2022 | 11:00</td>
+                                                 <td>Complete</td>
+                                                 <td>Waiting</td>
+                                                 <td><a href="#courselink">Link</a></td>
+                                                 <td><a href="#certificatelink">Download</a></td>
                                             </tr>
                                             <tr>
-                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
-                                              <td>Aug 12, 2022 | 09:00</td>
-                                              <td>Aug 12, 2022 | 11:00</td>
-                                              <td>Complete</td>
-                                              <td>Waiting</td>
-                                              <td><a href="#courselink">Link</a></td>
-                                              <td><a href="#certificatelink">Download</a></td>
-                                            </tr>
-                                            <tr>
-                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
-                                              <td>Aug 12, 2022 | 09:00</td>
-                                              <td>Aug 12, 2022 | 11:00</td>
-                                              <td>Complete</td>
-                                              <td>Waiting</td>
-                                              <td><a href="#courselink">Link</a></td>
-                                              <td><a href="#certificatelink">Download</a></td>
-                                            </tr>
+                                                 <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
+                                                 <td>Apr 3, 2022 | 09:00</td>
+                                                 <td>Apr 17, 2022 | 11:00</td>
+                                                 <td>Complete</td>
+                                                 <td>Session 2</td>
+                                                 <td><a href="#courselink">Link</a></td>
+                                                 <td><a href="#certificatelink">Download</a></td>
+                                               </tr>
+                                               <tr>
+                                                    <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
+                                                    <td>Mar 4, 2022 | 09:00</td>
+                                                    <td>Mar 4, 2022 | 11:00</td>
+                                                    <td>Complete</td>
+                                                    <td>End</td>
+                                                    <td><a href="#courselink">Link</a></td>
+                                                    <td><a href="#certificatelink">Download</a></td>
+                                               </tr>
                                           </tbody>
                                    </table>
                             </div>

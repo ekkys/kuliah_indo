@@ -42,7 +42,10 @@ class KaryawanController extends Controller
     public function store(StoreKaryawanRequest $request)
     {
         // dd($request->all());
-     $upload = $request->file('foto')->store('karyawan-images');
+    
+     if ($request->file('foto')) {
+        $request->file('foto')->store('karyawan-images');
+     }
     
      Karyawan::create([
             'name' => $request->name,
@@ -51,7 +54,7 @@ class KaryawanController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'contact' =>$request->contact,
-            'foto' => $upload,
+            'foto' => $request->file('foto'),
             'description' =>$request->description,
         ]);
     return redirect(route('karyawan.index'))->with('success', 'New Karyawan has been Added!');
@@ -91,8 +94,21 @@ class KaryawanController extends Controller
      */
     public function update(UpdateKaryawanRequest $request, Karyawan $karyawan)
     {
-        // dd($request->all());
-        $karyawan->update($request->all());
+        if ($request->file('foto')) {
+            $request->file('foto')->store('karyawan-images');
+         }
+
+        
+        $karyawan->update([
+            'name' => $request->name,
+            'gender' => $request->gender,
+            'jabatan'=> $request->jabatan,
+            'email' => $request->email,
+            'address' => $request->address,
+            'contact' =>$request->contact,
+            'foto' => $request->file('foto')->store('karyawan-images'),
+            'description' =>$request->description,
+        ]);
         return redirect(route('karyawan.index'))->with('success', 'New post has been Added!');
     }
 

@@ -18,6 +18,9 @@ class SettingController extends Controller
         return view('admin.infografis.profileSetting.index',[
             'settings' => Setting::orderBy('updated_at', 'DESC')->get(),
         ]);
+        // return view('partials.mainWeb.footer',[
+        //     'setting' => Setting::orderBy('updated_at', 'DESC')->get()
+        // ]);
     }
 
     /**

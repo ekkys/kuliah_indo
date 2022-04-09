@@ -33,6 +33,14 @@
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="{{ url('/home/siswa') }}" class="nav-link">
+                <i class="nav-icon fas fa-archive"></i>
+                <p>
+                Dashboard
+                </p>
+              </a>
+            </li>
 
           <li class="nav-header">User</li>
            <li class="nav-item">

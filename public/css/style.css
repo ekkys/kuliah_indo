@@ -221,3 +221,341 @@
         width: 1024px;
     }
 }
+
+.card .card-body .modal-header .close {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+}
+
+.card .card-body .modal-body {
+    background-color: #f4f6f9;
+    border-radius: 1rem;
+}
+
+.card .card-body .modal-body .container-trans {
+    padding: 25px 32px;
+    background-color: #fff;
+    margin-bottom: 8px;
+}
+
+.card .card-body .modal-body .container-trans .body-trans {
+    border-bottom: thin solid #eee;
+    padding: 0px 0px 13px;
+    margin: 0px 0px 12px;
+}
+
+.card .card-body .modal-body .container-trans .body-trans:last-child {
+    border-bottom: none;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .main-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .main-text {
+    display: block;
+    position: relative;
+    font-weight: 400;
+    font-size: 0.857143rem;
+    line-height: 18px;
+    color: rgba(49,53,59,0.68);
+    text-decoration: initial;
+    margin: 0px;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .main-text-desc {
+    display: inline-block;
+    position: relative;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 20px;
+    color: #3d2900;
+    margin: 0px;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card {
+    display: block;
+    position: relative;
+    padding: 0px;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E5E7E9;
+    background-color: #FFFFFF;
+    cursor: default;
+    margin: 0px 0px 8px;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card .product-section {
+    padding: 16px;
+    display: flex;
+    align-items: stretch;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card .product-section .wrapper-product {
+    padding-right: 15px;
+    width: 70%;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card .product-section .wrapper-product .product-info {
+    display: flex;
+    align-items: center;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card .product-section .wrapper-product .product-info img {
+    border-radius: 6px;
+    margin: 0px 13px 0px 0px;
+    width: 50px;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card .product-section .wrapper-price {
+    width: 30%;
+    position: relative;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    border-left: thin dashed #E5E7E9;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card .product-section .wrapper-price .total-price {
+    width: 100%;
+    text-align: right;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card .product-section .wrapper-price .total-price .price-heading {
+    display: block;
+    position: relative;
+    font-weight: 400;
+    font-size: 0.857143rem;
+    line-height: 18px;
+    color: rgba(49,53,59,0.68);
+    text-decoration: initial;
+    margin: 0px 0px 2px;
+}
+
+.card .card-body .modal-body .container-trans .body-trans .product-card .product-section .wrapper-price .total-price .main-price {
+    display: block;
+    position: relative;
+    font-weight: 700;
+    font-family: "Nunito Sans", -apple-system, sans-serif;
+    font-size: 1rem;
+    line-height: 20px;
+    color: rgba(49,53,59,0.96);
+    text-decoration: initial;
+    margin: 0px;
+}
+
+.invoice-container {
+    width: auto;
+    margin: auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+@media screen and (max-width: 430px) {
+    .invoice-container {
+        width: 844px;
+        margin: auto;
+        padding: 20px;
+        max-width: none;
+        transform: scale(0.5) translate(-50%,-47%);
+    }
+}
+
+.invoice-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.invoice-header div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.invoice-header div:last-child h4 {
+    letter-spacing: 2px;
+}
+
+.text-invoice {
+    display: block;
+    position: relative;
+    font-weight: 800;
+    font-family: "Open Sauce One",-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration: initial;
+    margin: 0;
+}
+
+.invoice-header div:last-child span {
+    color: #3d2900;
+    font-size: 0.8571428571428571rem;
+    font-weight: 500;
+}
+
+.invoice-recipient {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: end;
+    margin-bottom: 25px;
+}
+
+.invoice-recipient > div {
+    min-width: 30%;
+    max-width: 40%;
+}
+
+.invoice-recipient .section-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.invoice-recipient .section-wrapper p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.invoice-recipient .section-wrapper .header::before {
+    content: '';
+}
+
+.invoice-recipient .section-wrapper p::before {
+    content: ': ';
+    font-weight: normal;
+}
+
+.invoice-recipient .section-wrapper > span {
+    color: rgba(49,53,59,0.68);
+    line-height: 20px;
+    width: 115px;
+    min-width: 115px;
+    font-size: 0.8571428571428571rem;
+}
+
+.invoice-item .item-header {
+    padding: 18px 16px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    border: 2px solid #31353B;
+    border-left: none;
+    border-right: none;
+}
+
+.invoice-container .course-name {
+    width: 70%;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #31353B;
+    font-size: 14px;
+}
+
+.invoice-container .course-price {
+    width: 30%;
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #31353B;
+    font-size: 14px;
+}
+
+.invoice-item .item-body:last-child {
+    border-bottom: thin solid #e5e7e9;
+}
+
+.item-body .item-product {
+    border-bottom: 1px solid #e5e7e9;
+}
+
+.item-body .item-product:last-child {
+    border-bottom: none;
+}
+
+.item-product .section-product {
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.invoice-container .section-product .course-name .heading {
+    display: inline-block;
+    position: relative;
+    font-weight: 500;
+    line-height: 20px;
+    color: #3d2900;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    text-decoration: none;
+    margin: 0;
+}
+
+.invoice-container .section-product .course-price .heading {
+    display: block;
+    position: relative;
+    font-weight: 400;
+    line-height: 20px;
+    color: #343030;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    text-decoration: initial;
+    margin: 0;
+}
+
+.invoice-price {
+    display: block;
+    margin: 20px 0 20px auto;
+    width: 47%;
+}
+
+.invoice-price .total-amount {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 8px 16px 8px 0px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.invoice-price .total-amount h6 {
+    text-transform: uppercase;
+}
+
+.invoice-price .total-amount h6, .invoice-price .total-amount h5 {
+    color: #343030;
+    font-weight: bold;
+}
+
+.invoice-bottom {
+    display: flex;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding-top: 50px;
+    border-top: 1px solid #e5e7e9;
+}
+
+.invoice-bottom .heading {
+    display: block;
+    position: relative;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    text-decoration: initial;
+    margin: 0;
+    color: rgba(49,53,59,0.96);
+}

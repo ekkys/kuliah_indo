@@ -21,4 +21,8 @@ class SiswaController extends Controller
     public function changePassword() {
         return view('user.password');
     }
+
+    public function invoice() {
+        return view('user.invoice');
+    }
 }
