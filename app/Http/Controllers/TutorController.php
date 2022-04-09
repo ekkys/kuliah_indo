@@ -50,18 +50,21 @@ class TutorController extends Controller
     {
         // dd($request->all());
        
-        if ($request->file('foto')) {
-            $request->file('foto')->store('tutor-images');
-         }
-        Tutor::create([
+        
+         $data = [
             'name' => $request->name,
             'gender' => $request->gender,
             'address' => $request->address,
             'email' => $request->email,
             'contact' =>$request->contact,
-            'description' =>$request->description,
-            'foto' =>  $request->file('foto')->store('tutor-images')
-        ]);
+            'description' =>$request->description
+         ];
+
+         if (!empty($request->file('foto'))) {
+            $data['foto'] = $request->file('foto')->store('tutor-images');
+         }
+
+        Tutor::create($data);
         return redirect(route('tutor.index'))->with('success', 'New post has been Added!');
     }
 
@@ -105,15 +108,20 @@ class TutorController extends Controller
     public function update(UpdateTutorRequest $request, Tutor $tutor)
     {
         // dd($request->all());
-        $tutor->update([
+        $data = [
             'name' => $request->name,
             'gender' => $request->gender,
             'address' => $request->address,
             'email' => $request->email,
             'contact' =>$request->contact,
-            'description' =>$request->description,
-            'foto' =>  $request->file('foto')->store('tutor-images')
-        ]);
+            'description' =>$request->description
+         ];
+
+         if (!empty($request->file('foto'))) {
+            $data['foto'] = $request->file('foto')->store('tutor-images');
+         }
+
+        $tutor->update($data);
         return redirect(route('tutor.index'))->with('success', 'New post has been Updated!');
     }
 
