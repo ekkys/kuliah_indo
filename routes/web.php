@@ -5,17 +5,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ClassController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\TesterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\KaryawanController;
-use App\Http\Controllers\WilayahController;
-use App\Http\Controllers\UploadSlideBannerController;
-use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\WilayahController;
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\UploadTestimoniController;
+use App\Http\Controllers\UploadSlideBannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,14 +31,18 @@ use App\Http\Controllers\SettingController;
 
 
 /* Main Web*/
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class/singleClass', [ClassController::class, 'singleClass']);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/home/siswa/myprofile', [SiswaController::class, 'myProfile']);
+Route::get('/home/siswa/mycourse', [SiswaController::class, 'myCourse']);
+Route::get('/home/siswa/payment', [SiswaController::class, 'payment']);
+Route::get('/home/siswa/changepassword', [SiswaController::class, 'changePassword']);
+Route::get('/invoice', [SiswaController::class, 'invoice']);
 
 /* End Main Web */
-
 
 /* Admin Route */
 Auth::routes();
