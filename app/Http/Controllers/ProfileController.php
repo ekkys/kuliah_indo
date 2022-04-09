@@ -11,7 +11,7 @@ class ProfileController extends Controller
 {
     public function index() {
         return view('mainWeb.profile',[
-            'karyawans' => Karyawan::orderBy('updated_at', 'DESC')->get(),
+            'karyawans' => Karyawan::join('jabatans', 'karyawans.jabatan_id', '=', 'jabatans.id')->select("karyawans.*", "jabatans.name as jabatan_name")->orderBy('updated_at', 'DESC')->get(),
             'testimonis' => UploadTestimoni::orderBy('updated_at', 'DESC')->limit(3)->get(),
             'settings' => Setting::orderBy('updated_at', 'DESC')->get()
         ]);

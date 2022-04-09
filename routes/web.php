@@ -49,9 +49,9 @@ Auth::routes();
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('karyawan', [App\Http\Controllers\HomeController::class, 'karyawan'])->name('karyawan');
-    Route::get('tutor', [App\Http\Controllers\HomeController::class, 'tutor'])->name('tutor');
-    Route::get('siswa', [App\Http\Controllers\HomeController::class, 'siswa'])->name('siswa');
+    // Route::get('karyawan', [App\Http\Controllers\HomeController::class, 'index'])->name('karyawan');
+    // Route::get('tutor', [App\Http\Controllers\HomeController::class, 'index'])->name('tutor');
+    // Route::get('siswa', [App\Http\Controllers\HomeController::class, 'index'])->name('siswa');
 });
 
     Route::resource('/topic', TopicController::class);

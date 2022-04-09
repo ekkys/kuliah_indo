@@ -27,7 +27,7 @@
 <!-- End Banner Area -->
 
 <!-- About Kuliah Indo -->
-<section class="features section bg-white">
+<section class="features section bg-white" id="pricing">
     <img class="shape" src="assets/images/shapes/shape.png" alt="#">
     <div class="container">
         <div class="row">
@@ -121,15 +121,16 @@
             @foreach($testimonis as $testimoni)
             <div class="col-lg-4 col-md-4 col-12">
                 <!-- Start Single Comment s-->
-                <div class="single-comment d-flex align-items-center">
-                    <div>
-                        <blockquote>
+                <div class="single-comment align-items-center" style="height: 375px">
+                    <center>
+                        <div class="image" style="background: url({{ asset('storage/'.$testimoni->image_testimoni) }}); width: 100px; height: 100px; background-size: cover;border-radius: 100px"> </div>
+                        <blockquote class="mt-2">
                             {!! $testimoni->description !!}
                         </blockquote>
                         <div>
                             <h5 class="des">{{ $testimoni->name  }}</h5>
                         </div>
-                    </div>
+                    </center>
                 </div>
                 <!-- End Single Comment s-->
             </div>
@@ -165,7 +166,7 @@
                             <h3>{{ $karyawan->name }} </h3>
                         </div>
                         <div class="position">
-                            <p>{{ $karyawan->jabatan_id }}</p>
+                            <p>{{ $karyawan->jabatan_name }}</p>
                         </div>
                     </div>
                 </div>

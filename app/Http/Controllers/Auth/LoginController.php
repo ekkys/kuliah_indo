@@ -42,21 +42,22 @@ class LoginController extends Controller
     
     protected function authenticated(Request $request, $user)
     {
-
+        
+        return redirect(route('home.home'));
         // dd($user->hasRole('siswa'));
-        if ($user->hasRole('admin')) {
+        // if ($user->hasRole('admin')) {
+            //     return redirect(route('home.home'));
+            
 
-            return redirect(route('home.home'));
+        // }elseif ($user->hasRole('tutor')) {
+        //     return redirect()->route('home.tutor');
 
-        }elseif ($user->hasRole('tutor')) {
-            return redirect()->route('home.tutor');
+        // }elseif ($user->hasRole('karyawan')) {
+        //     return redirect()->route('home.karyawan');
 
-        }elseif ($user->hasRole('karyawan')) {
-            return redirect()->route('home.karyawan');
-
-        }else {
-            return redirect()->route('main');
-        }
+        // }else {
+        //     return redirect()->route('main');
+        // }
     
     }
 }
