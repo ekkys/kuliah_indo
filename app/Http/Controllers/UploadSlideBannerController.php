@@ -67,7 +67,10 @@ class UploadSlideBannerController extends Controller
      */
     public function edit(UploadSlideBanner $uploadSlideBanner)
     {
-        //
+        dd($uploadSlideBanner);
+        return view('admin.infografis.slideBanner.edit',[
+            '$slidebanner' => $uploadSlideBanner
+        ]);
     }
 
     /**

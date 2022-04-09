@@ -33,6 +33,7 @@
                 <td>{!! $slidebanner->description !!}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('slidebanner.index') }}/{{ $slidebanner->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
+                    
                     <form action="{{ route('slidebanner.index') }}/{{ $slidebanner->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
