@@ -17,7 +17,8 @@ class KaryawanController extends Controller
     public function index()
     {
         return view('admin.karyawan.index', [
-            'karyawans' => Karyawan::orderBy('updated_at', 'DESC')->get()
+            // 'karyawans' => Karyawan::orderBy('updated_at', 'DESC')->get()
+            'karyawans' => Karyawan::join('jabatans', 'karyawans.jabatan_id', '=', 'jabatans.id')->select("karyawans.*", "jabatans.name as jabatan_name")->orderBy('updated_at', 'DESC')->get(),
         ]);
     }
 
