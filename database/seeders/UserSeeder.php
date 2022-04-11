@@ -18,6 +18,8 @@ class UserSeeder extends Seeder
     {
         $admin = User::create([
             'name' => 'Admin Role',
+            'phone' => NULL,
+            'biography' => NULL,
             'email' => 'admin@role.test',
             'password' => bcrypt('12345678')
         ]);
@@ -25,6 +27,8 @@ class UserSeeder extends Seeder
 
         $tutor = User ::create([
             'name' => 'Tutor Role',
+            'phone' => NULL,
+            'biography' => NULL,
             'email' => 'tutor@role.test',
             'password' => bcrypt('12345678')
         ]);
@@ -32,6 +36,8 @@ class UserSeeder extends Seeder
 
         $siswa = User ::create([
                 'name' => 'Siswa Role',
+                'phone' => NULL,
+            'biography' => NULL,
                 'email' => 'siswa@role.test',
                 'password' => bcrypt('12345678')
             ]);
@@ -39,6 +45,8 @@ class UserSeeder extends Seeder
         
         $karyawan = User ::create([
                 'name' => 'Karyawan Role',
+                'phone' => NULL,
+                'biography' => NULL,
                 'email' => 'karyawan@role.test',
                 'password' => bcrypt('12345678')
             ]);

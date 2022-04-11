@@ -3,11 +3,11 @@
 @section('title-page', 'Data Wilayah')
 
 @section('content')
-<div class="row">
+{{-- <div class="row">
   <div class="col-12 mb-2">
     <a class="btn btn" href="{{ route('wilayah.create') }}" style="background-color: rgb(253, 152, 1); color: white;"><i class="fas fa-plus p-1"></i>   Tambah wilayah</a>
   </div>
-</div>
+</div> --}}
 <div class="row">
     <div class="col-12">
       <div class="card">

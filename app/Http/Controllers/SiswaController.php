@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SiswaController extends Controller
 {
     public function myProfile() {
-        return view('user.profile');
+        $user = Auth::user();
+        return view('user.profile', ['user' => $user]);
     }
 
     public function myCourse() {

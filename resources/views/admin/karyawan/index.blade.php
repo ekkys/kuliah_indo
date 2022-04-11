@@ -35,7 +35,14 @@
               @foreach ($karyawans as $karyawan)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td><img width="150px" src="{{ asset('storage/'.$karyawan->foto) }}" alt=""></td>
+                <td>
+                    @if ($karyawan->foto)
+                    <img width="150px" src="{{ asset('storage/'.$karyawan->foto) }}" style="d-block">
+                    @else
+                    <img width="150px" src="{{ asset('img/user.jpg') }}" style="d-block">
+
+                    @endif
+                </td>
                 <td>{{ $karyawan->name }}</td>
                 <td>{{ $karyawan->gender }}</td>
                 <td>{{ $karyawan->email }}</td>

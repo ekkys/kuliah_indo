@@ -24,7 +24,7 @@ class UpdateTutorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'foto' => 'image|file|max:1024'
         ];
     }
 }

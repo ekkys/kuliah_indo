@@ -34,7 +34,13 @@
               @foreach ($tutors as $tutor)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td><img width="150px" src="{{ asset('storage/'.$tutor->foto) }}" alt=""></td>
+                <td>
+                  @if ($tutor->foto)
+                  <img width="150px" src="{{ asset('storage/'.$tutor->foto) }}" style="d-block">
+                  @else
+                  <img width="150px" src="{{ asset('img/user.jpg') }}" style="d-block">
+                  @endif
+                </td>
                 <td>{{ $tutor->name }}</td>
                 <td>{{ $tutor->gender }}</td>
                 <td>{{ $tutor->email }}</td>

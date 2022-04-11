@@ -27,7 +27,7 @@
 <!-- End Banner Area -->
 
 <!-- About Kuliah Indo -->
-<section class="features section bg-white">
+<section class="features section bg-white" id="pricing">
     <img class="shape" src="assets/images/shapes/shape.png" alt="#">
     <div class="container">
         <div class="row">
@@ -121,15 +121,16 @@
             @foreach($testimonis as $testimoni)
             <div class="col-lg-4 col-md-4 col-12">
                 <!-- Start Single Comment s-->
-                <div class="single-comment d-flex align-items-center">
-                    <div>
-                        <blockquote>
+                <div class="single-comment align-items-center" style="height: 375px">
+                    <center>
+                        <div class="image" style="background: url({{ asset('storage/'.$testimoni->image_testimoni) }}); width: 100px; height: 100px; background-size: cover;border-radius: 100px"> </div>
+                        <blockquote class="mt-2">
                             {!! $testimoni->description !!}
                         </blockquote>
                         <div>
                             <h5 class="des">{{ $testimoni->name  }}</h5>
                         </div>
-                    </div>
+                    </center>
                 </div>
                 <!-- End Single Comment s-->
             </div>
@@ -165,7 +166,7 @@
                             <h3>{{ $karyawan->name }} </h3>
                         </div>
                         <div class="position">
-                            <p>{{ $karyawan->jabatan_id }}</p>
+                            <p>{{ $karyawan->jabatan_name }}</p>
                         </div>
                     </div>
                 </div>
@@ -318,6 +319,90 @@
 </section>
 <!-- End Team Area -->
 
-@include('partials.mainWeb.footer')
+{{-- @include('partials.mainWeb.footer') --}}
+
+    <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Top -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-about">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" alt="#">
+                                    </a>
+                                </div>
+
+                                @foreach($settings as $setting)
+                                        
+                                    <p>{!! $setting->description !!}</p>
+                                    <a class="call">{{ $setting->address }}</a> <br>
+                                    <a class="call">{{ $setting->contact }}</a> <br>
+                                    <a class="call">{{ $setting->email }}</a>
+                                    <ul class="social">
+                                        <li><a href="{{ $setting->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="{{ $setting->instagram }}"><i class="lni lni-instagram"></i></a></li>
+                                        <li><a href="{{ $setting->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
+                                        <li><a href="{{ $setting->linkedin }}"><i class="lni lni-linkedin-original"></i></a></li>
+                                        <li><a href="{{ $setting->youtube }}"><i class="lni lni-youtube"></i></a></li>
+                                    </ul>
+                                
+                                @endforeach
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Bantuan & Panduan</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Kebijakan Pengembalian</a></li>
+                                    <li><a href="javascript:void(0)">Kebijakan Privasi</a></li>
+                                    <li><a href="javascript:void(0)">Syarat & Ketentuan</a></li>
+                                    <li><a href="javascript:void(0)">Tentang</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Informasi</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Pemesanan Shop</a></li>
+                                    <li><a href="javascript:void(0)">Pemesanan E-Course</a></li>
+                                    <li><a href="javascript:void(0)">Pemesanan Live Training</a></li>
+                                    <li><a href="javascript:void(0)">Pencairan Dana Artikel</a></li>
+                                    <li><a href="javascript:void(0)">Validasi Sertifikat</a></li>
+                                    <li><a href="javascript:void(0)">Klaim Sertifikat Kelas Gratis</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Kerjasama</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Cara Menjadi Penulis</a></li>
+                                    <li><a href="javascript:void(0)">Cara Menjadi Trainer</a></li>
+                                    <li><a href="javascript:void(0)">Program Afiliasi</a></li>
+                                    <li><a href="javascript:void(0)">Partnership</a></li>
+                                    <li><a href="javascript:void(0)">Karir</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Footer Top -->
+    </footer>
+<!--/ End Footer Area -->
 
 @endsection
