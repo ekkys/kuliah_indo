@@ -95,7 +95,12 @@ class PenjadwalanController extends Controller
      */
     public function edit(Penjadwalan $penjadwalan)
     {
-        
+        return view('admin.penjadwalan.edit',[
+            'penjadwalan'=> $penjadwalan,
+            'jabatans' => Jabatan::orderBy('updated_at', 'DESC')->get(),
+            'tutors' => Tutor::orderBy('updated_at', 'DESC')->get(),
+            'topics' => Topic::orderBy('updated_at', 'DESC')->get()
+        ]);
     }
 
     /**
@@ -107,7 +112,25 @@ class PenjadwalanController extends Controller
      */
     public function update(Request $request, Penjadwalan $penjadwalan)
     {
-        //
+        // dd($request);
+        if ($request->file('foto')) {
+            $request->file('foto')->store('class-images');
+         }
+
+  $penjadwalan->update([
+         'title'=> $request->title,
+         'date'=> $request->date,
+         'timestart'=> $request->timestart,
+         'timeend'=> $request->timeend,
+         'tutor'=> $request->tutor,
+         'topic'=> $request->topic,
+         'jabatan'=> $request->jabatan,
+         'price'=> $request->price,
+         'foto'=> $request->file('foto')->store('class-images'),
+         'description'=> $request->description,
+    ]);
+
+         return redirect(route('penjadwalan.index'))->with('success', 'New Jadwal has been Added!');
     }
 
     /**
