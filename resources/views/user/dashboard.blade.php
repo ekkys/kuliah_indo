@@ -3,67 +3,55 @@
 @section('title-page', 'Dashboard User')
 
 @section('content')
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-12">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3>150</h3>
-  
-                  <p>New Orders</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-6 col-md-6 col-12">
-              <!-- small box -->
-              <div class="small-box bg-success">
-                <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-  
-                  <p>Bounce Rate</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-6 col-md-6 col-12">
-              <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>44</h3>
-  
-                  <p>User Registrations</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-6 col-md-6 col-12">
-              <!-- small box -->
-              <div class="small-box bg-danger">
-                <div class="inner">
-                  <h3>65</h3>
-  
-                  <p>Unique Visitors</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-          </div>
+  <div class="col-xl-12">
+    <div class="card mb-0">
+      <div class="card-body">
+        {{-- table --}}
+
+        <div class="table-body">
+          <table border="0" cellspacing="5" cellpadding="5">
+            <tbody>
+              <tr>
+                <td>Filter by Date :</td>
+                <td><input type="text" id="min" name="min" readonly placeholder="Minimum Date"></td>
+                <td><input type="text" id="max" name="max" readonly placeholder="Maximum Date"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-striped" id="example3">
+            <thead>
+              <tr>
+                <th scope="col">Course Name</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Course Progress</th>
+                <th scope="col">Course Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
+                <td>2020/11/28</td>
+                <td>Waiting</td>
+                <td><a href="#courselink">Link</a></td>
+              </tr>
+              <tr>
+                <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
+                <td>2021/10/09</td>
+                <td>Session 2</td>
+                <td><a href="#courselink">Link</a></td>
+              </tr>
+              <tr>
+                <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
+                <td>2022/09/14</td>
+                <td>End</td>
+                <td><a href="#courselink">Link</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {{-- end table --}}
+      </div>
+    </div>
+  </div>
 @endsection

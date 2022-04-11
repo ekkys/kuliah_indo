@@ -186,8 +186,7 @@
 .card .card-body .table td,
 .card .card-body .table th {
     border-bottom: 1px solid rgb(61, 41, 0, 0.05) !important;
-    padding: 1rem;
-    vertical-align: middle;
+    padding-bottom: 10px;
 }
 
 .card .card-body .table td,
@@ -558,4 +557,15 @@
     text-decoration: initial;
     margin: 0;
     color: rgba(49,53,59,0.96);
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #3d2900 !important;
+    background-color: #ffae00 !important;
+    border-color: #ffae00 !important;
+}
+
+.page-link {
+    color: #3d2900 !important;
 }

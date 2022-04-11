@@ -6,24 +6,9 @@
        <div class="col-xl-12">
               <div class="card mb-0">
                      <div class="card-body">
-                            {{-- Seach Bar --}}
-                            <div class="row">
-                                   <div class="search-body col-12 col-lg-4">
-                                          <div class="search-group">
-                                                 <input type="text" class="form-control" placeholder="Type Keywords">
-                                                 <button class="btn-search">
-                                                        <span class="input-group-text" id="basic-addon2">
-                                                               <i class="fas fa-search"></i>
-                                                        </span>
-                                                 </button>
-                                          </div>
-                                   </div>
-                            </div>
-                            {{-- end search bar --}}
-
                             {{-- table --}}
                             <div class="table-body">
-                                   <table class="table table-striped">
+                                   <table class="table table-striped" id="example3">
                                           <thead>
                                             <tr>
                                               <th scope="col">Course Name</th>
