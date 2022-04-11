@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Jabatan;
 use App\Models\Tutor;
 use App\Models\Topic;
+use App\Models\Karyawan;
 
 class PenjadwalanController extends Controller
 {
@@ -18,7 +19,15 @@ class PenjadwalanController extends Controller
     public function index()
     {
         return view('admin.penjadwalan.index',[
-            'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
+            'penjadwalans' => Penjadwalan::join('topics', 'penjadwalans.topic_id', '=', 'topics.id')
+            ->join('tutors', 'penjadwalans.tutor_id', '=', 'tutors.id')
+            ->join('jabatans', 'penjadwalans.jabatan_id', '=', 'jabatans.id')
+            ->select("penjadwalans.*", "topics.name as topic_name","tutors.name as tutor_name", "jabatans.name as jabatan_name")   
+            ->orderBy('updated_at', 'DESC')->get(),
+            
+            // SELECT nama_tabel.fields FROM tabel_utama 
+            // JOIN tabel_pertama ON parameter_join1 
+            // JOIN tabel_kedua ON parameter_join2 
         ]);
     }
 
@@ -86,7 +95,7 @@ class PenjadwalanController extends Controller
      */
     public function edit(Penjadwalan $penjadwalan)
     {
-        //
+        
     }
 
     /**
