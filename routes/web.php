@@ -36,10 +36,10 @@ Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class/singleClass', [ClassController::class, 'singleClass']);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
-Route::get('/home/siswa/myprofile', [SiswaController::class, 'myProfile']);
-Route::get('/home/siswa/mycourse', [SiswaController::class, 'myCourse']);
-Route::get('/home/siswa/payment', [SiswaController::class, 'payment']);
-Route::get('/home/siswa/changepassword', [SiswaController::class, 'changePassword']);
+Route::get('/myprofile', [SiswaController::class, 'myProfile']);
+Route::get('/mycourse', [SiswaController::class, 'myCourse']);
+Route::get('/payment', [SiswaController::class, 'payment']);
+Route::get('/changepassword', [SiswaController::class, 'changePassword']);
 Route::get('/invoice', [SiswaController::class, 'invoice']);
 
 /* End Main Web */

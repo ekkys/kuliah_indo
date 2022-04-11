@@ -34,7 +34,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('/home/siswa') }}" class="nav-link">
+              <a href="{{ url('/home') }}" class="nav-link">
                 <i class="nav-icon fas fa-archive"></i>
                 <p>
                 Dashboard
@@ -44,7 +44,7 @@
 
           <li class="nav-header">User</li>
            <li class="nav-item">
-             <a href="{{ url('/home/siswa/myprofile') }}" class="nav-link">
+             <a href="{{ url('/myprofile') }}" class="nav-link">
                <i class="nav-icon fas fa-user"></i>
                <p>
                User Profile
@@ -54,7 +54,7 @@
 
           <li class="nav-header">Menu</li>
             <li class="nav-item">
-              <a href="{{ url('/home/siswa/mycourse') }}" class="nav-link">
+              <a href="{{ url('/mycourse') }}" class="nav-link">
                 <i class="nav-icon fas fa-book-open"></i>
                 <p>
                 My Course
@@ -62,7 +62,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('/home/siswa/payment') }}" class="nav-link">
+              <a href="{{ url('/payment') }}" class="nav-link">
               <i class="nav-icon fas fa-file-invoice-dollar"></i>
                 <p>
                  Payment
@@ -73,7 +73,7 @@
 
          <li class="nav-header">Setting</li>
            <li class="nav-item">
-             <a href="{{ url('/home/siswa/changepassword') }}" class="nav-link">
+             <a href="{{ url('/changepassword') }}" class="nav-link">
                <i class="nav-icon fas fa-lock"></i>
                <p>
                Change Password

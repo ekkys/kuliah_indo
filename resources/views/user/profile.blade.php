@@ -8,13 +8,19 @@
                      <div class="card-body">
                             <h4 class="card-title">Edit Profile</h4>
                             <p class="card-title-desc">Please input corectly for adjusting the profile data</p>
-                            <form>
+                            <form method="POST" action="">
                                    
                                    <div class="form-group">
                                           <label for="form-photo">
-                                                 <img src="{{ asset('/assets/dist/img/user2-160x160.jpg') }}" class="img-thumbnail mb-4">
+                                                 <div class="photo-wrapper">
+                                                        <img src="{{ asset('/assets/dist/img/user2-160x160.jpg') }}" class="img-thumbnail">
+                                                        <div class="photo-background">
+                                                               <span class="img-text">Change Picture</span>
+                                                        </div>
+                                                 </div>
                                           </label>
                                           <input type="file" class="form-control-file" id="form-photo" style="display: none">
+                                          <input type="hidden" name="id" value="{{ $user->id }}">
                                    </div>
                                    <div class="form-group">
                                           <label for="form-full-name">Full Name</label>
@@ -22,17 +28,17 @@
                                    </div>
                                    <div class="form-group">
                                           <label for="form-email">Email</label>
-                                          <input type="email" class="form-control-plaintext" id="form-email" placeholder="Email" value={{$user->email}} readonly>
+                                          <input type="email" class="form-control-plaintext" id="form-email" placeholder="Email" value="{{$user->email}}" readonly>
                                    </div>
                                    <div class="form-group">
                                           <label for="form-phone">Phone</label>
-                                          <input type="text" class="form-control" id="form-phone" placeholder="Phone" value={{isset($user->phone) ? $user->phone : "" }}>
+                                          <input type="text" class="form-control" id="form-phone" placeholder="Phone" value="{{isset($user->phone) ? $user->phone : "" }}">
                                    </div>
                                    <div class="form-biography mb-4">
                                           <label for="form-biography">Biography</label>
                                           <textarea class="form-control" id="form-biography" rows="3" >{{isset($user->biography) ? $user->phone : "" }}</textarea>
                                    </div>
-                                   <button type="submit" class="btn btn-confirm-form">Submit</button>
+                                   <button type="submit" class="btn-confirm-form">Submit</button>
                             </form>
                      </div>
               </div>
