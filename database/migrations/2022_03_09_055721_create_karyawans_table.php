@@ -21,7 +21,7 @@ class CreateKaryawansTable extends Migration
             $table->string('address');
             $table->string('email');
             $table->string('contact');
-            $table->string('jabatan_id');
+            $table->string('jabatan_id')->default('2');
             $table->string('description');
             $table->string('foto')->nullable();
         });

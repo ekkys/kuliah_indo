@@ -6,6 +6,7 @@ use App\Models\Penjadwalan;
 use Illuminate\Http\Request;
 use App\Models\Jabatan;
 use App\Models\Tutor;
+use App\Models\Topic;
 
 class PenjadwalanController extends Controller
 {
@@ -30,7 +31,8 @@ class PenjadwalanController extends Controller
     {
         return view('admin.penjadwalan.create',[
             'jabatans' => Jabatan::orderBy('updated_at', 'DESC')->get(),
-            'tutors' => Tutor::orderBy('updated_at', 'DESC')->get()
+            'tutors' => Tutor::orderBy('updated_at', 'DESC')->get(),
+            'topics' => Topic::orderBy('updated_at', 'DESC')->get()
         ]);
     }
 
@@ -42,7 +44,27 @@ class PenjadwalanController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
+        if ($request->file('foto')) {
+            $request->file('foto')->store('class-images');
+         }
+
+     Penjadwalan::create([
+         'title'=> $request->title,
+         'date'=> $request->date,
+         'timestart'=> $request->timestart,
+         'timeend'=> $request->timeend,
+         'tutor'=> $request->tutor,
+         'topic'=> $request->topic,
+         'jabatan'=> $request->jabatan,
+         'price'=> $request->price,
+         'foto'=> $request->file('foto')->store('class-images'),
+         'description'=> $request->description,
+    ]);
+
+       
+         return redirect(route('penjadwalan.index'))->with('success', 'New Jadwal has been Added!');
+    
     }
 
     /**
@@ -87,6 +109,7 @@ class PenjadwalanController extends Controller
      */
     public function destroy(Penjadwalan $penjadwalan)
     {
-        //
+        $penjadwalan->delete();
+        return redirect('penjadwalan');
     }
 }

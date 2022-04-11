@@ -32,35 +32,21 @@
                     <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            
                             <div class="form-group">
                                 <label for="name">Judul Kelas</label>
-                                <input type="text" class="form-control form-control-border" id="tittle" name="tittle" required>
+                                <input type="text" class="form-control form-control-border" id="title" name="title" required>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="date">Tanggal</label>
-                                        <input class="form-control" type="text" name="date" value="" />
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="time">Jam Mulai</label>
-                                        <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control"> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="time">Jam Selesai</label>
-                                        <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control"> 
-                                        </div>
-                                    </div>
-                                </div>
-                                
+                            <div class="form-group">
+                                <label for="tutor">Pilih Topic </label>
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border" id="topic" name="topic"  required>
+                                      @foreach ($topics as $topic)
+                                      <option value="{{ $topic->id }}">{{ $topic->name }}</option>    
+                                      @endforeach
+                                    </select>
+                                  </div>
                             </div>
                         </div>
                     </div>
@@ -68,9 +54,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="tutor_id">Pilih Tutor </label>
+                                <label for="tutor">Pilih Tutor </label>
                                 <div class="form-group">
-                                    <select class="custom-select form-control-border" id="tutor_id" name="tutor_id"  required>
+                                    <select class="custom-select form-control-border" id="tutor" name="tutor"  required>
                                       @foreach ($tutors as $tutor)
                                       <option value="{{ $tutor->id }}">{{ $tutor->name }}</option>    
                                       @endforeach
@@ -94,10 +80,35 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="price">Harga Kelas</label>
                                 <input type="text" class="form-control form-control-border" id="price" name="price"  required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="date">Tanggal</label>
+                                        <input class="form-control" type="text" name="date" value="" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="timestart">Jam Mulai</label>
+                                        <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timestart"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="timeend">Jam Selesai</label>
+                                        <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timeend"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -122,7 +133,7 @@
                     <div class="row mb-3 p-2">
                         <div class="col-md-12">
                             <label for="description">Deskripsi</label>
-                            <textarea name="description" id="description" rows="10" cols="80">
+                            <textarea name="description" id="description" rows="10" cols="80" required>
                             </textarea>
                             <script>
                                 CKEDITOR.replace( 'description' );

@@ -22,10 +22,10 @@
                 <th>No</th>
                 <th>Poster kelas</th>
                 <th>Title</th>
+                <th>Topic</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Tutor</th>
-                <th>Topic</th>
                 <th>Jabatan</th>
                 <th>Price</th>
                 <th>Description</th>
@@ -44,12 +44,13 @@
 
                     @endif
                 </td>
-                <td>{{ $penjadwalan->name }}</td>
-                <td>{{ $penjadwalan->gender }}</td>
-                <td>{{ $penjadwalan->email }}</td>
-                <td>{{ $penjadwalan->address }}</td>
-                <td>{{ $penjadwalan->contact }}</td>
-                <td>{{ $penjadwalan->jabatan_id }}</td>
+                <td>{{ $penjadwalan->title }}</td>
+                <td>{{ $penjadwalan->topic_id }}</td>
+                <td>{{ $penjadwalan->date }}</td>
+                <td>{{ $penjadwalan->timestart }}</td>
+                <td>{{ $penjadwalan->timeend }}</td>
+                <td>{{ $penjadwalan->tutor_id }}</td>
+                <td>{{ $penjadwalan->jabatan_name }}</td>
                 <td>{!! $penjadwalan->description !!}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('penjadwalan.index') }}/{{ $penjadwalan->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
@@ -68,10 +69,10 @@
                 <th>No</th>
                 <th>Poster kelas</th>
                 <th>Title</th>
+                <th>Topic</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Tutor</th>
-                <th>Topic</th>
                 <th>Jabatan</th>
                 <th>Price</th>
                 <th>Description</th>

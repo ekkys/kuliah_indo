@@ -18,13 +18,14 @@ class CreatePenjadwalansTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('date');
-            $table->string('time');
-            $table->string('tutor_id');
-            $table->string('topic_id');
-            $table->string('jabatan_id');
+            $table->string('timestart');
+            $table->string('timeend');
+            $table->string('tutor_id')->default('1');
+            $table->string('topic_id')->default('1');
+            $table->string('jabatan_id')->default('2');
             $table->string('price');
             $table->string('foto');
-            $table->string('description');
+            $table->text('description');
         });
     }
 
