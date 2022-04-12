@@ -77,7 +77,7 @@
                                             aria-expanded="false" 
                                             aria-label="Toggle navigation"
                                             >
-                                                <img src="{{ asset('mainWeb/images/team/Foto-Nurika.jpg') }}" 
+                                                <img src="{{ isset($user->picture) ? asset('storage/'.$user->picture) :  asset('assets/dist/img/user2-160x160.jpg') }}" 
                                                 style="width: 40px; height: 40px; border-radius: 50%; object-fit:cover; display: block; border: 2px #fff solid;">
                                             </a>
                                             <ul class="sub-menu collapse" id="profileNavbar">

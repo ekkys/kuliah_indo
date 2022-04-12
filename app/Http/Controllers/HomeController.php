@@ -35,7 +35,7 @@ class HomeController extends Controller
             return view('admin.dashboard');
 
         }else {
-            return view('user.dashboard');
+            return view('user.dashboard', ['user' => $user]);
         }
 
         
@@ -48,6 +48,7 @@ class HomeController extends Controller
         return view('user.dashboard');
     }
     public function siswa(){
-        return view('user.dashboard');
+        $user = Auth::user();
+        return view('user.dashboard', ['user' => $user]);
     }
 }

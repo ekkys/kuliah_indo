@@ -10,7 +10,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        <div style="background: url({{ isset($user->picture) ? asset('storage/'.$user->picture) :  asset('assets/dist/img/user2-160x160.jpg') }}); background-size: cover;" class="photo elevation-2" id="photo"></div>
       </div>
       <div class="info">
         <span class="d-block">{{ Auth::user()->name }}</span>
@@ -44,7 +44,7 @@
 
           <li class="nav-header">User</li>
            <li class="nav-item">
-             <a href="{{ url('/myprofile') }}" class="nav-link">
+             <a href="{{ url('/home/myprofile') }}" class="nav-link">
                <i class="nav-icon fas fa-user"></i>
                <p>
                User Profile
@@ -54,7 +54,7 @@
 
           <li class="nav-header">Menu</li>
             <li class="nav-item">
-              <a href="{{ url('/mycourse') }}" class="nav-link">
+              <a href="{{ url('/home/mycourse') }}" class="nav-link">
                 <i class="nav-icon fas fa-book-open"></i>
                 <p>
                 My Course
@@ -62,7 +62,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('/payment') }}" class="nav-link">
+              <a href="{{ url('/home/payment') }}" class="nav-link">
               <i class="nav-icon fas fa-file-invoice-dollar"></i>
                 <p>
                  Payment
@@ -73,7 +73,7 @@
 
          <li class="nav-header">Setting</li>
            <li class="nav-item">
-             <a href="{{ url('/changepassword') }}" class="nav-link">
+             <a href="{{ url('/home/changepassword') }}" class="nav-link">
                <i class="nav-icon fas fa-lock"></i>
                <p>
                Change Password
