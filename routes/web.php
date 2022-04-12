@@ -42,6 +42,7 @@ Route::post('/home/myprofile', [SiswaController::class, 'updateProfile']);
 Route::get('/home/mycourse', [SiswaController::class, 'myCourse']);
 Route::get('/home/payment', [SiswaController::class, 'payment']);
 Route::get('/home/changepassword', [SiswaController::class, 'changePassword']);
+Route::post('/home/changepassword', [SiswaController::class, 'storePassword']);
 Route::get('/invoice', [SiswaController::class, 'invoice']);
 
 /* End Main Web */

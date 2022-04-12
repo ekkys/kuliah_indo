@@ -10,7 +10,9 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <div style="background: url({{ isset($user->picture) ? asset('storage/'.$user->picture) :  asset('assets/dist/img/user2-160x160.jpg') }}); background-size: cover;" class="photo elevation-2" id="photo"></div>
+        <div class="form-photo thumbnail elevation-2">
+          <div style="background: url({{ isset($user->picture) ? asset('storage/'.$user->picture) :  asset('assets/dist/img/user2-160x160.jpg') }}); background-size: cover;" class="photo" id="photo"></div>
+        </div>
       </div>
       <div class="info">
         <span class="d-block">{{ Auth::user()->name }}</span>
