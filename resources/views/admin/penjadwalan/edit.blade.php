@@ -130,7 +130,7 @@
                         <div class="col-md-6">
                             <label for="preview">Preview Foto</label>
                             @if ($penjadwalan->foto)
-                            <img width="150px" src="{{ asset('storage/'.$penjadwalan->foto) }}" style="d-block">
+                            <img width="150px" src="{{ asset('storage/'.$penjadwalan->foto) }}" class="preview" style="d-block">
                             @endif
                             <img class="img-preview  form-control-border" style="height:auto; width:300px">
                         </div>
@@ -161,6 +161,7 @@
     function previewImage() {
            const image = document.querySelector('#foto');
            const imgPreview = document.querySelector('.img-preview');
+           const preview = document.querySelector('.preview');
            console.log(image);
            console.log(imgPreview);
            imgPreview.style.display = 'block';
@@ -168,6 +169,7 @@
            oFReader.readAsDataURL(image.files[0]);
            oFReader.onload = function (oFREvent) {
                imgPreview.src = oFREvent.target.result;
+               preview.style.display="none";
            }
        }
 </script>
