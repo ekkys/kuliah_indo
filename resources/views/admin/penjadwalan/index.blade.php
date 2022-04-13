@@ -39,7 +39,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                     @if ($penjadwalan->foto)
-                    <img width="150px" src="{{ asset('storage/'.$penjadwalan->foto) }}" style="d-block">
+                    <img width="150px" src="{{ env('FILE_URL').$penjadwalan->foto }}" style="d-block">
                     @else
                     <img width="150px" src="{{ asset('img/user.jpg') }}" style="d-block">
 

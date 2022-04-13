@@ -45,7 +45,7 @@
                         <button class="btn btn-sm" onclick="return confirm('Are you sure?') " style="background-color: rgb(252, 0, 0); color: white; display:inline;">Hapus</button>
                     </form>
                 </td>
-                <td><img width="150px" src="{{ asset('storage/'.$setting->image_profile) }}" alt=""></td>
+                <td><img width="150px" src="{{ env('FILE_URL').$setting->image_profile }}" alt=""></td>
                 <td>{{ $setting->contact }}</td>
                 <td>{{ $setting->gmaps }}</td>
                 <td>{{ $setting->email }}</td>

@@ -102,7 +102,7 @@
                             <span class="promo" style="{{ $penjadwalan->price == '0' ? 'display: inline-block;' : 'display: none;' }}">
                                 <span class="text-promo">Free</span>
                             </span>
-                            <img src="{{ asset('storage/'.$penjadwalan->foto) }}" style="">
+                            <img src="{{ env('FILE_URL').$penjadwalan->foto }}" style="">
                         </div>
                         <div class="text-container">
                             <span class="date"><i class="lni lni-calendar"></i>{{ $penjadwalan->date }}</span>
