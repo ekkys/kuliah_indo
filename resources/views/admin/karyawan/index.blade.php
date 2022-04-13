@@ -48,7 +48,7 @@
                 <td>{{ $karyawan->email }}</td>
                 <td>{{ $karyawan->address }}</td>
                 <td>{{ $karyawan->contact }}</td>
-                <td>{{ $karyawan->jabatan_id }}</td>
+                <td>{{ $karyawan->jabatan_name }}</td>
                 <td>{!! $karyawan->description !!}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('karyawan.index') }}/{{ $karyawan->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>

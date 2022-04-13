@@ -17,6 +17,8 @@ use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
+use App\Http\Controllers\PenjadwalanController;
+use App\Http\Controllers\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,7 @@ Route::get('/class/singleClass', [ClassController::class, 'singleClass']);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/home/siswa/myprofile', [SiswaController::class, 'myProfile']);
+Route::post('/home/siswa/myprofile', [SiswaController::class, 'updateProfile']);
 Route::get('/home/siswa/mycourse', [SiswaController::class, 'myCourse']);
 Route::get('/home/siswa/payment', [SiswaController::class, 'payment']);
 Route::get('/home/siswa/changepassword', [SiswaController::class, 'changePassword']);
@@ -62,5 +65,7 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/slidebanner', UploadSlideBannerController::class);
     Route::resource('/testimoni', UploadTestimoniController::class);
     Route::resource('/setting', SettingController::class);
+    Route::resource('/penjadwalan', PenjadwalanController::class);
+    Route::resource('/student', Student::class);
 
 /* End Admin Route */
