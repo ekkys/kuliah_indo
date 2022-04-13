@@ -15,7 +15,9 @@
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide1">
-                                    <img width="150px" src="{{ asset('storage/'.$slidebanner->image_banner) }}" alt="">
+                                    <!-- <img width="150px" src="{{ asset('storage/'.$slidebanner->image_banner) }}" alt=""> -->
+                                    <!-- <img width="150px" src="{{ url('storage/app/public/'.$slidebanner->image_banner) }}" alt=""> -->
+                                    <img width="150px" src="{{ env('FILE_URL').$slidebanner->image_banner }}" alt="">
                                 </a>
                             </div>
                         </div>
