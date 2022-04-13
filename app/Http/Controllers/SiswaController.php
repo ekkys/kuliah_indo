@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class SiswaController extends Controller
 {
@@ -47,8 +48,12 @@ class SiswaController extends Controller
     }
 
     public function myCourse() {
+        $penjadwalans = DB::table('penjadwalans')->get();
         $user = Auth::user();
-        return view('user.course', ['user' => $user]);
+        return view('user.course', [
+            'user' => $user,
+            'penjadwalans'=> $penjadwalans,
+        ]);
     }
 
     public function payment() {

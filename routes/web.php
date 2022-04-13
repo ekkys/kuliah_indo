@@ -34,7 +34,7 @@ use App\Http\Controllers\PenjadwalanController;
 /* Main Web*/
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/class', [ClassController::class, 'index']);
-Route::get('/class/singleClass', [ClassController::class, 'singleClass']);
+Route::get('/class/singleClass/{id}', [ClassController::class, 'singleClass']);
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/home/myprofile', [SiswaController::class, 'myProfile']);

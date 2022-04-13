@@ -3240,20 +3240,6 @@ max-width: 850px;
   margin-bottom: 30px;
 }
 
-.article .article-wrapper span {
-  font-size: 24px;
-  line-height: 1.6rem;
-  color: #333;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.article .article-wrapper p {
-  font-size: 18px;
-  color: #777;
-  font-weight: lighter;
-}
-
 .add-to-cart {
   display: none;
   overflow: hidden;

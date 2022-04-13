@@ -88,86 +88,47 @@
                 </div>
             </div>
             <div class="row">
+
+                <?php $id = 0; ?>
+                @foreach($penjadwalans as $penjadwalan)
+                @if($id < 3) 
+
+                <!-- Class-->
                 <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Pricing s-->
                     <div class="single-pricing">
                         <div class="image-cover">
-                            <span class="promo">
-                                <span class="text-promo">Sale</span>
+                            <span class="promo" style="{{ $penjadwalan->price == '0' ? 'display: inline-block;' : 'display: none;' }}">
+                                <span class="text-promo">Free</span>
                             </span>
-                            <img src="{{ asset('mainWeb/images/class/class1.webp') }}" style="">
+                            <img src="{{ asset('storage/'.$penjadwalan->foto) }}" style="">
                         </div>
                         <div class="text-container">
-                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
+                            <span class="date"><i class="lni lni-calendar"></i>{{ $penjadwalan->date }}</span>
                             <div class="title-container">
-                                <h3 class="title">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</h3>
+                                <h3 class="title">{{ $penjadwalan->title }}</h3>
                             </div>
                             <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
                             <h3 class="des"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
                             <div class="price-container row">
                                 <div class="col-lg-7 col-md-12">
-                                    <h4 class="price">Rp 499.000</h4>
+                                    <h4 class="price">{{ $penjadwalan->price == '0' ? 'Free' : 'Rp '.number_format($penjadwalan->price) }}</h4>
                                 </div>
-                                <div class="col-lg-5 col-md-12">
+                                <div class="col-lg-5 col-md-12" style="display: none">
                                     <h4 class="old-price">Rp 1.000.000</h4>
                                 </div>
                             </div>
                             <div class="button">
-                                <a class="btn" href="javascript:void(0)">Bergabung</a>
+                                <a class="btn" href="{{ url('/class/singleClass/'.$penjadwalan->id) }}">Bergabung</a>
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Pricing s-->
                 </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Pricing s-->
-                    <div class="single-pricing">
-                        <div class="image-cover">
-                            <img src="{{ asset('mainWeb/images/class/class2.webp') }}" style="">
-                        </div>
-                        <div class="text-container">
-                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
-                            <div class="title-container">
-                                <h3 class="title">Basic Autocad For Beginners</h3>
-                            </div>
-                            <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
-                            <h3 class="des"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
-                            <span class="price-container">
-                                <h4 class="price">Rp 75.000</h4>
-                            </span>
-                            <div class="button">
-                                <a class="btn" href="javascript:void(0)">Bergabung</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Pricing s-->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Start Single Pricing s-->
-                    <div class="single-pricing">
-                        <div class="image-cover">
-                            <span class="promo">
-                                <span class="text-promo">Free</span>
-                            </span>
-                            <img src="{{ asset('mainWeb/images/class/class3.webp') }}" style="">
-                        </div>
-                        <div class="text-container">
-                            <span class="date"><i class="lni lni-calendar"></i> 13 Maret 2020</span>
-                            <div class="title-container">
-                                <h3 class="title">Digital Interior Design & Styling</h3>
-                            </div>
-                            <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
-                            <h3 class="des"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
-                            <span class="price-container">
-                                <h4 class="price">FREE</h4>
-                            </span>
-                            <div class="button">
-                                <a class="btn" href="javascript:void(0)">Bergabung</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Pricing s-->
-                </div>
+                <!-- End Class-->
+
+                <?php $id++; ?>
+                @endif
+                @endforeach
+
                 <!-- Button Tampilkan Lebih Banyak -->
                 <div class="button2">
                     <a class="btn" href="{{ url('/class') }}">Selengkapnya <i class="lni lni-arrow-right"></i></a>

@@ -61,6 +61,7 @@
     <script src="{{ asset('mainWeb/js/jquery-3.2.1.slim.min.js') }}"></script>
     <script src="{{ asset('mainWeb/js/popper.min.js') }}"></script>
     <script src="{{ asset('mainWeb/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets\plugins\autoNumeric\autoNumeric.min.js') }}"></script>
     <script src="{{ asset('mainWeb/js/main.js') }}"></script>
     <script>
         const swiper = new Swiper('.swiper', {
@@ -93,7 +94,13 @@
     <script>
         document.getElementById("mulai").onclick = function(event) {
             document.querySelector('.classes').scrollIntoView()
-        }
+        };
+    </script>
+    <script>
+        new AutoNumeric('#price', {
+            currencySymbol : 'Rp ',
+            digitGroupSeparator : '.',
+        });
     </script>
 </body>
 
