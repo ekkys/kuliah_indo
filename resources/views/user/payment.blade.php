@@ -6,24 +6,9 @@
        <div class="col-xl-12">
               <div class="card mb-0">
                      <div class="card-body">
-                            {{-- Seach Bar --}}
-                            <div class="row">
-                                   <div class="search-body col-12 col-lg-4">
-                                          <div class="search-group">
-                                                 <input type="text" class="form-control" placeholder="Type Keywords">
-                                                 <button class="btn-search">
-                                                        <span class="input-group-text" id="basic-addon2">
-                                                               <i class="fas fa-search"></i>
-                                                        </span>
-                                                 </button>
-                                          </div>
-                                   </div>
-                            </div>
-                            {{-- end search bar --}}
-
                             {{-- table --}}
                             <div class="table-body">
-                                   <table class="table table-striped">
+                                   <table class="table table-striped" id="example3">
                                           <thead>
                                             <tr>
                                               <th scope="col">Order Number</th>
@@ -54,7 +39,70 @@
                                               <td>Aug 12, 2022, 07:06 WIB</td>
                                               <td>Rp 499.000</td>
                                               <td>Waiting</td>
-                                          </tr>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003528254</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003526426</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003524841</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003528254</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003526426</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003524841</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003528254</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003526426</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
+                                              <td>#1003524841</td>
+                                              <td>Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</td>
+                                              <td>Aug 12, 2022, 07:06 WIB</td>
+                                              <td>Rp 499.000</td>
+                                              <td>Waiting</td>
+                                            </tr>
                                           </tbody>
                                    </table>
                             </div>

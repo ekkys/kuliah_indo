@@ -38,7 +38,7 @@
                                                 data-bs-target="#submenu-login"
                                                 aria-expanded="false" aria-label="Toggle navigation">My Profile</a>
                                             <ul class="sub-menu collapse" id="submenu-login">
-                                                <li class="nav-item"><a href="{{ url('/home/siswa') }}">Dashboard</a></li>
+                                                <li class="nav-item"><a href="{{ url('/home') }}">Dashboard</a></li>
                                                 <li class="nav-item">
                                                     <a class="nav-link"  href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
@@ -77,11 +77,11 @@
                                             aria-expanded="false" 
                                             aria-label="Toggle navigation"
                                             >
-                                                <img src="{{ asset('mainWeb/images/team/Foto-Nurika.jpg') }}" 
+                                                <img src="{{ isset($user->picture) ? asset('storage/'.$user->picture) :  asset('assets/dist/img/user2-160x160.jpg') }}" 
                                                 style="width: 40px; height: 40px; border-radius: 50%; object-fit:cover; display: block; border: 2px #fff solid;">
                                             </a>
                                             <ul class="sub-menu collapse" id="profileNavbar">
-                                                <li class="nav-item"><a href="{{ url('/home/siswa') }}"><i class="lni lni-radio-button"></i>Dashboard</a></li>
+                                                <li class="nav-item"><a href="{{ url('/home') }}"><i class="lni lni-radio-button"></i>Dashboard</a></li>
                                                 <li class="nav-item">
                                                     <a class="nav-link"  href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
