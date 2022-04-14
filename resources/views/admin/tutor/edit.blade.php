@@ -25,6 +25,7 @@
                                 <div class="form-group">
                                     <label for="name">Nama </label>
                                     <input type="text" class="form-control form-control-border " id="name" name="name" value="{{ $tutor->name }}"  required>
+                                    <input type="hidden" name="id" value="{{ $tutor->id }}">
                                 </div>
                             </div>
                             <div class="col-md-6">

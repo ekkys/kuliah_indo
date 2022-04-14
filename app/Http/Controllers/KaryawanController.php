@@ -34,6 +34,12 @@ class KaryawanController extends Controller
         ]);
     }
 
+    public function deleteFile($picture){ 
+        if(\Storage::exists($picture)){
+            \Storage::delete($picture);
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -83,7 +89,7 @@ class KaryawanController extends Controller
         return view('admin.karyawan.edit',
          ['karyawan' => $karyawan],
          ['jabatans' => Jabatan::orderBy('updated_at', 'DESC')->get()]
-    );
+        );
     }
 
     /**
@@ -95,21 +101,27 @@ class KaryawanController extends Controller
      */
     public function update(UpdateKaryawanRequest $request, Karyawan $karyawan)
     {
-        if ($request->file('foto')) {
-            $request->file('foto')->store('karyawan-images');
-         }
+        // if ($request->file('foto')) {
+        //     $request->file('foto')->store('karyawan-images');
+        //  }
 
-        
-        $karyawan->update([
+         $query = [
             'name' => $request->name,
             'gender' => $request->gender,
             'jabatan'=> $request->jabatan,
             'email' => $request->email,
             'address' => $request->address,
             'contact' =>$request->contact,
-            'foto' => $request->file('foto')->store('karyawan-images'),
             'description' =>$request->description,
-        ]);
+         ];
+
+        if ($request->file('foto')) {
+            $data = Karyawan::where('id', $request->input('id'))->first();
+            $this->deleteFile($data['foto']);
+            $query['foto'] = $request->file('foto')->store('karyawan-images');
+        }
+        
+        $karyawan->update($query);
         return redirect(route('karyawan.index'))->with('success', 'New post has been Added!');
     }
 

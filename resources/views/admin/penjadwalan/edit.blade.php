@@ -37,6 +37,7 @@
                             <div class="form-group">
                                 <label for="name">Judul Kelas</label>
                                 <input type="text" class="form-control form-control-border" id="title" name="title" value="{{ $penjadwalan->title }}" required>
+                                <input type="hidden" name="id" value="{{ $penjadwalan->id }}">
                             </div>
                         </div>
                         <div class="col-md-6">

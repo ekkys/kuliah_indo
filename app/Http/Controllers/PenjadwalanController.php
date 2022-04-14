@@ -103,6 +103,12 @@ class PenjadwalanController extends Controller
         ]);
     }
 
+    public function deleteFile($picture){ 
+        if(\Storage::exists($picture)){
+            \Storage::delete($picture);
+        }
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -112,25 +118,27 @@ class PenjadwalanController extends Controller
      */
     public function update(Request $request, Penjadwalan $penjadwalan)
     {
+        $query = [
+            'title'=> $request->title,
+            'date'=> $request->date,
+            'timestart'=> $request->timestart,
+            'timeend'=> $request->timeend,
+            'tutor'=> $request->tutor,
+            'topic'=> $request->topic,
+            'jabatan'=> $request->jabatan,
+            'price'=> $request->price,
+            'description'=> $request->description,
+        ];
+
         // dd($request);
         if ($request->file('foto')) {
-            $request->file('foto')->store('class-images');
+            $data = Penjadwalan::where('id', $request->input('id'))->first();
+            $this->deleteFile($data['foto']);
+            $query['foto'] = $request->file('foto')->store('class-images');
          }
 
-  $penjadwalan->update([
-         'title'=> $request->title,
-         'date'=> $request->date,
-         'timestart'=> $request->timestart,
-         'timeend'=> $request->timeend,
-         'tutor'=> $request->tutor,
-         'topic'=> $request->topic,
-         'jabatan'=> $request->jabatan,
-         'price'=> $request->price,
-         'foto'=> $request->file('foto')->store('class-images'),
-         'description'=> $request->description,
-    ]);
-
-         return redirect(route('penjadwalan.index'))->with('success', 'New Jadwal has been Added!');
+        $penjadwalan->update($query);
+        return redirect(route('penjadwalan.index'))->with('success', 'New Jadwal has been Added!');
     }
 
     /**
