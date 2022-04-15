@@ -14,7 +14,7 @@
                         
                             <div class="swiper-slide">
                                     <a href="#slide1">
-                                        <div style="background: url({{ env('FILE_URL').$slidebanner->image_banner }}); background-size: cover;" class="swiper-image"></div>
+                                        <div style="background: url({{ env('FILE_URL').$slidebanner->image_banner }}); background-size: 100%; background-repeat: no-repeat; background-position: center;" class="swiper-image"></div>
                                     </a>
                             </div>
                         

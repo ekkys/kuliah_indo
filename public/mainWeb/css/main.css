@@ -1821,7 +1821,7 @@ ol {
 .swiper-image {
   position: relative;
   width: 1000px;
-  height: 500px;
+  height: 40vh;
   border-radius: 30px;
   text-align: center;
   background-repeat: no-repeat;
@@ -1831,21 +1831,18 @@ ol {
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
   .swiper-image {
     width: 900px;
-    height: 450px;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .swiper-image {
     width: 800px;
-    height: 400px;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .swiper-image {
     width: 700px;
-    height: 350px;
   }
 }
 
@@ -1857,7 +1854,7 @@ ol {
 
   .swiper-image {
     width: 95vw;
-    height: 39vh;
+    height: 25vh;
   }
 }
 
