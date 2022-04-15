@@ -18,6 +18,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
 use App\Http\Controllers\PenjadwalanController;
+use App\Http\Controllers\GlobalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,10 @@ Route::get('/home/payment', [SiswaController::class, 'payment']);
 Route::get('/home/changepassword', [SiswaController::class, 'changePassword']);
 Route::post('/home/changepassword', [SiswaController::class, 'storePassword']);
 Route::get('/invoice', [SiswaController::class, 'invoice']);
+Route::get('/view_email' ,[GlobalController::class, 'mail_view']);
+Route::get('/test_email' ,[GlobalController::class, 'test_email']);
 
+Route::get('/confirmation/{id}' ,[GlobalController::class, 'confirmation']);
 /* End Main Web */
 
 /* Admin Route */

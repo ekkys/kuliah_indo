@@ -42,22 +42,31 @@ class LoginController extends Controller
     
     protected function authenticated(Request $request, $user)
     {
-        
-        return redirect(route('home.home'));
-        // dd($user->hasRole('siswa'));
-        // if ($user->hasRole('admin')) {
-            //     return redirect(route('home.home'));
-            
+        if($user["status"] == 1) {
+            return redirect(route('home.home'));
+        } else {
+            $this->guard()->logout();
+        }
+    }
 
-        // }elseif ($user->hasRole('tutor')) {
-        //     return redirect()->route('home.tutor');
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
 
-        // }elseif ($user->hasRole('karyawan')) {
-        //     return redirect()->route('home.karyawan');
+        $this->clearLoginAttempts($request);
 
-        // }else {
-        //     return redirect()->route('main');
-        // }
+        if($this->guard()->user() && $this->guard()->user()["status"] == 0) {
+            $this->guard()->logout();
+            return view('auth.login', ["status" => true]);
+        } else {
+            if ($response = $this->authenticated($request, $this->guard()->user())) {
+                return $response;
+            }
     
+            return $request->wantsJson()
+                        ? new JsonResponse([], 204)
+                        : redirect()->intended($this->redirectPath());
+        }
+
     }
 }

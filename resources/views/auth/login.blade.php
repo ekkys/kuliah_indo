@@ -23,6 +23,14 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             @enderror
+
+                            @if(isset($status))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <span>Please Check Your Email and Activate Your Account</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
                             <form action="{{ route('login') }}" method="POST">
                                 @csrf
 
