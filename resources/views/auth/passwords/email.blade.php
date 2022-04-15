@@ -17,7 +17,8 @@
                                 <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" class="img-fluid login-logo">
                                 <p class="login-des">Lost your password?</p>
                             </div>
-                            <form action="#" method="POST">
+                            <form action="/reset-password" method="POST">
+                            @csrf
                                 <div class="form-group first last" id="form-group-email">
                                     <label for="email">Email</label>
                                     <input type="email" id="email" class="form-control" name="email" required autocomplete="email" autofocus>

@@ -28,8 +28,6 @@ class SiswaController extends Controller
     }
 
     public function updateProfile(Request $request){
-        
-
         $isian = [
             'name' => $request->input('full-name'),
             'phone' => $request->input('phone'),
