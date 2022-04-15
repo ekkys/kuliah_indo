@@ -25,6 +25,7 @@
                                 <div class="form-group">
                                     <label for="name">Nama </label>
                                     <input type="text" class="form-control form-control-border " id="name" name="name" value="{{ $tutor->name }}"  required>
+                                    <input type="hidden" name="id" value="{{ $tutor->id }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -80,7 +81,7 @@
                             <div class="col-md-6">
                                 <label for="preview" style="width: 100%">Preview Foto</label>
                                 @if ($tutor->foto)
-                                    <img width="150px" src="{{ asset('storage/'.$tutor->foto) }}" class="preview" style="d-block">
+                                    <img width="150px" src="{{ env('FILE_URL').$tutor->foto }}" class="preview" style="d-block">
                                 @endif
                                 <img class="img-preview  form-control-border" style="height:auto; width:300px">
                             </div>

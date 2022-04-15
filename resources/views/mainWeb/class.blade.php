@@ -61,7 +61,7 @@
                             <span class="promo" style="{{ empty($dataKelas->price) ? 'display: inline-block;' : 'display: none;' }}">
                                 <span class="text-promo">Free</span>
                             </span>
-                            <img src="{{ asset('storage/'.$dataKelas->foto) }}" style="">
+                            <img src="{{ env('FILE_URL').$dataKelas->foto }}" style="">
                         </div>
                         <div class="text-container">
                             <div class="category-wrapper">

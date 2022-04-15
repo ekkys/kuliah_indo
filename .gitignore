@@ -16,4 +16,5 @@ yarn-error.log
 /config/app.php
 config/app.php
 .env
-
+*.webp
+.env

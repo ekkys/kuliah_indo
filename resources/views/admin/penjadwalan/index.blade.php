@@ -24,7 +24,8 @@
                 <th>Title</th>
                 <th>Topic</th>
                 <th>Date</th>
-                <th>Time</th>
+                <th>Start Time</th>
+                <th>Finish Time</th>
                 <th>Tutor</th>
                 <th>Jabatan</th>
                 <th>Price</th>
@@ -38,19 +39,20 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                     @if ($penjadwalan->foto)
-                    <img width="150px" src="{{ asset('storage/'.$penjadwalan->foto) }}" style="d-block">
+                    <img width="150px" src="{{ env('FILE_URL').$penjadwalan->foto }}" style="d-block">
                     @else
                     <img width="150px" src="{{ asset('img/user.jpg') }}" style="d-block">
 
                     @endif
                 </td>
                 <td>{{ $penjadwalan->title }}</td>
-                <td>{{ $penjadwalan->topic_id }}</td>
+                <td>{{ $penjadwalan->topic_name }}</td>
                 <td>{{ $penjadwalan->date }}</td>
                 <td>{{ $penjadwalan->timestart }}</td>
                 <td>{{ $penjadwalan->timeend }}</td>
-                <td>{{ $penjadwalan->tutor_id }}</td>
+                <td>{{ $penjadwalan->tutor_name }}</td>
                 <td>{{ $penjadwalan->jabatan_name }}</td>
+                <td>{{ $penjadwalan->price }}</td>
                 <td>{!! $penjadwalan->description !!}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('penjadwalan.index') }}/{{ $penjadwalan->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
@@ -71,7 +73,8 @@
                 <th>Title</th>
                 <th>Topic</th>
                 <th>Date</th>
-                <th>Time</th>
+                <th>Start Time</th>
+                <th>Finish Time</th>
                 <th>Tutor</th>
                 <th>Jabatan</th>
                 <th>Price</th>

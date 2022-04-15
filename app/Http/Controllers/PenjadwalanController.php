@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Jabatan;
 use App\Models\Tutor;
 use App\Models\Topic;
+use App\Models\Karyawan;
 
 class PenjadwalanController extends Controller
 {
@@ -18,7 +19,15 @@ class PenjadwalanController extends Controller
     public function index()
     {
         return view('admin.penjadwalan.index',[
-            'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
+            'penjadwalans' => Penjadwalan::join('topics', 'penjadwalans.topic_id', '=', 'topics.id')
+            ->join('tutors', 'penjadwalans.tutor_id', '=', 'tutors.id')
+            ->join('jabatans', 'penjadwalans.jabatan_id', '=', 'jabatans.id')
+            ->select("penjadwalans.*", "topics.name as topic_name","tutors.name as tutor_name", "jabatans.name as jabatan_name")   
+            ->orderBy('updated_at', 'DESC')->get(),
+            
+            // SELECT nama_tabel.fields FROM tabel_utama 
+            // JOIN tabel_pertama ON parameter_join1 
+            // JOIN tabel_kedua ON parameter_join2 
         ]);
     }
 
@@ -86,7 +95,12 @@ class PenjadwalanController extends Controller
      */
     public function edit(Penjadwalan $penjadwalan)
     {
-        //
+        return view('admin.penjadwalan.edit',[
+            'penjadwalan'=> $penjadwalan,
+            'jabatans' => Jabatan::orderBy('updated_at', 'DESC')->get(),
+            'tutors' => Tutor::orderBy('updated_at', 'DESC')->get(),
+            'topics' => Topic::orderBy('updated_at', 'DESC')->get()
+        ]);
     }
 
     /**
@@ -98,7 +112,27 @@ class PenjadwalanController extends Controller
      */
     public function update(Request $request, Penjadwalan $penjadwalan)
     {
-        //
+        $query = [
+            'title'=> $request->title,
+            'date'=> $request->date,
+            'timestart'=> $request->timestart,
+            'timeend'=> $request->timeend,
+            'tutor'=> $request->tutor,
+            'topic'=> $request->topic,
+            'jabatan'=> $request->jabatan,
+            'price'=> $request->price,
+            'description'=> $request->description,
+        ];
+
+        // dd($request);
+        if ($request->file('foto')) {
+            $data = Penjadwalan::where('id', $request->input('id'))->first();
+            GlobalController::deleteFile($data['foto']);
+            $query['foto'] = $request->file('foto')->store('class-images');
+         }
+
+        $penjadwalan->update($query);
+        return redirect(route('penjadwalan.index'))->with('success', 'New Jadwal has been Added!');
     }
 
     /**

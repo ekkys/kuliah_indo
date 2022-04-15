@@ -15,7 +15,9 @@
                         <div class="swiper-slide">
                             <div class="img-container">
                                 <a href="#slide1">
-                                    <img width="150px" src="{{ asset('storage/'.$slidebanner->image_banner) }}" alt="">
+                                    <!-- <img width="150px" src="{{ asset('storage/'.$slidebanner->image_banner) }}" alt=""> -->
+                                    <!-- <img width="150px" src="{{ url('storage/app/public/'.$slidebanner->image_banner) }}" alt=""> -->
+                                    <img width="150px" src="{{ env('FILE_URL').$slidebanner->image_banner }}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -100,7 +102,7 @@
                             <span class="promo" style="{{ $penjadwalan->price == '0' ? 'display: inline-block;' : 'display: none;' }}">
                                 <span class="text-promo">Free</span>
                             </span>
-                            <img src="{{ asset('storage/'.$penjadwalan->foto) }}" style="">
+                            <img src="{{ env('FILE_URL').$penjadwalan->foto }}" style="">
                         </div>
                         <div class="text-container">
                             <span class="date"><i class="lni lni-calendar"></i>{{ $penjadwalan->date }}</span>
