@@ -65,11 +65,12 @@ class UploadSlideBannerController extends Controller
      * @param  \App\Models\UploadSlideBanner  $uploadSlideBanner
      * @return \Illuminate\Http\Response
      */
-    public function edit(UploadSlideBanner $uploadSlideBanner)
+    public function edit(UploadSlideBanner $uploadSlideBanner, $id)
     {
-        dd($uploadSlideBanner);
+
+        $data = UploadSlideBanner::where('id', $id)->first();
         return view('admin.infografis.slideBanner.edit',[
-            '$slidebanner' => $uploadSlideBanner
+            'slidebanner' => $data
         ]);
     }
 
@@ -91,8 +92,11 @@ class UploadSlideBannerController extends Controller
      * @param  \App\Models\UploadSlideBanner  $uploadSlideBanner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UploadSlideBanner $uploadSlideBanner)
+    public function destroy(UploadSlideBanner $uploadSlideBanner,  $id)
     {
-        //
+       $data = UploadSlideBanner::where('id', $id)->first();
+    
+       $data->delete();
+        return redirect('slidebanner');
     }
 }
