@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
             'biography' => NULL,
             'email' => 'tutor@role.test',
             'password' => bcrypt('12345678')
-        ]);
+            ]);
         $tutor->assignRole('tutor'); 
 
         $siswa = User ::create([
