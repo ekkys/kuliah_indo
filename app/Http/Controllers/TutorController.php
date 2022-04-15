@@ -98,11 +98,11 @@ class TutorController extends Controller
     );
     }
 
-    public function deleteFile($picture){ 
-        if(\Storage::exists($picture)){
-            \Storage::delete($picture);
-        }
-    }
+    // public function deleteFile($picture){ 
+    //     if(\Storage::exists($picture)){
+    //         \Storage::delete($picture);
+    //     }
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -125,7 +125,7 @@ class TutorController extends Controller
 
          if (!empty($request->file('foto'))) {
             $data = Tutor::where('id', $request->input('id'))->first();
-            $this->deleteFile($data['foto']);
+            GlobalController::deleteFile($data['foto']);
             $query['foto'] = $request->file('foto')->store('tutor-images');
          }
 

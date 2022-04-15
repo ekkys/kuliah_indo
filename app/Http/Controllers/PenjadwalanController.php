@@ -103,12 +103,6 @@ class PenjadwalanController extends Controller
         ]);
     }
 
-    public function deleteFile($picture){ 
-        if(\Storage::exists($picture)){
-            \Storage::delete($picture);
-        }
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -133,7 +127,7 @@ class PenjadwalanController extends Controller
         // dd($request);
         if ($request->file('foto')) {
             $data = Penjadwalan::where('id', $request->input('id'))->first();
-            $this->deleteFile($data['foto']);
+            GlobalController::deleteFile($data['foto']);
             $query['foto'] = $request->file('foto')->store('class-images');
          }
 

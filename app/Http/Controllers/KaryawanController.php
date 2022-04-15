@@ -34,12 +34,6 @@ class KaryawanController extends Controller
         ]);
     }
 
-    public function deleteFile($picture){ 
-        if(\Storage::exists($picture)){
-            \Storage::delete($picture);
-        }
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -117,7 +111,7 @@ class KaryawanController extends Controller
 
         if ($request->file('foto')) {
             $data = Karyawan::where('id', $request->input('id'))->first();
-            $this->deleteFile($data['foto']);
+            GlobalController::deleteFile($data['foto']);
             $query['foto'] = $request->file('foto')->store('karyawan-images');
         }
         
