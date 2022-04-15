@@ -96,12 +96,6 @@
             document.querySelector('.classes').scrollIntoView()
         };
     </script>
-    <script>
-        new AutoNumeric('#price', {
-            currencySymbol : 'Rp ',
-            digitGroupSeparator : '.',
-        });
-    </script>
 </body>
 
 </html>
