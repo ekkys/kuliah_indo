@@ -53,6 +53,7 @@ Route::get('/confirmation/{id}' ,[GlobalController::class, 'confirmation']);
 
 /* Admin Route */
 Auth::routes();
+Route::post('/reset-password' ,[GlobalController::class, 'reset_password']);
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

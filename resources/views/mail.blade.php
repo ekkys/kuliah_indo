@@ -11,13 +11,20 @@
         <div style="min-height:auto; width:600px; margin-top: 40px">
             <img src={{ asset('mainWeb/images/logo/logo2.svg') }} style="width:50%" />
             <div style="background:#fff;padding: 30px;margin-top: 20px; text-align:left; border-radius: 5px">
-                <?php //if($type == 1) { ?> 
+                <?php if($type == 1) { ?> 
                     <h1>Hi, {{ !empty($name) ? $name : "-" }}</h1>
                     <p>We would like to thank you for having created a kuliah-indo.id account.</p>
                     <p>From now on, you can connect to kuliah-indo.id  and access all facilities in application kuliah-indo.id </p>
                     <p>Please confirm and activate your account by click this link : <a href="{{env('APP_URL')}}/confirmation/{{!empty($id) ? $id : '1' }}">Link</a></p>
                     <p style="margin-top: 30px">If you want to change your password, <b>dashboard > change password </b></p>
-                <?php //} ?>
+                <?php } else if($type == 2) { ?> 
+                    <h1>Hi, {{ !empty($name) ? $name : "-" }}</h1>
+                    <p>We would like to give you information about your new Jobfair.co.id account.</p>
+                    <p>You can login with following data below</p>
+                    <p>Username : {{ !empty($email) ? $email : "-" }}</p>
+                    <p>Password : {{ !empty($password) ? $password : "-" }}</p>
+                    <p style="margin-top: 30px">If you want to change your password, <b>dashboard > change password </b></p>
+                <?php } ?>
             </div>
         </div>
             <div style="padding-left: 30px;padding-right: 30px;color: #fff;margin-top: 10px; width:550px">

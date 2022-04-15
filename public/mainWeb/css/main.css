@@ -1745,7 +1745,6 @@ ol {
 .hero-area .banner-wrapper {
   width: 100vw;
   height: 90vh;
-  background-image: url('http://localhost:8080/kuliah_indo/public/mainWeb/images/hero/slide1.png');
   text-align: center;
   object-fit: cover;
   background-repeat: no-repeat;
