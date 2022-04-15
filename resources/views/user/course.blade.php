@@ -20,15 +20,27 @@
                                             </tr>
                                           </thead>
                                           <tbody>
-                                            <tr>
-                                              <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
-                                              <td>Aug 12, 2022 | 09:00</td>
-                                              <td>Complete</td>
-                                              <td>Waiting</td>
-                                              <td><a href="#courselink">Link</a></td>
-                                              <td><a href="#certificatelink">Download</a></td>
-                                            </tr>
-                                          </tbody>
+                                          @foreach ($penjadwalans as $penjadwalan)
+                                          <tr>
+                                                 <td><a href="{{ url('/class/singleClass') }}">{{ $penjadwalan->title }}</a></td>
+                                                 <?php 
+                    
+                                                        $date = explode( " - ", $penjadwalan->date);
+                                                        $startDate = str_replace('/', '-', $date[0]);
+                                                        $endDate = str_replace('/', '-', $date[1]);
+                                                        $startTime = $penjadwalan->timestart;
+                                                        $endTime = $penjadwalan->timeend;
+                                                 
+                                                 ?>
+                                                 <td>{{ $penjadwalan->date }}</td>
+                                                 <td>Complete</td>
+                                                 <td>Waiting</td>
+                                                 <td><a href="#courselink">Link</a></td>
+                                                 <td><a href="#certificatelink">Download</a></td>
+                                               </tr>
+                                             </tbody>
+                                                 
+                                          @endforeach
                                    </table>
                             </div>
                             {{-- end table --}}

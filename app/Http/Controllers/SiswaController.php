@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use App\Rules\MatchOldPassword;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\Penjadwalan;
+use App\Rules\MatchOldPassword;
 
 class SiswaController extends Controller
 {
@@ -48,17 +49,19 @@ class SiswaController extends Controller
     }
 
     public function myCourse() {
-        $penjadwalans = DB::table('penjadwalans')->get();
         $user = Auth::user();
         return view('user.course', [
             'user' => $user,
-            'penjadwalans'=> $penjadwalans,
+            'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
         ]);
     }
 
     public function payment() {
         $user = Auth::user();
-        return view('user.payment', ['user' => $user]);
+        return view('user.payment', [
+            'user' => $user,
+            'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
+        ]);
     }
 
     public function changePassword() {
