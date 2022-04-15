@@ -98,6 +98,12 @@ class TutorController extends Controller
     );
     }
 
+    // public function deleteFile($picture){ 
+    //     if(\Storage::exists($picture)){
+    //         \Storage::delete($picture);
+    //     }
+    // }
+
     /**
      * Update the specified resource in storage.
      *
@@ -108,7 +114,7 @@ class TutorController extends Controller
     public function update(UpdateTutorRequest $request, Tutor $tutor)
     {
         // dd($request->all());
-        $data = [
+        $query = [
             'name' => $request->name,
             'gender' => $request->gender,
             'address' => $request->address,
@@ -118,10 +124,12 @@ class TutorController extends Controller
          ];
 
          if (!empty($request->file('foto'))) {
-            $data['foto'] = $request->file('foto')->store('tutor-images');
+            $data = Tutor::where('id', $request->input('id'))->first();
+            GlobalController::deleteFile($data['foto']);
+            $query['foto'] = $request->file('foto')->store('tutor-images');
          }
 
-        $tutor->update($data);
+        $tutor->update($query);
         return redirect(route('tutor.index'))->with('success', 'New post has been Updated!');
     }
 

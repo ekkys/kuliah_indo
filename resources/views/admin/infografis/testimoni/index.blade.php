@@ -30,7 +30,7 @@
               @foreach ($testimonis as $testimoni)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td><img width="150px" src="{{ asset('storage/'.$testimoni->image_testimoni) }}" alt=""></td>
+                <td><img width="150px" src="{{ env('FILE_URL').$testimoni->image_testimoni }}" alt=""></td>
                 <td>{{ $testimoni->name }}</td>
                 <td>{!! $testimoni->description !!}</td>
                 <td>
