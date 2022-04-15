@@ -29,7 +29,7 @@
               @foreach ($slidebanners as $slidebanner)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td><img width="150px" src="{{ asset('storage/'.$slidebanner->image_banner) }}" alt=""></td>
+                <td><img width="150px" src="{{ env('FILE_URL').$slidebanner->image_banner }}" alt=""></td>
                 <td>{!! $slidebanner->description !!}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('slidebanner.index') }}/{{ $slidebanner->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
