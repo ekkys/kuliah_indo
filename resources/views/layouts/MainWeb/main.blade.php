@@ -65,6 +65,48 @@
     <script src="{{ asset('mainWeb/js/main.js') }}"></script>
     <script>
         const swiper = new Swiper('.swiper', {
+            centeredSlides: true,
+            spaceBetween: 30,
+
+            breakpoints: {
+                1700: {
+                    slidesPerView: 1.86,
+                },
+                1600: {
+                    slidesPerView: 1.55,
+                },
+                1500: {
+                    slidesPerView: 1.45,
+                },
+                1400: {
+                    slidesPerView: 1.5,
+                },
+                1366: {
+                    slidesPerView: 1.4,
+                },
+                1199: {
+                    slidesPerView: 1.3,
+                },
+                1100: {
+                    slidesPerView: 1.33,
+                },
+                992: {
+                    slidesPerView: 1.2,
+                },
+                900: {
+                    slidesPerView: 1.23,
+                },
+                850: {
+                    slidesPerView: 1.23,
+                },
+                800: {
+                    slidesPerView: 1.16,
+                },
+                768: {
+                    slidesPerView: 1,
+                },
+            },
+
             // Autoplay
             autoplay: {
                 delay: 3000,
@@ -78,13 +120,6 @@
             pagination: {
                 el: '.swiper-pagination',
             },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-
             // And if we need scrollbar
             scrollbar: {
                 el: '.swiper-scrollbar',

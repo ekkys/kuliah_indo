@@ -8,24 +8,19 @@
             <div class="d-flex justify-content-center">
                 <!-- Caorousel -->
                 <div class="swiper">
-                    <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                        <!-- Slides -->
+
                         @foreach ($slidebanners as $slidebanner)
-                        <div class="swiper-slide">
-                            <div class="img-container">
-                                <a href="#slide1">
-                                    <!-- <img width="150px" src="{{ asset('storage/'.$slidebanner->image_banner) }}" alt=""> -->
-                                    <!-- <img width="150px" src="{{ url('storage/app/public/'.$slidebanner->image_banner) }}" alt=""> -->
-                                    <img width="150px" src="{{ env('FILE_URL').$slidebanner->image_banner }}" alt="">
-                                </a>
+                        
+                            <div class="swiper-slide">
+                                    <a href="#slide1">
+                                        <div style="background: url({{ env('FILE_URL').$slidebanner->image_banner }}); background-size: cover;" class="swiper-image"></div>
+                                    </a>
                             </div>
-                        </div>
+                        
                         @endforeach
 
                     </div>
-                    <div class="swiper-button-prev" style="color: #fff; margin-left: 20px;"></div>
-                    <div class="swiper-button-next" style="color: #fff; margin-right: 20px;"></div>
                 </div>
                 <!-- End Carousel -->
             </div>
