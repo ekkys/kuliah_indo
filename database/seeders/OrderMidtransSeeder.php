@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\OrderMidtrans;
 use Illuminate\Database\Seeder;
 
 class OrderMidtransSeeder extends Seeder
@@ -13,6 +13,6 @@ class OrderMidtransSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\OrderMidtrans::factory(10)->create();
     }
 }

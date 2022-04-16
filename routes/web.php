@@ -19,6 +19,7 @@ use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
 use App\Http\Controllers\PenjadwalanController;
 use App\Http\Controllers\GlobalController;
+use App\Http\Controllers\OrderMidtransController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,6 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/testimoni', UploadTestimoniController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/penjadwalan', PenjadwalanController::class);
-    Route::resource('/student', Student::class);
+    Route::resource('/ordermidtrans', OrderMidtransController::class);
 
 /* End Admin Route */

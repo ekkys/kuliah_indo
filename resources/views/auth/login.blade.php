@@ -15,7 +15,11 @@
                         <div class="col-md-8">
                             <div class="mb-4 login-title">
                                 <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" class="img-fluid login-logo">
+                                @if(isset($message))
+                                <p class="login-des">Hi, Welcome to Kuliah Indo.<br />Sign in to buy the class.</p>
+                                @else
                                 <p class="login-des">Hi, Welcome to Kuliah Indo.<br />Sign in to continue.</p>
+                                @endif
                             </div>
                             @error('email')
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">

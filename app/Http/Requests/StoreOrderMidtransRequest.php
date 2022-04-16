@@ -13,7 +13,7 @@ class StoreOrderMidtransRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
