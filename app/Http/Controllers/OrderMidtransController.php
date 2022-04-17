@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\OrderMidtrans;
+use App\Models\TemporaryOrder;
 use App\Http\Requests\StoreOrderMidtransRequest;
 use App\Http\Requests\UpdateOrderMidtransRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Services\Midtrans\CreateSnapTokenService;
+use App\Services\Midtrans\Midtrans;
 
 class OrderMidtransController extends Controller
 {
@@ -26,12 +29,7 @@ class OrderMidtransController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        if (!$user) {
-           return view('auth.login',[
-               'message' => 'Please login to buy the class'
-           ]);
-        }
+       
     }
 
     /**
@@ -42,6 +40,35 @@ class OrderMidtransController extends Controller
      */
     public function store(StoreOrderMidtransRequest $request)
     {
+        $user = Auth::user();
+        
+        if (empty($user)){
+
+            
+            session_start();
+            $tmp_id = rand(10, 1000);
+            $_SESSION['tmp_id'] = $tmp_id;
+            $data_order = [
+                'user_id' => $tmp_id,
+                'penjadwalan_id' => $request->penjadwalan_id,
+                'purchase_date' => $request->purchase_date,
+                'number' => $request->number,
+                'total_price' => $request->total_price,
+                'payment_status' => $request->payment_status,
+            ];
+
+          $data = [
+                'user_id' => $tmp_id,
+                'order_json' =>  json_encode($data_order)
+          ];
+
+          $test = TemporaryOrder::create($data);
+
+           return view('auth.login',[
+               'message' => 'Please login to buy the course'
+           ]);
+        }
+
         $data_order = [
             'user_id' => $request->user_id,
             'penjadwalan_id' => $request->penjadwalan_id,
@@ -50,9 +77,43 @@ class OrderMidtransController extends Controller
             'total_price' => $request->total_price,
             'payment_status' => $request->payment_status,
         ];
-        OrderMidtrans::create($data_order);
-        return 'ini harusnya ke function show di controller OrderMidtransController';
+        $test = OrderMidtrans::create($data_order);
+     
+        return view('user.detail-order',[
+            'detailOrder' => $test
+        ]);
       
+    }
+
+    public function getInvoice()
+    {
+        //mengembalikan ke halaman pesanan sebelum login
+        session_start();
+        // return json_encode($_SESSION);
+        $data = TemporaryOrder::where('user_id', $_SESSION['tmp_id'])->first();
+        $data_order = json_decode($data['order_json'], true);
+        $data_order['user_id'] = Auth::user()->id;
+        $test = OrderMidtrans::create($data_order);
+        // $delete_tmp = TemporaryOrder::where('user_id', $_SESSION['tmp_id'])->delete();
+        // session_destroy();
+
+        $order_midtrans = OrderMidtrans::where('user_id', Auth::user()->id )->first();
+
+        $snapToken =$order_midtrans->snap_token;
+        if (empty($snapToken)) {
+            // Jika snap token masih NULL, buat token snap dan simpan ke database
+            
+            $midtrans = new CreateSnapTokenService($order_midtrans);
+            $snapToken = $midtrans->getSnapToken();
+ 
+            $order->snap_token = $snapToken;
+            $order->save();
+        }
+
+        return view('user.detail-order',[
+            'detailOrder' => $order_midtrans
+        ]);
+
     }
 
     /**
@@ -61,14 +122,8 @@ class OrderMidtransController extends Controller
      * @param  \App\Models\OrderMidtrans  $orderMidtrans
      * @return \Illuminate\Http\Response
      */
-    public function show(OrderMidtrans $orderMidtrans, $id)
+    public function show(OrderMidtrans $orderMidtrans)
     {
-        $data = OrderMidtrans::where('id', $id)->first();
-       
-        return view('user.order',[
-            'order' => $data
-        ]);
-
         $snapToken =$orderMidtrans->snap_token;
         if (empty($snapToken)) {
             // Jika snap token masih NULL, buat token snap dan simpan ke database

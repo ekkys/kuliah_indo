@@ -50,6 +50,7 @@ Route::get('/view_email' ,[GlobalController::class, 'mail_view']);
 Route::get('/test_email' ,[GlobalController::class, 'test_email']);
 
 Route::get('/confirmation/{id}' ,[GlobalController::class, 'confirmation']);
+Route::get('/order/invoice', [OrderMidtransController::class, 'getInvoice']);
 /* End Main Web */
 
 /* Admin Route */

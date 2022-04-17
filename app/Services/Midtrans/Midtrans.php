@@ -8,7 +8,7 @@
         protected $isProduction;
         protected $isSanitized;
         protected $is3ds;
-    }
+    
 
     public function _construct()
     {
@@ -27,5 +27,6 @@
         Config::$isSanitized = $this->isSanitized;
         Config::$is3ds = $this->is3ds;
     }
+}
     
 ?>

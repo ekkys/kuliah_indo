@@ -70,7 +70,8 @@
             {{-- Bottom Navbar --}}
             <form action="{{ route('ordermidtrans.store') }}" method="post">
                 @csrf
-                <input type="text" name="user_id" value="{{ $user->id }}">
+
+                <input type="text" name="user_id" value="{{ isset($user)? $user->id :'' }}">
                 <input type="text" name="penjadwalan_id" value="{{ $dataKelas->title}}">
                 <input type="text" name="purchase_date" value="16-04-2022">
                 <input type="text" name="total_price" value="{{ $dataKelas->price}}">
