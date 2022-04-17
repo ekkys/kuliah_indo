@@ -55,6 +55,7 @@ Route::get('/order/invoice', [OrderMidtransController::class, 'getInvoice']);
 
 /* Admin Route */
 Auth::routes();
+Route::post('/reset-password' ,[GlobalController::class, 'reset_password']);
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
