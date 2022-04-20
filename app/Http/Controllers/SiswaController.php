@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Penjadwalan;
 use App\Rules\MatchOldPassword;
+use PDF;
 
 class SiswaController extends Controller
 {
@@ -82,5 +83,18 @@ class SiswaController extends Controller
     public function invoice() {
         $user = Auth::user();
         return view('user.invoice', ['user' => $user]);
+    }
+
+    public function certificate($id) {
+        $user = Auth::user();
+        $penjadwalan = Penjadwalan::where('penjadwalans.id', $id)->first();
+        $pdf = PDF::loadview('user.certificate', [
+            'user' => $user,
+            'penjadwalan' => $penjadwalan,
+        ])->setPaper('a4', 'landscape');
+
+        // return $pdf->stream();
+
+        return $pdf->download('certificate.pdf');
     }
 }

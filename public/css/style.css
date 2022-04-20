@@ -623,3 +623,31 @@
 .page-link {
     color: #3d2900 !important;
 }
+
+/* certificate */
+
+.certificate-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cerificate-img {
+    display: inline-block ;
+}
+
+.certificate-id {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding-left: 3px;
+}
+
+.certificate-id span {
+    color: #4f4f4f;
+}
+
+.certificate-id p {
+    font-weight: bold;
+    margin-top: -5px;
+}

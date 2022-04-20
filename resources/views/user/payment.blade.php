@@ -25,7 +25,7 @@
                                               <td>{{ $penjadwalan->title }}</td>
                                               <td>{{ $penjadwalan->date }}</td>
                                               <td>{{ $penjadwalan->price == '0' ? 'Free' : 'Rp '.number_format($penjadwalan->price) }}</td>
-                                              <td>{{  }}</td>
+                                              <td>Complete</td>
                                             </tr>
                                           </tbody>
                                           @endforeach

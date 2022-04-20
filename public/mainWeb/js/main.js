@@ -52,12 +52,12 @@ Author: GrayGrids
     //== Form Input Login 
     $('.form-control').on('input', function() {
         var $field = $(this).closest('.form-group');
-        if (this.value) {
-          $field.addClass('field--not-empty');
+        if (this.value == '') {
+            $field.removeClass('field--not-empty');
         } else {
-          $field.removeClass('field--not-empty');
+            $field.addClass('field--not-empty');
         }
-      });
+    });
 
 
     //== Swiper Team

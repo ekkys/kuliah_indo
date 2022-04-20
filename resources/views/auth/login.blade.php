@@ -34,12 +34,12 @@
                             <form action="{{ route('login') }}" method="POST">
                                 @csrf
 
-                                <div class="form-group" id="form-group-email">
+                                <div class="form-group field--not-empty" id="form-group-email">
                                     <label for="email">{{ __('Email Address') }}</label>
                                     <input type="email" id="email" class="form-control" name="email" required autocomplete="email" autofocus>
                                 </div>
 
-                                <div class="form-group mb-4" id="form-group-password">
+                                <div class="form-group mb-4 field--not-empty" id="form-group-password">
                                     <label for="password" >{{ __('Password') }}</label>
                                     <input type="password" id="password" class="form-control" name="password" required autocomplete="current-password">
                                 </div>
