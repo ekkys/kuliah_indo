@@ -89,8 +89,11 @@ class UploadTestimoniController extends Controller
      * @param  \App\Models\UploadTestimoni  $uploadTestimoni
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UploadTestimoni $uploadTestimoni)
+    public function destroy(UploadTestimoni $uploadTestimoni, $id)
     {
-        //
+        $data = UploadTestimoni::where('id', $id)->first();
+       
+        $data->delete();
+         return redirect('testimoni');
     }
 }

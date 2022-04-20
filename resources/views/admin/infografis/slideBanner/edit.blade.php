@@ -18,6 +18,7 @@
             
                 <form action="{{ route('slidebanner.update', $slidebanner->id ) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
@@ -46,6 +47,7 @@
                             <div class="col-md-12">
                                 <label for="description">Deskripsi</label>
                                 <textarea name="description" id="description" rows="10" cols="80">
+                                    {{ $slidebanner->description }}
                                 </textarea>
                                 <script>
                                     CKEDITOR.replace( 'description' );

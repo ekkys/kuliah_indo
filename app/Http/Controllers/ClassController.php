@@ -40,4 +40,5 @@ class ClassController extends Controller
             "user"=>$user,
         ]);
     }
+    
 }

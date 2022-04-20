@@ -43,7 +43,14 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if($user["status"] == 1) {
-            return redirect(route('home.home'));
+            
+            session_start();
+            if (!empty($_SESSION)) {
+                return redirect('/order/invoice');
+            }else{
+                return redirect(route('home.home'));
+            }
+
         } else {
             $this->guard()->logout();
         }

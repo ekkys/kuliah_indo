@@ -68,21 +68,33 @@
         <div class="container">
 
             {{-- Bottom Navbar --}}
-            <div class="add-to-cart">
-                <div class="container">
-                    <div class="row p-0 m-0 d-flex">
-                        <div class="col-8">
-                            <span class="course-price">{{ $dataKelas->price == '0' ? 'Free' : 'Rp '.number_format($dataKelas->price) }}</span>
-                            <span class="course-old-price" style="display: none">Rp 1.000.000</span>
-                        </div>
-                        <div class="col-4 text-center">
-                            <div class="cart-wrapper">
-                                <button class="add-to-cart-button">Buy Course</button>
+            <form action="{{ route('ordermidtrans.store') }}" method="post">
+                @csrf
+
+                <input type="text" name="user_id" value="{{ isset($user)? $user->id :'' }}">
+                <input type="text" name="penjadwalan_id" value="{{ $dataKelas->title}}">
+                <input type="text" name="purchase_date" value="16-04-2022">
+                <input type="text" name="total_price" value="{{ $dataKelas->price}}">
+                <input type="text" name="number" value="100089">
+                <input type="text" name="payment_status" value="1">
+
+                <div class="add-to-cart">
+                    <div class="container">
+                        <div class="row p-0 m-0 d-flex">
+                            <div class="col-8">
+                                <span class="course-price">{{ $dataKelas->price == '0' ? 'Free' : 'Rp '.number_format($dataKelas->price) }}</span>
+                                <span class="course-old-price" style="display: none">Rp 1.000.000</span>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="cart-wrapper">
+                                    <button type="submit" class="add-to-cart-button"  > Buy Course </button>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
-            </div>
+            </form>
             {{-- End Bottom Navbar --}}
 
             {{-- Description --}}

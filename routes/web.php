@@ -19,6 +19,7 @@ use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
 use App\Http\Controllers\PenjadwalanController;
 use App\Http\Controllers\GlobalController;
+use App\Http\Controllers\OrderMidtransController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::get('/view_email' ,[GlobalController::class, 'mail_view']);
 Route::get('/test_email' ,[GlobalController::class, 'test_email']);
 
 Route::get('/confirmation/{id}' ,[GlobalController::class, 'confirmation']);
+Route::get('/order/invoice', [OrderMidtransController::class, 'getInvoice']);
 /* End Main Web */
 
 /* Admin Route */
@@ -72,6 +74,6 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/testimoni', UploadTestimoniController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/penjadwalan', PenjadwalanController::class);
-    Route::resource('/student', Student::class);
+    Route::resource('/ordermidtrans', OrderMidtransController::class);
 
 /* End Admin Route */

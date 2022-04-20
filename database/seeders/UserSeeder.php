@@ -21,7 +21,8 @@ class UserSeeder extends Seeder
             'phone' => NULL,
             'biography' => NULL,
             'email' => 'admin@role.test',
-            'password' => bcrypt('12345678')
+            'password' => bcrypt('12345678'),
+            'status' => 1
         ]);
         $admin->assignRole('admin');
 
@@ -30,8 +31,9 @@ class UserSeeder extends Seeder
             'phone' => NULL,
             'biography' => NULL,
             'email' => 'tutor@role.test',
-            'password' => bcrypt('12345678')
-        ]);
+            'password' => bcrypt('12345678'),
+            'status' => 1
+            ]);
         $tutor->assignRole('tutor'); 
 
         $siswa = User ::create([
@@ -39,7 +41,8 @@ class UserSeeder extends Seeder
                 'phone' => NULL,
             'biography' => NULL,
                 'email' => 'siswa@role.test',
-                'password' => bcrypt('12345678')
+                'password' => bcrypt('12345678'),
+                'status' => 1
             ]);
         $siswa->assignRole('siswa'); 
         
