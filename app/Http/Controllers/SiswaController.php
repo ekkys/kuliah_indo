@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 use App\Models\User;
 use App\Models\Penjadwalan;
 use App\Rules\MatchOldPassword;
@@ -44,7 +45,7 @@ class SiswaController extends Controller
         }
 
         $test = User::where('id', $request->input('id'))->update($isian);
-        return redirect('/home/myprofile');
+        return redirect('/home/myprofile')->with('success', 'Profile Change Successfuly');
     }
 
     public function myCourse() {
@@ -69,15 +70,24 @@ class SiswaController extends Controller
     }
 
     public function storePassword(Request $request){
-        $request->validate([
-            'form_old_password' => ['required', new MatchOldPassword],
-            'form_new_password' => ['required'],
-            'form_current_password' => ['same:form_new_password'],
-        ]);
 
-        User::find(auth()->user()->id)->update(['password'=>Hash::make($request->form_new_password)]);
+        $hashedPassword = Auth::user()->password;
+        $newPassword = $request->input('newPassword');
+        $currentPassword = $request->input('currentPassword');
 
-        return redirect('/home');
+        if($newPassword == $currentPassword) {
+            if(Hash::check($request->oldPassword, $hashedPassword)) {
+                $user = User::find(Auth::id());
+                $user->password = Hash::make($request->newPassword);
+                $user->save();
+                Auth::logout();
+                return redirect()->route('login')->with('success', 'Password is Change Successfuly');
+            } else {
+                return redirect()->back()->with('error', 'Old Password is Invalid');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Confirm password does not match');
+        }
     }
 
     public function invoice() {

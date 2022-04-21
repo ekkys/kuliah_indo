@@ -78,7 +78,7 @@
                 <input type="text" name="number" value="100089">
                 <input type="text" name="payment_status" value="1">
 
-                <div class="add-to-cart">
+                <div class="add-to-cart" style="display: flex;">
                     <div class="container">
                         <div class="row p-0 m-0 d-flex">
                             <div class="col-8">

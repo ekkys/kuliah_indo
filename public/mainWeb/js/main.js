@@ -32,12 +32,12 @@ Author: GrayGrids
         }
 
         // show or hide the price and buy button
-        var addToCart = document.querySelector(".add-to-cart");
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            addToCart.style.display = "flex";
-        } else {
-            addToCart.style.display = "none";
-        }
+        // var addToCart = document.querySelector(".add-to-cart");
+        // if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+        //     addToCart.style.display = "flex";
+        // } else {
+        //     addToCart.style.display = "none";
+        // }
 
     };
 
