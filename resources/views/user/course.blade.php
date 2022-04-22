@@ -35,7 +35,11 @@
                                                  <td>{{ $penjadwalan->date }}</td>
                                                  <td>Complete</td>
                                                  <td>Waiting</td>
-                                                 <td><a href="#courselink">Link</a></td>
+                                                 <td>
+                                                        <span style="display: block;">
+                                                               <a href="#courselink">Link</a>
+                                                        </span>
+                                                 </td>
                                                  <td><a href="{{ url('/certificate/'.$penjadwalan->id) }}">Download</a></td>
                                                </tr>
                                              </tbody>
