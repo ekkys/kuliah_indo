@@ -68,15 +68,13 @@
         <div class="container">
 
             {{-- Bottom Navbar --}}
-            <form action="{{ route('ordermidtrans.store') }}" method="post">
+            <form action="#" method="post" id="order_course_form">
                 @csrf
 
-                <input type="text" name="user_id" value="{{ isset($user)? $user->id :'' }}">
-                <input type="text" name="penjadwalan_id" value="{{ $dataKelas->title}}">
-                <input type="text" name="purchase_date" value="16-04-2022">
-                <input type="text" name="total_price" value="{{ $dataKelas->price}}">
-                <input type="text" name="number" value="100089">
-                <input type="text" name="payment_status" value="1">
+                <input type="text" name="user_id" id="user_id" value="{{ isset($user)? $user->id :'' }}">
+                <input type="text" name="penjadwalan_id" id="penjadwalan_id" value="{{ $dataKelas->title}}">
+                <input type="date" name="purchase_date" id="purchase_date" value="">
+                <input type="text" name="amount" id="amount" value="{{ $dataKelas->price}}">
 
                 <div class="add-to-cart" style="display: flex;">
                     <div class="container">
@@ -109,4 +107,47 @@
 
     @include('partials.mainWeb.footer')
 
+
+    <script src="{{
+        !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}"
+        data-client-key="{{ config('services.midtrans.clientKey')
+    }}"></script>
+
+<script>
+    $("#order_course_form").submit(function(event) {
+        event.preventDefault();
+
+        $.post("/api/order_course", {
+            _method: 'POST',
+            _token: '{{ csrf_token() }}',
+            user_id: $('input#user_id').val(),
+            penjadwalan_id: $('input#penjadwalan_id').val(),
+            penjadwalan_id: $('input#penjadwalan_id').val(),
+            donation_type: $('select#donation_type').val(),
+            amount: $('input#amount').val(),
+        },
+
+        function (data, status) {
+            console.log(data);
+            snap.pay(data.snap_token, {
+                // Optional
+                onSuccess: function (result) {
+                    console.log(JSON.stringify(result, null, 2));
+                    location.replace('/');
+                },
+                // Optional
+                onPending: function (result) {
+                    console.log(JSON.stringify(result, null, 2));
+                    location.replace('/');
+                },
+                // Optional
+                onError: function (result) {
+                    console.log(JSON.stringify(result, null, 2));
+                    location.replace('/');
+                }
+            });
+            return false;
+        });
+    })
+</script>
 @endsection

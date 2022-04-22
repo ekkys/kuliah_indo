@@ -18,12 +18,11 @@ class CreateOrderMidtransTable extends Migration
             $table->timestamps();
             $table->string('penjadwalan_id')->nullable();
             $table->string('user_id')->nullable();
-            $table->string('number',16);
+            $table->string('transaction_id')->unique();
             $table->string('purchase_date');
-            $table->decimal('total_price', 10, 2);
-            $table->enum('payment_status', ['1', '2', '3', '4'])->comment('1=menunggu pembayaran, 2=sudah dibayar, 3=kadaluarsa, 4=batal');
-            $table->string('snap_token', 36)->nullable();
-
+            $table->decimal('amount', 20, 2)->default(0);
+            $table->string('status')->default('pending');
+            $table->string('snap_token')->nullable();
         });
     }
 
