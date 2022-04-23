@@ -18,9 +18,9 @@ class CreateOrderMidtransTable extends Migration
             $table->timestamps();
             $table->string('penjadwalan_id')->nullable();
             $table->string('user_id')->nullable();
-            $table->string('transaction_id')->default(0);;
+            $table->string('transaction_id')->unique();
             $table->string('purchase_date');
-            $table->decimal('amount', 20, 2)->default(0);;
+            $table->decimal('amount', 20, 2)->default(0);
             $table->string('status')->default('pending');
             $table->string('snap_token')->nullable();
         });
