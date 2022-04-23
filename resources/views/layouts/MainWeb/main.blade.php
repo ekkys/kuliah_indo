@@ -102,6 +102,7 @@
             digitGroupSeparator : '.',
         });
     </script>
+   
 </body>
 
 </html>

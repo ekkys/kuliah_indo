@@ -68,15 +68,15 @@
         <div class="container">
 
             {{-- Bottom Navbar --}}
-            <form action="{{ route('ordermidtrans.store') }}" method="post">
+            <form action="#">
                 @csrf
 
-                <input type="text" name="user_id" value="{{ isset($user)? $user->id :'' }}">
-                <input type="text" name="penjadwalan_id" value="{{ $dataKelas->title}}">
-                <input type="text" name="purchase_date" value="16-04-2022">
-                <input type="text" name="total_price" value="{{ $dataKelas->price}}">
-                <input type="text" name="number" value="100089">
-                <input type="text" name="payment_status" value="1">
+                <input type="text" name="user_id" id="user_id" value="{{ isset($user)? $user->id :'' }}">
+                <input type="text" name="penjadwalan_id" id="penjadwalan_id" value="{{ $dataKelas->title}}">
+                <input type="date" name="purchase_date" id="tanggal">
+                <input type="text" name="amount" id="amount" value="{{ $dataKelas->price}}">
+                <input type="text" name="transaction_id" id="transaction_id" value="100089">
+                <input type="text" name="status" id="status" value="pending">
 
                 <div class="add-to-cart">
                     <div class="container">
@@ -87,7 +87,7 @@
                             </div>
                             <div class="col-4 text-center">
                                 <div class="cart-wrapper">
-                                    <button type="submit" class="add-to-cart-button"  > Buy Course </button>
+                                    <button onclick="order()" class="add-to-cart-button" > Buy Course </button>
                                 </div>
                             </div>
                         </div>
@@ -108,5 +108,62 @@
     <!-- End Single Post Article -->
 
     @include('partials.mainWeb.footer')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script>
+    
+      
+      //arahkan route store kesini
+      
+        var user_id = document.getElementById('user_id').value;
+        var penjadwalan_id = document.getElementById('penjadwalan_id').value;
+        var transaction_id = document.getElementById('transaction_id').value;
+        var tanggal = document.getElementById('tanggal').value;
+        var amount = document.getElementById('amount').value;
+        var status = document.getElementById('status').value;
+
+        function order() {
+        console.log('user id : ', user_id);
+        console.log('Jadwal id :', penjadwalan_id);
+        console.log('Transaction :', transaction_id);
+        console.log('Date :', $('#tanggal').val());
+        console.log('Amount :', amount);
+        console.log('Status :', status);
+        }
+
+      $.post("/kuliah_indo/order_course", {
+                _method: 'POST',
+                _token: '{{ csrf_token() }}',
+                user_id:user_id,
+                penjadwalan_id:penjadwalan_id,
+                transaction_id:transaction_id,
+                tanggal:$('#tanggal').val(),
+                amount:amount,
+                status:status
+            },
+
+            function (data, status) {
+                console.log(data);
+                snap.pay(data.snap_token, {
+                    // Optional
+                    onSuccess: function (result) {
+                        console.log(JSON.stringify(result, null, 2));
+                        location.replace('/');
+                    },
+                    // Optional
+                    onPending: function (result) {
+                        console.log(JSON.stringify(result, null, 2));
+                        location.replace('/');
+                    },
+                    // Optional
+                    onError: function (result) {
+                        console.log(JSON.stringify(result, null, 2));
+                        location.replace('/');
+                    }
+                });
+                return false;
+            });
+
+    </script>
 
 @endsection

@@ -12,6 +12,18 @@ use App\Services\Midtrans\Midtrans;
 
 class OrderMidtransController extends Controller
 {
+    
+    function  __construct(){
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-9UHynRdCx--4wTvimrJSSALQ';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -52,10 +64,12 @@ class OrderMidtransController extends Controller
                 'user_id' => $tmp_id,
                 'penjadwalan_id' => $request->penjadwalan_id,
                 'purchase_date' => $request->purchase_date,
-                'number' => $request->number,
-                'total_price' => $request->total_price,
-                'payment_status' => $request->payment_status,
+                'transaction_id' => \Str::uuid(),
+                'amount' => $request->amount,
+                'status' => $request->status,
             ];
+
+           
 
           $data = [
                 'user_id' => $tmp_id,
@@ -73,10 +87,13 @@ class OrderMidtransController extends Controller
             'user_id' => $request->user_id,
             'penjadwalan_id' => $request->penjadwalan_id,
             'purchase_date' => $request->purchase_date,
-            'number' => $request->number,
-            'total_price' => $request->total_price,
-            'payment_status' => $request->payment_status,
+            'transaction_id' => $request->transaction_id,
+            'amount' => $request->amount,
+            'status' => $request->status,
         ];
+
+        return $data_order; 
+        
         $test = OrderMidtrans::create($data_order);
      
         return view('user.detail-order',[
