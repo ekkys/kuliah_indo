@@ -166,4 +166,47 @@
 
     </script>
 
+
+    <script src="{{
+        !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}"
+        data-client-key="{{ config('services.midtrans.clientKey')
+    }}"></script>
+
+<script>
+    $("#order_course_form").submit(function(event) {
+        event.preventDefault();
+
+        $.post("/api/order_course", {
+            _method: 'POST',
+            _token: '{{ csrf_token() }}',
+            user_id: $('input#user_id').val(),
+            penjadwalan_id: $('input#penjadwalan_id').val(),
+            penjadwalan_id: $('input#penjadwalan_id').val(),
+            donation_type: $('select#donation_type').val(),
+            amount: $('input#amount').val(),
+        },
+
+        function (data, status) {
+            console.log(data);
+            snap.pay(data.snap_token, {
+                // Optional
+                onSuccess: function (result) {
+                    console.log(JSON.stringify(result, null, 2));
+                    location.replace('/');
+                },
+                // Optional
+                onPending: function (result) {
+                    console.log(JSON.stringify(result, null, 2));
+                    location.replace('/');
+                },
+                // Optional
+                onError: function (result) {
+                    console.log(JSON.stringify(result, null, 2));
+                    location.replace('/');
+                }
+            });
+            return false;
+        });
+    })
+</script>
 @endsection

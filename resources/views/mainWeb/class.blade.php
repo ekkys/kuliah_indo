@@ -4,7 +4,7 @@
 
     <section class="hero-area" style="padding: 0px;">
         <div class="container-fuild" style="padding: 0; margin: 0">
-            <div class="banner-wrapper">
+            <div class="banner-wrapper" style="background-image: url('{{ asset('mainWeb/images/hero/slide1.png')}}');">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-lg-6 align-self-center">

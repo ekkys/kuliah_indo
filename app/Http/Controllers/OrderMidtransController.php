@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace App\Service\Midtrans;
 
+use File;
 use App\Models\OrderMidtrans;
 use App\Models\TemporaryOrder;
 use App\Http\Requests\StoreOrderMidtransRequest;
 use App\Http\Requests\UpdateOrderMidtransRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Midtrans\CreateSnapTokenService;
-use App\Services\Midtrans\Midtrans;
 
 class OrderMidtransController extends Controller
 {
@@ -52,10 +53,7 @@ class OrderMidtransController extends Controller
      */
     public function store(StoreOrderMidtransRequest $request)
     {
-        $user = Auth::user();
-        
-        if (empty($user)){
-
+            $user = Auth::user();
             
             session_start();
             $tmp_id = rand(10, 1000);

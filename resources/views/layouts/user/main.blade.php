@@ -209,33 +209,30 @@
   });
 </script>
 <script>
-  const imgDiv = document.querySelector('.form-photo');
-  const img = document.querySelector('#photo');
-  const file = document.querySelector('#form-photo');
-  const uploadBtn = document.querySelector('#uploadBtn');
+  $(document).ready(function(){
 
-  imgDiv.addEventListener('mouseenter', function() {
-    uploadBtn.style.display = "block";
-  });
+    $('.form-photo').mouseenter(() => {
+      $('#uploadBtn').css("display", "block");
+    });
 
-  imgDiv.addEventListener('mouseleave', function() {
-    uploadBtn.style.display = "none";
-  });
+    $('.form-photo').mouseleave(() => {
+      $('#uploadBtn').css("display", "none");
+    });
+    
+    $("#form-photo").on('change', function(){
 
-  file.addEventListener('change', function(){
-    const choosedFile = this.files [0];
+      if (this.files[0]) {
+        var reader = new FileReader();
 
-    if (choosedFile) {
-      const reader = new FileReader();
+        reader.onload = function (e) {
+            $('#photo_t').css('background', 'url('+e.target.result+')');
+            $('#photo_t').css('background-size', 'cover');
+        }
+        reader.readAsDataURL(this.files[0]);
+      }
 
-      reader.addEventListener('load', function(){
-        img.style.background = "url("+reader.result+")";
-        img.style.backgroundSize = "cover";
-      });
+    });
 
-      reader.readAsDataURL(choosedFile);
-
-    }
   });
 </script>
 @yield('script')
