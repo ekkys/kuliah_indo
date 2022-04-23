@@ -73,9 +73,9 @@
 
                 <input type="text" name="user_id" id="user_id" value="{{ isset($user)? $user->id :'' }}">
                 <input type="text" name="penjadwalan_id" id="penjadwalan_id" value="{{ $dataKelas->title}}">
-                <input type="date" name="purchase_date" id="tanggal">
+                <input type="date" name="tanggal_order" id="tanggal_order" value="{{ date('Y-m-d') }}">
                 <input type="text" name="amount" id="amount" value="{{ $dataKelas->price}}">
-                <input type="text" name="transaction_id" id="transaction_id" value="100089">
+                <input type="text" name="transaction_id" id="transaction_id" value={{rand(10,10000)}}>
                 <input type="text" name="status" id="status" value="pending">
 
                 <div class="add-to-cart">
@@ -118,7 +118,7 @@
         var user_id = document.getElementById('user_id').value;
         var penjadwalan_id = document.getElementById('penjadwalan_id').value;
         var transaction_id = document.getElementById('transaction_id').value;
-        var tanggal = document.getElementById('tanggal').value;
+        var tanggal = document.getElementById('tanggal_order').value;
         var amount = document.getElementById('amount').value;
         var status = document.getElementById('status').value;
 
@@ -126,7 +126,7 @@
         console.log('user id : ', user_id);
         console.log('Jadwal id :', penjadwalan_id);
         console.log('Transaction :', transaction_id);
-        console.log('Date :', $('#tanggal').val());
+        console.log('Date :', $('#tanggal_order').val());
         console.log('Amount :', amount);
         console.log('Status :', status);
         }
@@ -137,7 +137,7 @@
                 user_id:user_id,
                 penjadwalan_id:penjadwalan_id,
                 transaction_id:transaction_id,
-                tanggal:tanggal,
+                purchase_date:tanggal,
                 amount:amount,
                 status:status
             },

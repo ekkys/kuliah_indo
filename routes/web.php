@@ -51,6 +51,7 @@ Route::get('/test_email' ,[GlobalController::class, 'test_email']);
 
 Route::get('/confirmation/{id}' ,[GlobalController::class, 'confirmation']);
 Route::get('/order/invoice', [OrderMidtransController::class, 'getInvoice']);
+Route::post('/order_course', [GlobalController::class, 'order_midtrans']);
 /* End Main Web */
 
 /* Admin Route */
@@ -74,7 +75,6 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/setting', SettingController::class);
     Route::resource('/penjadwalan', PenjadwalanController::class);
 
-    Route::post('/order_course', [OrderMidtransController::class, 'store']);
     Route::resource('/ordermidtrans', OrderMidtransController::class);
 
 /* End Admin Route */
