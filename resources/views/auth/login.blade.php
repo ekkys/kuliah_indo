@@ -21,6 +21,13 @@
                                 <p class="login-des">Hi, Welcome to Kuliah Indo.<br />Sign in to continue.</p>
                                 @endif
                             </div>
+
+                            <?php if(isset($_REQUEST['msg']) && $_REQUEST['msg'] == 'login_false') { ?>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <span>Sign in to buy course</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            <?php } ?>
                             @error('email')
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <span>Wrong Email or Password</span>
@@ -37,7 +44,6 @@
 
                             <form action="{{ route('login') }}" method="POST">
                                 @csrf
-
                                 <div class="form-group" id="form-group-email">
                                     <label for="email">{{ __('Email Address') }}</label>
                                     <input type="email" id="email" class="form-control" name="email" required autocomplete="email" autofocus>

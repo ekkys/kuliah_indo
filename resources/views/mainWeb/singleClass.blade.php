@@ -109,7 +109,9 @@
 
     @include('partials.mainWeb.footer')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+    <script src="{{
+        !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}"
+        data-client-key="{{ config('services.midtrans.clientKey')}}"></script>
     <script>
     
       
@@ -144,24 +146,28 @@
 
             function (data, status) {
                 console.log(data);
-                snap.pay(data.snap_token, {
-                    // Optional
-                    onSuccess: function (result) {
-                        console.log(JSON.stringify(result, null, 2));
-                        location.replace('/');
-                    },
-                    // Optional
-                    onPending: function (result) {
-                        console.log(JSON.stringify(result, null, 2));
-                        location.replace('/');
-                    },
-                    // Optional
-                    onError: function (result) {
-                        console.log(JSON.stringify(result, null, 2));
-                        location.replace('/');
-                    }
-                });
-                return false;
+                if(data.is_login) {
+                    snap.pay(data.snap_token, {
+                        // Optional
+                        onSuccess: function (result) {
+                            console.log(JSON.stringify(result, null, 2));
+                            location.replace('/');
+                        },
+                        // Optional
+                        onPending: function (result) {
+                            console.log(JSON.stringify(result, null, 2));
+                            location.replace('/');
+                        },
+                        // Optional
+                        onError: function (result) {
+                            console.log(JSON.stringify(result, null, 2));
+                            location.replace('/');
+                        }
+                    });
+                } else {
+                    window.location.href = "/kuliah_indo/login?msg=login_false";
+                }
+                // return false;
             });
 
     </script>

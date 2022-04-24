@@ -50,7 +50,7 @@ Route::get('/view_email' ,[GlobalController::class, 'mail_view']);
 Route::get('/test_email' ,[GlobalController::class, 'test_email']);
 
 Route::get('/confirmation/{id}' ,[GlobalController::class, 'confirmation']);
-Route::get('/order/invoice', [OrderMidtransController::class, 'getInvoice']);
+Route::get('/order/invoice', [GlobalController::class, 'getInvoice']);
 Route::post('/order_course', [GlobalController::class, 'order_midtrans']);
 /* End Main Web */
 
