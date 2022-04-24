@@ -18,3 +18,4 @@ config/app.php
 .env
 *.webp
 .env
+.env

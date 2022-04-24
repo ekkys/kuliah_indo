@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\OrderMidtrans;
+use App\Models\TemporaryOrder;
 
 class GlobalController extends Controller
 {
@@ -85,6 +86,7 @@ class GlobalController extends Controller
     $user = Auth::user();
             
     if(empty($user)) {
+
         session_start();
         $tmp_id = rand(10, 1000);
         $_SESSION['tmp_id'] = $tmp_id;
@@ -103,7 +105,7 @@ class GlobalController extends Controller
       ];
 
       $test = TemporaryOrder::create($data);
-
+     
         return view('auth.login',[
             'message' => 'Please login to buy the course'
         ]);
@@ -112,16 +114,46 @@ class GlobalController extends Controller
     $data_order = [
         'user_id' => $request->user_id,
         'penjadwalan_id' => $request->penjadwalan_id,
-        'purchase_date' => $request->purchase_date,
-        'transaction_id' => $request->transaction_id,
+        'purcase_date' => $request->purchase_date,
         'amount' => $request->amount,
         'status' => $request->status,
     ];
-    
-    $test = OrderMidtrans::create($data_order);
+
+    $order = OrderMidtrans::create($data_order);
+    TemporaryOrder::where('id', $_SESSION['user_id'])->delete();
+    session_destroy();
+
+
+
+   
+    // \DB::transaction(function () {
+
+    //   $payload = [
+    //     'transaction_details' => [
+    //       'order_id' => $order->transaction_id,
+    //       'gross_amount' => $order->amount
+    //     ],
+
+    //     'customer_details' => [
+    //       'user_id' => $order->user_id
+    //     ],
+
+    //     'item_details' =>[
+    //       'penjadwalan_id' => $order->penjadwalan_id,
+    //       'price' => $order->amount,
+    //       'quantity' => 1
+    //     ]
+
+    //   ];
+
+    //   $snapToken = \Midtrans\Snap::getSnapToken($payload);
+    //   $order->snap_token = $snapToken;
+    //   $order->save();
+    // });
+
   
     return view('user.detail-order',[
-        'detailOrder' => $test
+        'detailOrder' => $order
     ]);
   }
 }
