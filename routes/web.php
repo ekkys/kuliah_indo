@@ -20,6 +20,7 @@ use App\Http\Controllers\UploadSlideBannerController;
 use App\Http\Controllers\PenjadwalanController;
 use App\Http\Controllers\GlobalController;
 use App\Http\Controllers\OrderMidtransController;
+use App\Http\Controllers\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +75,7 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/testimoni', UploadTestimoniController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/penjadwalan', PenjadwalanController::class);
-
     Route::resource('/ordermidtrans', OrderMidtransController::class);
+    Route::resource('/absensi', AbsensiController::class);
 
 /* End Admin Route */
