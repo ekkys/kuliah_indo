@@ -30,117 +30,116 @@
                 <form action="{{ route('penjadwalan.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="name">Judul Kelas</label>
-                                <input type="text" class="form-control form-control-border" id="title" name="title" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="tutor">Pilih Topic </label>
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <select class="custom-select form-control-border" id="topic" name="topic"  required>
-                                      @foreach ($topics as $topic)
-                                      <option value="{{ $topic->id }}">{{ $topic->name }}</option>    
-                                      @endforeach
-                                    </select>
-                                  </div>
+                                    <label for="name">Judul Kelas</label>
+                                    <input type="text" class="form-control form-control-border" id="title" name="title" required>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="tutor">Pilih Tutor </label>
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <select class="custom-select form-control-border" id="tutor" name="tutor"  required>
-                                      @foreach ($tutors as $tutor)
-                                      <option value="{{ $tutor->id }}">{{ $tutor->name }}</option>    
-                                      @endforeach
-                                    </select>
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="jabatan">Pilih Jabatan </label>
-                                <div class="form-group">
-                                    <select class="custom-select form-control-border" id="jabatan" name="jabatan"  required>
-                                      @foreach ($jabatans as $jabatan)
-                                      <option value="{{ $jabatan->id }}">{{ $jabatan->name }}</option>    
-                                      @endforeach
-                                    </select>
-                                  </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="price">Harga Kelas</label>
-                                <input type="text" class="form-control form-control-border" id="price" name="price"  required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col">
+                                    <label for="tutor">Pilih Topic </label>
                                     <div class="form-group">
-                                        <label for="date">Tanggal</label>
-                                        <input class="form-control" type="text" name="date" value="" />
+                                        <select class="custom-select form-control-border" id="topic" name="topic"  required>
+                                        @foreach ($topics as $topic)
+                                        <option value="{{ $topic->id }}">{{ $topic->name }}</option>    
+                                        @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="tutor">Pilih Tutor </label>
                                     <div class="form-group">
-                                        <label for="timestart">Jam Mulai</label>
-                                        <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timestart"> 
+                                        <select class="custom-select form-control-border" id="tutor" name="tutor"  required>
+                                        @foreach ($tutors as $tutor)
+                                        <option value="{{ $tutor->id }}">{{ $tutor->name }}</option>    
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="jabatan">Pilih Jabatan </label>
+                                    <div class="form-group">
+                                        <select class="custom-select form-control-border" id="jabatan" name="jabatan"  required>
+                                        @foreach ($jabatans as $jabatan)
+                                        <option value="{{ $jabatan->id }}">{{ $jabatan->name }}</option>    
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="price">Harga Kelas</label>
+                                    <input type="text" class="form-control form-control-border" id="price" name="price"  required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="date">Tanggal</label>
+                                            <input class="form-control" type="text" name="date" value="" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="timeend">Jam Selesai</label>
-                                        <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timeend"> 
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="timestart">Jam Mulai</label>
+                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timestart"> 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="foto">Poster Kelas</label>
-                                <input class="form-control form-control-border @error('image') is-invalid @enderror" type="file"  name="foto" id="foto" onchange="previewImage()">
-                                @error('image')
-                                    <div class="invalid-feedback">
-                                    {{ $message }}
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="timeend">Jam Selesai</label>
+                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timeend"> 
+                                            </div>
+                                        </div>
                                     </div>
-                                @enderror
+                                    
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="preview">Preview Gambar</label>
-                            <img class="img-preview  form-control-border" style="height:auto; width:300px">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="foto">Poster Kelas</label>
+                                    <input class="form-control form-control-border @error('image') is-invalid @enderror" type="file"  name="foto" id="foto" onchange="previewImage()">
+                                    @error('image')
+                                        <div class="invalid-feedback">
+                                        {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="preview">Preview Gambar</label>
+                                <img class="img-preview  form-control-border" style="height:auto; width:300px">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mb-3 p-2">
-                        <div class="col-md-12">
-                            <label for="description">Deskripsi</label>
-                            <textarea name="description" id="description" rows="10" cols="80" required>
-                            </textarea>
-                            <script>
-                                CKEDITOR.replace( 'description' );
-                                // var data = CKEDITOR.instances.description.getData();
-                            </script>
+                        <div class="row mb-3 p-2">
+                            <div class="col-md-12">
+                                <label for="description">Deskripsi</label>
+                                <textarea name="description" id="description" rows="10" cols="80" required>
+                                </textarea>
+                                <script>
+                                    CKEDITOR.replace( 'description' );
+                                    // var data = CKEDITOR.instances.description.getData();
+                                </script>
+                            </div>
                         </div>
-                    </div>
 
 
                        
