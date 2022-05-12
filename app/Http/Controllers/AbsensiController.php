@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Absensi;
 use App\Models\Penjadwalan;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class AbsensiController extends Controller
@@ -28,9 +29,15 @@ class AbsensiController extends Controller
      */
     public function create()
     {
+        //user by course
+
+        // $course_id = $request->input('penjadwalan');
+        // $user_course = User::where('id', $course_id);
+        // dd($user_course);
+
         return view('admin.absensi.create',[
             'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
-            'users' => User::orderBy('updated_at', 'DESC')->get(),
+            // 'users' => User::orderBy('updated_at', 'DESC')->get(),
         ]);
     }
 
@@ -42,7 +49,15 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+    // data bisa di store
+        // $date = $request->input('date');
+        // $penjadwalan = $request->input('penjadwalan');
+        // $keterangan = $request->input('keterangan');
+        // $dataAbsensi = array('date' => $date, 'penjadwalan' => $penjadwalan,'keterangan' => $keterangan  );
+
+        // dd($dataAbsensi);
+        
     }
 
     /**
@@ -88,5 +103,15 @@ class AbsensiController extends Controller
     public function destroy(Absensi $absensi)
     {
         //
+    }
+
+    public function getSiswaByCourse($id)
+    {
+        return view('admin.absensi.siswa', [
+            'users' => DB::table('order_midtrans')->where('penjadwalan_id', $id)
+            ->join( 'users', 'users.id', '=', 'order_midtrans.user_id')
+            ->select('users.*')
+            ->orderBy('updated_at', 'DESC')->get(),
+        ]);
     }
 }

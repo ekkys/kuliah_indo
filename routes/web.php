@@ -19,7 +19,7 @@ use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
 use App\Http\Controllers\PenjadwalanController;
 use App\Http\Controllers\GlobalController;
-use App\Http\Controllers\OrderMidtransController;
+// use App\Http\Controllers\OrderMidtransController;
 use App\Http\Controllers\AbsensiController;
 
 /*
@@ -66,6 +66,8 @@ Route::prefix('home')->name('home.')->group(function () {
     // Route::get('siswa', [App\Http\Controllers\HomeController::class, 'index'])->name('siswa');
 });
 
+    Route::get('/getSiswaByCourse/{id}',[ AbsensiController::class, 'getSiswaByCourse']);
+
     Route::resource('/topic', TopicController::class);
     Route::resource('/tutor', TutorController::class);
     Route::resource('/jabatan', JabatanController::class);
@@ -75,7 +77,7 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/testimoni', UploadTestimoniController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/penjadwalan', PenjadwalanController::class);
-    Route::resource('/ordermidtrans', OrderMidtransController::class);
+    // Route::resource('/ordermidtrans', OrderMidtransController::class);
     Route::resource('/absensi', AbsensiController::class);
 
 /* End Admin Route */

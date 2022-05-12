@@ -11,7 +11,7 @@ use App\Http\Requests\UpdateOrderMidtransRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Midtrans\CreateSnapTokenService;
 
-class OrderMidtransController extends Controller
+class OrderMidtransController_backup extends Controller
 {
     
     function  __construct(){
