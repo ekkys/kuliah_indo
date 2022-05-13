@@ -1,13 +1,9 @@
 @extends('layouts.main')
 @section('title','Absensi')
-@section('title-page', 'DataAbsensi')
+@section('title-page', 'Data Absensi')
 
 @section('content')
-<div class="row">
-  <div class="col-12 mb-2">
-    <a class="btn btn" href="{{ route('absensi.create') }}" style="background-color: rgb(253, 152, 1); color: white;"><i class="fas fa-plus p-1"></i>   Tambah Absensi</a>
-  </div>
-</div>
+
 <div class="row">
     <div class="col-12">
       <div class="card">
