@@ -24,6 +24,7 @@ class CreatePenjadwalansTable extends Migration
             $table->string('topic_id')->default('1');
             $table->string('jabatan_id')->default('2');
             $table->string('price');
+            $table->string('link_zoom');
             $table->string('foto');
             $table->text('description');
         });

@@ -17,6 +17,7 @@ class Penjadwalan extends Model
      */
     public function orderMidtrans()
     {
-        return $this->hasMany(OrderMidtrans::class, 'penjadwalan_id');
+        return $this->hasMany(OrderMidtrans::class, 'penjadwalan_id', 'id');
     }
+    
 }

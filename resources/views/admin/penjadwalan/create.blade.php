@@ -129,6 +129,16 @@
                                 <img class="img-preview  form-control-border" style="height:auto; width:300px">
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="link_zoom">Link Zoom</label>
+                                    <input type="text" class="form-control form-control-border" id="link_zoom" name="link_zoom"  required>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row mb-3 p-2">
                             <div class="col-md-12">
                                 <label for="description">Deskripsi</label>
