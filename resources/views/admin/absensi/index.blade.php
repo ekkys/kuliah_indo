@@ -25,7 +25,8 @@
               @foreach ($absensis as $absensi)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $absensi->penjadwalan_id }}</td>
+                <td>{{ $absensi->title }}</td>
+                <td>{{ $users }}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Detail</a>
                     <form action="{{ route('absensi.index') }}/{{ $absensi->id }}" method="post" class="d-inline">

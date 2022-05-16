@@ -17,9 +17,26 @@ class AbsensiController extends Controller
      */
     public function index()
     {
+        $absensi = DB::table('order_midtrans')
+        ->join( 'users', 'users.id', '=', 'order_midtrans.user_id')
+        ->join( 'penjadwalans', 'penjadwalans.id', '=', 'order_midtrans.penjadwalan_id')
+        ->select('users.name as user_name', 'penjadwalans.*')
+        ->orderBy('updated_at', 'DESC')->get();
+
+        $count_user = count($absensi);
+
         return view('admin.absensi.index',[
-            'absensis' => Absensi::orderBy('updated_at','DESC')->get()
+            // 'absensis' => Absensi::orderBy('updated_at','DESC')->get(),
+                'absensis' => DB::table('order_midtrans')
+                ->join( 'users', 'users.id', '=', 'order_midtrans.user_id')
+                ->join( 'penjadwalans', 'penjadwalans.id', '=', 'order_midtrans.penjadwalan_id')
+                ->select('users.name as user_name', 'penjadwalans.*')
+                ->orderBy('updated_at', 'DESC')->get(),
+                'users' => $count_user,
+
         ]);
+
+
     }
 
     /**
