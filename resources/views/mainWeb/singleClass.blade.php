@@ -72,7 +72,7 @@
                 @csrf
 
                 <input type="text" name="user_id" id="user_id" value="{{ isset($user)? $user->id :'' }}">
-                <input type="text" name="penjadwalan_id" id="penjadwalan_id" value="{{ $dataKelas->title}}">
+                <input type="text" name="penjadwalan_id" id="penjadwalan_id" value="{{ $dataKelas->id}}">
                 <input type="date" name="tanggal_order" id="tanggal_order" value="{{ date('Y-m-d') }}">
                 <input type="text" name="amount" id="amount" value="{{ $dataKelas->price}}">
                 <input type="text" name="transaction_id" id="transaction_id" value={{rand(10,10000)}}>

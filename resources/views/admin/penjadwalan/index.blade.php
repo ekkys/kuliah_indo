@@ -23,6 +23,7 @@
                 <th>Poster kelas</th>
                 <th>Title</th>
                 <th>Topic</th>
+                <th>Link Zoom</th>
                 <th>Date</th>
                 <th>Start Time</th>
                 <th>Finish Time</th>
@@ -47,6 +48,7 @@
                 </td>
                 <td>{{ $penjadwalan->title }}</td>
                 <td>{{ $penjadwalan->topic_name }}</td>
+                <td>{{ $penjadwalan->link_zoom }}</td>
                 <td>{{ $penjadwalan->date }}</td>
                 <td>{{ $penjadwalan->timestart }}</td>
                 <td>{{ $penjadwalan->timeend }}</td>
@@ -72,6 +74,7 @@
                 <th>Poster kelas</th>
                 <th>Title</th>
                 <th>Topic</th>
+                <th>Link Zoom</th>
                 <th>Date</th>
                 <th>Start Time</th>
                 <th>Finish Time</th>

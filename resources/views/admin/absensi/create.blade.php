@@ -27,7 +27,7 @@
                 <h2 class="card-title" >Input Data Absensi </h2>
             </div>
             <!-- /.card-header -->
-                <form action="{{ route('penjadwalan.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('absensi.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
@@ -42,56 +42,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="tutor">Pilih Course </label>
-                                    <div class="form-group">
-                                        <select class="custom-select form-control-border" id="penjadwalan" name="penjadwalan"  required>
-                                        @foreach ($penjadwalans as $penjadwalan)
-                                        <option value="{{ $penjadwalan->id }}">{{ $penjadwalan->title }}</option>    
-                                        @endforeach
-                                        </select>
-                                    </div>
+                            <div class="col">
+                                <div class="row">
+                                    <form action="">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="tutor">Pilih Course </label>
+                                                <div class="form-group">
+                                                    <select class="custom-select form-control-border" id="penjadwalan" name="penjadwalan"  onchange="showSiswa(this.value)" required>
+                                                    @foreach ($penjadwalans as $penjadwalan)
+                                                        <option value="">Pilih Course</option>
+                                                        <option value="{{ $penjadwalan->id }}">{{ $penjadwalan->title }}</option>    
+                                                    @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
+
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="row">
-                                <div class="col">
-                                    <table class="table hover">
-                                        <thead>
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Keterangan</th>
-                                        </thead>
-                                        @foreach ($users as $user)
-                                        <tbody>
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>
-                                                    <input type="text" class="form-control form-control-border " id="name" name="name" value="{{ $user->name }}"  required>
-                                                    {{-- <input class="form-control form-control-boder" type="text" name="name" value="{{ $user->name }}"></td> --}}
-                                                <td>
-                                                    <label class="radio-inline">
-                                                        <input id="aktif" type="radio" name="" value="Hadir" checked>Hadir
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input id="aktif" type="radio" name="" value="Alfa" >Alfa
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input id="aktif" type="radio" name="" value="Izin" >Izin
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input id="aktif" type="radio" name="" value="Sakit" >Sakit
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        
-                                        @endforeach
-                                    </table>
-                                </div>
-                            </div>
+                            <div id="dataSiswa"> Data Siswa</div>
                         </div>
 
                         <button type="submit" class="btn btn-secondary d-flex justify-content-end">Simpan</button>
@@ -104,10 +77,25 @@
 
 
 <script>
- var tanggal = document.getElementById('date').value;
- var status = document.getElementById('aktif').value;
- console.log(tanggal);
- console.log(status);
+
+  function showSiswa(str) {
+
+      if (str == "") {
+        document.getElementById("dataSiswa").innerHTML = "";
+        return;
+      } 
+        // document.getElementById("dataSiswa").innerHTML = "Ini data siswa";
+        // return;
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.onload = function () {
+            console.log(this);
+            document.getElementById("dataSiswa").innerHTML = "<iframe src='http://localhost:8080/kuliah_indo/getSiswaByCourse/"+str"' > </iframe>";
+        }
+        
+        xhttp.open("GET", "http://localhost:8080/kuliah_indo/getSiswaByCourse/"+str)
+        xhttp.send();
+  }
 </script>
 
 <!-- /.card -->

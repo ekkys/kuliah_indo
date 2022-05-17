@@ -67,6 +67,7 @@ class PenjadwalanController extends Controller
          'topic'=> $request->topic,
          'jabatan'=> $request->jabatan,
          'price'=> $request->price,
+         'link_zoom'=> $request->link_zoom,
          'foto'=> $request->file('foto')->store('class-images'),
          'description'=> $request->description,
     ]);
@@ -121,6 +122,7 @@ class PenjadwalanController extends Controller
             'topic'=> $request->topic,
             'jabatan'=> $request->jabatan,
             'price'=> $request->price,
+            'link_zoom'=> $request->link_zoom,
             'description'=> $request->description,
         ];
 

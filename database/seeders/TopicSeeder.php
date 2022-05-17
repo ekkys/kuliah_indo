@@ -18,16 +18,16 @@ class TopicSeeder extends Seeder
 
         
         Topic::create([
-            'name' => 'Laravel Fullstack beginner',
-            'description' => 'Kelas pemrograman web dengan menggunakan  framework Laravel 8  untuk pemula.',
+            'name' => 'Pemrograman',
+            'description' => 'Pemrograman web dengan menggunakan dengan berbagai macam framework',
         ]);
         Topic::create([
-            'name' => 'Vue Js for Front End beginner',
-            'description' => 'Kelas pemrograman web dengan menggunakan javascript framework Vue JS 3  untuk pemula.',
+            'name' => 'Desain Product',
+            'description' => 'Kelas desain product dengan berbagai macam tools',
         ]);
         Topic::create([
-            'name' => 'React Native beginner',
-            'description' => 'Kelas pemrograman web dengan menggunakan javascript framework React Native  untuk pemula.',
+            'name' => 'Data',
+            'description' => 'Kelas pengelolahan data menggunakan berbagai macam tools.',
         ]);
 
         

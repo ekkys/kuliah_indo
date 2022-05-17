@@ -1,13 +1,9 @@
 @extends('layouts.main')
 @section('title','Absensi')
-@section('title-page', 'DataAbsensi')
+@section('title-page', 'Data Absensi')
 
 @section('content')
-<div class="row">
-  <div class="col-12 mb-2">
-    <a class="btn btn" href="{{ route('absensi.create') }}" style="background-color: rgb(253, 152, 1); color: white;"><i class="fas fa-plus p-1"></i>   Tambah Absensi</a>
-  </div>
-</div>
+
 <div class="row">
     <div class="col-12">
       <div class="card">
@@ -29,7 +25,8 @@
               @foreach ($absensis as $absensi)
               <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $absensi->penjadwalan_id }}</td>
+                <td>{{ $absensi->title }}</td>
+                <td>{{ $users }}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Detail</a>
                     <form action="{{ route('absensi.index') }}/{{ $absensi->id }}" method="post" class="d-inline">
