@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
         $siswa = User ::create([
                 'name' => 'Siswa Role',
                 'phone' => NULL,
-            'biography' => NULL,
+                'biography' => NULL,
                 'email' => 'siswa@role.test',
                 'password' => bcrypt('12345678'),
                 'status' => 1

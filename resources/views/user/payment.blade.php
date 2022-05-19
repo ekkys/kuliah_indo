@@ -19,13 +19,15 @@
                                             </tr>
                                           </thead>
                                           <tbody>
-                                            @foreach($penjadwalans as $penjadwalan)
-                                            <tr data-toggle="modal" data-target="#exampleModalCenter">
-                                              <td>#1003528254</td>
-                                              <td>{{ $penjadwalan->title }}</td>
-                                              <td>{{ $penjadwalan->date }}</td>
-                                              <td>{{ $penjadwalan->price == '0' ? 'Free' : 'Rp '.number_format($penjadwalan->price) }}</td>
-                                              <td>Complete</td>
+                                            @foreach($payments as $key => $payment)
+                                            <tr data-toggle="modal" data-target="#exampleModalCenter" id="modalPayment"
+                                            name="{{ $payment->transaction_id }}"
+                                            >
+                                              <td>{{ $payment->transaction_id }}</td>
+                                              <td>{{ $payment->penjadwalan_title }}</td>
+                                              <td>{{ $payment->purchase_date }}</td>
+                                              <td>{{ $payment->amount == '0' ? 'Free' : 'Rp '.number_format($payment->amount) }}</td>
+                                              <td>{{ $payment->status }}</td>
                                             </tr>
                                           </tbody>
                                           @endforeach
@@ -122,4 +124,13 @@
                             {{-- end modal --}}
               </div>
        </div>
+       <script>
+         let data = <?= $payments ?>;
+         let id = $('#modalPayment').attr('name');
+
+        //  data.forEach(paymentData => {
+           
+        //  });
+         console.log(id);
+       </script>
 @endsection

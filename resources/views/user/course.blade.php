@@ -20,27 +20,33 @@
                                             </tr>
                                           </thead>
                                           <tbody>
-                                          @foreach ($penjadwalans as $penjadwalan)
+                                          @foreach ($mycourses as $mycourse)
                                           <tr>
-                                                 <td><a href="{{ url('/class/singleClass') }}">{{ $penjadwalan->title }}</a></td>
-                                                 <?php 
-                    
-                                                        $date = explode( " - ", $penjadwalan->date);
-                                                        $startDate = str_replace('/', '-', $date[0]);
-                                                        $endDate = str_replace('/', '-', $date[1]);
-                                                        $startTime = $penjadwalan->timestart;
-                                                        $endTime = $penjadwalan->timeend;
-                                                 
-                                                 ?>
-                                                 <td>{{ $penjadwalan->date }}</td>
-                                                 <td>Complete</td>
+                                                 <td><a href="{{ url('/class/singleClass/'.$mycourse->penjadwalan_id) }}">{{ $mycourse->penjadwalan_title }}</a></td>
+                                                        <?php 
+                     
+                                                               $date = explode( " - ", $mycourse->penjadwalan_date);
+                                                               $startDate = str_replace('/', '-', $date[0]);
+                                                               $endDate = str_replace('/', '-', $date[1]);
+                                                               $startTime = $mycourse->penjadwalan_timestart;
+                                                               $endTime = $mycourse->penjadwalan_timeend;
+                                                        
+                                                        ?>
+                                                 <td>{{ $mycourse->penjadwalan_date }}</td>
+                                                 <td>{{ $mycourse->status }}</td>
                                                  <td>Waiting</td>
                                                  <td>
-                                                        <span style="display: block;">
-                                                               <a href="#courselink">Link</a>
-                                                        </span>
+                                                        {!! $mycourse->penjadwalan_linkzoom ? 
+                                                               '<span style="display: block;">
+                                                                      <a href="https://'.$mycourse->penjadwalan_linkzoom.'" target="_blank">Link</a>
+                                                               </span>'
+                                                               :
+                                                               '<span>
+                                                                      Link Not Ready
+                                                               </span>'
+                                                        !!}
                                                  </td>
-                                                 <td><a href="{{ url('/certificate/'.$penjadwalan->id) }}">Download</a></td>
+                                                 <td><a href="{{ url('/certificate/'.$mycourse->penjadwalan_id) }}">Download</a></td>
                                                </tr>
                                              </tbody>
                                                  

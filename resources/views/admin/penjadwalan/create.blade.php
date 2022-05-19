@@ -90,20 +90,20 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="date">Tanggal</label>
-                                            <input class="form-control" type="text" name="date" value="" />
+                                            <input class="form-control" type="text" name="date" value="" required />
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="timestart">Jam Mulai</label>
-                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timestart"> 
+                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timestart" required> 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="timeend">Jam Selesai</label>
-                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timeend"> 
+                                            <div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true"> <input type="text" class="form-control" name="timeend" required> 
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="foto">Poster Kelas</label>
-                                    <input class="form-control form-control-border @error('image') is-invalid @enderror" type="file"  name="foto" id="foto" onchange="previewImage()">
+                                    <input class="form-control form-control-border @error('image') is-invalid @enderror" type="file"  name="foto" id="foto" onchange="previewImage()" required>
                                     @error('image')
                                         <div class="invalid-feedback">
                                         {{ $message }}
@@ -134,7 +134,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="link_zoom">Link Zoom</label>
-                                    <input type="text" class="form-control form-control-border" id="link_zoom" name="link_zoom"  required>
+                                    <input type="text" class="form-control form-control-border" id="link_zoom" name="link_zoom">
                                 </div>
                             </div>
                         </div>
