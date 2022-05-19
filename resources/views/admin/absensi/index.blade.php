@@ -7,9 +7,6 @@
 <div class="row">
     <div class="col-12">
       <div class="card">
-        {{-- <div class="card-header">
-          <h3 class="card-title"></h3>
-        </div> --}}
         <!-- /.card-header -->
         <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
@@ -18,7 +15,7 @@
                 <th>No</th>
                 <th>Nama Kelas</th>
                 <th>Jumlah Peserta</th>
-                <th width='100'>Aksi</th>
+                <th width='10%'>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -26,9 +23,9 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $absensi->title }}</td>
-                <td>{{ $users }}</td>
+                <td>{{ $absensi->count }}</td>
                 <td>
-                    <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Detail</a>
+                    <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Absensi</a>
                     <form action="{{ route('absensi.index') }}/{{ $absensi->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf

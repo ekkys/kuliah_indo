@@ -58,6 +58,8 @@ Route::post('/order_course', [GlobalController::class, 'order_midtrans']);
 /* Admin Route */
 Auth::routes();
 Route::post('/reset-password' ,[GlobalController::class, 'reset_password']);
+Route::get('absensi/{id}/edit', [AbsensiController::class, 'detail']);
+Route::get('absensi/{user_id}/{course_id}/{status}/kehadiran', [AbsensiController::class, 'kehadiran']);
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -67,7 +69,6 @@ Route::prefix('home')->name('home.')->group(function () {
 });
 
     Route::get('/getSiswaByCourse/{id}',[ AbsensiController::class, 'getSiswaByCourse']);
-
     Route::resource('/topic', TopicController::class);
     Route::resource('/tutor', TutorController::class);
     Route::resource('/jabatan', JabatanController::class);
