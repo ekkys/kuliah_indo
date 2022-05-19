@@ -77,6 +77,7 @@ class RegisterController extends Controller
         $user = User::where('email', $data['email'])->first();
         
         $query['id'] = $user["id"];
+        $query['type'] = 1;
         unset($query["password"]);
 
         $global = new GlobalController();

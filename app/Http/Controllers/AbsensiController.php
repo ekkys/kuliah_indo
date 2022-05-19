@@ -17,26 +17,80 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        $absensi = DB::table('order_midtrans')
-        ->join( 'users', 'users.id', '=', 'order_midtrans.user_id')
-        ->join( 'penjadwalans', 'penjadwalans.id', '=', 'order_midtrans.penjadwalan_id')
-        ->select('users.name as user_name', 'penjadwalans.*')
-        ->orderBy('updated_at', 'DESC')->get();
+        $absensi = DB::table('penjadwalans')->orderBy('updated_at', 'DESC')->get();
+        $new = [];
 
-        $count_user = count($absensi);
+        foreach ($absensi as $absensi) {
+            $data = DB::table('order_midtrans')->where('penjadwalan_id', $absensi->id)->orderBy('updated_at', 'DESC')->get();
+            $absensi->count = count($data);
+            array_push($new, $absensi);
+        }
 
-        return view('admin.absensi.index',[
-            // 'absensis' => Absensi::orderBy('updated_at','DESC')->get(),
-                'absensis' => DB::table('order_midtrans')
-                ->join( 'users', 'users.id', '=', 'order_midtrans.user_id')
-                ->join( 'penjadwalans', 'penjadwalans.id', '=', 'order_midtrans.penjadwalan_id')
-                ->select('users.name as user_name', 'penjadwalans.*')
-                ->orderBy('updated_at', 'DESC')->get(),
-                'users' => $count_user,
+        return view('admin.absensi.index',['absensis' => $new]);
+    }
 
-        ]);
+    public function detail($id) {
+        $new = [];
+        $date = date('d-m-Y');
 
+        if(isset($_REQUEST['date'])) {
+            $absensi = DB::table('order_midtrans')
+                            ->leftJoin("penjadwalans", "penjadwalans.id", "=", "order_midtrans.penjadwalan_id")
+                            ->join("users", "users.id", "=", "order_midtrans.user_id")
+                            ->leftJoin("absensis", "absensis.penjadwalan_id", "=", "penjadwalans.id")
+                            ->select("users.*" , "penjadwalans.id as course_id", "absensis.status as status_hadir", "absensis.tanggal as tanggal_hadir")
+                            ->where("order_midtrans.penjadwalan_id", $id)
+                            ->get();
+            $date = $_REQUEST['date'];
+            foreach ($absensi as $absensi) {
+                if($absensi->tanggal_hadir == $_REQUEST['date']) {
+                    array_push($new, $absensi);
+                }
+            }
+        } else {
+            $absensi = DB::table('order_midtrans')
+                            ->leftJoin("penjadwalans", "penjadwalans.id", "=", "order_midtrans.penjadwalan_id")
+                            ->join("users", "users.id", "=", "order_midtrans.user_id")
+                            ->leftJoin("absensis", "absensis.penjadwalan_id", "=", "penjadwalans.id")
+                            ->select("users.*" , "penjadwalans.id as course_id", "absensis.status as status_hadir", "absensis.tanggal as tanggal_hadir")
+                            ->where("order_midtrans.penjadwalan_id", $id)
+                            ->where("absensis.tanggal", $date)
+                            ->get();
+            foreach ($absensi as $absensi) {
+                array_push($new, $absensi);
+            }
+        }
 
+        $tanggal = DB::table('absensis')->select("tanggal")->where("penjadwalan_id", $id)->groupBy('tanggal')->get();
+
+        return view('admin.absensi.edit',['absensis' => $new, 'tanggal'=> $tanggal, 'date'=>$date, 'course_id'=>$id]);
+    }
+
+    public function kehadiran($user_id, $course_id, $status) {
+        $check = DB::table("absensis")
+                    ->where("user_id", $user_id)
+                    ->where("tanggal", date('d-m-Y'))
+                    ->where("penjadwalan_id",  $course_id)
+                    ->get();
+
+        if(empty(count($check))) {
+            $insert = DB::table("absensis")->insert([
+                "user_id"=> $user_id,
+                "penjadwalan_id" => $course_id,
+                "status" => $status,
+                "tanggal" => date('d-m-Y')
+            ]);
+        } else {
+            $insert = DB::table("absensis")
+                        ->where("user_id", $user_id)
+                        ->where("tanggal", date('d-m-Y'))
+                        ->where("penjadwalan_id",  $course_id)
+                        ->update(["status" => $status]);
+        }
+
+        $link = '/absensi/'.$course_id.'/edit';
+
+        return redirect($link);
     }
 
     /**
@@ -46,15 +100,8 @@ class AbsensiController extends Controller
      */
     public function create()
     {
-        //user by course
-
-        // $course_id = $request->input('penjadwalan');
-        // $user_course = User::where('id', $course_id);
-        // dd($user_course);
-
         return view('admin.absensi.create',[
-            'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
-            // 'users' => User::orderBy('updated_at', 'DESC')->get(),
+            'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get()
         ]);
     }
 
