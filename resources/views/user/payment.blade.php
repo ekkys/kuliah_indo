@@ -20,12 +20,14 @@
                                           </thead>
                                           <tbody>
                                             @foreach($payments as $key => $payment)
-                                            <tr data-toggle="modal" data-target="#exampleModalCenter" id="modalPayment"
-                                            name="{{ $payment->transaction_id }}"
-                                            >
-                                              <td>{{ $payment->transaction_id }}</td>
+                                            <?php
+                                              $date = date('d F Y', strtotime($payment->purchase_date));
+                                              $invDate = date('dmY', strtotime($payment->purchase_date));
+                                            ?>
+                                            <tr onclick="test({{ $payment->id }})" data-toggle="modal" data-target="#exampleModalCenter" id="modalPayment">
+                                              <td>{{ $payment->id }}</td>
                                               <td>{{ $payment->penjadwalan_title }}</td>
-                                              <td>{{ $payment->purchase_date }}</td>
+                                              <td>{{ $date }}</td>
                                               <td>{{ $payment->amount == '0' ? 'Free' : 'Rp '.number_format($payment->amount) }}</td>
                                               <td>{{ $payment->status }}</td>
                                             </tr>
@@ -53,7 +55,7 @@
                                               <div class="main-status">
                                                 <p class="main-text font-weight-bold text-dark">Order Number</p>
                                                 <div>
-                                                  <p class="main-text-desc">#1003528254</p>
+                                                  <p class="main-text-desc" id="transactionId"></p>
                                                 </div>
                                               </div>
                                             </div>
@@ -61,7 +63,7 @@
                                               <div class="main-status">
                                                 <p class="main-text font-weight-bold">Invoice Number</p>
                                                 <div>
-                                                  <a href="{{ url('/invoice') }}" target="__blank" class="main-text-desc">INV/20220308/COU/1003528254</a>
+                                                  <a target="__blank" class="main-text-desc" id="invData"></a>
                                                 </div>
                                               </div>
                                             </div>
@@ -72,19 +74,19 @@
                                               <div class="main-status mt-2">
                                                 <p class="main-text">Purchase Complete</p>
                                                 <div>
-                                                  <p href="#" target="__blank" class="main-text">Aug 12, 2022, 07:15 WIB</p>
+                                                  <p class="main-text">Aug 12, 2022, 07:15 WIB</p>
                                                 </div>
                                               </div>
                                               <div class="main-status mt-2">
                                                 <p class="main-text">Purchase Verification</p>
                                                 <div>
-                                                  <p href="#" target="__blank" class="main-text">Aug 12, 2022, 07:10 WIB</p>
+                                                  <p class="main-text">Aug 12, 2022, 07:10 WIB</p>
                                                 </div>
                                               </div>
                                               <div class="main-status mt-2">
                                                 <p class="main-text">Purchase Date</p>
                                                 <div>
-                                                  <p href="#" target="__blank" class="main-text">Aug 12, 2022, 07:06 WIB</p>
+                                                  <p class="main-text" id="purchaseDate"></p>
                                                 </div>
                                               </div>
                                             </div>
@@ -99,16 +101,16 @@
                                                 <div class="product-section">
                                                   <div class="wrapper-product">
                                                     <div class="product-info">
-                                                      <img src="{{ asset('mainWeb/images/class/class1.webp') }}">
+                                                      <img src="" id="penjadwalanPhoto">
                                                       <div>
-                                                        <a href="#" class="main-text font-weight-bold text-dark">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a>
+                                                        <a href="#" class="main-text font-weight-bold text-dark" id="penjadwalanTitle">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a>
                                                       </div>
                                                     </div>
                                                   </div>
                                                   <div class="wrapper-price">
                                                     <div class="total-price">
                                                       <p class="price-heading">Total Price</p>
-                                                      <h5 class="main-price">Rp 499.000</h5>
+                                                      <h5 class="main-price" id="penjadwalanAmount">Rp 499.000</h5>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -124,13 +126,21 @@
                             {{-- end modal --}}
               </div>
        </div>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
        <script>
-         let data = <?= $payments ?>;
-         let id = $('#modalPayment').attr('name');
+          function test(id) {
+            let dataTrans = <?= $payments ?>;
+            let dataObj = dataTrans.find( e => e.id === id);
+            let dataDate = dataObj.purchase_date.replaceAll("-", "");
 
-        //  data.forEach(paymentData => {
-           
-        //  });
-         console.log(id);
+            
+            $('#transactionId').text(dataObj.id);
+            $('#invData').text("INV/"+dataDate+"/"+dataObj.user_id+"/"+dataObj.penjadwalan_id+"/"+dataObj.id);
+            $('#invData').attr('href', '{{ url("/invoice") }}/' +dataObj.id);
+            $('#purchaseDate').text(dataObj.created_at);
+            $('#penjadwalanPhoto').attr('src', '{{ asset("storage/") }}/' +dataObj.penjadwalan_foto);
+            $('#penjadwalanTitle').text(dataObj.penjadwalan_title);
+            $('#penjadwalanAmount').text(dataObj.amount);
+          }
        </script>
 @endsection

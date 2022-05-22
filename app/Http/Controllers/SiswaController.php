@@ -73,7 +73,9 @@ class SiswaController extends Controller
             'payments' => DB::table('order_midtrans')
                        ->where('order_midtrans.user_id', '=', $user->id)
                        ->join('penjadwalans', 'order_midtrans.penjadwalan_id', '=', 'penjadwalans.id')
-                       ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title')
+                       ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
+                                                  , 'penjadwalans.foto as penjadwalan_foto'
+                               )
                        ->orderBy('updated_at', 'DESC')
                        ->get(),
         ]);
@@ -105,9 +107,18 @@ class SiswaController extends Controller
         }
     }
 
-    public function invoice() {
+    public function invoice($id) {
         $user = Auth::user();
-        return view('user.invoice', ['user' => $user]);
+        $invoice = DB::table('order_midtrans')
+                   ->where('order_midtrans.id', $id)
+                   ->join('penjadwalans', 'order_midtrans.penjadwalan_id', '=', 'penjadwalans.id')
+                   ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
+                                              , 'penjadwalans.foto as penjadwalan_foto')
+                   ->first();
+        return view('user.invoice', [
+            'user' => $user,
+            'invoice' => $invoice,
+        ]);
     }
 
     public function certificate($id) {
