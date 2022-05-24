@@ -52,7 +52,17 @@ class SiswaController extends Controller
         $user = Auth::user();
         return view('user.course', [
             'user' => $user,
-            'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
+            'mycourses' => DB::table('order_midtrans')
+                        ->where('order_midtrans.user_id', '=', $user->id)
+                        ->join('penjadwalans', 'order_midtrans.penjadwalan_id', '=', 'penjadwalans.id')
+                        ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
+                                                   , 'penjadwalans.date as penjadwalan_date'
+                                                   , 'penjadwalans.timestart as penjadwalan_timestart'
+                                                   , 'penjadwalans.timeend as penjadwalan_timeend'
+                                                   , 'penjadwalans.link_zoom as penjadwalan_linkzoom'
+                                )
+                        ->orderBy('updated_at', 'DESC')
+                        ->get(),
         ]);
     }
 
@@ -60,7 +70,14 @@ class SiswaController extends Controller
         $user = Auth::user();
         return view('user.payment', [
             'user' => $user,
-            'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
+            'payments' => DB::table('order_midtrans')
+                       ->where('order_midtrans.user_id', '=', $user->id)
+                       ->join('penjadwalans', 'order_midtrans.penjadwalan_id', '=', 'penjadwalans.id')
+                       ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
+                                                  , 'penjadwalans.foto as penjadwalan_foto'
+                               )
+                       ->orderBy('updated_at', 'DESC')
+                       ->get(),
         ]);
     }
 
@@ -90,9 +107,18 @@ class SiswaController extends Controller
         }
     }
 
-    public function invoice() {
+    public function invoice($id) {
         $user = Auth::user();
-        return view('user.invoice', ['user' => $user]);
+        $invoice = DB::table('order_midtrans')
+                   ->where('order_midtrans.id', $id)
+                   ->join('penjadwalans', 'order_midtrans.penjadwalan_id', '=', 'penjadwalans.id')
+                   ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
+                                              , 'penjadwalans.foto as penjadwalan_foto')
+                   ->first();
+        return view('user.invoice', [
+            'user' => $user,
+            'invoice' => $invoice,
+        ]);
     }
 
     public function certificate($id) {

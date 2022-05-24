@@ -18,4 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('xendit/va/list', 'Api\Payment\XenditController@getListVa');
+
 // Route::post('/order_course', 'OrderMidtransController@store');
