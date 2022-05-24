@@ -19,6 +19,7 @@ use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
 use App\Http\Controllers\PenjadwalanController;
 use App\Http\Controllers\GlobalController;
+use App\Http\Controllers\XenditController;
 // use App\Http\Controllers\OrderMidtransController;
 use App\Http\Controllers\AbsensiController;
 
@@ -54,13 +55,15 @@ Route::get('/test_email' ,[GlobalController::class, 'test_email']);
 Route::get('/confirmation/{id}' ,[GlobalController::class, 'confirmation']);
 Route::get('/order/invoice', [GlobalController::class, 'getInvoice']);
 Route::post('/order_course', [GlobalController::class, 'order_midtrans']);
+
+Route::get('/xendit/{user_id}/{course_id}/create_invoice', [XenditController::class, 'create_invoice']);
 /* End Main Web */
 
 /* Admin Route */
 Auth::routes();
 Route::post('/reset-password' ,[GlobalController::class, 'reset_password']);
 Route::get('absensi/{id}/edit', [AbsensiController::class, 'detail']);
-Route::get('absensi/{user_id}/{course_id}/{status}/kehadiran', [AbsensiController::class, 'kehadiran']);
+Route::get('absensi/{user_id}/{course_id}/{status}/{date}/kehadiran', [AbsensiController::class, 'kehadiran']);
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

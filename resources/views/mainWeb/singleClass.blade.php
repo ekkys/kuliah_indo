@@ -1,7 +1,6 @@
 @extends('layouts.mainWeb.main')
 
 @section('container')
-
     <!-- Start Single Post Banner -->
     <section class="single-post section">
         <div class="container">
@@ -68,16 +67,6 @@
         <div class="container">
 
             {{-- Bottom Navbar --}}
-            <form action="#">
-                @csrf
-
-                <input type="text" name="user_id" id="user_id" value="{{ isset($user)? $user->id :'' }}">
-                <input type="text" name="penjadwalan_id" id="penjadwalan_id" value="{{ $dataKelas->id}}">
-                <input type="date" name="tanggal_order" id="tanggal_order" value="{{ date('Y-m-d') }}">
-                <input type="text" name="amount" id="amount" value="{{ $dataKelas->price}}">
-                <input type="text" name="transaction_id" id="transaction_id" value={{rand(10,10000)}}>
-                <input type="text" name="status" id="status" value="pending">
-
                 <div class="add-to-cart" style="display: flex;">
                     <div class="container">
                         <div class="row p-0 m-0 d-flex">
@@ -87,14 +76,13 @@
                             </div>
                             <div class="col-4 text-center">
                                 <div class="cart-wrapper">
-                                    <button onclick="order()" class="add-to-cart-button" > Buy Course </button>
+                                    <button data-toggle="modal" data-target="#exampleModalCenter" class="add-to-cart-button" > Buy Course </button>
                                 </div>
                             </div>
                         </div>
                         
                     </div>
                 </div>
-            </form>
             {{-- End Bottom Navbar --}}
 
             {{-- Description --}}
@@ -107,69 +95,94 @@
     </section>
     <!-- End Single Post Article -->
 
-    @include('partials.mainWeb.footer')
+    {{-- modal --}}
+        <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header justify-content-center">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Payment Detail</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body overflow-auto p-0">
+                        {{-- content modal --}}
+
+                        <div class="container-trans text-align-left">
+                        <div class="body-trans">
+                            <div class="main-status">
+                            <p class="main-text font-weight-bold text-dark">Order Number</p>
+                            <div>
+                                <p class="main-text-desc" id="transactionId"></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="body-trans">
+                            <div class="main-status">
+                            <p class="main-text font-weight-bold">Invoice Number</p>
+                            <div>
+                                <a target="__blank" class="main-text-desc" id="invData"></a>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="body-trans">
+                            <div class="main-status">
+                            <p class="main-text font-weight-bold">Status Detail</p>
+                            </div>
+                            <div class="main-status mt-2">
+                            <p class="main-text">Purchase Complete</p>
+                            <div>
+                                <p class="main-text">Aug 12, 2022, 07:15 WIB</p>
+                            </div>
+                            </div>
+                            <div class="main-status mt-2">
+                            <p class="main-text">Purchase Verification</p>
+                            <div>
+                                <p class="main-text">Aug 12, 2022, 07:10 WIB</p>
+                            </div>
+                            </div>
+                            <div class="main-status mt-2">
+                            <p class="main-text">Purchase Date</p>
+                            <div>
+                                <p class="main-text" id="purchaseDate"></p>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="container-trans text-align-left">
+                        <div class="body-trans">
+                            <div class="main-status mb-2">
+                            <p class="main-text font-weight-bold text-dark">Detail Product</p>
+                            </div>
+                            <section class="product-card">
+                            <div class="product-section">
+                                <div class="wrapper-product">
+                                <div class="product-info">
+                                    <img src="" id="penjadwalanPhoto">
+                                    <div>
+                                    <a href="#" class="main-text font-weight-bold text-dark" id="penjadwalanTitle">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="wrapper-price">
+                                <div class="total-price">
+                                    <p class="price-heading">Total Price</p>
+                                    <h5 class="main-price" id="penjadwalanAmount">Rp 499.000</h5>
+                                </div>
+                                </div>
+                            </div>
+                            </section>
+                        </div>
+                        </div>
+
+                        {{-- end content modal --}}
+                    </div>
+                    </div>
+                </div>
+        </div>
+        {{-- end modal --}}
+
+@include('partials.mainWeb.footer')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{{
-        !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}"
-        data-client-key="{{ config('services.midtrans.clientKey')}}"></script>
-    <script>
-    
-      
-      //arahkan route store kesini
-      
-        var user_id = document.getElementById('user_id').value;
-        var penjadwalan_id = document.getElementById('penjadwalan_id').value;
-        var transaction_id = document.getElementById('transaction_id').value;
-        var tanggal = document.getElementById('tanggal_order').value;
-        var amount = document.getElementById('amount').value;
-        var status = document.getElementById('status').value;
-
-        function order() {
-        console.log('user id : ', user_id);
-        console.log('Jadwal id :', penjadwalan_id);
-        console.log('Transaction :', transaction_id);
-        console.log('Date :', $('#tanggal_order').val());
-        console.log('Amount :', amount);
-        console.log('Status :', status);
-        }
-
-      $.post("/kuliah_indo/order_course", {
-                _method: 'POST',
-                _token: '{{ csrf_token() }}',
-                user_id:user_id,
-                penjadwalan_id:penjadwalan_id,
-                transaction_id:transaction_id,
-                purchase_date:tanggal,
-                amount:amount,
-                status:status
-            },
-
-            function (data, status) {
-                console.log(data);
-                if(data.is_login) {
-                    snap.pay(data.snap_token, {
-                        // Optional
-                        onSuccess: function (result) {
-                            console.log(JSON.stringify(result, null, 2));
-                            location.replace('/');
-                        },
-                        // Optional
-                        onPending: function (result) {
-                            console.log(JSON.stringify(result, null, 2));
-                            location.replace('/');
-                        },
-                        // Optional
-                        onError: function (result) {
-                            console.log(JSON.stringify(result, null, 2));
-                            location.replace('/');
-                        }
-                    });
-                } else {
-                    window.location.href = "/kuliah_indo/login?msg=login_false";
-                }
-                // return false;
-            });
-
-    </script>
-
-@endsection
+@endsection         

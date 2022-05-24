@@ -36,8 +36,8 @@
                 <td>{{ $absensi->tanggal_hadir }}</td>
                 <td>{{ $absensi->status_hadir }}</td>
                 <td>
-                    <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/{{ $absensi->course_id }}/{{1}}/kehadiran" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Hadir</a>
-                    <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/{{ $absensi->course_id }}/{{0}}/kehadiran" style="background-color: red; color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Tidak Hadir</a>
+                    <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/{{ $absensi->course_id }}/{{1}}/{{$absensi->tanggal_hadir}}/kehadiran" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Hadir</a>
+                    <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/{{ $absensi->course_id }}/{{0}}/{{$absensi->tanggal_hadir}}/kehadiran" style="background-color: red; color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Tidak Hadir</a>
                   </td>
               </tr>
               @endforeach
