@@ -77,7 +77,7 @@
                 <input type="text" name="amount" id="amount" value="{{ $dataKelas->price}}">
                 <input type="text" name="transaction_id" id="transaction_id" value={{rand(10,10000)}}>
                 <input type="text" name="status" id="status" value="pending">
-
+                
                 <div class="add-to-cart" style="display: flex;">
                     <div class="container">
                         <div class="row p-0 m-0 d-flex">
@@ -87,7 +87,7 @@
                             </div>
                             <div class="col-4 text-center">
                                 <div class="cart-wrapper">
-                                    <button onclick="order()" class="add-to-cart-button" > Buy Course </button>
+                                    <button data-toggle="modal" data-target="#exampleModalCenter" class="add-to-cart-button" > Buy Course </button>
                                 </div>
                             </div>
                         </div>
@@ -107,6 +107,94 @@
     </section>
     <!-- End Single Post Article -->
 
-    @include('partials.mainWeb.footer')
+    {{-- modal --}}
+        <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header justify-content-center">
+                        <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Payment Detail</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body overflow-auto p-0">
+                        {{-- content modal --}}
+
+                        <div class="container-trans text-align-left">
+                        <div class="body-trans">
+                            <div class="main-status">
+                            <p class="main-text font-weight-bold text-dark">Order Number</p>
+                            <div>
+                                <p class="main-text-desc" id="transactionId"></p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="body-trans">
+                            <div class="main-status">
+                            <p class="main-text font-weight-bold">Invoice Number</p>
+                            <div>
+                                <a target="__blank" class="main-text-desc" id="invData"></a>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="body-trans">
+                            <div class="main-status">
+                            <p class="main-text font-weight-bold">Status Detail</p>
+                            </div>
+                            <div class="main-status mt-2">
+                            <p class="main-text">Purchase Complete</p>
+                            <div>
+                                <p class="main-text">Aug 12, 2022, 07:15 WIB</p>
+                            </div>
+                            </div>
+                            <div class="main-status mt-2">
+                            <p class="main-text">Purchase Verification</p>
+                            <div>
+                                <p class="main-text">Aug 12, 2022, 07:10 WIB</p>
+                            </div>
+                            </div>
+                            <div class="main-status mt-2">
+                            <p class="main-text">Purchase Date</p>
+                            <div>
+                                <p class="main-text" id="purchaseDate"></p>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="container-trans text-align-left">
+                        <div class="body-trans">
+                            <div class="main-status mb-2">
+                            <p class="main-text font-weight-bold text-dark">Detail Product</p>
+                            </div>
+                            <section class="product-card">
+                            <div class="product-section">
+                                <div class="wrapper-product">
+                                <div class="product-info">
+                                    <img src="" id="penjadwalanPhoto">
+                                    <div>
+                                    <a href="#" class="main-text font-weight-bold text-dark" id="penjadwalanTitle">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="wrapper-price">
+                                <div class="total-price">
+                                    <p class="price-heading">Total Price</p>
+                                    <h5 class="main-price" id="penjadwalanAmount">Rp 499.000</h5>
+                                </div>
+                                </div>
+                            </div>
+                            </section>
+                        </div>
+                        </div>
+
+                        {{-- end content modal --}}
+                    </div>
+                    </div>
+                </div>
+        </div>
+        {{-- end modal --}}
+
+@include('partials.mainWeb.footer')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-@endsection
+@endsection         
