@@ -30,6 +30,8 @@ class AbsensiController extends Controller
     }
 
     public function detail($id) {
+       
+        
         $new = [];
         $date = date('d-m-Y');
 
@@ -51,12 +53,24 @@ class AbsensiController extends Controller
             $absensi = DB::table('order_midtrans')
                             ->leftJoin("penjadwalans", "penjadwalans.id", "=", "order_midtrans.penjadwalan_id")
                             ->join("users", "users.id", "=", "order_midtrans.user_id")
-                            ->leftJoin("absensis", "absensis.penjadwalan_id", "=", "penjadwalans.id")
-                            ->select("users.*" , "penjadwalans.id as course_id", "absensis.status as status_hadir", "absensis.tanggal as tanggal_hadir")
+                            ->select("users.*" , "penjadwalans.id as course_id")
                             ->where("order_midtrans.penjadwalan_id", $id)
-                            ->where("absensis.tanggal", $date)
                             ->get();
+
+            $get_tbl_absensi = DB::table('absensis')->where("absensis.tanggal", "17-05-2022")->where("penjadwalan_id", $id)->get();
+            $_absensi = ["hadir" => [], "tidak_hadir"=> []];
+
+            foreach ($get_tbl_absensi as $get_tbl_absensi) {
+                if($get_tbl_absensi->status == 1) {
+                    array_push($_absensi["hadir"], $get_tbl_absensi->user_id);
+                } else {
+                    array_push($_absensi["tidak_hadir"], $get_tbl_absensi->user_id);
+                }
+            }
+            
             foreach ($absensi as $absensi) {
+                $absensi->tanggal_hadir = date('d-m-Y');
+                $absensi->status_hadir = 0;
                 array_push($new, $absensi);
             }
         }
@@ -66,10 +80,10 @@ class AbsensiController extends Controller
         return view('admin.absensi.edit',['absensis' => $new, 'tanggal'=> $tanggal, 'date'=>$date, 'course_id'=>$id]);
     }
 
-    public function kehadiran($user_id, $course_id, $status) {
+    public function kehadiran($user_id, $course_id, $status, $date) {
         $check = DB::table("absensis")
                     ->where("user_id", $user_id)
-                    ->where("tanggal", date('d-m-Y'))
+                    ->where("tanggal", $date)
                     ->where("penjadwalan_id",  $course_id)
                     ->get();
 
@@ -78,17 +92,17 @@ class AbsensiController extends Controller
                 "user_id"=> $user_id,
                 "penjadwalan_id" => $course_id,
                 "status" => $status,
-                "tanggal" => date('d-m-Y')
+                "tanggal" => $date
             ]);
         } else {
             $insert = DB::table("absensis")
                         ->where("user_id", $user_id)
-                        ->where("tanggal", date('d-m-Y'))
+                        ->where("tanggal", $date)
                         ->where("penjadwalan_id",  $course_id)
                         ->update(["status" => $status]);
         }
 
-        $link = '/absensi/'.$course_id.'/edit';
+        $link = '/absensi/'.$course_id.'/edit?date='.$date;
 
         return redirect($link);
     }
