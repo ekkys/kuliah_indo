@@ -8,8 +8,13 @@
                      <div class="card-body">
                             <h4 class="card-title">Edit Profile</h4>
                             <p class="card-title-desc">Please input corectly for adjusting the profile data</p>
+                            @if(session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <span>{{ session('success') }}</span>
+                                </div>
+                            @endif
                             <form action="{{ url('/home/myprofile') }}" method="post" enctype="multipart/form-data">
-                             @csrf  
+                            @csrf  
                                    <div class="form-group">
                                           <div class="form-photo">
                                                  <div style="background: url({{ isset($user->picture) ? asset('storage/'.$user->picture) :  asset('assets/dist/img/user2-160x160.jpg') }}); background-size: cover;" class="img-thumbnail photo" id="photo_t"></div>

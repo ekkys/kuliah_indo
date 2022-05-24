@@ -3232,7 +3232,7 @@ max-width: 850px;
 }
 
 .add-to-cart {
-  display: none;
+  display: flex;
   overflow: hidden;
   position: fixed;
   bottom: 0;

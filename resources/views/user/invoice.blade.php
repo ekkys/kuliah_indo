@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+    <a href="{{ url('/certificate') }}" target="_blank" class="btn btn-primary">Cetak PDF</a>
     <div class="invoice-container">
         <div class="invoice-header">
             <div>

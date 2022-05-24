@@ -78,7 +78,7 @@
                 <input type="text" name="transaction_id" id="transaction_id" value={{rand(10,10000)}}>
                 <input type="text" name="status" id="status" value="pending">
 
-                <div class="add-to-cart">
+                <div class="add-to-cart" style="display: flex;">
                     <div class="container">
                         <div class="row p-0 m-0 d-flex">
                             <div class="col-8">

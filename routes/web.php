@@ -48,6 +48,7 @@ Route::get('/home/payment', [SiswaController::class, 'payment']);
 Route::get('/home/changepassword', [SiswaController::class, 'changePassword']);
 Route::post('/home/changepassword', [SiswaController::class, 'storePassword']);
 Route::get('/invoice', [SiswaController::class, 'invoice']);
+Route::get('/certificate/{id}', [SiswaController::class, 'certificate']);
 Route::get('/view_email' ,[GlobalController::class, 'mail_view']);
 Route::get('/test_email' ,[GlobalController::class, 'test_email']);
 
