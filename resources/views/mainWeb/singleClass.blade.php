@@ -1,7 +1,6 @@
 @extends('layouts.mainWeb.main')
 
 @section('container')
-
     <!-- Start Single Post Banner -->
     <section class="single-post section">
         <div class="container">
@@ -68,16 +67,6 @@
         <div class="container">
 
             {{-- Bottom Navbar --}}
-            <form action="#">
-                @csrf
-
-                <input type="text" name="user_id" id="user_id" value="{{ isset($user)? $user->id :'' }}">
-                <input type="text" name="penjadwalan_id" id="penjadwalan_id" value="{{ $dataKelas->id}}">
-                <input type="date" name="tanggal_order" id="tanggal_order" value="{{ date('Y-m-d') }}">
-                <input type="text" name="amount" id="amount" value="{{ $dataKelas->price}}">
-                <input type="text" name="transaction_id" id="transaction_id" value={{rand(10,10000)}}>
-                <input type="text" name="status" id="status" value="pending">
-                
                 <div class="add-to-cart" style="display: flex;">
                     <div class="container">
                         <div class="row p-0 m-0 d-flex">
@@ -94,7 +83,6 @@
                         
                     </div>
                 </div>
-            </form>
             {{-- End Bottom Navbar --}}
 
             {{-- Description --}}

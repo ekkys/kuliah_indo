@@ -273,37 +273,19 @@ class XenditController extends Controller
        
     }
 
-    function create_invoice($input) {
+    function create_invoice() {
           $xendit_key = config('endpoint.xendit_key');
           $setKey = Xendit::setApiKey($xendit_key);
           $timestamp = date('dmyhis');
           $params = [
             'external_id' => "invoice-$timestamp",
-            'payer_email' => $input["payer_email"],
-            'description' => $input["description"],
-            'amount' => $input["amount"]
+            'payer_email' => "chalidade@gmail.com",
+            'description' => "description",
+            'amount' => 1000
           ];
           
           $createInvoice = \Xendit\Invoice::create($params);
-          $this->store_history($params, $createInvoice);
-          $input_new = [
-              'invoice_id' => $createInvoice["id"],
-              'invoice_external_id' => $createInvoice["external_id"],
-              'invoice_status' => $createInvoice["status"],
-              'invoice_payer_email' => $createInvoice["payer_email"],
-              'invoice_description' => $createInvoice["description"],
-              'invoice_expiry_date' => $createInvoice["expiry_date"],
-              'invoice_invoice_url' => $createInvoice["invoice_url"],
-              'invoice_xendit' => json_encode($createInvoice),
-              'invoice_type' => $input["type"],
-              'invoice_item' => $input["item"],
-              'invoice_account_type' => isset($input["account"]) ? $input["account"] : 1,
-          ];
-
-          $input_new['amount'] = $input["amount"];
-          $input_new["invoice_expiry_date"] = date("d-m-Y H:i:s", strtotime($createInvoice["expiry_date"]));
-          $this->send_mail(5, $input_new);
-          
+        
           return ["result" => $createInvoice];
      }
 
