@@ -34,6 +34,7 @@ class ClassController extends Controller
                                 ->join('jabatans', 'jabatans.id', '=', 'penjadwalans.jabatan_id')
                                 ->select('penjadwalans.*', 'tutors.name as tutor', 'topics.name as topic', 'jabatans.name as jabatan')
                                 ->first();
+        
         return view('mainWeb.singleClass', [
             "title" => "Single Class",
             "dataKelas" => $dataKelas,

@@ -273,20 +273,39 @@ class XenditController extends Controller
        
     }
 
-    function create_invoice() {
-          $xendit_key = config('endpoint.xendit_key');
-          $setKey = Xendit::setApiKey($xendit_key);
-          $timestamp = date('dmyhis');
-          $params = [
-            'external_id' => "invoice-$timestamp",
-            'payer_email' => "chalidade@gmail.com",
-            'description' => "description",
-            'amount' => 1000
-          ];
-          
-          $createInvoice = \Xendit\Invoice::create($params);
+    function create_invoice($user_id, $course_id, $course_name) {
+        // $order = DB::table('order_midtrans')->orderBy('id', 'DESC')->first();
+        // $user = DB::table('users')->where('id', $user_id)->first();
+        // $course = DB::table('penjadwalans')->where('id', $course_id)->first();
+        // $order_number = (int) $order->id + 1;
+
+        // $xendit_key = config('endpoint.xendit_key');
+        // $setKey = Xendit::setApiKey($xendit_key);
+        // $timestamp = date('Ymd');
+        // $params = [
+        //     'external_id' => "INV/$timestamp/$user_id/$course_id/$order_number",
+        //     'payer_email' => $user->email,
+        //     'description' => $course_name,
+        //     'amount' => (int) $course->price
+        // ];
+
+        // $createInvoice = \Xendit\Invoice::create($params);
+
+        // $data_order = [
+        //     "id" => $order_number,
+        //     "penjadwalan_id" => $course_id,
+        //     "user_id" => $user_id,
+        //     "transaction_id" => $createInvoice["id"],
+        //     "purchase_date" => $createInvoice["created"],
+        //     "snap_token" => $createInvoice["invoice_url"],
+        //     "status" => $createInvoice["status"],
+        //     "created_at" => $createInvoice["created"],
+        //     "amount" => (int) $course->price,
+        // ];
+
+        // $order = DB::table('order_midtrans')->insert($data_order);
         
-          return ["result" => $createInvoice];
+        return view('mainWeb.payment');
      }
 
     function pay_invoice() {
