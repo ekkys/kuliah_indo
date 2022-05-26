@@ -2243,7 +2243,7 @@ ol {
 }
 
 .pricing-style2 .button2 {
-  margin-top: 30px;
+  margin: 30px auto;
   text-align: center;
 }
 
@@ -2260,7 +2260,6 @@ ol {
   color: #fff;
   padding: 12px 30px;
   font-size: 14px;
-  width: 32%;
 }
 
 .pricing-style2 .single-pricing .button .btn:hover {
@@ -2984,7 +2983,7 @@ ol {
 }
 
 .classes .button2 {
-  margin-top: 30px;
+  margin: 30px auto;
   text-align: center;
 }
 
@@ -3001,7 +3000,6 @@ ol {
   color: #fff;
   padding: 12px 30px;
   font-size: 14px;
-  width: 32%;
 }
 
 .classes .single-class .button .btn:hover {
