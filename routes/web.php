@@ -56,7 +56,7 @@ Route::get('/confirmation/{id}' ,[GlobalController::class, 'confirmation']);
 Route::get('/order/invoice', [GlobalController::class, 'getInvoice']);
 Route::post('/order_course', [GlobalController::class, 'order_midtrans']);
 
-Route::get('/xendit/{user_id}/{course_id}/create_invoice', [XenditController::class, 'create_invoice']);
+Route::get('/pay/{user_id}/{course_id}/{course_name}', [XenditController::class, 'create_invoice']);
 /* End Main Web */
 
 /* Admin Route */

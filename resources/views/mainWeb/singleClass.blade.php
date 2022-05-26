@@ -29,7 +29,7 @@
                 <div class="moderator-container">
                     <div class="row container-fluid" style="margin: auto">
                         <div class="image-wrapper align-self-center col-lg-3 col-md-3 col-sm-0">
-                            <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" alt="">
+                            <img src="{{ asset($dataKelas->foto) }}" alt="">
                         </div>
                         <div class="moderator-wrapper col-lg-3 col-md-3 col-sm-4">
                             <div class="moderator-about">
@@ -76,7 +76,12 @@
                             </div>
                             <div class="col-4 text-center">
                                 <div class="cart-wrapper">
+                                <?php if(empty($user)){?> 
+                                    <a type="button" href="{{url('/login')}}" class="add-to-cart-button">Buy Course</a>
+                                <?php } else { ?>
                                     <button data-toggle="modal" data-target="#exampleModalCenter" class="add-to-cart-button" > Buy Course </button>
+                                <?php } ?>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -111,40 +116,25 @@
                 <div class="container-trans text-align-left">
                     <div class="body-trans">
                         <div class="main-status">
-                            <p class="main-text font-weight-bold text-dark">Order Number</p>
+                            <p class="main-text font-weight-bold text-dark">Name</p>
                             <div>
-                                <p class="main-text-desc" id="transactionId"></p>
+                                <p class="main-text-desc" id="transactionId">{{$user->name}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="body-trans">
                         <div class="main-status">
-                            <p class="main-text font-weight-bold">Invoice Number</p>
+                            <p class="main-text font-weight-bold">Email</p>
                             <div>
-                                <a target="__blank" class="main-text-desc" id="invData"></a>
+                                {{$user->email}}
                             </div>
                         </div>
                     </div>
                     <div class="body-trans">
                         <div class="main-status">
-                            <p class="main-text font-weight-bold">Status Detail</p>
-                        </div>
-                        <div class="main-status mt-2">
-                            <p class="main-text">Purchase Complete</p>
+                            <p class="main-text font-weight-bold">Phone</p>
                             <div>
-                                <p class="main-text">Aug 12, 2022, 07:15 WIB</p>
-                            </div>
-                        </div>
-                        <div class="main-status mt-2">
-                            <p class="main-text">Purchase Verification</p>
-                            <div>
-                                <p class="main-text">Aug 12, 2022, 07:10 WIB</p>
-                            </div>
-                        </div>
-                        <div class="main-status mt-2">
-                            <p class="main-text">Purchase Date</p>
-                            <div>
-                                <p class="main-text" id="purchaseDate"></p>
+                                {{empty($user->phone) ? "-" : $user->phone}}
                             </div>
                         </div>
                     </div>
@@ -159,16 +149,16 @@
                             <div class="product-section">
                                 <div class="wrapper-product">
                                     <div class="product-info">
-                                        <img src="" id="penjadwalanPhoto">
+                                        <img src="{{ asset($dataKelas->foto) }}" alt="">
                                     <div>
-                                        <a href="#" class="main-text font-weight-bold text-dark" id="penjadwalanTitle">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a>
+                                        <a href="#" class="main-text font-weight-bold text-dark" id="penjadwalanTitle">{{ $dataKelas->title }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="wrapper-price">
                                 <div class="total-price">
                                     <p class="price-heading">Total Price</p>
-                                    <h5 class="main-price" id="penjadwalanAmount">Rp 499.000</h5>
+                                    <h5 class="main-price" id="penjadwalanAmount">{{ $dataKelas->price == '0' ? 'Free' : 'Rp '.number_format($dataKelas->price) }}</h5>
                                 </div>
                             </div>
                             </div>
@@ -177,7 +167,7 @@
                 </div>
 
                 <div class="container-trans text-right">
-                    <button type="button" class="add-to-cart-button">Buy Course</button>
+                    <a type="button" class="add-to-cart-button" href="{{url('/pay/'.$user->id.'/'.$dataKelas->id.'/'.$dataKelas->title)}}">Pay Now</a>
                 </div>
 
                 {{-- end content modal --}}
