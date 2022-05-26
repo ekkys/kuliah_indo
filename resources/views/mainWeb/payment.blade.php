@@ -3,7 +3,7 @@
 @section('container')
     <!-- Start Single Post Article -->
     <section class="article bg-gray section">
-        <iframe src="https://checkout-staging.xendit.co/web/628f309b42ec4f62261b3b09" width="100%" height="1000" style="margin-top:-50px"> </iframe>
+        <iframe src="{{$link}}" width="100%" height="1000" style="margin-top:-50px"> </iframe>
     </section>
     <!-- End Single Post Article -->
 
