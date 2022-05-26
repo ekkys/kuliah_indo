@@ -75,20 +75,28 @@ class GlobalController extends Controller
 
     public function reset_password(Request $request) {
       $email = $request->input('email');
-      $password = substr(md5(time()), 0, 5);
+      $password = substr(md5(time()), 0, 8);
       $user = User::where('email', $email)->update(["password"=>Hash::make($password)]);
       $user = User::where('email', $email)->first();
       
-      $data = [
-        "email" => $user["email"],
-        "password" => $password,
-        "name" => $user["name"],
-        "type" => 2,
-      ];
+      if(!empty($user)){
 
-      $this->send_mail(2, $data);
+        $data = [
+          "email" => $user["email"],
+          "password" => $password,
+          "name" => $user["name"],
+          "type" => 2,
+        ];
 
-      return view('auth.login');
+        $this->send_mail(2, $data);
+
+        return view('auth.login')->with('success', 'Reset link has sended to your email');
+
+      } else {
+
+        return redirect()->back()->with('error', 'Email is invalid');
+
+      }
   }
 
   function order_midtrans(Request $request) {

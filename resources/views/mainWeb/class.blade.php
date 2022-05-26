@@ -30,14 +30,16 @@
                 </div>
                 <div class="search-container">
                     <div class="search-field">
-                        <div class="search-inner">
-                            <div class="search">
-                                <input type="text" class="search-item" autocomplete="off" autocapitalize="off" placeholder="Ketik untuk mencari...">
+                        <form action="{{ url('/class') }}" method="get">
+                            <div class="search-inner">
+                                <div class="search">
+                                    <input type="search" name="search" class="search-item" autocomplete="off" autocapitalize="off" placeholder="Ketik untuk mencari...">
+                                </div>
                             </div>
-                        </div>
-                        <button class="btn-search" type="button">
-                            <i class="lni lni-search-alt"></i>
-                        </button>
+                            <button class="btn-search" type="submit">
+                                <i class="lni lni-search-alt"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -122,7 +124,9 @@
                 @endif
                 @endforeach
                 {{-- End Class --}}
-
+                
+            </div>
+            <div class="row">
                 <!-- Button Tampilkan Lebih Banyak -->
                 <div class="button2">
                     <a class="btn" href="javascript:void(0)">Tampilkan Lebih Banyak</a>

@@ -17,12 +17,21 @@
                                 <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" class="img-fluid login-logo">
                                 <p class="login-des">Lost your password?</p>
                             </div>
+
+                            @if($message = Session::get('error'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <span>{{ $message }}</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+                            
+
                             <form action="{{url('/reset-password')}}" method="POST">
                             @csrf
-                                <div class="form-group first last" id="form-group-email">
-                                    <label for="email">Email</label>
+                                <div class="form-group" id="form-group-email">
+                                    <label for="email">{{ __('Email Address') }}</label>
                                     <input type="email" id="email" class="form-control" name="email" required autocomplete="email" autofocus>
-                                </div>                                
+                                </div>                               
                                 <input type="submit" value="Send Link" class="btn btn-block btn-primary mb-4">
                             </form>
                         </div>

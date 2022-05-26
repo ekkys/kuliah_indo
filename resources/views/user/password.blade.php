@@ -16,7 +16,7 @@
                                    {{-- old password --}}
                                    <div class="form-group">
                                           <label for="oldPassword">Old Password</label>
-                                          <input type="password" class="form-control" id="form_old_password" name="oldPassword" placeholder="Password" required maxlength="24">
+                                          <input type="password" class="form-control" id="form_old_password" name="oldPassword" placeholder="Password" required minlength="8" maxlength="24">
                                    </div>
                                    
                                    {{-- new password --}}
