@@ -50,7 +50,77 @@
                     <h2 class="title wow fadeInUp">Semua Pilihan Kelas</h2>
                 </div>
             </div>
-            <div class="row" id="data_kelas"></div>
+            <div class="row">
+
+                {{-- Class --}}
+                @foreach($dataKelas as $dataKelass)
+
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="single-class">
+                        <div class="image-cover">
+                            <span class="promo" style="{{ empty($dataKelas->price) ? 'display: inline-block;' : 'display: none;' }}">
+                                <span class="text-promo">Free</span>
+                            </span>
+                            <img src="{{ env('FILE_URL').$dataKelass->foto }}" style="">
+                        </div>
+                        <div class="text-container">
+                            <div class="category-wrapper">
+                                <span class="category">{{ $dataKelass->topic }}</span>
+                            </div>
+                            <div class="date-wrapper">
+                                <?php 
+                    
+                                    $date = explode( " - ", $dataKelass->date);
+                                    $startDate = str_replace('/', '-', $date[0]);
+                                    $endDate = str_replace('/', '-', $date[1]);
+                                    $startTime = $dataKelass->timestart;
+                                    $endTime = $dataKelass->timeend;
+                                
+                                ?>
+                                <span class="date"><i class="lni lni-calendar"></i>{{ date('F d, Y', strtotime($startDate)) }}</span>
+                            </div>
+                            <div class="title-container">
+                                <h3 class="title">{{ $dataKelass->title }}</h3>
+                            </div>
+                            <div class="moderator-container">
+                                <div class="image-wrapper align-self-center">
+                                    <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" alt="">
+                                </div>
+                                <div class="moderator-wrapper">
+                                    <div class="moderator-name">
+                                        <span>{{ $dataKelass->tutor }}</span>
+                                    </div>
+                                    <div class="moderator-name">
+                                        <p>{{ $dataKelass->jabatan }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row des-container">
+                                <div class="col-6" style="padding: 0;">
+                                    <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>
+                                </div>
+                                <div class="col-6" style="padding: 0;">
+                                    <h3 class="des-2"><i class="lni lni-comments-alt"></i> Konsultasi</h3>
+                                </div>
+                            </div>
+                            <div class="price-container row">
+                                <div class="col-lg-7 col-md-12">
+                                    <h4 class="price">{{ $dataKelass->price == '0' ? 'Free' : 'Rp '.number_format($dataKelass->price) }}</h4>
+                                </div>
+                                <div class="col-lg-5 col-md-12" style="display: none;">
+                                    <h4 class="old-price">Rp 1.000.000</h4>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <a class="btn" href="{{ url('/class/singleClass/'.$dataKelass->id) }}">Bergabung</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                {{-- End Class --}}
+                
+            </div>
             <div class="row">
                 <!-- Button Tampilkan Lebih Banyak -->
                 <div class="button2">
@@ -146,79 +216,11 @@
             <!--/ End Footer Top -->
         </footer>
     <!--/ End Footer Area -->
-    
 
     <script>
-        var now = 3;
-        var finish = now + 3;
-        var data = <?= $dataKelas ?>;
-        var data_kelas = [];
-
-        function numberWithCommas(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-
         function load_more() {
-            let kelas = $('#data_kelas');
-            finish = now + 3;
-            for (let index = now; index < finish; index++) {
-               kelas.append(
-                   `<div class="col-lg-4 col-md-4 col-sm-12">`+
-                   `<div class="single-class">`+
-                   `    <div class="image-cover">`+
-                   `        <span class="promo" style="{{ empty($dataKelas->price) ? 'display: inline-block;' : 'display: none;' }}">`+
-                   `            <span class="text-promo">Free</span>`+
-                   `        </span>`+
-                   `        <img src="" style="">`+
-                   `    </div>`+
-                   `   <div class="text-container">`+
-                   `        <div class="category-wrapper">`+
-                   `            <span class="category">`+data[index].topic+`</span>`+
-                   `        </div>`+
-                   `        <div class="date-wrapper">`+
-                   `            <span class="date"><i class="lni lni-calendar"></i></span>`+
-                   `       </div>`+
-                   `         <div class="title-container">`+
-                   `             <h3 class="title"></h3>`+
-                   `         </div>`+
-                   `         <div class="moderator-container">`+
-                   `             <div class="image-wrapper align-self-center">`+
-                   `                 <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" alt="">`+
-                   `                                </div>`+
-                   `             <div class="moderator-wrapper">`+
-                   `                 <div class="moderator-name">`+
-                   `                     <span>`+data[index].tutor+`</span>`+
-                   `                 </div>`+
-                   `                 <div class="moderator-name">`+
-                   `                     <p>`+data[index].jabatan+`</p>`+
-                   `                 </div>`+
-                   `             </div>`+
-                   `         </div>`+
-                   `         <div class="row des-container">`+
-                   `             <div class="col-6" style="padding: 0;">`+
-                   `                 <h3 class="des"><i class="lni lni-certificate"></i> Sertifikat</h3>`+
-                   `             </div>`+
-                   `             <div class="col-6" style="padding: 0;">`+
-                   `                 <h3 class="des-2"><i class="lni lni-comments-alt"></i> Konsultasi</h3>`+
-                   `             </div>`+
-                   `         </div>`+
-                   `         <div class="price-container row">`+
-                   `             <div class="col-lg-7 col-md-12">`+
-                   `                 <h4 class="price">Rp `+numberWithCommas(data[index].price)+`</h4>`+
-                   `             </div>`+
-                   `             <div class="col-lg-5 col-md-12" style="display: none;">`+
-                   `                 <h4 class="old-price">Rp 1.000.000</h4>`+
-                   `             </div>`+
-                   `         </div>`+
-                   `         <div class="button">`+
-                   `             <a class="btn" href="{{ url('/class/singleClass/`+data[index].id+`') }}">Bergabung</a>`+
-                   `         </div>`+
-                   `     </div>`+
-                   ` </div>`+
-                   `</div>`);
-                   now++;
-                
-            }
+            let data = <?= $dataKelas ?>;
+            console.log(data);
         }
     </script>
 
