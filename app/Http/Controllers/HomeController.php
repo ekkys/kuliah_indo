@@ -27,18 +27,13 @@ class HomeController extends Controller
         $user = Auth::user();
         if ($user->hasRole('admin')) {
             return view('admin.dashboard');
-
         }elseif ($user->hasRole('tutor')) {
             return view('user.dashboard');
-
         }elseif ($user->hasRole('karyawan')) {
             return view('admin.dashboard');
-
         }else {
             return view('user.dashboard', ['user' => $user]);
         }
-
-        
     }
 
     public function karyawan(){
