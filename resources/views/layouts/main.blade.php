@@ -32,6 +32,7 @@
   @yield('jquery')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
+  testing
   <div class="wrapper">
 
     {{-- <!-- Preloader -->

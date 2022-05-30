@@ -13,7 +13,7 @@
                                             <tr>
                                               <th scope="col">Course Name</th>
                                               <th scope="col">Date</th>
-                                              <th scope="col">Payment Status</th>
+                                              <th scope="col">Time</th>
                                               <th scope="col">Course Progress</th>
                                               <th scope="col">Course Link</th>
                                               <th scope="col">Certificate</th>
@@ -33,8 +33,36 @@
                                                         
                                                         ?>
                                                  <td>{{ $mycourse->penjadwalan_date }}</td>
-                                                 <td>{{ $mycourse->status }}</td>
-                                                 <td>Waiting</td>
+                                                 <td>{{ $startTime }} - {{ $endTime }}</td>
+                                                 <td>
+                                                        <?php
+                                                               $currentTime = (date('H:i', strtotime("+7 hours")));
+                                                               $statusCourse = "";
+
+                                                               if (date('d-m-Y') >= $startDate && date('d-m-Y') < $endDate) {
+                                                                      if($currentTime >= $startTime && $currentTime <= $endTime) {
+                                                                             echo "On Progress";
+                                                                      } elseif ($currentTime >= $endTime) {
+                                                                             echo "Course End";
+                                                                      } else {
+                                                                             echo "Waiting";
+                                                                      }
+                                                               } elseif (date('d-m-Y') >= "$endDate") {
+                                                                      if($currentTime >= $startTime && $currentTime <= $endTime) {
+                                                                             echo "On Progress";
+                                                                      } elseif($currentTime >= $endTime) {
+                                                                             echo "Course End";
+                                                                             $statusCourse = "Course End";
+                                                                      } else {
+                                                                             echo "Waiting";
+                                                                      }
+                                                               } else {
+                                                                      echo "Waiting";
+                                                               }
+
+                                                                      
+                                                        ?>
+                                                 </td>
                                                  <td>
                                                         {!! $mycourse->penjadwalan_linkzoom ? 
                                                                '<span style="display: block;">
@@ -46,7 +74,12 @@
                                                                </span>'
                                                         !!}
                                                  </td>
-                                                 <td><a href="{{ url('/certificate/'.$mycourse->penjadwalan_id) }}">Download</a></td>
+                                                 <td>   
+                                                        <?php if($statusCourse == "Course End") { ?>
+                                                               <a href="{{ url('/certificate/'.$mycourse->penjadwalan_id) }}">Download</a>
+                                                        <?php } ?>
+                                                               
+                                                 </td>
                                                </tr>
                                              </tbody>
                                                  

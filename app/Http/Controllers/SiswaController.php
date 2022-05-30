@@ -54,6 +54,7 @@ class SiswaController extends Controller
             'user' => $user,
             'mycourses' => DB::table('order_midtrans')
                         ->where('order_midtrans.user_id', '=', $user->id)
+                        ->where('order_midtrans.status', '!=', 'PENDING' )
                         ->join('penjadwalans', 'order_midtrans.penjadwalan_id', '=', 'penjadwalans.id')
                         ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
                                                    , 'penjadwalans.date as penjadwalan_date'
@@ -61,7 +62,7 @@ class SiswaController extends Controller
                                                    , 'penjadwalans.timeend as penjadwalan_timeend'
                                                    , 'penjadwalans.link_zoom as penjadwalan_linkzoom'
                                 )
-                        ->orderBy('updated_at', 'DESC')
+                        ->orderBy('id', 'DESC')
                         ->get(),
         ]);
     }
@@ -76,9 +77,17 @@ class SiswaController extends Controller
                        ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
                                                   , 'penjadwalans.foto as penjadwalan_foto'
                                )
-                       ->orderBy('updated_at', 'DESC')
+                       ->orderBy('id', 'DESC')
                        ->get(),
         ]);
+    }
+
+    public function paymentCourse($order_id) {
+        $user = DB::table('order_midtrans')
+                ->where('order_midtrans.id', '=', $order_id)
+                ->first();
+
+        return view('mainWeb.payment', ['link' => $user->snap_token]);
     }
 
     public function changePassword() {

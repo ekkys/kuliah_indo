@@ -8,6 +8,7 @@ use App\Models\Jabatan;
 use App\Models\Tutor;
 use App\Models\Topic;
 use App\Models\Karyawan;
+use Illuminate\Support\Facades\Auth;
 
 class PenjadwalanController extends Controller
 {
@@ -24,6 +25,7 @@ class PenjadwalanController extends Controller
             ->join('jabatans', 'penjadwalans.jabatan_id', '=', 'jabatans.id')
             ->select("penjadwalans.*", "topics.name as topic_name","tutors.name as tutor_name", "jabatans.name as jabatan_name")   
             ->orderBy('updated_at', 'DESC')->get(),
+            'user' => Auth::user(),
             
             // SELECT nama_tabel.fields FROM tabel_utama 
             // JOIN tabel_pertama ON parameter_join1 
@@ -56,21 +58,23 @@ class PenjadwalanController extends Controller
         // dd($request);
         if ($request->file('foto')) {
             $request->file('foto')->store('class-images');
-         }
+        }
 
-     Penjadwalan::create([
-         'title'=> $request->title,
-         'date'=> $request->date,
-         'timestart'=> $request->timestart,
-         'timeend'=> $request->timeend,
-         'tutor'=> $request->tutor,
-         'topic'=> $request->topic,
-         'jabatan'=> $request->jabatan,
-         'price'=> $request->price,
-         'link_zoom'=> $request->link_zoom,
-         'foto'=> $request->file('foto')->store('class-images'),
-         'description'=> $request->description,
-    ]);
+        $storePenjadwalan = [
+            'title'=> $request->title,
+            'date'=> $request->date,
+            'timestart'=> $request->timestart,
+            'timeend'=> $request->timeend,
+            'tutor_id'=> $request->tutor,
+            'topic_id'=> $request->topic,
+            'jabatan_id'=> $request->jabatan,
+            'price'=> $request->price,
+            'link_zoom'=> $request->link_zoom,
+            'foto'=> $request->file('foto')->store('class-images'),
+            'description'=> $request->description,
+        ];
+
+     Penjadwalan::create($storePenjadwalan);
 
        
          return redirect(route('penjadwalan.index'))->with('success', 'New Jadwal has been Added!');

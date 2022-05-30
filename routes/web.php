@@ -45,6 +45,7 @@ Route::get('/home/myprofile', [SiswaController::class, 'myProfile']);
 Route::post('/home/myprofile', [SiswaController::class, 'updateProfile']);
 Route::get('/home/mycourse', [SiswaController::class, 'myCourse']);
 Route::get('/home/payment', [SiswaController::class, 'payment']);
+Route::get('/home/payment/{order_id}', [SiswaController::class, 'paymentCourse']);
 Route::get('/home/changepassword', [SiswaController::class, 'changePassword']);
 Route::post('/home/changepassword', [SiswaController::class, 'storePassword']);
 Route::get('/invoice/{id}', [SiswaController::class, 'invoice']);
