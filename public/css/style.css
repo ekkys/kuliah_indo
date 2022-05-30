@@ -797,3 +797,7 @@
 .btn-close-white {
     filter: invert(1) grayscale(100%) brightness(200%)
 }
+
+.bg-yellow {
+    background-color: #ffae00 !important;
+}

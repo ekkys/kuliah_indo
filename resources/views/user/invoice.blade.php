@@ -18,7 +18,11 @@
             </div>
             <div>
                 <h4 class="text-invoice">INVOICE</h4>
-                <span>INV/{{ str_replace("-", "", $invoice->purchase_date) }}/{{ $invoice->user_id }}/{{ $invoice->penjadwalan_id }}/{{ $invoice->id }}</span>
+                <?php
+                 $date = date("Ymd", strtotime($invoice->purchase_date));
+
+                ?>
+                <span>INV/{{ $date }}/{{ $invoice->user_id }}/{{ $invoice->penjadwalan_id }}/{{ $invoice->id }}</span>
             </div>
         </div>
         <div>
@@ -33,7 +37,7 @@
                     </div>
                     <div class="section-wrapper">
                         <span>Purchase Date</span>
-                        <p>&nbsp; {{ $invoice->purchase_date }} &nbsp;</p>
+                        <p>&nbsp; {{ date("d-m-Y", strtotime($invoice->purchase_date)) }} &nbsp;</p>
                     </div>
                 </div>
             </div>

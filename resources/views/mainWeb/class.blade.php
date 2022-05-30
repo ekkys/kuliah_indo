@@ -54,7 +54,7 @@
                 {{-- Class --}}
                 <?php $id = 0; ?>
                 @foreach($dataKelas as $dataKelass)
-                @if($id < 3) 
+                @if($id < 6) 
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="single-class">
                         <div class="image-cover">
@@ -220,8 +220,8 @@
     
 
     <script>
-        var now = 3;
-        var finish = now + 3;
+        var now = 6;
+        var finish = now + 6;
         var data = <?= $dataKelas ?>;
         var data_kelas = [];
         var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -233,7 +233,7 @@
 
         function load_more() {
             let kelas = $('#data_kelas');
-            finish = now + 3;
+            finish = now + 6;
             for (let index = now; index < finish; index++) {
                 let date = data[index].date.split(' - ');
                 date = date[0].split('/');

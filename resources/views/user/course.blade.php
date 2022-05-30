@@ -39,28 +39,25 @@
                                                                $currentTime = (date('H:i', strtotime("+7 hours")));
                                                                $statusCourse = "";
 
-                                                               if (date('d-m-Y') >= $startDate && date('d-m-Y') < $endDate) {
-                                                                      if($currentTime >= $startTime && $currentTime <= $endTime) {
-                                                                             echo "On Progress";
+                                                               if (date('d-m-Y') >= $startDate && date('d-m-Y') <= $endDate) {
+                                                                      if ($currentTime >= $startTime && $currentTime <= $endTime) {
+                                                                             echo "In Progress";
                                                                       } elseif ($currentTime >= $endTime) {
-                                                                             echo "Course End";
-                                                                      } else {
-                                                                             echo "Waiting";
-                                                                      }
-                                                               } elseif (date('d-m-Y') >= "$endDate") {
-                                                                      if($currentTime >= $startTime && $currentTime <= $endTime) {
-                                                                             echo "On Progress";
-                                                                      } elseif($currentTime >= $endTime) {
+                                                                             if ($currentTime > $endTime && date('d-m-Y') >= $endDate) {
                                                                              echo "Course End";
                                                                              $statusCourse = "Course End";
+                                                                             } else {
+                                                                                    echo "Course End";
+                                                                             }
                                                                       } else {
                                                                              echo "Waiting";
                                                                       }
+                                                               } elseif (date('d-m-Y') > "$endDate") {
+                                                                             echo "Course End";
+                                                                             $statusCourse = "Course End";
                                                                } else {
                                                                       echo "Waiting";
                                                                }
-
-                                                                      
                                                         ?>
                                                  </td>
                                                  <td>
