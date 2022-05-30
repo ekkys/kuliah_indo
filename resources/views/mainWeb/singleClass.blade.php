@@ -118,7 +118,7 @@
                         <div class="main-status">
                             <p class="main-text font-weight-bold text-dark">Name</p>
                             <div>
-                                <p class="main-text-desc" id="transactionId">{{$user->name}}</p>
+                                <p class="main-text-desc" id="transactionId">{{ !empty($user) ? $user->name : "" }}</p>
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                         <div class="main-status">
                             <p class="main-text font-weight-bold">Email</p>
                             <div>
-                                {{$user->email}}
+                                {{ !empty($user) ? $user->email : "" }}
                             </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="container-trans text-right">
-                    <a type="button" class="add-to-cart-button" href="{{url('/pay/'.$user->id.'/'.$dataKelas->id.'/'.$dataKelas->title)}}">Pay Now</a>
+                    <a type="button" class="add-to-cart-button" href="{{url('/pay/'.(!empty($user) ? $user->id : '').'/'.$dataKelas->id.'/'.$dataKelas->title)}}">Pay Now</a>
                 </div>
 
                 {{-- end content modal --}}

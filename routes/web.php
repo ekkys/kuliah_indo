@@ -68,9 +68,6 @@ Route::get('absensi/{user_id}/{course_id}/{status}/{date}/kehadiran', [AbsensiCo
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    // Route::get('karyawan', [App\Http\Controllers\HomeController::class, 'index'])->name('karyawan');
-    // Route::get('tutor', [App\Http\Controllers\HomeController::class, 'index'])->name('tutor');
-    // Route::get('siswa', [App\Http\Controllers\HomeController::class, 'index'])->name('siswa');
 });
 
     Route::get('/getSiswaByCourse/{id}',[ AbsensiController::class, 'getSiswaByCourse']);
@@ -83,7 +80,6 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::resource('/testimoni', UploadTestimoniController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/penjadwalan', PenjadwalanController::class);
-    // Route::resource('/ordermidtrans', OrderMidtransController::class);
     Route::resource('/absensi', AbsensiController::class);
 
 /* End Admin Route */

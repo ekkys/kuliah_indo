@@ -127,7 +127,7 @@
                 @endforeach
 
                 <!-- Button Tampilkan Lebih Banyak -->
-                <div class="button2">
+                <div class="col-12 button2">
                     <a class="btn" href="{{ url('/class') }}">Selengkapnya <i class="lni lni-arrow-right"></i></a>
                 </div>
                 <!-- End Tampilkan Lebih Banyak -->
