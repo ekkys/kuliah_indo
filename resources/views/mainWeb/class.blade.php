@@ -58,7 +58,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="single-class">
                         <div class="image-cover">
-                            <span class="promo" style="{{ empty($dataKelas->price) ? 'display: inline-block;' : 'display: none;' }}">
+                            <span class="promo" style="{{ !empty($dataKelas->price) ? 'display: inline-block;' : 'display: none;' }}">
                                 <span class="text-promo">Free</span>
                             </span>
                             <img src="{{ env('FILE_URL').$dataKelass->foto }}" style="">
@@ -239,14 +239,15 @@
                 date = date[0].split('/');
                 date = date[1]+"/"+date[0]+"/"+date[2];
                 date = new Date(date);
+                let style = data[index].price == '0' ? 'display: inline-block;' :  'display: none;';
                kelas.append(
                    `<div class="col-lg-4 col-md-4 col-sm-12">`+
                    `<div class="single-class">`+
                    `    <div class="image-cover">`+
-                   `        <span class="promo" style="{{ empty($dataKelas->price) ? 'display: inline-block;' : 'display: none;' }}">`+
+                   `        <span class="promo" style="`+style+`">`+
                    `            <span class="text-promo">Free</span>`+
                    `        </span>`+
-                   `        <img src="{{ env('FILE_URL').`+data[index].foto+` }}" style="">`+
+                   `        <img src="{{ env('FILE_URL') }}`+data[index].foto+`" style="">`+
                    `    </div>`+
                    `   <div class="text-container">`+
                    `        <div class="category-wrapper">`+
