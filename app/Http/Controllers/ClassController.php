@@ -14,7 +14,6 @@ class ClassController extends Controller
         $user = Auth::user();
         $search = $request->input('search');
 
-
         if(!empty($search)) {
             $dataKelas = Penjadwalan::join('tutors', 'tutors.id', '=', 'penjadwalans.tutor_id')
             ->join('topics', 'topics.id', '=', 'penjadwalans.topic_id')
