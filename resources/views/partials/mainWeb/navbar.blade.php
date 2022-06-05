@@ -9,14 +9,14 @@
                             <a class="navbar-brand" href="{{ url('/') }}">
                                 <img src="{{ asset('mainWeb/images/logo/logo2.svg') }}" alt="Logo">
                             </a>
-                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-toggle="collapse"
+                                data-target="#navbarHomeContent" aria-controls="navbarHomeContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarHomeContent">
                                 <ul id="nav" class="navbar-nav ms-auto">
                                     <li class="nav-item">
                                         <a href="{{ url('/') }}" aria-label="Toggle navigation">Home</a>

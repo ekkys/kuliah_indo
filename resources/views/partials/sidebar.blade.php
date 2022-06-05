@@ -89,7 +89,7 @@
             </li>
          
             <li class="nav-item">
-              <a href="" class="nav-link">
+              <a href="{{ url('/manajemenuser') }}" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                 Managemen User
@@ -101,7 +101,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
-                  Managemen Kelas
+                  Manajemen Kelas
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>

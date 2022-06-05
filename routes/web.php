@@ -8,20 +8,21 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TutorController;
+use App\Http\Controllers\GlobalController;
 use App\Http\Controllers\TesterController;
+use App\Http\Controllers\XenditController;
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\PenjadwalanController;
+use App\Http\Controllers\ManajemenUserController;
+// use App\Http\Controllers\OrderMidtransController;
 use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
-use App\Http\Controllers\PenjadwalanController;
-use App\Http\Controllers\GlobalController;
-use App\Http\Controllers\XenditController;
-// use App\Http\Controllers\OrderMidtransController;
-use App\Http\Controllers\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,16 +71,22 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-    Route::get('/getSiswaByCourse/{id}',[ AbsensiController::class, 'getSiswaByCourse']);
-    Route::resource('/topic', TopicController::class);
-    Route::resource('/tutor', TutorController::class);
-    Route::resource('/jabatan', JabatanController::class);
-    Route::resource('/karyawan', KaryawanController::class);
-    Route::resource('/wilayah', WilayahController::class);
-    Route::resource('/slidebanner', UploadSlideBannerController::class);
-    Route::resource('/testimoni', UploadTestimoniController::class);
-    Route::resource('/setting', SettingController::class);
-    Route::resource('/penjadwalan', PenjadwalanController::class);
-    Route::resource('/absensi', AbsensiController::class);
+Route::get('/getSiswaByCourse/{id}',[ AbsensiController::class, 'getSiswaByCourse']);
+Route::resource('/topic', TopicController::class);
+Route::resource('/tutor', TutorController::class);
+Route::resource('/jabatan', JabatanController::class);
+Route::resource('/karyawan', KaryawanController::class);
+Route::resource('/wilayah', WilayahController::class);
+Route::resource('/slidebanner', UploadSlideBannerController::class);
+Route::resource('/testimoni', UploadTestimoniController::class);
+Route::resource('/setting', SettingController::class);
+Route::resource('/penjadwalan', PenjadwalanController::class);
+Route::resource('/absensi', AbsensiController::class);
+Route::get('/manajemenuser', [ManajemenUserController::class, 'index']);
+Route::get('/manajemenuser/{id}/edit', [ManajemenUserController::class, 'edit']);
+Route::post('/manajemenuser', [ManajemenUserController::class, 'updateUser']);
+Route::post('/manajemenuser/{id}', [ManajemenUserController::class, 'deleteUser']);
+
+
 
 /* End Admin Route */
