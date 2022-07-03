@@ -3,6 +3,11 @@
 @section('title-page', 'Data Jadwal Kelas')
 
 @section('content')
+<?php if(empty(Auth::user())) { ?>
+  <script>window.location.href = "/login"</script>
+<?php } elseif(Auth::user()->email !== "admin@role.test") { ?>
+  <script>window.location.href = "/home"</script>
+<?php } ?>
 <div class="row">
     <div class="col-12">
       <div class="card">

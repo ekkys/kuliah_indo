@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Topic;
 use App\Http\Requests\StoreTopicRequest;
 use App\Http\Requests\UpdateTopicRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TopicController extends Controller
 {
@@ -15,6 +16,10 @@ class TopicController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.topic.index', [
             'topics' => Topic::orderBy('updated_at', 'DESC')->get()
         ]);

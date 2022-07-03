@@ -8,6 +8,7 @@ use App\Models\Regency;
 use App\Models\District;
 use App\Models\Village;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WilayahController extends Controller
 {
@@ -18,6 +19,10 @@ class WilayahController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.wilayah.index', [
             'provinces' =>  Province::all(),
             'regencies' =>  Regency::all(),

@@ -30,13 +30,14 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <?php if(Auth::user()->email !== "admin@role.test") { ?>
-    <script>window.location.href = "/kuliah_indo/home"</script>
-  <?php  } ?>
+  <?php if(empty(Auth::user())) { ?>
+    <script>window.location.href = "/login"</script>
+  <?php } elseif(Auth::user()->email !== "admin@role.test") { ?>
+    <script>window.location.href = "/home"</script>
+  <?php } ?>
   @yield('jquery')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-  testing
   <div class="wrapper">
 
     {{-- <!-- Preloader -->

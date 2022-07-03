@@ -9,6 +9,7 @@ use App\Models\Tutor;
 use App\Models\Topic;
 use App\Models\Karyawan;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\GlobalController;
 
 class PenjadwalanController extends Controller
 {
@@ -19,6 +20,10 @@ class PenjadwalanController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.penjadwalan.index',[
             'penjadwalans' => Penjadwalan::join('topics', 'penjadwalans.topic_id', '=', 'topics.id')
             ->join('tutors', 'penjadwalans.tutor_id', '=', 'tutors.id')

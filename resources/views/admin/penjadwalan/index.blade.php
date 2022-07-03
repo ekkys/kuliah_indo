@@ -28,9 +28,7 @@
                 <th>Start Time</th>
                 <th>Finish Time</th>
                 <th>Tutor</th>
-                <th>Jabatan</th>
                 <th>Price</th>
-                <th>Description</th>
                 <th width='100'>Aksi</th>
               </tr>
             </thead>
@@ -50,9 +48,7 @@
                 <td>{{ $penjadwalan->timestart }}</td>
                 <td>{{ $penjadwalan->timeend }}</td>
                 <td>{{ $penjadwalan->tutor_name }}</td>
-                <td>{{ $penjadwalan->jabatan_name }}</td>
                 <td>{{ $penjadwalan->price }}</td>
-                <td>{!! $penjadwalan->description !!}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('penjadwalan.index') }}/{{ $penjadwalan->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Edit</a>
                     <form action="{{ route('penjadwalan.index') }}/{{ $penjadwalan->id }}" method="post" class="d-inline">
@@ -76,10 +72,8 @@
                 <th>Start Time</th>
                 <th>Finish Time</th>
                 <th>Tutor</th>
-                <th>Jabatan</th>
                 <th>Price</th>
-                <th>Description</th>
-              <th>Aksi</th>
+                <th>Aksi</th>
             </tr>
             </tfoot>
           </table>

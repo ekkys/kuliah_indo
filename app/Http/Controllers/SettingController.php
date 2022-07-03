@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Setting;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
+use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
@@ -15,6 +16,10 @@ class SettingController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.infografis.profileSetting.index',[
             'settings' => Setting::orderBy('updated_at', 'DESC')->get(),
         ]);

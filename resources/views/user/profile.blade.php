@@ -17,7 +17,7 @@
                             @csrf  
                                    <div class="form-group">
                                           <div class="form-photo">
-                                                 <div style="background: url({{ isset($user->picture) ? asset('storage/'.$user->picture) :  asset('assets/dist/img/user2-160x160.jpg') }}); background-size: cover;" class="img-thumbnail photo" id="photo_t"></div>
+                                                 <div style="background: url({{ isset($user->picture) ? ENV('FILE_URL').$user->picture :  asset('assets/dist/img/user2-160x160.jpg') }}); background-size: cover;" class="img-thumbnail photo" id="photo_t"></div>
                                                  <input name="picture" type="file" class="form-control-file" id="form-photo">
                                                  <label for="form-photo" id="uploadBtn" class="uploadBtn">Select Photo</label>
                                           </div>

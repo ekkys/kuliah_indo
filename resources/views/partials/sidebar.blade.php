@@ -1,11 +1,3 @@
-<?php
-
-  if(empty($user)) {
-    header('Location: {{ url("/login") }}');
-  }
-
-?>
-
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
@@ -18,7 +10,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        <img src="{{ isset(Auth::user()->picture) && !empty(Auth::user()->picture) ? ENV('FILE_URL').Auth::user()->picture : asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2">
       </div>
       <div class="info">
         <a href="#" class="d-block">{{ Auth::user()->name }}</a>

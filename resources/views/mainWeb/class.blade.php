@@ -84,7 +84,10 @@
                             </div>
                             <div class="moderator-container">
                                 <div class="image-wrapper align-self-center">
-                                    <img src="{{ asset('mainWeb/images/team/team1.jpg') }}" alt="">
+                                    <img 
+                                    src="{{ isset($dataKelass->tutorfoto) && !empty($dataKelass->tutorfoto)  ? env('FILE_URL').$dataKelass->tutorfoto : asset('mainWeb/images/team/team1.jpg') }}" 
+                                    style="width: 50px"
+                                    >
                                 </div>
                                 <div class="moderator-wrapper">
                                     <div class="moderator-name">

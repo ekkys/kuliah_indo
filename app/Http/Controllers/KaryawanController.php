@@ -6,6 +6,8 @@ use App\Models\Karyawan;
 use App\Models\Jabatan;
 use App\Http\Requests\StoreKaryawanRequest;
 use App\Http\Requests\UpdateKaryawanRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class KaryawanController extends Controller
 {
@@ -16,6 +18,10 @@ class KaryawanController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.karyawan.index', [
             // 'karyawans' => Karyawan::orderBy('updated_at', 'DESC')->get()
             'karyawans' => Karyawan::join('jabatans', 'karyawans.jabatan_id', '=', 'jabatans.id')->select("karyawans.*", "jabatans.name as jabatan_name")->orderBy('updated_at', 'DESC')->get(),
@@ -29,6 +35,10 @@ class KaryawanController extends Controller
      */
     public function create()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.karyawan.create',[
             'jabatans' => Jabatan::orderBy('updated_at', 'DESC')->get()
         ]);
@@ -42,23 +52,23 @@ class KaryawanController extends Controller
      */
     public function store(StoreKaryawanRequest $request)
     {
-        // dd($request->all());
-    
-     if ($request->file('foto')) {
-        $request->file('foto')->store('karyawan-images');
-     }
-    
-     Karyawan::create([
+
+        $dataInput = [
             'name' => $request->name,
             'gender' => $request->gender,
-            'jabatan'=> $request->jabatan,
-            'email' => $request->email,
             'address' => $request->address,
-            'contact' =>$request->contact,
-            'foto' => $request->file('foto'),
-            'description' =>$request->description,
-        ]);
-    return redirect(route('karyawan.index'))->with('success', 'New Karyawan has been Added!');
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'jabatan_id' => $request->jabatan,
+            'description' => $request->description,
+        ];
+    
+        if ($request->file('foto')) {
+            $request->file('foto')->store('karyawan-images');
+        }
+    
+        DB::table('karyawans')->insert($dataInput);
+        return redirect(route('karyawan.index'))->with('success', 'New Karyawan has been Added!');
     }
 
     /**
@@ -80,6 +90,10 @@ class KaryawanController extends Controller
      */
     public function edit(Karyawan $karyawan)
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.karyawan.edit',
          ['karyawan' => $karyawan],
          ['jabatans' => Jabatan::orderBy('updated_at', 'DESC')->get()]

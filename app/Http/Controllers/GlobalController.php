@@ -12,6 +12,7 @@ use App\Models\TemporaryOrder;
 use App\Models\Penjadwalan;
 use Illuminate\Support\Facades\Config;
 
+
 class GlobalController extends Controller
 {
     static $email;
@@ -21,6 +22,12 @@ class GlobalController extends Controller
         if(\Storage::exists($picture)){
             \Storage::delete($picture);
         }
+    }
+
+    public static function cekLogin() {
+      if(empty(Auth::user())) {
+        return redirect('/login');
+      }
     }
 
     public function mail_view() {

@@ -20,6 +20,10 @@ class SiswaController extends Controller
 
     public function myProfile() {
         $user = Auth::user();
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+        
         return view('user.profile', ['user' => $user]);
     }
 

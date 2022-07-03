@@ -29,7 +29,7 @@
                 <div class="moderator-container">
                     <div class="row container-fluid" style="margin: auto">
                         <div class="image-wrapper align-self-center col-lg-3 col-md-3 col-sm-0">
-                            <img src="{{ asset($dataKelas->foto) }}" alt="">
+                            <img src="{{ isset($dataKelas->tutorfoto) && !empty($dataKelas->tutorfoto) ? env('FILE_URL').$dataKelas->foto : asset('mainWeb/images/team/team1.jpg') }}" style="width: 50px">
                         </div>
                         <div class="moderator-wrapper col-lg-3 col-md-3 col-sm-4">
                             <div class="moderator-about">

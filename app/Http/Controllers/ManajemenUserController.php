@@ -11,6 +11,11 @@ class ManajemenUserController extends Controller
 {
     public function index() {
         $user = Auth::user();
+        
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.user.index', [
             'usersList' => DB::table('users')
                            ->where('users.role', '!=', '1')
