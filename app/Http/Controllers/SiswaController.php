@@ -57,22 +57,32 @@ class SiswaController extends Controller
         $data = [
             'user' => $user,
             'mycourses' => DB::table('order_midtrans')
-                        ->where('order_midtrans.user_id', '=', $user->id)
-                        ->where('order_midtrans.status', '!=', 'PENDING' )
-                        ->where('comment.user_id', $user->id)
                         ->join('penjadwalans', 'order_midtrans.penjadwalan_id', '=', 'penjadwalans.id')
                         ->leftJoin('comment', 'comment.course_id', '=', 'penjadwalans.id')
+                        ->where('order_midtrans.user_id', '=', $user->id)
+                        ->where('order_midtrans.status', '!=', 'PENDING' )
+                        // ->where('comment.user_id', $user->id)
                         ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
                                                    , 'penjadwalans.date as penjadwalan_date'
                                                    , 'penjadwalans.timestart as penjadwalan_timestart'
                                                    , 'penjadwalans.timeend as penjadwalan_timeend'
                                                    , 'penjadwalans.link_zoom as penjadwalan_linkzoom'
                                                    , 'comment.id as comment_id'
+                                                   , 'comment.user_id as comment_user_id'
                                 )
                         ->orderBy('id', 'DESC')
                         ->get(),
         ];
 
+        $new_data = [];
+
+        foreach ($data['mycourses'] as $value) {
+            if($value->comment_user_id == $user->id || empty($value->comment_user_id)) {
+                array_push($new_data, $value);
+            }
+        }
+
+        $data["mycourses"] = $new_data;
         return view('user.course', $data);
     }
 
