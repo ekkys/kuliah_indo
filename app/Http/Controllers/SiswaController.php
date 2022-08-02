@@ -54,21 +54,59 @@ class SiswaController extends Controller
 
     public function myCourse() {
         $user = Auth::user();
-        return view('user.course', [
+        $data = [
             'user' => $user,
             'mycourses' => DB::table('order_midtrans')
                         ->where('order_midtrans.user_id', '=', $user->id)
                         ->where('order_midtrans.status', '!=', 'PENDING' )
+                        ->where('comment.user_id', $user->id)
                         ->join('penjadwalans', 'order_midtrans.penjadwalan_id', '=', 'penjadwalans.id')
+                        ->leftJoin('comment', 'comment.course_id', '=', 'penjadwalans.id')
                         ->select('order_midtrans.*', 'penjadwalans.title as penjadwalan_title'
                                                    , 'penjadwalans.date as penjadwalan_date'
                                                    , 'penjadwalans.timestart as penjadwalan_timestart'
                                                    , 'penjadwalans.timeend as penjadwalan_timeend'
                                                    , 'penjadwalans.link_zoom as penjadwalan_linkzoom'
+                                                   , 'comment.id as comment_id'
                                 )
                         ->orderBy('id', 'DESC')
                         ->get(),
+        ];
+
+        return view('user.course', $data);
+    }
+
+    public function comment($courseId, $userId) {
+        $user = Auth::user();
+        return view('user.comment', [
+            'user' => $user,
+            'data' => DB::table('penjadwalans')
+                   ->where('penjadwalans.id', $courseId)
+                   ->join('topics', 'penjadwalans.topic_id', '=', 'topics.id')
+                   ->join('tutors', 'penjadwalans.tutor_id', '=', 'tutors.id')
+                   ->join('jabatans', 'penjadwalans.jabatan_id', '=', 'jabatans.id')
+                   ->select('penjadwalans.*', 'topics.name as category'
+                                            , 'tutors.name as tutor'
+                                            , 'jabatans.name as jabatan'
+                                            , 'tutors.foto as tutor_foto'
+                   )
+                   ->first(),
         ]);
+    }
+
+    public function commentPost(Request $request, $courseId, $userId) {
+        $user = Auth::user();
+        $course = DB::table('penjadwalans')->where('penjadwalans.id', $courseId)->first();
+        $data = [
+            'course_id' => $course->id,
+            'user_id'=> $user->id,
+            'rating' => $request->input('rating'),
+            'comment' => $request->input('comment'),
+        ];
+
+        DB::table('comment')->insert($data);
+
+        return redirect('/home/mycourse')->with('success', 'Comment Successfull Added');
     }
 
     public function payment() {
@@ -138,12 +176,14 @@ class SiswaController extends Controller
         $user = Auth::user();
         $penjadwalan = Penjadwalan::where('penjadwalans.id', $id)->first();
         $pdf = PDF::loadview('user.certificate', [
-            'user' => $user,
-            'penjadwalan' => $penjadwalan,
-        ])->setPaper('a4', 'landscape');
+                    'user' => $user,
+                    'penjadwalan' => $penjadwalan,
+                ])
+                ->setPaper('a4', 'landscape')
+                ->setOptions(['defaultFont' => 'sans-serif']);
 
-        // return $pdf->stream();
+        return $pdf->stream();
 
-        return $pdf->download('certificate.pdf');
+        // return $pdf->download('certificate.pdf');
     }
 }

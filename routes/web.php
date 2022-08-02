@@ -23,6 +23,7 @@ use App\Http\Controllers\ManajemenUserController;
 // use App\Http\Controllers\OrderMidtransController;
 use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
+use App\Http\Controllers\MainProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,8 @@ Route::get('/home/changepassword', [SiswaController::class, 'changePassword']);
 Route::post('/home/changepassword', [SiswaController::class, 'storePassword']);
 Route::get('/invoice/{id}', [SiswaController::class, 'invoice']);
 Route::get('/certificate/{id}', [SiswaController::class, 'certificate']);
+Route::get('/comment/{courseId}/{userId}', [SiswaController::class, 'comment']);
+Route::post('/comment/{courseId}/{userId}', [SiswaController::class, 'commentPost']);
 Route::get('/view_email' ,[GlobalController::class, 'mail_view']);
 Route::get('/test_email' ,[GlobalController::class, 'test_email']);
 
@@ -82,6 +85,8 @@ Route::resource('/testimoni', UploadTestimoniController::class);
 Route::resource('/setting', SettingController::class);
 Route::resource('/penjadwalan', PenjadwalanController::class);
 Route::resource('/absensi', AbsensiController::class);
+Route::get('/mainprofile', [MainProfileController::class, 'index']);
+Route::post('/mainprofile', [MainProfileController::class, 'update']);
 Route::get('/manajemenuser', [ManajemenUserController::class, 'index']);
 Route::get('/manajemenuser/{id}/edit', [ManajemenUserController::class, 'edit']);
 Route::post('/manajemenuser', [ManajemenUserController::class, 'updateUser']);

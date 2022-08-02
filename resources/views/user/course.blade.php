@@ -6,6 +6,11 @@
        <div class="col-xl-12">
               <div class="card mb-0">
                      <div class="card-body">
+                            @if(session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <span>{{ session('success') }}</span>
+                                </div>
+                            @endif
                             {{-- table --}}
                             <div class="table-body">
                                    <table class="table table-striped" id="example3">
@@ -36,14 +41,20 @@
                                                  <td>{{ $startTime }} - {{ $endTime }}</td>
                                                  <td>
                                                         <?php
-                                                               $currentTime = (date('H:i', strtotime("+7 hours")));
+                                                               $todayDate = date('Y m d', strtotime('now +7 hours'));
+                                                               $startDate = date('Y m d', strtotime($startDate));
+                                                               $endDate = date('Y m d', strtotime($endDate));
+                                                               $todayTime = (date('H:i', strtotime("+7 hours")));
+                                                               $startTime = date('H:i', strtotime($startTime));
+                                                               $endTime = date('H:i', strtotime($endTime));
                                                                $statusCourse = "";
+                                                               
 
-                                                               if (date('d-m-Y') >= $startDate && date('d-m-Y') <= $endDate) {
-                                                                      if ($currentTime >= $startTime && $currentTime <= $endTime) {
+                                                               if ($todayDate >= $startDate && $todayDate <= $endDate) {
+                                                                      if ($todayTime >= $startTime && $todayTime <= $endTime) {
                                                                              echo "In Progress";
-                                                                      } elseif ($currentTime >= $endTime) {
-                                                                             if ($currentTime > $endTime && date('d-m-Y') >= $endDate) {
+                                                                      } elseif ($todayTime >= $endTime) {
+                                                                             if ($todayTime > $endTime && $todayDate >= $endDate) {
                                                                              echo "Course End";
                                                                              $statusCourse = "Course End";
                                                                              } else {
@@ -52,11 +63,11 @@
                                                                       } else {
                                                                              echo "Waiting";
                                                                       }
-                                                               } elseif (date('d-m-Y') > "$endDate") {
+                                                               } elseif ($todayDate > $endDate) {
                                                                              echo "Course End";
                                                                              $statusCourse = "Course End";
                                                                } else {
-                                                                      echo "Waiting";
+                                                                      echo $todayDate;
                                                                }
                                                         ?>
                                                  </td>
@@ -72,9 +83,20 @@
                                                         !!}
                                                  </td>
                                                  <td>   
-                                                        <?php if($statusCourse == "Course End") { ?>
+                                                        <?php
+                                                               if($statusCourse == "Course End") { 
+                                                                      if(!empty($mycourse->comment_id)) {
+                                                               
+                                                        ?>
                                                                <a href="{{ url('/certificate/'.$mycourse->penjadwalan_id) }}">Download</a>
-                                                        <?php } ?>
+                                                        <?php
+                                                                      } else {
+                                                        ?>
+                                                               <a href="{{ url('/comment/'.$mycourse->penjadwalan_id.'/'.$user->id) }}">Add Comment</a>
+                                                        <?php
+                                                                      }
+                                                               } 
+                                                        ?>
                                                                
                                                  </td>
                                                </tr>

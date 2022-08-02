@@ -79,6 +79,15 @@
                 </p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="{{ url('/mainprofile') }}" class="nav-link">
+                <i class="nav-icon fas fa-th-list"></i>
+                <p>
+                 Profile
+                </p>
+              </a>
+            </li>
          
             <li class="nav-item">
               <a href="{{ url('/manajemenuser') }}" class="nav-link">
