@@ -42,6 +42,7 @@ class KaryawanController extends Controller
      */
     public function store(StoreKaryawanRequest $request)
     {
+        return "tsting";
         // dd($request->all());
     
      if ($request->file('foto')) {
@@ -55,10 +56,11 @@ class KaryawanController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'contact' =>$request->contact,
-            'foto' => $request->file('foto'),
+            'foto' => $request->file('foto')->store('karyawan-images'),
             'description' =>$request->description,
         ]);
-    return redirect(route('karyawan.index'))->with('success', 'New Karyawan has been Added!');
+
+        return redirect(route('karyawan.index'))->with('success', 'New Karyawan has been Added!');
     }
 
     /**

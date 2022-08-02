@@ -102,10 +102,7 @@
                             </script>
                         </div>
                     </div>
-
-
-                       
-                        <button type="submit" class="btn btn-secondary d-flex justify-content-end">Simpan</button>
+                    <button type="submit" class="btn btn-secondary d-flex justify-content-end">Simpan</button>
                     </div>
                 </form>
             <!-- /.card-body -->

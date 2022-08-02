@@ -36,6 +36,7 @@ use App\Http\Controllers\AbsensiController;
 
 
 /* Main Web*/
+Route::post('/accept_payment', [XenditController::class, 'accept_payment']);
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/class', [ClassController::class, 'index']);
 Route::get('/class/singleClass/{id}', [ClassController::class, 'singleClass']);
@@ -67,9 +68,6 @@ Route::get('absensi/{user_id}/{course_id}/{status}/{date}/kehadiran', [AbsensiCo
 
 Route::prefix('home')->name('home.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    // Route::get('karyawan', [App\Http\Controllers\HomeController::class, 'index'])->name('karyawan');
-    // Route::get('tutor', [App\Http\Controllers\HomeController::class, 'index'])->name('tutor');
-    // Route::get('siswa', [App\Http\Controllers\HomeController::class, 'index'])->name('siswa');
 });
 
     Route::get('/getSiswaByCourse/{id}',[ AbsensiController::class, 'getSiswaByCourse']);
