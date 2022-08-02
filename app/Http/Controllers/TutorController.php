@@ -9,6 +9,7 @@ use App\Models\Village;
 use App\Models\Tutor;
 use App\Http\Requests\StoreTutorRequest;
 use App\Http\Requests\UpdateTutorRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TutorController extends Controller
 {
@@ -19,6 +20,10 @@ class TutorController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.tutor.index', [
             'tutors' => Tutor::orderBy('updated_at', 'DESC')->get()
         ]);
@@ -47,10 +52,7 @@ class TutorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTutorRequest $request)
-    {
-        // dd($request->all());
-       
-        
+    {              
          $data = [
             'name' => $request->name,
             'gender' => $request->gender,

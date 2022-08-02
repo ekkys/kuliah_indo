@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jabatan;
 use App\Http\Requests\StoreJabatanRequest;
 use App\Http\Requests\UpdateJabatanRequest;
+use Illuminate\Support\Facades\Auth;
 
 class JabatanController extends Controller
 {
@@ -15,6 +16,10 @@ class JabatanController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.jabatan.index', [
             'jabatans' => Jabatan::orderBy('updated_at', 'DESC')->get()
         ]);

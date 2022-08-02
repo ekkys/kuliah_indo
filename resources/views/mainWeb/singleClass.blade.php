@@ -29,7 +29,7 @@
                 <div class="moderator-container">
                     <div class="row container-fluid" style="margin: auto">
                         <div class="image-wrapper align-self-center col-lg-3 col-md-3 col-sm-0">
-                            <img src="{{ asset($dataKelas->foto) }}" alt="">
+                            <img src="{{ isset($dataKelas->tutorfoto) && !empty($dataKelas->tutorfoto) ? env('FILE_URL').$dataKelas->foto : asset('mainWeb/images/team/team1.jpg') }}" style="width: 50px">
                         </div>
                         <div class="moderator-wrapper col-lg-3 col-md-3 col-sm-4">
                             <div class="moderator-about">
@@ -118,7 +118,7 @@
                         <div class="main-status">
                             <p class="main-text font-weight-bold text-dark">Name</p>
                             <div>
-                                <p class="main-text-desc" id="transactionId">{{$user->name}}</p>
+                                <p class="main-text-desc" id="transactionId">{{ !empty($user) ? $user->name : "" }}</p>
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                         <div class="main-status">
                             <p class="main-text font-weight-bold">Email</p>
                             <div>
-                                {{$user->email}}
+                                {{ !empty($user) ? $user->email : "" }}
                             </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="container-trans text-right">
-                    <a type="button" class="add-to-cart-button" href="{{url('/pay/'.$user->id.'/'.$dataKelas->id.'/'.$dataKelas->title)}}">Pay Now</a>
+                    <a type="button" class="add-to-cart-button" href="{{url('/pay/'.(!empty($user) ? $user->id : '').'/'.$dataKelas->id.'/'.$dataKelas->title)}}">Pay Now</a>
                 </div>
 
                 {{-- end content modal --}}

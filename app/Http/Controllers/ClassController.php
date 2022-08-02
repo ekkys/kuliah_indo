@@ -16,19 +16,19 @@ class ClassController extends Controller
 
         if(!empty($search)) {
             $dataKelas = Penjadwalan::join('tutors', 'tutors.id', '=', 'penjadwalans.tutor_id')
-            ->join('topics', 'topics.id', '=', 'penjadwalans.topic_id')
-            ->join('jabatans', 'jabatans.id', '=', 'penjadwalans.jabatan_id')
-            ->select('penjadwalans.*', 'tutors.name as tutor', 'topics.name as topic', 'jabatans.name as jabatan')
-            ->orWhere('penjadwalans.title', $search)->orWhere('topics.name', $search)->orWhere('tutors.name', $search)
-            ->orderBy('updated_at', 'DESC')
-            ->get();
+                                      ->join('topics', 'topics.id', '=', 'penjadwalans.topic_id')
+                                      ->join('jabatans', 'jabatans.id', '=', 'penjadwalans.jabatan_id')
+                                      ->select('penjadwalans.*', 'tutors.name as tutor', 'topics.name as topic', 'jabatans.name as jabatan', 'tutors.foto as tutorfoto')
+                                      ->orWhere('topics.name', 'like', '%'.$search.'%')->orWhere('tutors.name', 'like', '%'.$search.'%')->orWhere('penjadwalans.title', 'like', '%'.$search.'%')
+                                      ->orderBy('updated_at', 'DESC')
+                                      ->get();
         } else {
             $dataKelas = Penjadwalan::join('tutors', 'tutors.id', '=', 'penjadwalans.tutor_id')
-            ->join('topics', 'topics.id', '=', 'penjadwalans.topic_id')
-            ->join('jabatans', 'jabatans.id', '=', 'penjadwalans.jabatan_id')
-            ->select('penjadwalans.*', 'tutors.name as tutor', 'topics.name as topic', 'jabatans.name as jabatan')
-            ->orderBy('updated_at', 'DESC')
-            ->get();
+                                      ->join('topics', 'topics.id', '=', 'penjadwalans.topic_id')
+                                      ->join('jabatans', 'jabatans.id', '=', 'penjadwalans.jabatan_id')
+                                      ->select('penjadwalans.*', 'tutors.name as tutor', 'topics.name as topic', 'jabatans.name as jabatan', 'tutors.foto as tutorfoto')
+                                      ->orderBy('updated_at', 'DESC')
+                                      ->get();
         }
 
         return view('mainWeb.class', [
@@ -45,9 +45,8 @@ class ClassController extends Controller
                                 ->join('tutors', 'tutors.id', '=', 'penjadwalans.tutor_id')
                                 ->join('topics', 'topics.id', '=', 'penjadwalans.topic_id')
                                 ->join('jabatans', 'jabatans.id', '=', 'penjadwalans.jabatan_id')
-                                ->select('penjadwalans.*', 'tutors.name as tutor', 'topics.name as topic', 'jabatans.name as jabatan')
+                                ->select('penjadwalans.*', 'tutors.name as tutor', 'topics.name as topic', 'jabatans.name as jabatan', 'tutors.foto as tutorfoto')
                                 ->first();
-        
         return view('mainWeb.singleClass', [
             "title" => "Single Class",
             "dataKelas" => $dataKelas,

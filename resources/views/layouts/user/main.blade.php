@@ -34,6 +34,10 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/dateTime.min.css') }}">
   <!-- Style Css -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  
+  <?php if(Auth::user()->email == "admin@role.test") { ?>
+    <script>window.location.href = "/kuliah_indo/home"</script>
+  <?php  } ?>
   @yield('jquery')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

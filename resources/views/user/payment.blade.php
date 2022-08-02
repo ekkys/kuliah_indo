@@ -115,6 +115,9 @@
                                                   </div>
                                                 </div>
                                               </section>
+                                              <div class="text-right mt-4" id="payWrapper">
+                                                <a type="button" class="btn-confirm-form" id="paymentLink">Pay Now</a>
+                                              </div>
                                             </div>
                                           </div>
 
@@ -131,16 +134,24 @@
           function test(id) {
             let dataTrans = <?= $payments ?>;
             let dataObj = dataTrans.find( e => e.id === id);
-            let dataDate = dataObj.purchase_date.replaceAll("-", "");
+            let date = new Date(dataObj.purchase_date);
+            // date = date.replaceAll("/", "");
 
             
             $('#transactionId').text(dataObj.id);
-            $('#invData').text("INV/"+dataDate+"/"+dataObj.user_id+"/"+dataObj.penjadwalan_id+"/"+dataObj.id);
+            $('#invData').text("INV/"+(('0'+date.getDate()).slice(-2))+(('0'+(date.getMonth()+1)).slice(-2))+date.getFullYear()+"/"+dataObj.user_id+"/"+dataObj.penjadwalan_id+"/"+dataObj.id);
             $('#invData').attr('href', '{{ url("/invoice") }}/' +dataObj.id);
             $('#purchaseDate').text(dataObj.created_at);
             $('#penjadwalanPhoto').attr('src', '{{ asset("storage/") }}/' +dataObj.penjadwalan_foto);
             $('#penjadwalanTitle').text(dataObj.penjadwalan_title);
             $('#penjadwalanAmount').text(dataObj.amount);
+
+            if(dataObj.status == "PAID") {
+              $('#paymentLink').remove();
+            } else {
+              $('#payWrapper').html('<a type="button" class="btn-confirm-form" id="paymentLink">Pay Now</a>');
+              $('#paymentLink').attr('href', '{{ url("/home/payment") }}/' +dataObj.id);
+            }
           }
        </script>
 @endsection

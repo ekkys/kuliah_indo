@@ -29,9 +29,12 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
-  <?php if(Auth::user()->email !== "admin@role.test") { ?>
-    <script>window.location.href = "/kuliah_indo/home"</script>
-  <?php  } ?>
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <?php if(empty(Auth::user())) { ?>
+    <script>window.location.href = "/login"</script>
+  <?php } elseif(Auth::user()->email !== "admin@role.test") { ?>
+    <script>window.location.href = "/home"</script>
+  <?php } ?>
   @yield('jquery')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -157,6 +160,56 @@
       "autoWidth": false,
       "responsive": true,
     });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+
+    $('.form-photo').mouseenter(() => {
+      $('#uploadBtn').css("display", "block");
+    });
+
+    $('.form-photo').mouseleave(() => {
+      $('#uploadBtn').css("display", "none");
+    });
+    
+    $("#form-photo").on('change', function(){
+
+      if (this.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#photo_t').css('background', 'url('+e.target.result+')');
+            $('#photo_t').css('background-size', 'cover');
+        }
+        reader.readAsDataURL(this.files[0]);
+      }
+
+    });
+
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+
+    $('.form-photo').mouseenter(() => {
+      $('#removeBtn').css("display", "block");
+    });
+
+    $('.form-photo').mouseleave(() => {
+      $('#removeBtn').css("display", "none");
+    });
+    
+    $('#removeBtn').on('click', function(){
+      var file = '<?= asset("assets/dist/img/user2-160x160.jpg") ?>';
+      $('#delete').val("1");
+      $('#photo_t').css('background', 'url('+file+')');
+      $('#photo_t').css('background-size', 'cover');
+    });
+
+
+
   });
 </script>
 @yield('script')

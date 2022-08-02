@@ -8,46 +8,81 @@
       <div class="card-body">
         {{-- table --}}
 
-        <div class="table-body">
-          <table border="0" cellspacing="5" cellpadding="5">
-            <tbody>
-              <tr>
-                <td>Filter by Date :</td>
-                <td><input type="text" id="min" name="min" readonly placeholder="Minimum Date"></td>
-                <td><input type="text" id="max" name="max" readonly placeholder="Maximum Date"></td>
-              </tr>
-            </tbody>
-          </table>
-          <table class="table table-striped" id="example3">
-            <thead>
-              <tr>
-                <th scope="col">Course Name</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">Course Progress</th>
-                <th scope="col">Course Link</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
-                <td>2020/11/28</td>
-                <td>Waiting</td>
-                <td><a href="#courselink">Link</a></td>
-              </tr>
-              <tr>
-                <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
-                <td>2021/10/09</td>
-                <td>Session 2</td>
-                <td><a href="#courselink">Link</a></td>
-              </tr>
-              <tr>
-                <td><a href="{{ url('/class/singleClass') }}">Fundamental Pemrograman CNC, CAD/CAM Dan Simulator CNC</a></td>
-                <td>2022/09/14</td>
-                <td>End</td>
-                <td><a href="#courselink">Link</a></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="table-body" style="overflow: hidden">
+          <div class="row">
+            <div class="col-md-6 col-12" style="padding: 10px">
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>{{ $allCourses }}</h3>
+                  <p>Courses</p>
+                </div>
+                <div class="icon">
+                  <i class="nav-icon fas fa-book-open"></i>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-4 d-flex justify-content-center flex-column">
+                    <div class="text-center">
+                      {{ $waiting }}
+                    </div>
+                    <div class="text-center">
+                      Waiting
+                    </div>
+                  </div>
+                  <div class="col-4 d-flex justify-content-center flex-column">
+                    <div class="text-center">
+                      {{ $inProgress }}
+                    </div>
+                    <div class="text-center">
+                      In Progress
+                    </div>
+                  </div>
+                  <div class="col-4 d-flex justify-content-center flex-column">
+                    <div class="text-center">
+                      {{ $courseEnd }}
+                    </div>
+                    <div class="text-center">
+                      Course End
+                    </div>
+                  </div>
+                </div>
+                <a href="{{ url('/home/mycourse') }}" class="small-box-footer">
+                  More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 col-12" style="padding: 10px">
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>{{ $allPayments }}</h3>
+                  <p>Payments</p>
+                </div>
+                <div class="icon">
+                  <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-6 d-flex justify-content-center flex-column">
+                    <div class="text-center">
+                      {{ $pendingPayments }}
+                    </div>
+                    <div class="text-center">
+                      Pending
+                    </div>
+                  </div>
+                  <div class="col-6 d-flex justify-content-center flex-column">
+                    <div class="text-center">
+                      {{ $paidPayments }}
+                    </div>
+                    <div class="text-center">
+                      Paid
+                    </div>
+                  </div>
+                </div>
+                <a href="{{ url('/home/payment') }}" class="small-box-footer">
+                  More info <i class="fas fa-arrow-circle-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         {{-- end table --}}

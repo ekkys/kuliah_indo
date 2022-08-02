@@ -8,14 +8,9 @@
         <div class="row align-items-center">
             <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
                 <div class="profile-content">
-                    <h4 class="wow fadeInUp" data-wow-delay=".2s">Welcome to Kuliah Indonesia
-                    </h4>
-                    <h1 class="wow fadeInUp" data-wow-delay=".4s">
-                        Pusat Pelatihan dan Pembelajaran Seputar Perkuliahan
-                    </h1>
-                    <p class="wow fadeInUp" data-wow-delay=".6s">Cari tahu dan pelajari segala sesuatu
-                        dengan ahlinya dan kembangkan kemampuanmu.
-                    </p>
+                    <h4 class="wow fadeInUp" data-wow-delay=".2s">{{ $pembuka1->deskripsi }}</h4>
+                    <h1 class="wow fadeInUp" data-wow-delay=".4s">{{ $pembuka2->deskripsi }}</h1>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">{{ $pembuka3->deskripsi }}</p>
                     <div class="button wow zoomIn" data-wow-delay="1s">
                         <a href="#pricing"><i class="lni lni-arrow-down-circle"></i></a>
                     </div>
@@ -33,13 +28,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h3 class="wow zoomIn font-orange" data-wow-delay=".2s">About</h3>
-                    <h2 class="wow fadeInUp" data-wow-delay=".4s">Apa itu kuliah Indo?</h2>
-                    <p class="wow fadeInUp" data-wow-delay=".6s">Kuliah Indonesia adalah sebuah platform berbasis di bidang Education Supporting yang fokus untuk membantu calon mahasiswa,
-                        mahasiswa aktif dan mahasiswa fresh graduate untuk mencapai cita-cita dan tujuan mereka seperti masuk ke PTN/PTS favorite,
-                        membantu mahasiswa aktif untuk berprestasi di bidang akademik dan bidang keilmiahan,
-                        juga membantu  mahasiswa di seluruh Indonesia untuk mengembangkan skills mereka melalului program-program yang ada di Kuliah Indonesia guna siap dilepas di dunia kerja/industry dan mendapatkan pekerjaan impian.
-                    </p>
+                    <h3 class="wow zoomIn font-orange" data-wow-delay=".2s">{{ $tentang1->deskripsi }}</h3>
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">{{ $tentang2->deskripsi }}</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">{{ $tentang3->deskripsi }}</p>
                 </div>
             </div>
         </div>
@@ -54,8 +45,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h3 class="wow zoomIn font-white" data-wow-delay=".2s">Divisi</h3>
-                    <h2 class="wow fadeInUp" data-wow-delay=".4s">Divisi Dalam Kuliah Indonesia</h2>
+                    <h3 class="wow zoomIn font-white" data-wow-delay=".2s">{{ $judulDivisi->deskripsi }}</h3>
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">{{ $deskripsiDivisi->deskripsi }}</h2>
                 </div>
             </div>
         </div>
@@ -67,9 +58,8 @@
                     <div class="list-icon">
                         <i class="lni lni-user"></i>
                     </div>
-                    <h3>Pra Kuliah</h3>
-                    <p>Bekerjasama terintegrasi dengan GiatBelajar untuk menghasilkan proker-proker dengan sasaran siswa-siswa kelas 12 SMA/K sederajat.
-                    </p>
+                    <h3>{{ $judulDivisi1->deskripsi }}</h3>
+                    <p>{{ $deskripsiDivisi1->deskripsi }}</p>
                 </div>
                 <!-- End Single Feature -->
             </div>
@@ -80,9 +70,8 @@
                     <div class="list-icon">
                         <i class="lni lni-graduation"></i>
                     </div>
-                    <h3>Kuliah</h3>
-                    <p>Divisi yang berisikan proker-proker yang lebih fokus untuk mahasiswa on going.
-                    </p>
+                    <h3>{{ $judulDivisi2->deskripsi }}</h3>
+                    <p>{{ $deskripsiDivisi2->deskripsi }}</p>
                 </div>
                 <!-- End Single Feature -->
             </div>
@@ -93,9 +82,8 @@
                     <div class="list-icon">
                         <i class="lni lni-briefcase"></i>
                     </div>
-                    <h3>Pasca Kuliah</h3>
-                    <p>Divisi yang berisikan proker-proker yang fokus untuk mahasiswa tingkat akhir dan alumni, dengan tagline #AlumniJawara.
-                    </p>
+                    <h3>{{ $judulDivisi3->deskripsi }}</h3>
+                    <p>{{ $deskripsiDivisi3->deskripsi }}</p>
                 </div>
                 <!-- End Single Feature -->
             </div>

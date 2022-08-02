@@ -44,8 +44,10 @@ Author: GrayGrids
 
     //== Mobile Menu Button
     let navbarToggler = document.querySelector(".mobile-menu-btn");
+    let navbarMenu = document.querySelector(".sub-menu-bar");
     navbarToggler.addEventListener('click', function () {
         navbarToggler.classList.toggle("active");
+        // navbarMenu.classList.toggle("show");
     });
 
 

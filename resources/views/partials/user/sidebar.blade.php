@@ -1,3 +1,11 @@
+<?php
+
+  if(empty(Auth::user()->name)) {
+    header('Location: {{ url("/login") }}');
+  }
+
+?>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">

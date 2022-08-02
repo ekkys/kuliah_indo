@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\UploadSlideBanner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UploadSlideBannerController extends Controller
 {
@@ -14,6 +15,10 @@ class UploadSlideBannerController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.infografis.slideBanner.index',[
             'slidebanners' => UploadSlideBanner::orderBy('updated_at', 'DESC')->get()
         ]);

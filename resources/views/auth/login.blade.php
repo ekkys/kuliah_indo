@@ -25,34 +25,44 @@
                             <?php if(isset($_REQUEST['msg']) && $_REQUEST['msg'] == 'login_false') { ?>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <span>Sign in to buy course</span>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             <?php } ?>
                             @error('email')
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <span>Wrong Email or Password</span>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             @enderror
 
                             @if(isset($status))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <span>Please Check Your Email and Activate Your Account</span>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             @endif
 
                             @if($message = Session::get('error'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <span>{{ $message }}</span>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             @endif
 
                             @if($message = Session::get('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <span>{{ $message }}</span>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             @endif
 

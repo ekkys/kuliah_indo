@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UploadTestimoni;
 use App\Http\Requests\StoreUploadTestimoniRequest;
 use App\Http\Requests\UpdateUploadTestimoniRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UploadTestimoniController extends Controller
 {
@@ -15,6 +16,10 @@ class UploadTestimoniController extends Controller
      */
     public function index()
     {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        }
+
         return view('admin.infografis.testimoni.index', [
             "testimonis" => UploadTestimoni::orderBy('updated_at', 'DESC')->get()
         ]);
