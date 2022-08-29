@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{ asset('mainWeb/css/main.css') }}" />
     <link rel="stylesheet" href="{{ asset('mainWeb/scss/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('mainWeb/fonts/icomoon/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
+
 
 </head>
 
@@ -64,7 +66,7 @@
     <script src="{{ asset('assets\plugins\autoNumeric\autoNumeric.min.js') }}"></script>
     <script src="{{ asset('mainWeb/js/main.js') }}"></script>
     <script>
-        const swiper = new Swiper('.swiper', {
+        const swiper = new Swiper('.homeSwiper', {
             centeredSlides: true,
             spaceBetween: 30,
 
@@ -106,21 +108,14 @@
                     slidesPerView: 1,
                 },
             },
-
-            // Autoplay
             autoplay: {
                 delay: 3000,
             },
-
-            // Optional parameters
             direction: 'horizontal',
             loop: true,
-
-            // If we need pagination
             pagination: {
                 el: '.swiper-pagination',
             },
-            // And if we need scrollbar
             scrollbar: {
                 el: '.swiper-scrollbar',
             },
@@ -137,6 +132,30 @@
             digitGroupSeparator : '.',
         });
     </script>
+    <script>
+        var profileSwiper = new Swiper(".profileSwiper", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          slidesPerGroup: 3,
+          // loop: true,
+          // loopFillGroupWithBlank: true,
+          pagination: {
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            600: {
+              slidesPerView: 2,
+            },
+            900: {
+              slidesPerView: 3,
+            },
+          },
+        });
+      </script>
    
 </body>
 

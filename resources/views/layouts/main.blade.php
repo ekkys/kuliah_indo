@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <!-- Swiper JS -->
+  <link rel="stylesheet" href="{{ asset('assets/plugins/swiper-js/swiper-bundle.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <?php if(empty(Auth::user())) { ?>
     <script>window.location.href = "/login"</script>
@@ -139,6 +141,8 @@
 <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<!-- Swiper JS -->
+<script src="{{ asset('assets/plugins/swiper-js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/jszip/jszip.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/pdfmake/pdfmake.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
@@ -210,6 +214,30 @@
 
 
 
+  });
+</script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    slidesPerGroup: 3,
+    // loop: true,
+    // loopFillGroupWithBlank: true,
+    pagination: {
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      600: {
+        slidesPerView: 2,
+      },
+      900: {
+        slidesPerView: 3,
+      },
+    },
   });
 </script>
 @yield('script')

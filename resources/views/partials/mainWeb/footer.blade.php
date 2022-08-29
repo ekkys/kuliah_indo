@@ -13,16 +13,15 @@
                                     <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" alt="#">
                                 </a>
                             </div>
-
-                            <a class="call"></a> 
-                            <a class="call"></a> 
-                            <a class="call"></a>
+                            <a class="call">{{ $settings->address }}</a> <br>
+                            <a class="call">{{ $settings->contact }}</a> <br>
+                            <a class="call">{{ $settings->email }}</a>
                             <ul class="social">
-                                <li><a href=""><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href=""><i class="lni lni-instagram"></i></a></li>
-                                <li><a href=""><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href=""><i class="lni lni-linkedin-original"></i></a></li>
-                                <li><a href=""><i class="lni lni-youtube"></i></a></li>
+                                <li><a href="{{ $settings->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="{{ $settings->instagram }}"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="{{ $settings->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="{{ $settings->linkedin }}"><i class="lni lni-linkedin-original"></i></a></li>
+                                <li><a href="{{ $settings->youtube }}"><i class="lni lni-youtube"></i></a></li>
                             </ul>
 
                             {{-- @foreach($setting)

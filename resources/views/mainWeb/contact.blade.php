@@ -14,7 +14,7 @@
               <div class="contact-address">
                 <i class="lni lni-pin"></i>
                 <h3>Alamat</h3>
-                <address>Cilegon, Banten</address>
+                <address>{{ $settings->address }}</address>
               </div>
             </div>
   
@@ -22,7 +22,7 @@
               <div class="contact-phone">
                 <i class="lni lni-phone"></i>
                 <h3>No. Telp.</h3>
-                <p><a href="tel:+6285848735048">+62 858 4873 5048</a></p>
+                <p><a href="tel:{{ $settings->contact }}">{{ $settings->contact }}</a></p>
               </div>
             </div>
   
@@ -30,7 +30,7 @@
               <div class="contact-email">
                 <i class="lni lni-envelope"></i>
                 <h3>Email</h3>
-                <p><a href="mailto:kuliahindonesia2020@gmail.com">kuliahindonesia2020@gmail.com</a></p>
+                <p><a href="mailto:{{ $settings->email }}">{{ $settings->email }}</a></p>
               </div>
             </div>
   
@@ -42,7 +42,7 @@
               <div class="contact-twitter">
                 <i class="lni lni-twitter"></i>
                 <h3>Twitter</h3>
-                <p><a href="https://twitter.com/Kuliah_indo">Kuliah Indonesia</a></p>
+                <p><a href="{{ $settings->twitter }}">{{ $settings->twitter }}</a></p>
               </div>
             </div>
   
@@ -50,7 +50,7 @@
               <div class="contact-instagram">
                 <i class="lni lni-instagram-original"></i>
                 <h3>Instagram</h3>
-                <p><a href="https://www.instagram.com/kuliah_indo/">Kuliah Indonesia ID</a></p>
+                <p><a href="{{ $settings->instagram }}">{{ $settings->instagram }}</a></p>
               </div>
             </div>
   
@@ -98,22 +98,16 @@
                                         <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" alt="#">
                                     </a>
                                 </div>
-
-                                @foreach($settings as $setting)
-                                        
-                                    <p>{!! $setting->description !!}</p>
-                                    <a class="call">{{ $setting->address }}</a> <br>
-                                    <a class="call">{{ $setting->contact }}</a> <br>
-                                    <a class="call">{{ $setting->email }}</a>
-                                    <ul class="social">
-                                        <li><a href="{{ $setting->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
-                                        <li><a href="{{ $setting->instagram }}"><i class="lni lni-instagram"></i></a></li>
-                                        <li><a href="{{ $setting->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
-                                        <li><a href="{{ $setting->linkedin }}"><i class="lni lni-linkedin-original"></i></a></li>
-                                        <li><a href="{{ $setting->youtube }}"><i class="lni lni-youtube"></i></a></li>
-                                    </ul>
-                                
-                                @endforeach
+                                <a class="call">{{ $settings->address }}</a> <br>
+                                <a class="call">{{ $settings->contact }}</a> <br>
+                                <a class="call">{{ $settings->email }}</a>
+                                <ul class="social">
+                                    <li><a href="{{ $settings->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
+                                    <li><a href="{{ $settings->instagram }}"><i class="lni lni-instagram"></i></a></li>
+                                    <li><a href="{{ $settings->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
+                                    <li><a href="{{ $settings->linkedin }}"><i class="lni lni-linkedin-original"></i></a></li>
+                                    <li><a href="{{ $settings->youtube }}"><i class="lni lni-youtube"></i></a></li>
+                                </ul>
                             </div>
                             <!-- End Single Widget -->
                         </div>

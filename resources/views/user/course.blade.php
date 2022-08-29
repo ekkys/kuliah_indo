@@ -88,7 +88,7 @@
                                                                       if(!empty($mycourse->comment_id)) {
                                                                
                                                         ?>
-                                                               <a href="{{ url('/certificate/'.$mycourse->penjadwalan_id) }}">Download</a>
+                                                               <a href="{{ url('/certificate/'.$mycourse->penjadwalan_id) }}" target="_blank">Download</a>
                                                         <?php
                                                                       } else {
                                                         ?>

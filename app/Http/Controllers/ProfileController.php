@@ -32,6 +32,7 @@ class ProfileController extends Controller
             'deskripsiDivisi2' => DB::table('mainprofile')->where('mainprofile.id', '=', '14')->first(),
             'judulDivisi3' => DB::table('mainprofile')->where('mainprofile.id', '=', '15')->first(),
             'deskripsiDivisi3' => DB::table('mainprofile')->where('mainprofile.id', '=', '16')->first(),
+            'comments' => DB::table('comment')->where('comment.selected', '=', '1')->join('penjadwalans', 'comment.course_id', '=', 'penjadwalans.id')->join('users', 'comment.user_id', '=', 'users.id')->select('comment.*', 'penjadwalans.title as title', 'users.name as name', 'users.picture as picture')->get(),
         ]);
     }
 }

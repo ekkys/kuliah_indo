@@ -18,12 +18,14 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\KaryawanController;
-use App\Http\Controllers\PenjadwalanController;
-use App\Http\Controllers\ManajemenUserController;
+use App\Http\Controllers\SertifikatController;
+use App\Http\Controllers\MainProfileController;
 // use App\Http\Controllers\OrderMidtransController;
+use App\Http\Controllers\PenjadwalanController;
+use App\Http\Controllers\DaftarRiwayatController;
+use App\Http\Controllers\ManajemenUserController;
 use App\Http\Controllers\UploadTestimoniController;
 use App\Http\Controllers\UploadSlideBannerController;
-use App\Http\Controllers\MainProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,7 +85,11 @@ Route::resource('/karyawan', KaryawanController::class);
 Route::resource('/wilayah', WilayahController::class);
 Route::resource('/slidebanner', UploadSlideBannerController::class);
 Route::resource('/testimoni', UploadTestimoniController::class);
-Route::resource('/setting', SettingController::class);
+Route::get('/daftarriwayat', [DaftarRiwayatController::class, 'index']);
+Route::get('/sertifikat', [SertifikatController::class, 'index']);
+Route::post('/sertifikat', [SertifikatController::class, 'update']);
+Route::get('/setting', [SettingController::class, 'index']);
+Route::post('/setting', [SettingController::class, 'update']);
 Route::resource('/penjadwalan', PenjadwalanController::class);
 Route::resource('/absensi', AbsensiController::class);
 Route::get('/mainprofile', [MainProfileController::class, 'index']);

@@ -15,7 +15,7 @@
                 <th>No</th>
                 <th>Nama Kelas</th>
                 <th>Jumlah Peserta</th>
-                <th width='10%'>Aksi</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -26,11 +26,11 @@
                 <td>{{ $absensi->count }}</td>
                 <td>
                     <a class="btn btn-sm" href="{{ route('absensi.index') }}/{{ $absensi->id }}/edit" style="background-color: rgb(12, 173, 165); color: white; display:inline;"><i class="fas fa-pencil" aria-hidden="true"></i> Absensi</a>
-                    <form action="{{ route('absensi.index') }}/{{ $absensi->id }}" method="post" class="d-inline">
+                    {{-- <form action="{{ route('absensi.index') }}/{{ $absensi->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-sm" onclick="return confirm('Are you sure?') " style="background-color: rgb(252, 0, 0); color: white; display:inline;">Hapus</button>
-                   </form>
+                   </form> --}}
                   </td>
               </tr>
               @endforeach

@@ -9,12 +9,12 @@
       <div class="card">
         <!-- /.card-header -->
         <input type="hidden" value="{{$course_id}}" id="course_id" />
-        <select class="float-right mr-3 mt-3 form-control" onchange="tanggal()" id="tanggal" style="width: 150px; position: absolute; right: 0px">
+        {{-- <select class="float-right mr-3 mt-3 form-control" onchange="tanggal()" id="tanggal" style="width: 150px; position: absolute; right: 0px">
             <option selected disabled>-- Pilih tanggal -- </option>
             @foreach ($tanggal as $tanggal)
                 <option value="{{ $tanggal->tanggal }}">{{ $tanggal->tanggal }}</option>
             @endforeach
-        </select>
+        </select> --}}
         <div class="card-body mt-5">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
@@ -24,7 +24,7 @@
                 <th>Email</th>
                 <th>Tanggal</th>
                 <th>Status</th>
-                <th width="15%">Aksi</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>

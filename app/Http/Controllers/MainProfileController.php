@@ -34,6 +34,7 @@ class MainProfileController extends Controller
                 'deskripsiDivisi2' => DB::table('mainprofile')->where('mainprofile.id', '=', '14')->first(),
                 'judulDivisi3' => DB::table('mainprofile')->where('mainprofile.id', '=', '15')->first(),
                 'deskripsiDivisi3' => DB::table('mainprofile')->where('mainprofile.id', '=', '16')->first(),
+                'comments' => DB::table('comment')->join('penjadwalans', 'comment.course_id', '=', 'penjadwalans.id')->join('users', 'comment.user_id', '=', 'users.id')->select('comment.*', 'penjadwalans.title as title', 'users.name as name', 'users.picture as picture')->get(),
             ]);
         }
     }
@@ -104,6 +105,15 @@ class MainProfileController extends Controller
         DB::table('mainprofile')->where('id', '14')->update(['deskripsi' => $request->input('deskripsiDivisi2')]);
         DB::table('mainprofile')->where('id', '15')->update(['deskripsi' => $request->input('judulDivisi3')]);
         DB::table('mainprofile')->where('id', '16')->update(['deskripsi' => $request->input('deskripsiDivisi3')]);
+        DB::table('comment')->update(['selected' => 'NULL']);
+
+        $comments = $request->comment;
+
+        if (!empty($comments)) {
+            foreach ($comments as $comment) {
+                DB::table('comment')->where('id', $comment)->update(['selected' => '1']);
+            }
+        };
 
         return redirect()->back();
     }

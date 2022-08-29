@@ -6,6 +6,8 @@ use App\Models\Setting;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SettingController extends Controller
 {
@@ -21,11 +23,8 @@ class SettingController extends Controller
         }
 
         return view('admin.infografis.profileSetting.index',[
-            'settings' => Setting::orderBy('updated_at', 'DESC')->get(),
+            'settings' => Setting::orderBy('updated_at', 'DESC')->first(),
         ]);
-        // return view('partials.mainWeb.footer',[
-        //     'setting' => Setting::orderBy('updated_at', 'DESC')->get()
-        // ]);
     }
 
     /**
@@ -96,9 +95,29 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSettingRequest $request, Setting $setting)
+    public function update(Request $request)
     {
-        //
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        };
+
+        $detail = [
+            'contact' => $request->input('contact'),
+            'maps' => $request->input('maps'),
+            'twitter' => $request->input('twitter'),
+            'facebook' => $request->input('facebook'),
+            'instagram' => $request->input('instagram'),
+            'youtube' => $request->input('youtube'),
+            'linkedin' => $request->input('linkedin'),
+            'email' => $request->input('email'),
+            'address' => $request->input('address'),
+        ];
+
+        DB::table('settings')->update($detail);
+
+        return view('admin.infografis.profileSetting.index',[
+            'settings' => Setting::orderBy('updated_at', 'DESC')->first(),
+        ]);
     }
 
     /**

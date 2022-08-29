@@ -55,10 +55,10 @@
           <li class="nav-header">User</li>
            <li class="nav-item">
              <a href="{{ url('/home/myprofile') }}" class="nav-link">
-               <i class="nav-icon fas fa-user"></i>
-               <p>
-               User Profile
-               </p>
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                User Profile
+              </p>
              </a>
            </li>
 

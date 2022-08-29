@@ -61,22 +61,31 @@
                             <span class="promo" style="{{ !empty($dataKelas->price) ? 'display: inline-block;' : 'display: none;' }}">
                                 <span class="text-promo">Free</span>
                             </span>
-                            <img src="{{ env('FILE_URL').$dataKelass->foto }}" style="">
+                            <div>
+                                <img src="{{ env('FILE_URL').$dataKelass->foto }}">
+                                <?php
+                                    $date = explode( " - ", $dataKelass->date);
+                                    $startDate = str_replace('/', '-', $date[0]);
+                                    $endDate = str_replace('/', '-', $date[1]);
+                                    $todayDate = date('Y m d', strtotime('now +7 hours'));
+                                    $startDate = date('Y m d', strtotime($startDate));
+                                    $endDate = date('Y m d', strtotime($endDate));
+                                ?>
+
+                                @if($endDate < $todayDate)
+                                    <div style="top: 0; background-color: rgba(0,0,0,.6); height: 100%; width: 100% ; position: absolute; display:flex; justify-content:center; align-items:center">
+                                        <div style="padding: 15px; background-color: #940000; color: #fff; font-weight: bold; border-radius: 10px">
+                                            Kelas Telah Berakhir
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                         <div class="text-container">
                             <div class="category-wrapper">
                                 <span class="category">{{ $dataKelass->topic }}</span>
                             </div>
                             <div class="date-wrapper">
-                                <?php 
-                    
-                                    $date = explode( " - ", $dataKelass->date);
-                                    $startDate = str_replace('/', '-', $date[0]);
-                                    $endDate = str_replace('/', '-', $date[1]);
-                                    $startTime = $dataKelass->timestart;
-                                    $endTime = $dataKelass->timeend;
-                                
-                                ?>
                                 <span class="date"><i class="lni lni-calendar"></i>{{ date('F d, Y', strtotime($startDate)) }}</span>
                             </div>
                             <div class="title-container">
@@ -114,9 +123,15 @@
                                     <h4 class="old-price">Rp 1.000.000</h4>
                                 </div>
                             </div>
-                            <div class="button">
-                                <a class="btn" href="{{ url('/class/singleClass/'.$dataKelass->id) }}">Bergabung</a>
-                            </div>
+                            @if($endDate < $todayDate)
+                                <div class="button">
+                                    <a class="btn-closed">Kelas Ditutup</a>
+                                </div>
+                            @else
+                                <div class="button">
+                                    <a class="btn" href="{{ url('/class/singleClass/'.$dataKelass->id) }}">Bergabung</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -250,7 +265,16 @@
                    `        <span class="promo" style="`+style+`">`+
                    `            <span class="text-promo">Free</span>`+
                    `        </span>`+
-                   `        <img src="{{ env('FILE_URL') }}`+data[index].foto+`" style="">`+
+                   `        <div>`+
+                   `            <img src="{{ env('FILE_URL').$dataKelass->foto }}">`+
+                   `            @if($endDate < $todayDate)`+
+                   `                <div style="top: 0; background-color: rgba(0,0,0,.6); height: 100%; width: 100% ; position: absolute; display:flex; justify-content:center; align-items:center">`+
+                   `                    <div style="padding: 15px; background-color: #940000; color: #fff; font-weight: bold; border-radius: 10px">`+
+                   `                        Kelas Telah Berakhir`+
+                   `                    </div>`+
+                   `                </div>`+
+                   `            @endif`+
+                   `        </div>`+
                    `    </div>`+
                    `   <div class="text-container">`+
                    `        <div class="category-wrapper">`+
@@ -291,9 +315,15 @@
                    `                 <h4 class="old-price">Rp 1.000.000</h4>`+
                    `             </div>`+
                    `         </div>`+
-                   `         <div class="button">`+
-                   `             <a class="btn" href="{{ url('/class/singleClass/`+data[index].id+`') }}">Bergabung</a>`+
-                   `         </div>`+
+                   `         @if($endDate < $todayDate)`+
+                   `             <div class="button">`+
+                   `                 <a class="btn-closed">Kelas Ditutup</a>`+
+                   `             </div>`+
+                   `         @else`+
+                   `             <div class="button">`+
+                   `                 <a class="btn" href="{{ url('/class/singleClass/'.$dataKelass->id) }}">Bergabung</a>`+
+                   `             </div>`+
+                   `         @endif`+
                    `     </div>`+
                    ` </div>`+
                    `</div>`);

@@ -7,7 +7,7 @@
         <div class="container-fluid" style="padding: 0; margin: 0;">
             <div class="d-flex justify-content-center">
                 <!-- Caorousel -->
-                <div class="swiper">
+                <div class="swiper homeSwiper">
                     <div class="swiper-wrapper">
 
                         @foreach ($slidebanners as $slidebanner)
@@ -97,7 +97,25 @@
                             <span class="promo" style="{{ $penjadwalan->price == '0' ? 'display: inline-block;' : 'display: none;' }}">
                                 <span class="text-promo">Free</span>
                             </span>
-                            <img src="{{ env('FILE_URL').$penjadwalan->foto }}" style="">
+                            <div>
+                                <img src="{{ env('FILE_URL').$penjadwalan->foto }}">
+                                <?php
+                                    $date = explode( " - ", $penjadwalan->date);
+                                    $startDate = str_replace('/', '-', $date[0]);
+                                    $endDate = str_replace('/', '-', $date[1]);
+                                    $todayDate = date('Y m d', strtotime('now +7 hours'));
+                                    $startDate = date('Y m d', strtotime($startDate));
+                                    $endDate = date('Y m d', strtotime($endDate));
+                                ?>
+
+                                @if($endDate < $todayDate)
+                                    <div style="top: 0; background-color: rgba(0,0,0,.6); height: 100%; width: 100% ; position: absolute; display:flex; justify-content:center; align-items:center">
+                                        <div style="padding: 15px; background-color: #940000; color: #fff; font-weight: bold; border-radius: 10px">
+                                            Kelas Telah Berakhir
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                         <div class="text-container">
                             <span class="date"><i class="lni lni-calendar"></i>{{ $penjadwalan->date }}</span>
@@ -114,9 +132,15 @@
                                     <h4 class="old-price">Rp 1.000.000</h4>
                                 </div>
                             </div>
-                            <div class="button">
-                                <a class="btn" href="{{ url('/class/singleClass/'.$penjadwalan->id) }}">Bergabung</a>
-                            </div>
+                            @if($endDate < $todayDate)
+                                <div class="button">
+                                    <a class="btn-closed">Kelas Ditutup</a>
+                                </div>
+                            @else
+                                <div class="button">
+                                    <a class="btn" href="{{ url('/class/singleClass/'.$penjadwalan->id) }}">Bergabung</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -151,25 +175,19 @@
                                 <div class="single-footer f-about">
                                     <div class="logo">
                                         <a href="index.html">
-                                            <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}" alt="#">
+                                            <img src="{{ asset('mainWeb/images/logo/logo-colored.svg') }}">
                                         </a>
                                     </div>
-
-                                    @foreach($settings as $setting)
-                                            
-                                        <p>{!! $setting->description !!}</p>
-                                        <a class="call">{{ $setting->address }}</a> <br>
-                                        <a class="call">{{ $setting->contact }}</a> <br>
-                                        <a class="call">{{ $setting->email }}</a>
-                                        <ul class="social">
-                                            <li><a href="{{ $setting->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
-                                            <li><a href="{{ $setting->instagram }}"><i class="lni lni-instagram"></i></a></li>
-                                            <li><a href="{{ $setting->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
-                                            <li><a href="{{ $setting->linkedin }}"><i class="lni lni-linkedin-original"></i></a></li>
-                                            <li><a href="{{ $setting->youtube }}"><i class="lni lni-youtube"></i></a></li>
-                                        </ul>
-                                    
-                                    @endforeach
+                                    <a class="call">{{ $settings->address }}</a> <br>
+                                    <a class="call">{{ $settings->contact }}</a> <br>
+                                    <a class="call">{{ $settings->email }}</a>
+                                    <ul class="social">
+                                        <li><a href="{{ $settings->facebook }}"><i class="lni lni-facebook-filled"></i></a></li>
+                                        <li><a href="{{ $settings->instagram }}"><i class="lni lni-instagram"></i></a></li>
+                                        <li><a href="{{ $settings->twitter }}"><i class="lni lni-twitter-original"></i></a></li>
+                                        <li><a href="{{ $settings->linkedin }}"><i class="lni lni-linkedin-original"></i></a></li>
+                                        <li><a href="{{ $settings->youtube }}"><i class="lni lni-youtube"></i></a></li>
+                                    </ul>
                                 </div>
                                 <!-- End Single Widget -->
                             </div>

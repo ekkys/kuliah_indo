@@ -109,6 +109,87 @@
         </div>
       </div>
 
+      <div class="card card-secondary">
+        <div class="card-header border-0">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title">Komentar</h3>
+          </div>
+        </div>
+        <div class="card-body p-4">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              @foreach($comments as $comment)
+              <div class="swiper-slide text-left">
+                <label style="width: 100%">
+                  @if ($comment->selected == '1')
+                  <input class="input-comment-checkbox" type="checkbox" name="comment[]" value="{{ $comment->id }}" checked>
+                  @else
+                  <input class="input-comment-checkbox" type="checkbox" name="comment[]" value="{{ $comment->id }}">
+                  @endif
+                  <div class="comment-checkbox">
+                    <div class="mb-1">
+                      <span>
+                        @if($comment->rating >= 1)
+                        <i class="fas fa-star" style="color: #ffae00"></i>
+                        @else
+                        <i class="fas fa-star"></i>
+                        @endif
+                      </span>
+                      <span>
+                        @if($comment->rating >= 2)
+                        <i class="fas fa-star" style="color: #ffae00"></i>
+                        @else
+                        <i class="fas fa-star"></i>
+                        @endif
+                      </span>
+                      <span>
+                        @if($comment->rating >= 3)
+                        <i class="fas fa-star" style="color: #ffae00"></i>
+                        @else
+                        <i class="fas fa-star"></i>
+                        @endif
+                      </span>
+                      <span>
+                        @if($comment->rating >= 4)
+                        <i class="fas fa-star" style="color: #ffae00"></i>
+                        @else
+                        <i class="fas fa-star"></i>
+                        @endif
+                      </span>
+                      <span>
+                        @if($comment->rating >= 5)
+                        <i class="fas fa-star" style="color: #ffae00"></i>
+                        @else
+                        <i class="fas fa-star"></i>
+                        @endif
+                      </span>
+                    </div>
+                    <div class="d-flex mb-1">
+                      <div class="align-self-center">
+                        <img src="{{ isset($comment->picture) && !empty($comment->picture) ? ENV('FILE_URL').$comment->picture : asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle" style="width: 40px; height: 40px">
+                      </div>
+                      <div class="align-self-center ml-2 font-weight-bold">
+                        {{ $comment->name }}
+                      </div>
+                    </div>
+                    <div class="mb-1" style="color: #6d6d6d; font-size: 14px">
+                        {{ $comment->title }}
+                    </div>
+                    <div style="font-size: 16px">
+                        {{ $comment->comment }}
+                    </div>
+                  </div>
+                </label>
+              </div>
+              @endforeach
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="form-group mb-0">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>

@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="certificate-container">
-        <div style="background: url({{ asset('img/certificate/certificate.png') }}); background-size: cover; width: 984px; height: 700px;" class="certificate-img">
+        <div style="background: url({{ ENV('FILE_URL').$certificate->img }}); background-size: cover; width: 984px; height: 700px;" class="certificate-img">
             <div class="row" style="height: 170px">
                 <div class="col-12"></div>
             </div>
@@ -34,7 +34,6 @@
             </div>
             <div class="row">
                 <div class="col-6" style="padding-left: 90px">
-                    <img src="{{ asset('img/certificate/signature.jpg') }}" style="width: 10%; height: auto;">
                 </div>
             </div>
             <div class="row">
@@ -49,6 +48,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
     
 </body>

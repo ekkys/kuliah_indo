@@ -14,7 +14,7 @@ class MainController extends Controller
         $user = Auth::user();
         return view('mainWeb.home', [
             'slidebanners' => UploadSlideBanner::orderBy('updated_at', 'DESC')->get(),
-            'settings' => Setting::orderBy('updated_at', 'DESC')->get(),
+            'settings' => Setting::orderBy('updated_at', 'DESC')->first(),
             'user' => $user,
             'penjadwalans' => Penjadwalan::orderBy('updated_at', 'DESC')->get(),
         ]);

@@ -79,15 +79,6 @@
                 </p>
               </a>
             </li>
-
-            <li class="nav-item">
-              <a href="{{ url('/mainprofile') }}" class="nav-link">
-                <i class="nav-icon fas fa-th-list"></i>
-                <p>
-                 Profile
-                </p>
-              </a>
-            </li>
          
             <li class="nav-item">
               <a href="{{ url('/manajemenuser') }}" class="nav-link">
@@ -120,9 +111,15 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{ url('/daftarriwayat') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Riwayat Pemesanan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ url('/sertifikat') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sertifikat</p>
                   </a>
                 </li>
               </ul>
@@ -132,28 +129,30 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-image"></i>
                 <p>
-                  Setting Info Grafis
+                  Pengaturan Home
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
+
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{ route('slidebanner.index') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Slide Banner</p>
+                    <p>Banner Halaman Utama</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('testimoni.index') }}" class="nav-link">
+                  <a href="{{ url('/mainprofile') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Testimoni</p>
-                    <span class="badge badge-info right"> 2 </span>
+                    <p>
+                    Profile
+                    </p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('setting.index') }}" class="nav-link">
+                  <a href="{{ url('/setting') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Setting</p>
+                    <p>Setting Informasi</p>
                   </a>
                 </li>
               </ul>

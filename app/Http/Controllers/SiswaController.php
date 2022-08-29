@@ -53,6 +53,10 @@ class SiswaController extends Controller
     }
 
     public function myCourse() {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        };
+
         $user = Auth::user();
         $data = [
             'user' => $user,
@@ -87,6 +91,10 @@ class SiswaController extends Controller
     }
 
     public function comment($courseId, $userId) {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        };
+
         $user = Auth::user();
         return view('user.comment', [
             'user' => $user,
@@ -120,6 +128,10 @@ class SiswaController extends Controller
     }
 
     public function payment() {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        };
+
         $user = Auth::user();
         return view('user.payment', [
             'user' => $user,
@@ -143,6 +155,10 @@ class SiswaController extends Controller
     }
 
     public function changePassword() {
+        if(empty(Auth::user())) {
+            return redirect('/login');
+        };
+
         $user = Auth::user();
         return view('user.password', ['user' => $user]);
     }
@@ -185,15 +201,27 @@ class SiswaController extends Controller
     public function certificate($id) {
         $user = Auth::user();
         $penjadwalan = Penjadwalan::where('penjadwalans.id', $id)->first();
+        $certificate = DB::table('certificate')->first();
+
+        // return view ('user.certificate', [
+        //     'user' => $user,
+        //     'penjadwalan' => $penjadwalan,
+        // ]);
+
         $pdf = PDF::loadview('user.certificate', [
                     'user' => $user,
                     'penjadwalan' => $penjadwalan,
-                ])
+                    'certificate' => $certificate,
+        ])
                 ->setPaper('a4', 'landscape')
-                ->setOptions(['defaultFont' => 'sans-serif']);
+                ->setOptions([
+                    'defaultFont' => 'sans-serif',
+                    'isRemoteEnabled' => true,
+                    'isHtml5ParserEnabled' => true,
+                ]);
 
-        return $pdf->stream();
+        // return $pdf->stream();
 
-        // return $pdf->download('certificate.pdf');
+        return $pdf->download('certificate.pdf');
     }
 }

@@ -239,6 +239,12 @@
 
   });
 </script>
+<script>
+  $('#print').click(function(){
+           window.print();
+           return false;
+  });
+</script>
 @yield('script')
 </body>
 </html>

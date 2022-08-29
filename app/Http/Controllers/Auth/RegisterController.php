@@ -81,9 +81,14 @@ class RegisterController extends Controller
         unset($query["password"]);
 
         $global = new GlobalController();
-        $global->send_mail(1, $query);
+        try {
+            $global->send_mail(1, $query);
 
-        return $user;
+            return $user;
+        } catch (\Throwable $th) {
+            return redirect('/login')->with('success', 'Register Complete, Please Check Email');
+        }
+        
     }
 
     public function register(Request $request)

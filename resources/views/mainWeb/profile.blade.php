@@ -106,23 +106,70 @@
             </div>
         </div>
         <div class="row">
-            @foreach($testimonis as $testimoni)
-            <div class="col-lg-4 col-md-4 col-12">
-                <!-- Start Single Comment s-->
-                <div class="single-comment align-items-center" style="height: 375px">
-                    <center>
-                        <div class="image" style="background: url({{ asset('storage/'.$testimoni->image_testimoni) }}); width: 100px; height: 100px; background-size: cover;border-radius: 100px"> </div>
-                        <blockquote class="mt-2">
-                            {!! $testimoni->description !!}
-                        </blockquote>
-                        <div>
-                            <h5 class="des">{{ $testimoni->name  }}</h5>
+            <div class="swiper profileSwiper">
+                <div class="swiper-wrapper">
+                  @foreach($comments as $comment)
+                  <div class="swiper-slide text-left">
+                      <div class="comment-checkbox">
+                        <div class="mb-1">
+                          <span>
+                            @if($comment->rating >= 1)
+                            <i class="fas fa-star" style="color: #ffae00"></i>
+                            @else
+                            <i class="fas fa-star"></i>
+                            @endif
+                          </span>
+                          <span>
+                            @if($comment->rating >= 2)
+                            <i class="fas fa-star" style="color: #ffae00"></i>
+                            @else
+                            <i class="fas fa-star"></i>
+                            @endif
+                          </span>
+                          <span>
+                            @if($comment->rating >= 3)
+                            <i class="fas fa-star" style="color: #ffae00"></i>
+                            @else
+                            <i class="fas fa-star"></i>
+                            @endif
+                          </span>
+                          <span>
+                            @if($comment->rating >= 4)
+                            <i class="fas fa-star" style="color: #ffae00"></i>
+                            @else
+                            <i class="fas fa-star"></i>
+                            @endif
+                          </span>
+                          <span>
+                            @if($comment->rating >= 5)
+                            <i class="fas fa-star" style="color: #ffae00"></i>
+                            @else
+                            <i class="fas fa-star"></i>
+                            @endif
+                          </span>
                         </div>
-                    </center>
+                        <div class="d-flex mb-1">
+                          <div class="align-self-center">
+                            <img src="{{ isset($comment->picture) && !empty($comment->picture) ? ENV('FILE_URL').$comment->picture : asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle" style="width: 40px; height: 40px">
+                          </div>
+                          <div class="align-self-center ml-2 font-weight-bold" style="color: #000">
+                            {{ $comment->name }}
+                          </div>
+                        </div>
+                        <div class="mb-1" style="color: #6d6d6d; font-size: 14px">
+                            {{ $comment->title }}
+                        </div>
+                        <div style="font-size: 16px; color: #000" >
+                            {{ $comment->comment }}
+                        </div>
+                      </div>
+                  </div>
+                  @endforeach
                 </div>
-                <!-- End Single Comment s-->
-            </div>
-            @endforeach
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
         </div>
     </div>
 </div>
@@ -148,7 +195,7 @@
                 <div class="swiper-slide wow fadeInUp" data-wow-delay=".2s">
                     <div class="single-feature">
                         <div class="image">
-                            <img width="150px" src="{{ asset('storage/'.$karyawan->foto) }}" alt="">
+                            <img src="{{ isset($karyawan->foto) && !empty($karyawan->foto) ? ENV('FILE_URL').$karyawan->foto : asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle" style="width: 150px; height: 150px">
                         </div>
                         <div class="name">
                             <h3>{{ $karyawan->name }} </h3>

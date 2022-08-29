@@ -7,20 +7,16 @@
 <div class="col-xl-12">
     <div class="card mb-0">
         <div class="card-body">
-            <div class="mb-5 row">
-                <div class="col-2">
-                    <img src="{{ ENV('FILE_URL').$data->foto }}" class="img-thumbnail rounded" style="width: 150px">
+            <div class="mb-5 row align-items-center">
+                <div class="col" style="max-width: 180px">
+                    <img src="{{ ENV('FILE_URL').$data->foto }}" class="img-thumbnail rounded" style="width: 150px; height: 150px">
                 </div>
-                <div class="col-10">
-                    <div class="row mb-3" style="width: 300px">
-                        <div class="col-12">
-                            <h6 class="category">{{ $data->category }}</h6>
-                        </div>
-                        <div class="col-12">
-                            <h4 class="font-weight-bold">{{ $data->title }}</h4>
-                        </div>
+                <div class="col">
+                    <div>
+                        <h6 class="category">{{ $data->category }}</h6>
+                        <p class="font-weight-bold h4">{{ $data->title }}</p>
                     </div>
-                    <div class="row">
+                    <div class="row p-2">
                         <div class="mr-3">
                             <img class="rounded-thumbnail" src="{{ isset($data->tutor_foto) && !empty($data->tutor_foto) ? ENV('FILE_URL').$data->tutor_foto : asset('img/user.jpg') }}">
                         </div>
@@ -31,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="comment-card">
+            <div class="comment-card" style="margin: 0px auto 0px auto">
                 <form action="{{ url('comment/'.$data->id.'/'.$user->id) }}" method="POST">
                     @csrf
                     <div class="row">
@@ -50,8 +46,8 @@
                                     <input type="radio" name="rating" value="1" id="1">
                                     <label for="1">☆</label>
                                 </div>
-                                    <div class="comment-area">
-                                        <textarea class="form-control" name="comment" placeholder="Tulis komentar disini" rows="4"></textarea>
+                                    <div class="comment-area" style="width: 100%">
+                                        <textarea class="form-control" name="comment" placeholder="Tulis komentar disini" rows="4" maxlength="100"></textarea>
                                     </div>
                                 <div class="comment-btns mt-2">
                                     <div class="pull-right">

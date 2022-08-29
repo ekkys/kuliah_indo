@@ -2255,6 +2255,17 @@ ol {
   font-size: 14px;
 }
 
+.pricing-style2 .single-pricing .button .btn-closed {
+  background-color: #6c757d;
+  border: 2px solid #6c757d;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 14px;
+  border-radius: 50px;
+  width: 100%;
+  text-align: center;
+}
+
 .pricing-style2 .button2 .btn {
   background-color: #ffae00;
   color: #fff;
@@ -2297,6 +2308,10 @@ ol {
 
   .pricing-style2 .button2 .btn {
     width: 50%;
+  }
+
+  .pricing-style2 .single-pricing .button {
+    margin-top: 5px;
   }
 }
 
@@ -2464,10 +2479,6 @@ ol {
   }
 }
 
-.footer .single-footer.f-about .logo {
-  margin-bottom: 20px;
-}
-
 .footer .single-footer.f-about .logo img {
   width: 200px;
 }
@@ -2484,12 +2495,12 @@ ol {
   }
 }
 
-.footer .single-footer.f-about p {
+/* .footer .single-footer.f-about p {
   color: #000;
   margin-top: 20px;
   font-size: 15px;
   line-height: 24px;
-}
+} */
 
 .footer .single-footer.f-about .call {
   color: #000;
@@ -2993,6 +3004,17 @@ ol {
   color: #3d2900;
   padding: 12px 30px;
   font-size: 14px;
+}
+
+.classes .single-class .button .btn-closed {
+  background-color: #6c757d;
+  border: 2px solid #6c757d;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 14px;
+  border-radius: 50px;
+  width: 100%;
+  text-align: center;
 }
 
 .classes .button2 .btn {
@@ -3967,4 +3989,28 @@ max-width: 850px;
   transition: all 0.3s;
   text-align: center;
   padding: 0 30px;
+}
+
+.comment-checkbox {
+  display: block;
+  border: solid 2px #6c757d;
+  height: 200px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.input-comment-checkbox {
+  display: none;
+}
+
+.input-comment-checkbox:checked + .comment-checkbox {
+  border: solid 2px #ffae00;
+}
+
+.img-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
